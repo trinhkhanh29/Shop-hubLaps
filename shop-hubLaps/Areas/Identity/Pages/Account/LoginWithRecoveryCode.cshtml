@@ -1,0 +1,36 @@
+﻿@page
+@model LoginWithRecoveryCodeModel
+@{
+    ViewData["Title"] = "Xác thực mã khôi phục";
+}
+
+<h1 class="text-center">@ViewData["Title"]</h1>
+<hr />
+<p class="text-center">
+    <i class="fas fa-info-circle"></i> Bạn đã yêu cầu đăng nhập bằng mã khôi phục. Lần đăng nhập này sẽ không được ghi nhớ cho đến khi bạn cung cấp mã từ ứng dụng xác thực trong lần đăng nhập tiếp theo hoặc vô hiệu hóa 2FA và đăng nhập lại.
+</p>
+
+<div class="row justify-content-center">
+    <div class="col-md-6 col-lg-4">
+        <form method="post">
+            <!-- Hiển thị thông báo lỗi -->
+            <div asp-validation-summary="ModelOnly" class="text-danger text-center" role="alert"></div>
+
+            <!-- Nhập mã khôi phục -->
+            <div class="form-floating mb-3">
+                <input asp-for="Input.RecoveryCode" class="form-control text-center" autocomplete="off" placeholder="Mã khôi phục" />
+                <label asp-for="Input.RecoveryCode" class="form-label"><i class="fas fa-key"></i> Mã khôi phục</label>
+                <span asp-validation-for="Input.RecoveryCode" class="text-danger"></span>
+            </div>
+
+            <!-- Nút đăng nhập -->
+            <button type="submit" class="w-100 btn btn-lg btn-primary"><i class="fas fa-sign-in-alt"></i> Đăng nhập</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <!-- Thêm Font Awesome CDN để sử dụng biểu tượng -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+}

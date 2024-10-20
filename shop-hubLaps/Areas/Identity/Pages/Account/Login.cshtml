@@ -1,0 +1,80 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Đăng nhập";
+    Layout = "~/Areas/Identity/Pages/_AuthLayout.cshtml";
+
+}
+
+<div class="text-center mb-4">
+    <h2>Welcome Back</h2>
+    <p style="font-size:14px">Nhập email và mật khẩu của bạn để truy cập vào tài khoản của bạn</p>
+</div>
+
+<form id="account" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+
+    <!-- Email input -->
+    <div class="form-floating mb-3">
+        <input asp-for="Input.Email" class="form-control" autocomplete="username" placeholder="name@example.com" />
+        <label asp-for="Input.Email">Email</label>
+        <span asp-validation-for="Input.Email" class="text-danger"></span>
+    </div>
+
+    <!-- Password input -->
+    <div class="form-floating mb-3">
+        <input asp-for="Input.Password" class="form-control" autocomplete="current-password" placeholder="Mật khẩu" />
+        <label asp-for="Input.Password">Mật khẩu</label>
+        <span asp-validation-for="Input.Password" class="text-danger"></span>
+    </div>
+
+    <!-- Remember me -->
+    <div class="form-check mb-3">
+        <input class="form-check-input" asp-for="Input.RememberMe" />
+        <label class="form-check-label" asp-for="Input.RememberMe">Remember me</label>
+    </div>
+
+    <!-- Sign in button -->
+    <div class="d-grid">
+        <button id="login-submit" type="submit" class="btn btn-primary btn-lg">Sign In</button>
+    </div>
+
+    <!-- Đăng nhập bằng Microsoft -->
+    <div class="d-grid mt-3">
+        <button type="button" class="btn btn-outline-dark btn-lg" onclick="location.href='@Url.Page("/Account/ExternalLogin", new { provider = "Microsoft", returnUrl = Model.ReturnUrl })'">
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 48 48">
+                <path fill="#F25022" d="M6,6h14v14H6V6z"></path>
+                <path fill="#7FBA00" d="M20,6h14v14H20V6z"></path>
+                <path fill="#00A4EF" d="M6,20h14v14H6V20z"></path>
+                <path fill="#FFB900" d="M20,20h14v14H20V20z"></path>
+            </svg>
+            Đăng nhập bằng Microsoft
+        </button>
+    </div>
+
+
+    <div class="text-center mt-3">
+        <p>
+            <a id="forgot-password" class="link-primary text-decoration-none" asp-page="./ForgotPassword">
+                <i class="fas fa-key"></i> Quên mật khẩu của bạn?
+            </a>
+        </p>
+        <p>
+            <a id="resend-confirmation" class="link-primary text-decoration-none" asp-page="./ResendEmailConfirmation">
+                <i class="fas fa-envelope"></i> Gửi lại xác nhận email
+            </a>
+        </p>
+        <p class="mt-3 text-center">
+            Don't have an account?
+            <a asp-page="./Register" class="text-decoration-none" asp-route-returnUrl="@Model.ReturnUrl">
+                Sign Up <i class="fas fa-user-plus"></i>
+            </a>
+        </p>
+
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

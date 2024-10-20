@@ -1,0 +1,72 @@
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using shop_hubLaps.Areas.Identity.Data;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using System;
+
+var builder = WebApplication.CreateBuilder(args);
+
+// Connection string for the database
+var connectionString = builder.Configuration.GetConnectionString("DBContextSampleConnection")
+                       ?? throw new InvalidOperationException("Connection string 'DBContextSampleConnection' not found.");
+
+// Add DbContext with SQL Server
+builder.Services.AddDbContext<DBContextSample>(options =>
+    options.UseSqlServer(connectionString));
+
+// Configure Identity with default settings
+builder.Services.AddDefaultIdentity<SampleUser>(options =>
+{
+    options.SignIn.RequireConfirmedAccount = true; // Require email confirmation
+})
+.AddEntityFrameworkStores<DBContextSample>();
+
+// Add services to the container
+builder.Services.AddControllersWithViews();
+
+var app = builder.Build();
+
+// Configure middleware for production
+if (!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Home/Error"); // Handle errors in production
+    app.UseHsts(); // Enable HSTS
+}
+
+// Cấu hình pipeline xử lý HTTP requests
+if (app.Environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
+}
+else
+{
+    app.UseExceptionHandler("/Home/Error");
+    app.UseHsts();
+}
+
+// **Middleware bảo mật và xử lý yêu cầu tĩnh**:
+app.UseHttpsRedirection();
+app.UseStaticFiles();
+
+app.UseRouting();
+
+// ***đăng ký UseAuthentication và UseAuthorization trước***
+app.UseAuthentication();
+app.UseAuthorization();
+
+/*// *** Thêm middleware ActionLoggingMiddleware sau khi xác thực ***
+app.UseMiddleware<ActionLoggingMiddleware>();*/
+
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.MapRazorPages();
+
+
+app.Run();

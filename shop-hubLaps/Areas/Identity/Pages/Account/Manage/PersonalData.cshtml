@@ -1,0 +1,38 @@
+﻿@page
+@model PersonalDataModel
+@{
+    ViewData["Title"] = "Dữ liệu cá nhân";
+    ViewData["ActivePage"] = ManageNavPages.PersonalData;
+}
+
+<h3>@ViewData["Title"]</h3>
+
+<div class="row">
+    <div class="col-md-6">
+        <p>Tài khoản của bạn chứa dữ liệu cá nhân mà bạn đã cung cấp cho chúng tôi. Trang này cho phép bạn tải xuống hoặc xóa dữ liệu đó.</p>
+        <p>
+            <strong>Xóa dữ liệu này sẽ permanently remove your account, và điều này không thể khôi phục lại.</strong>
+        </p>
+        <div class="d-flex justify-content-start align-items-center">
+            <form id="download-data" asp-page="DownloadPersonalData" method="post" class="me-2">
+                <button class="btn btn-primary" type="submit">
+                    <i class="bi bi-download"></i> Tải xuống
+                </button>
+            </form>
+            <button id="delete" class="btn btn-danger" onclick="confirmDelete()">
+                <i class="bi bi-trash"></i> Xóa
+            </button>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        function confirmDelete() {
+            if (confirm("Bạn có chắc chắn muốn xóa dữ liệu này không?")) {
+                window.location.href = '@Url.Page("DeletePersonalData")'; // Chuyển hướng đến trang xóa
+            }
+        }
+    </script>
+}
