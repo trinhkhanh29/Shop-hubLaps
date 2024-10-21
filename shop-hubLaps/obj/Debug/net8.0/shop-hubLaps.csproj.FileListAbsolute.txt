@@ -543,3 +543,9 @@ C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\M
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\Microsoft.Owin.Security.Facebook.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\Microsoft.Owin.Security.Google.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\Owin.dll
+C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\EFCore.AutomaticMigrations.NetTopologySuite.dll
+C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\EFCore5.0.AutomaticMigrations.dll
+C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite.dll
+C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\NetTopologySuite.dll
+C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\NetTopologySuite.IO.SqlServerBytes.dll
+C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Debug\net8.0\EFCoreSqlServerNetTopologySuite.cs

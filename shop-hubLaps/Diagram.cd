@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access">
+  <Class Name="shop_hubLaps.Models.BinhLuan">
+    <Position X="5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAEAAAABACIBAAAAAAAAAAAAAACAAAAAQAAA=</HashCode>
+      <FileName>Models\BinhLuan.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="shop_hubLaps.Models.ChiTietDonHang">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAAAgQAAAAAAAAAAAIgAAAAAAAAAQ=</HashCode>
+      <FileName>Models\ChiTietDonHang.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="shop_hubLaps.Models.ChuDe">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAIAgAAAAAAABAAAAAAgAAA=</HashCode>
+      <FileName>Models\ChuDe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="shop_hubLaps.Models.DanhGia">
+    <Position X="6.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAkAAAAAAAAACIAQAAAAAAAAAAAAAAAAAAAQAAQ=</HashCode>
+      <FileName>Models\DanhGia.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="shop_hubLaps.Models.DonHang">
+    <Position X="3.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAwAAAIAAAAAAAAAABAAQAAAgAAAEQAAEAA=</HashCode>
+      <FileName>Models\DonHang.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="shop_hubLaps.Models.Laptop">
+    <Position X="3.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQCAAMIAAAAAAKIAACAAAIAgAAAAAAAIIkAAAAQIAQ=</HashCode>
+      <FileName>Models\Laptop.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="shop_hubLaps.Models.Hang">
+    <Position X="1.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAIAACAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Models\Hang.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="shop_hubLaps.Service.UserService">
+    <Position X="1.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service\IUserService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="shop_hubLaps.Service.OrderService">
+    <Position X="1.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service\OrderService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="shop_hubLaps.Service.UserOrderService">
+    <Position X="1.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service\UserOrderService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="shop_hubLaps.Models.MetaLaptop">
+    <Position X="5.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAQAAAAACAAABAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Models\MetaLaptop.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Object">
+    <Position X="11.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="shop_hubLaps.Models.TinTuc">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQABAAAIAAQEBAACAAAgAAAAAEAAAAABCAAAAAAQAA=</HashCode>
+      <FileName>Models\TinTuc.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="shop_hubLaps.Models.LienHe">
+    <Position X="7" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAgCIAAEAAAAAAAAAAAAAAAIAAQAAA=</HashCode>
+      <FileName>Models\LienHe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="shop_hubLaps.Models.NhuCau">
+    <Position X="8.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAgAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Models\NhuCau.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="shop_hubLaps.Models.DataModel" Collapsed="true">
+    <Position X="12.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAECgAAAABIEKAAAAAAAEAAAAAAAAAEAAAAgQAA=</HashCode>
+      <FileName>Models\DataModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="shop_hubLaps.Areas.Identity.Data.DBContextSample" Collapsed="true">
+    <Position X="12.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Areas\Identity\Data\DBContextSample.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="shop_hubLaps.Areas.Identity.Data.SampleUser">
+    <Position X="10.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAQAAQAAAAEAAAAAAAAABAAAAAAAAo=</HashCode>
+      <FileName>Areas\Identity\Data\SampleUser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.AspNetCore.Identity.IdentityUser">
+    <Position X="12" Y="6" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

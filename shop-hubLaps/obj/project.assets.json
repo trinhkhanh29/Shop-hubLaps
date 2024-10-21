@@ -287,6 +287,43 @@
           }
         }
       },
+      "EFCore.AutomaticMigrations.NetTopologySuite/7.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.CodeAnalysis.CSharp": "4.5.0",
+          "Microsoft.EntityFrameworkCore": "7.0.5",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.5",
+          "Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite": "7.0.5"
+        },
+        "compile": {
+          "lib/net7.0/EFCore.AutomaticMigrations.NetTopologySuite.dll": {
+            "related": ".runtimeconfig.json"
+          }
+        },
+        "runtime": {
+          "lib/net7.0/EFCore.AutomaticMigrations.NetTopologySuite.dll": {
+            "related": ".runtimeconfig.json"
+          }
+        }
+      },
+      "EFCore5.0.AutomaticMigrations.NetTopologySuite/5.0.7": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "5.0.7",
+          "Microsoft.CodeAnalysis.CSharp": "3.9.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.7"
+        },
+        "compile": {
+          "lib/net5.0/EFCore5.0.AutomaticMigrations.dll": {
+            "related": ".runtimeconfig.json"
+          }
+        },
+        "runtime": {
+          "lib/net5.0/EFCore5.0.AutomaticMigrations.dll": {
+            "related": ".runtimeconfig.json"
+          }
+        }
+      },
       "Humanizer/2.14.1": {
         "type": "package",
         "dependencies": {
@@ -1732,6 +1769,27 @@
           }
         }
       },
+      "Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite/8.0.10": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.10",
+          "NetTopologySuite": "2.5.0",
+          "NetTopologySuite.IO.SqlServerBytes": "2.1.0"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "build/net8.0/Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite.targets": {}
+        }
+      },
       "Microsoft.EntityFrameworkCore.Tools/8.0.10": {
         "type": "package",
         "dependencies": {
@@ -2414,6 +2472,38 @@
         },
         "runtime": {
           "lib/netcoreapp3.1/Mono.TextTemplating.dll": {}
+        }
+      },
+      "NetTopologySuite/2.5.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Memory": "4.5.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/NetTopologySuite.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/NetTopologySuite.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "NetTopologySuite.IO.SqlServerBytes/2.1.0": {
+        "type": "package",
+        "dependencies": {
+          "NetTopologySuite": "[2.0.0, 3.0.0-A)"
+        },
+        "compile": {
+          "lib/netstandard2.0/NetTopologySuite.IO.SqlServerBytes.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/NetTopologySuite.IO.SqlServerBytes.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Newtonsoft.Json/13.0.3": {
@@ -3441,6 +3531,34 @@
         "lib/netstandard2.1/Castle.Core.dll",
         "lib/netstandard2.1/Castle.Core.xml",
         "readme.txt"
+      ]
+    },
+    "EFCore.AutomaticMigrations.NetTopologySuite/7.0.5": {
+      "sha512": "iK/MdLgPsovJHsejVgueqWTi9DZgwB0Bk7cxckj3IY8fH7wtZhr1OvPJmieNzSn/5BdovtVHkrpgA9cXI5F1Nw==",
+      "type": "package",
+      "path": "efcore.automaticmigrations.nettopologysuite/7.0.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "efcore.automaticmigrations.nettopologysuite.7.0.5.nupkg.sha512",
+        "efcore.automaticmigrations.nettopologysuite.nuspec",
+        "icon.jpg",
+        "lib/net7.0/EFCore.AutomaticMigrations.NetTopologySuite.dll",
+        "lib/net7.0/EFCore.AutomaticMigrations.NetTopologySuite.runtimeconfig.json",
+        "readme.md"
+      ]
+    },
+    "EFCore5.0.AutomaticMigrations.NetTopologySuite/5.0.7": {
+      "sha512": "NYlpt/NCFHgAr1KBG+7sVu7oS38XfRM+SRP9TfElmjxPvhKguGl8F1G6Txth3C7Kn9u0EzuL7en0t5XDM4OCIw==",
+      "type": "package",
+      "path": "efcore5.0.automaticmigrations.nettopologysuite/5.0.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "efcore5.0.automaticmigrations.nettopologysuite.5.0.7.nupkg.sha512",
+        "efcore5.0.automaticmigrations.nettopologysuite.nuspec",
+        "lib/net5.0/EFCore5.0.AutomaticMigrations.dll",
+        "lib/net5.0/EFCore5.0.AutomaticMigrations.runtimeconfig.json"
       ]
     },
     "Humanizer/2.14.1": {
@@ -5832,6 +5950,22 @@
         "microsoft.entityframeworkcore.sqlserver.nuspec"
       ]
     },
+    "Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite/8.0.10": {
+      "sha512": "7yMzX3+esS5nCbOYAnSAq1z1vDXAPTmIxNIH5px8mixyfUtvyyTypxeVt+hGHMqk4dPCaxhnTtsJ2XPKEEIKXg==",
+      "type": "package",
+      "path": "microsoft.entityframeworkcore.sqlserver.nettopologysuite/8.0.10",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "PACKAGE.md",
+        "build/net8.0/Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite.targets",
+        "lib/net8.0/Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite.dll",
+        "lib/net8.0/Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite.xml",
+        "microsoft.entityframeworkcore.sqlserver.nettopologysuite.8.0.10.nupkg.sha512",
+        "microsoft.entityframeworkcore.sqlserver.nettopologysuite.nuspec"
+      ]
+    },
     "Microsoft.EntityFrameworkCore.Tools/8.0.10": {
       "sha512": "aaimNUjkJDHdZb2hxd6hjwz7OdeankbQHPx8/b+qCfVfaEpOAIW0LTBge4qG+AUKacKfcoK7GJq6ACjenEvPLQ==",
       "type": "package",
@@ -7169,6 +7303,34 @@
         "mono.texttemplating.2.3.1.nupkg.sha512",
         "mono.texttemplating.nuspec",
         "readme.md"
+      ]
+    },
+    "NetTopologySuite/2.5.0": {
+      "sha512": "5/+2O2ADomEdUn09mlSigACdqvAf0m/pVPGtIPEPQWnyrVykYY0NlfXLIdkMgi41kvH9kNrPqYaFBTZtHYH7Xw==",
+      "type": "package",
+      "path": "nettopologysuite/2.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "lib/netstandard2.0/NetTopologySuite.dll",
+        "lib/netstandard2.0/NetTopologySuite.xml",
+        "nettopologysuite.2.5.0.nupkg.sha512",
+        "nettopologysuite.nuspec"
+      ]
+    },
+    "NetTopologySuite.IO.SqlServerBytes/2.1.0": {
+      "sha512": "R4BcV19f2l6EjHSjh/EHwLhYQHrOov9vig1EW5oBm0iqlZOgaIJm5tBnlbFnYlvdYOPuf5p0Qtf8PCVwH77Wbg==",
+      "type": "package",
+      "path": "nettopologysuite.io.sqlserverbytes/2.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "lib/netstandard2.0/NetTopologySuite.IO.SqlServerBytes.dll",
+        "lib/netstandard2.0/NetTopologySuite.IO.SqlServerBytes.xml",
+        "nettopologysuite.io.sqlserverbytes.2.1.0.nupkg.sha512",
+        "nettopologysuite.io.sqlserverbytes.nuspec"
       ]
     },
     "Newtonsoft.Json/13.0.3": {
@@ -8761,6 +8923,8 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "Castle.Core >= 5.1.1",
+      "EFCore.AutomaticMigrations.NetTopologySuite >= 7.0.5",
+      "EFCore5.0.AutomaticMigrations.NetTopologySuite >= 5.0.7",
       "Microsoft.AspNetCore.Authentication.Facebook >= 8.0.10",
       "Microsoft.AspNetCore.Authentication.Google >= 8.0.10",
       "Microsoft.AspNetCore.Authentication.MicrosoftAccount >= 8.0.10",
@@ -8769,6 +8933,7 @@
       "Microsoft.EntityFrameworkCore >= 8.0.10",
       "Microsoft.EntityFrameworkCore.Design >= 8.0.10",
       "Microsoft.EntityFrameworkCore.SqlServer >= 8.0.10",
+      "Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite >= 8.0.10",
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.10",
       "Microsoft.Owin.Security.Facebook >= 4.2.2",
       "Microsoft.Owin.Security.Google >= 4.2.2",
@@ -8826,6 +8991,14 @@
             "target": "Package",
             "version": "[5.1.1, )"
           },
+          "EFCore.AutomaticMigrations.NetTopologySuite": {
+            "target": "Package",
+            "version": "[7.0.5, )"
+          },
+          "EFCore5.0.AutomaticMigrations.NetTopologySuite": {
+            "target": "Package",
+            "version": "[5.0.7, )"
+          },
           "Microsoft.AspNetCore.Authentication.Facebook": {
             "target": "Package",
             "version": "[8.0.10, )"
@@ -8857,6 +9030,10 @@
             "version": "[8.0.10, )"
           },
           "Microsoft.EntityFrameworkCore.SqlServer": {
+            "target": "Package",
+            "version": "[8.0.10, )"
+          },
+          "Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite": {
             "target": "Package",
             "version": "[8.0.10, )"
           },

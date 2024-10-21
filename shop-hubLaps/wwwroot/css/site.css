@@ -1,22 +1,69 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
+    font-family: 'Lexend', sans-serif;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+        font-family: 'Lexend', sans-serif;
+    }
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
+@font-face {
+    font-family: 'Lexend';
+    src: url('/font/Lexend/static/Lexend-Regular.ttf') format('woff2'), url('/font/Lexend/static/Lexend-Regular.ttf') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
 body {
-  margin-bottom: 60px;
+    font-family: 'Lexend', sans-serif;
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    font-family: Roboto,sans-serif;
+}
+/*tab navigation*/
+.login-logout-card .card-header {
+    padding: 0px 0px 12px 0px;
+}
+
+.login-logout-card ul.nav-tabs {
+    margin: 0px 0px -12px 0px;
+}
+
+.login-logout-card li.nav-item {
+    width: 50%;
+}
+
+.login-logout-card a.nav-link {
+    font-size: 1rem;
+    color: #495057;
+    text-align: center;
+    padding: 1rem;
+}
+
+.login-logout-card .card-body {
+    padding: 10px 20px;
+}
+
+.qr-code-container {
+    border: 2px solid #007bff;
+    padding: 10px;
+    border-radius: 8px;
+    display: inline-block;
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
 }

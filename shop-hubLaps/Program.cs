@@ -2,11 +2,11 @@
 using Microsoft.EntityFrameworkCore;
 using shop_hubLaps.Areas.Identity.Data;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
+using shop_hubLaps.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,12 +18,16 @@ var connectionString = builder.Configuration.GetConnectionString("DBContextSampl
 builder.Services.AddDbContext<DBContextSample>(options =>
     options.UseSqlServer(connectionString));
 
+// Thêm DbContext cho DataModel
+builder.Services.AddDbContext<DataModel>(options =>
+    options.UseSqlServer(connectionString));
+
 // Configure Identity with default settings
 builder.Services.AddDefaultIdentity<SampleUser>(options =>
 {
     options.SignIn.RequireConfirmedAccount = true; // Require email confirmation
 })
-.AddEntityFrameworkStores<DBContextSample>();
+.AddEntityFrameworkStores<DBContextSample>(); // Kết nối với DbContext
 
 // Add services to the container
 builder.Services.AddControllersWithViews();
@@ -48,25 +52,23 @@ else
     app.UseHsts();
 }
 
-// **Middleware bảo mật và xử lý yêu cầu tĩnh**:
+// Middleware bảo mật và xử lý yêu cầu tĩnh
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
 
-// ***đăng ký UseAuthentication và UseAuthorization trước***
+// Đăng ký UseAuthentication và UseAuthorization trước
 app.UseAuthentication();
 app.UseAuthorization();
 
-/*// *** Thêm middleware ActionLoggingMiddleware sau khi xác thực ***
-app.UseMiddleware<ActionLoggingMiddleware>();*/
-
-
+// Định nghĩa route mặc định cho controller
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+// Định nghĩa route cho Razor Pages
 app.MapRazorPages();
 
-
+// Chạy ứng dụng
 app.Run();

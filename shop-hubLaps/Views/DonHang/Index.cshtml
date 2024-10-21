@@ -1,0 +1,49 @@
+﻿@page
+@model shop_hubLaps.Views.DonHang.IndexModel // Đảm bảo mô hình là AddOrderModel
+@{
+    ViewData["Title"] = "Thêm Đơn Hàng";
+}
+
+<h2>Thêm Đơn Hàng</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="makh">Mã Khách Hàng:</label>
+        <input type="text" id="makh" name="makh" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="tinhtrang">Tình Trạng:</label>
+        <input type="text" id="tinhtrang" name="tinhtrang" class="form-control" required maxlength="1" />
+    </div>
+
+    <div class="form-group">
+        <label for="ngaydat">Ngày Đặt:</label>
+        <input type="datetime-local" id="ngaydat" name="ngaydat" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="thanhtoan">Thanh Toán:</label>
+        <select id="thanhtoan" name="thanhtoan" class="form-control" required>
+            <option value="true">Đã Thanh Toán</option>
+            <option value="false">Chưa Thanh Toán</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="giaohang">Giao Hàng:</label>
+        <select id="giaohang" name="giaohang" class="form-control" required>
+            <option value="true">Đã Giao Hàng</option>
+            <option value="false">Chưa Giao Hàng</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Thêm Đơn Hàng</button>
+</form>
+
+@if (!string.IsNullOrEmpty(Model.Message))
+{
+    <div class="alert alert-success" role="alert">
+        @Model.Message
+    </div>
+}

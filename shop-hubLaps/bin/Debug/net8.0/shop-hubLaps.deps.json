@@ -9,6 +9,8 @@
       "shop-hubLaps/1.0.0": {
         "dependencies": {
           "Castle.Core": "5.1.1",
+          "EFCore.AutomaticMigrations.NetTopologySuite": "7.0.5",
+          "EFCore5.0.AutomaticMigrations.NetTopologySuite": "5.0.7",
           "Microsoft.AspNetCore.Authentication.Facebook": "8.0.10",
           "Microsoft.AspNetCore.Authentication.Google": "8.0.10",
           "Microsoft.AspNetCore.Authentication.MicrosoftAccount": "8.0.10",
@@ -17,6 +19,7 @@
           "Microsoft.EntityFrameworkCore": "8.0.10",
           "Microsoft.EntityFrameworkCore.Design": "8.0.10",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.10",
+          "Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite": "8.0.10",
           "Microsoft.EntityFrameworkCore.Tools": "8.0.10",
           "Microsoft.Owin.Security.Facebook": "4.2.2",
           "Microsoft.Owin.Security.Google": "4.2.2",
@@ -71,6 +74,33 @@
           "lib/net6.0/Castle.Core.dll": {
             "assemblyVersion": "5.0.0.0",
             "fileVersion": "5.1.1.0"
+          }
+        }
+      },
+      "EFCore.AutomaticMigrations.NetTopologySuite/7.0.5": {
+        "dependencies": {
+          "Microsoft.CodeAnalysis.CSharp": "4.8.0",
+          "Microsoft.EntityFrameworkCore": "8.0.10",
+          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.10",
+          "Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite": "8.0.10"
+        },
+        "runtime": {
+          "lib/net7.0/EFCore.AutomaticMigrations.NetTopologySuite.dll": {
+            "assemblyVersion": "7.0.5.0",
+            "fileVersion": "7.0.5.0"
+          }
+        }
+      },
+      "EFCore5.0.AutomaticMigrations.NetTopologySuite/5.0.7": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.10",
+          "Microsoft.CodeAnalysis.CSharp": "4.8.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.10"
+        },
+        "runtime": {
+          "lib/net5.0/EFCore5.0.AutomaticMigrations.dll": {
+            "assemblyVersion": "5.0.0.7",
+            "fileVersion": "5.0.0.7"
           }
         }
       },
@@ -1292,6 +1322,19 @@
           }
         }
       },
+      "Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite/8.0.10": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.10",
+          "NetTopologySuite": "2.5.0",
+          "NetTopologySuite.IO.SqlServerBytes": "2.1.0"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite.dll": {
+            "assemblyVersion": "8.0.10.0",
+            "fileVersion": "8.0.1024.46708"
+          }
+        }
+      },
       "Microsoft.EntityFrameworkCore.Tools/8.0.10": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Design": "8.0.10"
@@ -1704,6 +1747,28 @@
           "lib/netcoreapp3.1/Mono.TextTemplating.dll": {
             "assemblyVersion": "2.3.0.0",
             "fileVersion": "2.3.1.1"
+          }
+        }
+      },
+      "NetTopologySuite/2.5.0": {
+        "dependencies": {
+          "System.Memory": "4.5.4"
+        },
+        "runtime": {
+          "lib/netstandard2.0/NetTopologySuite.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.0.0"
+          }
+        }
+      },
+      "NetTopologySuite.IO.SqlServerBytes/2.1.0": {
+        "dependencies": {
+          "NetTopologySuite": "2.5.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/NetTopologySuite.IO.SqlServerBytes.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.0.0"
           }
         }
       },
@@ -2135,6 +2200,20 @@
       "sha512": "sha512-rpYtIczkzGpf+EkZgDr9CClTdemhsrwA/W5hMoPjLkRFnXzH44zDLoovXeKtmxb1ykXK9aJVODSpiJml8CTw2g==",
       "path": "castle.core/5.1.1",
       "hashPath": "castle.core.5.1.1.nupkg.sha512"
+    },
+    "EFCore.AutomaticMigrations.NetTopologySuite/7.0.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-iK/MdLgPsovJHsejVgueqWTi9DZgwB0Bk7cxckj3IY8fH7wtZhr1OvPJmieNzSn/5BdovtVHkrpgA9cXI5F1Nw==",
+      "path": "efcore.automaticmigrations.nettopologysuite/7.0.5",
+      "hashPath": "efcore.automaticmigrations.nettopologysuite.7.0.5.nupkg.sha512"
+    },
+    "EFCore5.0.AutomaticMigrations.NetTopologySuite/5.0.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-NYlpt/NCFHgAr1KBG+7sVu7oS38XfRM+SRP9TfElmjxPvhKguGl8F1G6Txth3C7Kn9u0EzuL7en0t5XDM4OCIw==",
+      "path": "efcore5.0.automaticmigrations.nettopologysuite/5.0.7",
+      "hashPath": "efcore5.0.automaticmigrations.nettopologysuite.5.0.7.nupkg.sha512"
     },
     "Humanizer/2.14.1": {
       "type": "package",
@@ -2717,6 +2796,13 @@
       "path": "microsoft.entityframeworkcore.sqlserver/8.0.10",
       "hashPath": "microsoft.entityframeworkcore.sqlserver.8.0.10.nupkg.sha512"
     },
+    "Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite/8.0.10": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7yMzX3+esS5nCbOYAnSAq1z1vDXAPTmIxNIH5px8mixyfUtvyyTypxeVt+hGHMqk4dPCaxhnTtsJ2XPKEEIKXg==",
+      "path": "microsoft.entityframeworkcore.sqlserver.nettopologysuite/8.0.10",
+      "hashPath": "microsoft.entityframeworkcore.sqlserver.nettopologysuite.8.0.10.nupkg.sha512"
+    },
     "Microsoft.EntityFrameworkCore.Tools/8.0.10": {
       "type": "package",
       "serviceable": true,
@@ -2996,6 +3082,20 @@
       "sha512": "sha512-pqYwzNqDL0QK1JFpAjpI/NPqyqLGpHLvVmA5Ec0LaSnbIDtEXxu0td16uunegb7c8xAnlcm4qkbIYUP5FfrFpA==",
       "path": "mono.texttemplating/2.3.1",
       "hashPath": "mono.texttemplating.2.3.1.nupkg.sha512"
+    },
+    "NetTopologySuite/2.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5/+2O2ADomEdUn09mlSigACdqvAf0m/pVPGtIPEPQWnyrVykYY0NlfXLIdkMgi41kvH9kNrPqYaFBTZtHYH7Xw==",
+      "path": "nettopologysuite/2.5.0",
+      "hashPath": "nettopologysuite.2.5.0.nupkg.sha512"
+    },
+    "NetTopologySuite.IO.SqlServerBytes/2.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-R4BcV19f2l6EjHSjh/EHwLhYQHrOov9vig1EW5oBm0iqlZOgaIJm5tBnlbFnYlvdYOPuf5p0Qtf8PCVwH77Wbg==",
+      "path": "nettopologysuite.io.sqlserverbytes/2.1.0",
+      "hashPath": "nettopologysuite.io.sqlserverbytes.2.1.0.nupkg.sha512"
     },
     "Newtonsoft.Json/13.0.3": {
       "type": "package",
