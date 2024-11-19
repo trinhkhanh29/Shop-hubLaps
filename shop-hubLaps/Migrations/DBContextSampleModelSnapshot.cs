@@ -47,6 +47,29 @@ namespace shop_hubLaps.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "ac9de4c4-cd8f-458a-8ddf-796efcbf65ed",
+                            ConcurrencyStamp = "e60e1699-b419-4a4d-af9c-bccbbfce29ac",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "a19e1c7a-1456-4b42-a89a-69c5d389022b",
+                            ConcurrencyStamp = "57c0b669-f878-4963-b5e7-842897bf6087",
+                            Name = "User",
+                            NormalizedName = "USER"
+                        },
+                        new
+                        {
+                            Id = "61bb4a1f-da79-4697-8d03-09ab037b46bd",
+                            ConcurrencyStamp = "0f2d1c1a-1ba4-4b4e-bd30-b5989683678e",
+                            Name = "Staff",
+                            NormalizedName = "STAFF"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -168,7 +191,6 @@ namespace shop_hubLaps.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Avatar")
-                        .IsRequired()
                         .HasMaxLength(70)
                         .HasColumnType("nvarchar(70)");
 
@@ -177,7 +199,6 @@ namespace shop_hubLaps.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("DiaChi")
-                        .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
@@ -192,11 +213,6 @@ namespace shop_hubLaps.Migrations
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("HoTen")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("LastName")
                         .IsRequired()
@@ -230,7 +246,6 @@ namespace shop_hubLaps.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("Profile")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SecurityStamp")

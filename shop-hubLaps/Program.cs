@@ -5,12 +5,20 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
 using shop_hubLaps.Models;
+using shop_hubLaps.Middleware; 
+using Serilog; 
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Connection string for the database
+// Cấu hình Serilog cho logging
+builder.Host.UseSerilog((context, services, configuration) => configuration
+    .ReadFrom.Configuration(context.Configuration)
+    .ReadFrom.Services(services)
+    .WriteTo.Console()
+    .WriteTo.File("Logs/log-.txt", rollingInterval: RollingInterval.Day));
+
+// Kết nối tới database
 var connectionString = builder.Configuration.GetConnectionString("DBContextSampleConnection")
                        ?? throw new InvalidOperationException("Connection string 'DBContextSampleConnection' not found.");
 
@@ -22,24 +30,18 @@ builder.Services.AddDbContext<DBContextSample>(options =>
 builder.Services.AddDbContext<DataModel>(options =>
     options.UseSqlServer(connectionString));
 
-// Configure Identity with default settings
-builder.Services.AddDefaultIdentity<SampleUser>(options =>
-{
-    options.SignIn.RequireConfirmedAccount = true; // Require email confirmation
-})
-.AddEntityFrameworkStores<DBContextSample>(); // Kết nối với DbContext
+// Cấu hình Identity với vai trò
+builder.Services.AddDefaultIdentity<SampleUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddRoles<IdentityRole>() // Thêm hỗ trợ cho vai trò
+    .AddEntityFrameworkStores<DBContextSample>();
 
 // Add services to the container
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
-// Configure middleware for production
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Home/Error"); // Handle errors in production
-    app.UseHsts(); // Enable HSTS
-}
+// Thêm middleware ActionLoggingMiddleware vào pipeline
+app.UseMiddleware<ActionLoggingMiddleware>();
 
 // Cấu hình pipeline xử lý HTTP requests
 if (app.Environment.IsDevelopment())
@@ -55,20 +57,20 @@ else
 // Middleware bảo mật và xử lý yêu cầu tĩnh
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
 app.UseRouting();
 
-// Đăng ký UseAuthentication và UseAuthorization trước
+// Đăng ký UseAuthentication và UseAuthorization trước ActionLoggingMiddleware
 app.UseAuthentication();
 app.UseAuthorization();
 
-// Định nghĩa route mặc định cho controller
+// Thêm middleware ActionLoggingMiddleware vào pipeline sau khi đã xác thực người dùng
+app.UseMiddleware<ActionLoggingMiddleware>();
+
+// Cấu hình route cho controller và Razor Pages
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-// Định nghĩa route cho Razor Pages
 app.MapRazorPages();
 
-// Chạy ứng dụng
 app.Run();

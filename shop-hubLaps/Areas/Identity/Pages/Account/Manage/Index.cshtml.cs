@@ -4,8 +4,10 @@
 
 using System;
 using System.ComponentModel.DataAnnotations;
-using System.Text.Encodings.Web;
+using System.IO;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -17,60 +19,66 @@ namespace shop_hubLaps.Areas.Identity.Pages.Account.Manage
     {
         private readonly UserManager<SampleUser> _userManager;
         private readonly SignInManager<SampleUser> _signInManager;
+        private readonly IWebHostEnvironment _hostingEnvironment;
 
         public IndexModel(
             UserManager<SampleUser> userManager,
-            SignInManager<SampleUser> signInManager)
+            SignInManager<SampleUser> signInManager,
+            IWebHostEnvironment hostingEnvironment)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _hostingEnvironment = hostingEnvironment;
         }
 
-        /// <summary>
-        ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public string Username { get; set; }
 
-        /// <summary>
-        ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         [TempData]
         public string StatusMessage { get; set; }
 
-        /// <summary>
-        ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         [BindProperty]
         public InputModel Input { get; set; }
 
-        /// <summary>
-        ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
+        public string Avatar { get; set; }
+
         public class InputModel
         {
-            /// <summary>
-            ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-            ///     directly from your code. This API may change or be removed in future releases.
-            /// </summary>
+            [Display(Name = "Profile Picture")]
+            public IFormFile ProfilePicture { get; set; }
+
             [Phone]
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
+
+            [Display(Name = "First Name")]
+            public string FirstName { get; set; }
+
+            [Display(Name = "Last Name")]
+            public string LastName { get; set; }
+
+            [Display(Name = "Address")]
+            public string DiaChi { get; set; }
+
+            [Display(Name = "Date of Birth")]
+            [DataType(DataType.Date)]
+            public DateTime? NgaySinh { get; set; }
         }
 
         private async Task LoadAsync(SampleUser user)
         {
             var userName = await _userManager.GetUserNameAsync(user);
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
+            Avatar = user.Avatar; // Get avatar path
 
             Username = userName;
 
             Input = new InputModel
             {
-                PhoneNumber = phoneNumber
+                PhoneNumber = phoneNumber,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                DiaChi = user.DiaChi,
+                NgaySinh = user.NgaySinh
             };
         }
 
@@ -86,7 +94,7 @@ namespace shop_hubLaps.Areas.Identity.Pages.Account.Manage
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostUploadProfilePictureAsync()
         {
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
@@ -94,14 +102,69 @@ namespace shop_hubLaps.Areas.Identity.Pages.Account.Manage
                 return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
             }
 
+            if (Input.ProfilePicture != null && Input.ProfilePicture.Length > 0) // Handle new avatar upload
+            {
+                var uploadsFolder = Path.Combine(_hostingEnvironment.WebRootPath, "uploads");
+                Directory.CreateDirectory(uploadsFolder); // Ensure upload folder exists
+
+                var fileName = Guid.NewGuid().ToString() + Path.GetExtension(Input.ProfilePicture.FileName);
+                var filePath = Path.Combine(uploadsFolder, fileName);
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await Input.ProfilePicture.CopyToAsync(stream);
+                }
+
+                user.Avatar = "/uploads/" + fileName; // Save the new avatar path
+                StatusMessage = "Hình ảnh đại diện đã được cập nhật."; // Update status message
+
+                await _userManager.UpdateAsync(user);
+                return RedirectToPage();
+            }
+
+            StatusMessage = "Không có hình ảnh nào được tải lên."; // Update status message if no file uploaded
+            return RedirectToPage();
+        }
+
+        public async Task<IActionResult> OnPostRemoveProfilePictureAsync()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+            }
+
+            user.Avatar = null; // Clear avatar
+            StatusMessage = "Hình ảnh đại diện đã bị xóa."; // Update status message
+
+            await _userManager.UpdateAsync(user);
+            return RedirectToPage();
+        }
+
+        public async Task<IActionResult> OnPostUpdateProfileAsync()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+            }
+
+            // Validate the model state
             if (!ModelState.IsValid)
             {
                 await LoadAsync(user);
                 return Page();
             }
 
-            var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
-            if (Input.PhoneNumber != phoneNumber)
+            // Update user properties
+            user.FirstName = Input.FirstName; // Update First Name
+            user.LastName = Input.LastName; // Update Last Name
+            user.DiaChi = Input.DiaChi; // Update address
+            user.NgaySinh = Input.NgaySinh; // Update date of birth
+
+            // Update phone number
+            var currentPhoneNumber = await _userManager.GetPhoneNumberAsync(user);
+            if (Input.PhoneNumber != currentPhoneNumber)
             {
                 var setPhoneResult = await _userManager.SetPhoneNumberAsync(user, Input.PhoneNumber);
                 if (!setPhoneResult.Succeeded)
@@ -111,9 +174,23 @@ namespace shop_hubLaps.Areas.Identity.Pages.Account.Manage
                 }
             }
 
+            // Attempt to update the user in the database
+            var result = await _userManager.UpdateAsync(user);
+            if (!result.Succeeded)
+            {
+                // Add errors to model state
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError(string.Empty, error.Description);
+                }
+                await LoadAsync(user);
+                return Page();
+            }
+
+            // Refresh sign-in to ensure authentication state is updated
             await _signInManager.RefreshSignInAsync(user);
-            StatusMessage = "Your profile has been updated";
             return RedirectToPage();
         }
+
     }
 }
