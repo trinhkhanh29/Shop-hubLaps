@@ -1,3 +1,4 @@
+﻿/* Font styles */
 html {
     font-size: 14px;
     font-family: 'Lexend', sans-serif;
@@ -6,7 +7,6 @@ html {
 @media (min-width: 768px) {
     html {
         font-size: 16px;
-        font-family: 'Lexend', sans-serif;
     }
 }
 
@@ -19,22 +19,25 @@ html {
 
 body {
     font-family: 'Lexend', sans-serif;
+    margin-bottom: 60px;
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+/* Buttons and inputs focus styling */
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
     box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
+/* Structure */
 html {
     position: relative;
     min-height: 100%;
 }
 
-body {
-    margin-bottom: 60px;
-    font-family: Roboto,sans-serif;
-}
-/*tab navigation*/
+/* Tab navigation styles */
 .login-logout-card .card-header {
     padding: 0px 0px 12px 0px;
 }
@@ -54,10 +57,12 @@ body {
     padding: 1rem;
 }
 
+/* Card body */
 .login-logout-card .card-body {
     padding: 10px 20px;
 }
 
+/* QR Code container styling */
 .qr-code-container {
     border: 2px solid #007bff;
     padding: 10px;
@@ -65,5 +70,31 @@ body {
     display: inline-block;
     background-color: #ffffff;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 10px;
+}
+
+/* Small screen adjustments */
+@media (max-width: 576px) {
+    .login-logout-card a.nav-link {
+        font-size: 0.9rem;
+        padding: 0.8rem;
+    }
+
+    .qr-code-container {
+        padding: 8px;
+    }
+
+    body {
+        margin-bottom: 50px;
+    }
+}
+
+/* Medium screen adjustments */
+@media (min-width: 768px) and (max-width: 991px) {
+    .login-logout-card a.nav-link {
+        font-size: 1rem;
+    }
+
+    .qr-code-container {
+        padding: 10px;
+    }
 }

@@ -11,6 +11,7 @@
     <!-- Custom Styles -->
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/shop_hubLaps.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/style_search.css" asp-append-version="true" />
 
     <!-- Google Fonts: Lexend -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,15 +22,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="~/Content/css/bootstrap.min.css">
+@*     <link rel="stylesheet" href="~/Content/css/bootstrap.min.css">
     <link rel="stylesheet" href="~/Content/css/all.min.css">
-    <link rel="stylesheet" href="~/Content/css/style.css">
-    <link href="~/Content/css/styles.css" rel="stylesheet" />
-    <link href="~/Content/css/phonerang.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/css/style.css"> *@
+@*     <link href="~/Content/css/styles.css" rel="stylesheet" /> *@
+@*     <link href="~/Content/css/phonerang.css" rel="stylesheet" />
     <link href="~/Areas/Administrator/Data/libraries/css/toastr.min.css" rel="stylesheet" />
-    <link href="~/Areas/Administrator/Data/libraries/css/sweetalert2.min.css" rel="stylesheet" />
+    <link href="~/Areas/Administrator/Data/libraries/css/sweetalert2.min.css" rel="stylesheet" /> *@
 
-    <style>
+    @* <style>
         html, body {
             height: 100%;
             font-family: 'Lexend', sans-serif; /* Ensure Lexend is the default font */
@@ -236,15 +237,19 @@
         .modal-backdrop {
             opacity: 0.3 !important;
         }
-    </style>
+    </style> *@
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <div class="d-flex align-items-center">
-                    <a href="/Home"><img style="width: 400px;" src="~/img/logo.hubLaps.svg" class="custom-logo" alt="Logo" /></a>
+                    <a href="/Home"><img style="width: 100%;max-width: 400px;height: auto;" src="~/img/hubLaps.svg" class="custom-logo" alt="Logo" /></a>
                 </div>
+
+
+
+
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -252,10 +257,64 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
+                        <li class="nav-item" style="display:flex;align-items:center;">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Trang chủ</a>
-                        </li>                       
+                        </li>
+
+                        <!-- Search List Item -->
+                        <li class="nav-item" style="display:flex;align-items:center;">
+                            <!-- Search Icon for Small Screens -->
+                            <div class="d-lg-none">
+                                <button class="btn btn-link p-0" id="mobile-search-icon" data-bs-toggle="modal" data-bs-target="#searchModal" >
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <path fill="currentColor" d="M21.71 20.29L18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a1 1 0 0 0 1.42 0a1 1 0 0 0 0-1.39ZM11 18a7 7 0 1 1 7-7a7 7 0 0 1-7 7Z" />
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <!-- Search Bar for Large Screens -->
+                            <div class="col-sm-6 offset-sm-2 offset-md-0 col-lg-5 d-none d-lg-block">
+                                <div class="search-bar d-flex align-items-center p-2 my-2 rounded-4">
+                                    <div class="d-none d-md-block me-2">
+                                        <select class="form-select border-0 bg-transparent">
+                                            <option>All Categories</option>
+                                            <option>Groceries</option>
+                                            <option>Drinks</option>
+                                            <option>Chocolates</option>
+                                        </select>
+                                    </div>
+                                    <form id="search-form" class="d-flex flex-grow-1 align-items-center" method="get">
+                                        <input type="text" id="search-input" class="form-control border-0 bg-transparent" placeholder="Search 20,000+ products" />
+                                        <button type="submit" form="search-form" class="btn btn-link p-0 ms-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                                <path fill="currentColor" d="M21.71 20.29L18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a1 1 0 0 0 1.42 0a1 1 0 0 0 0-1.39ZM11 18a7 7 0 1 1 7-7a7 7 0 0 1-7 7Z" />
+                                            </svg>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <!-- Search Modal -->
+                            <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form id="modal-search-form" method="get">
+                                                <input type="text" class="form-control" placeholder="Search for products" />
+                                                <button type="submit" class="btn btn-primary mt-2 w-100">Search</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
                     </ul>
+                </div>
+
                     <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                         <!-- Partial cho thông tin đăng nhập -->
                         <partial name="_LoginPartial" />
@@ -270,146 +329,45 @@
             @RenderBody()
         </main>
     </div>
-@*     <footer class="row">
-        <div class="col-12 bg-dark text-white pb-3 pt-5">
-            <div class="row">
-                <div class="col-lg-2 col-sm-4 text-center text-sm-left mb-sm-0 mb-3">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="footer-logo">
-                                <a href="index.html">hubLaps</a>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <address>
-                                Quận 1<br>
-                                Tp. HCM, Việt Nam
-                            </address>
-                        </div>
-                        <div class="col-12">
-                            <a href="https://www.facebook.com/lawyer.trinh/" class="social-icon" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                            <a href="https://www.pinterest.com/dskhanhtrinh/" class="social-icon" target="_blank"><i class="fab fa-pinterest-p"></i></a>
-                            <a href="https://www.instagram.com/lawyer.trinh/" class="social-icon" target="_blank"><i class="fab fa-instagram"></i></a>
-                            <a href="https://linkedin.com/in/trinhkhanhh" class="social-icon" target="_blank"><i class="fab fa-linkedin"></i></a> <!-- Corrected icon class -->
-                            <a href="https://github.com/trinhkhanh29" class="social-icon" target="_blank"><i class="fab fa-github"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-8 text-center text-sm-left mb-sm-0 mb-3">
-                    <div class="row">
-                        <div class="col-12 text-uppercase">
-                            <h4>Về hubLaps</h4>
-                        </div>
-                        <div class="col-12 text-justify">
-                            <p>hubLaps - chuyên bán lẻ sỉ laptop uy tín cả nước. Chúng ta có nhiều mẫu mã hãng nhu cầu sử dụng đáp ứng được đầy đủ yêu cầu sử dụng của quý khách. Khách được nhân viên chăm sóc tư vấn sản phẩm 24/7.</p>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <img src="~/Content/images/dang-ky-bo-cong-thuong.png" alt="dang-ky-bo-cong-thuong" class="text-center">
-                                </div>
-                                <div class="col-md-3 text-center">
-                                    <img src="~/Content/images/logo-momo.png" alt="logo-momo" class="text-center" style="width:50px;height:50px;margin-left:10px;">
-                                </div>
-                                <div class="col-md-3">
-                                    <img src="~/Content/images/payoo-payment.jpg" alt="payoo" class="text-center">
-                                    <img src="~/Content/images/master-card-payment.jpg" alt="master-card" class="text-center">
-                                </div>
-                                <div class="col-md-3">
-                                    <img src="~/Content/images/atm-payment.jpg" alt="atm" class="text-center">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-sm-3 col-5 ms-lg-auto ms-sm-0 ms-auto mb-sm-0 mb-3">
-                    <div class="row">
-                        <div class="col-12 text-uppercase">
-                            <h4>Liên kết</h4>
-                        </div>
-                        <div class="col-12">
-                            <ul class="footer-nav">
-                                <li>
-                                    <a href="@Url.Action("Index","Home")">Trang chủ</a>
-                                </li>
-                                <li>
-                                    <a href="@Url.Action("Contact","Home")">Liên hệ</a>
-                                </li>
-                                <li>
-                                    <a href="@Url.Action("About","Home")">Giới thiệu</a>
-                                </li>
-                                <li>
-                                    <a href="#">Chính sách bảo mật</a>
-                                </li>
-                                <li>
-                                    <a href="#">Điều khoản và điều kiện</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-1 col-sm-2 col-4 me-auto mb-sm-0 mb-3">
-                    <div class="row">
-                        <div class="col-12 text-uppercase text-underline">
-                            <h4>Trợ giúp</h4>
-                        </div>
-                        <div class="col-12">
-                            <ul class="footer-nav">
-                                <li>
-                                    <a href="#">FAQs</a>
-                                </li>
-                                <li>
-                                    <a href="#">Bảo hành</a>
-                                </li>
-                                <li>
-                                    <a href="#">HD Thanh toán</a>
-                                </li>
-                                <li>
-                                    <a href="#">HD Mua hàng</a>
-                                </li>
-                                <li>
-                                    <a href="#">Liên hệ hợp tác</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 text-center text-sm-left">
-                    <div class="row">
-                        <div class="col-12 text-uppercase">
-                            <h4>Tin tức</h4>
-                        </div>
-                        <div class="col-12">
-                            <form action="#">
-                                <div class="mb-3">
-                                    <input type="text" class="form-control" placeholder="Nhập địa chỉ email..." required>
-                                </div>
-                                <div class="mb-3">
-                                    <button class="btn btn-danger text-uppercase">Đăng ký</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer> *@
+    <footer>
+        <partial name="_FooterPartial" />   
+    </footer> 
     <!--Start of Tawk.to Script-->
     
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
 
-    <script type="text/javascript" src="~/Content/js/jquery.min.js"></script>
+  @*   <script type="text/javascript" src="~/Content/js/jquery.min.js"></script>
     <script type="text/javascript" src="~/Content/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="~/Content/js/script.js"></script>
     <script type="text/javascript" src="~/Content/js/scripts.js"></script>
-
+ *@
        <!-- Toastr && SweetAlert2 -->
-    <script src="~/Areas/Administrator/Data/libraries/js/karma.laclac.min.js"></script>
+  @*   <script src="~/Areas/Administrator/Data/libraries/js/karma.laclac.min.js"></script>
     <script src="~/Areas/Administrator/Data/libraries/js/toastr.min.js"></script>
-    <script src="~/Areas/Administrator/Data/libraries/js/sweetalert2.min.js"></script>
+    <script src="~/Areas/Administrator/Data/libraries/js/sweetalert2.min.js"></script> *@
 
-    @await RenderSectionAsync("Scripts", required: false)
 @*     <script src="https://sp.zalo.me/plugins/sdk.js"></script>
  *@
+
+    @await RenderSectionAsync("Scripts", required: false)
+    <script>
+          // Handle main search form submission
+        document.getElementById('search-form').onsubmit = function (e) {
+            e.preventDefault();
+            const query = this.querySelector('input').value;
+            if (query) {
+                window.location.href = `/search?query=${encodeURIComponent(query)}`;
+            }
+        };
+
+        // Show modal when the search icon on small screens is clicked
+        document.getElementById('mobile-search-icon').addEventListener('click', function () {
+            let searchModal = new bootstrap.Modal(document.getElementById('searchModal'), {});
+            searchModal.show();
+        });
+
+    </script>
 </body>
 </html>

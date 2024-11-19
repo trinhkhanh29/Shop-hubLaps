@@ -6,6 +6,8 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading;
@@ -18,11 +20,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
 using shop_hubLaps.Areas.Identity.Data;
 
 
 namespace shop_hubLaps.Areas.Identity.Pages.Account
 {
+    [AllowAnonymous]
     public class RegisterModel : PageModel
     {
         private readonly SignInManager<SampleUser> _signInManager;
@@ -147,9 +151,40 @@ namespace shop_hubLaps.Areas.Identity.Pages.Account
                     ModelState.AddModelError(string.Empty, error.Description);
                 }
             }
-
             return Page();
         }
+
+        private async Task<bool> SendEmailSync(string email, string subject, string confirmLink)
+        {
+            MailMessage message = new MailMessage();
+            SmtpClient smtpClient = new SmtpClient();
+
+            message.From = new MailAddress("noreply@zethit.com");
+            message.To.Add(email);
+            message.Subject = subject;
+            message.IsBodyHtml = true; 
+            message.Body = confirmLink;
+
+            smtpClient.Port = 587;
+            smtpClient.Host = "smtp.simply.com";
+            smtpClient.EnableSsl = true;
+            smtpClient.UseDefaultCredentials = false;
+            smtpClient.Credentials = new NetworkCredential("USERNAME", "PASSWORD");
+            smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+
+            try
+            {
+                await smtpClient.SendMailAsync(message);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions if necessary
+                Console.WriteLine("Email send error: " + ex.Message);
+                return false;
+            }
+        }
+
 
         private SampleUser CreateUser()
         {

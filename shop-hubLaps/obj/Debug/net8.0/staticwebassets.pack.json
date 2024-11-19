@@ -245,6 +245,10 @@
       "PackagePath": "staticwebassets\\Content\\css\\custom_scrollbar.css"
     },
     {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\Content\\css\\ionicons.min.css",
+      "PackagePath": "staticwebassets\\Content\\css\\ionicons.min.css"
+    },
+    {
       "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\Content\\css\\phonerang.css",
       "PackagePath": "staticwebassets\\Content\\css\\phonerang.css"
     },
@@ -253,8 +257,8 @@
       "PackagePath": "staticwebassets\\Content\\css\\slides.css"
     },
     {
-      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\Content\\css\\style.css",
-      "PackagePath": "staticwebassets\\Content\\css\\style.css"
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\Content\\css\\style-footer.css",
+      "PackagePath": "staticwebassets\\Content\\css\\style-footer.css"
     },
     {
       "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\Content\\css\\styles.css",
@@ -263,6 +267,10 @@
     {
       "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\Content\\images\\720-220-720x220-257.png",
       "PackagePath": "staticwebassets\\Content\\images\\720-220-720x220-257.png"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\Content\\images\\Dang-ky-thong-bao-website-thuong-mai-dien-tu.png",
+      "PackagePath": "staticwebassets\\Content\\images\\Dang-ky-thong-bao-website-thuong-mai-dien-tu.png"
     },
     {
       "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\Content\\images\\Fashion380x2002x-760x400-1.png",
@@ -423,6 +431,10 @@
     {
       "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\Content\\images\\dependabot.png",
       "PackagePath": "staticwebassets\\Content\\images\\dependabot.png"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\Content\\images\\dmca-logo.png",
+      "PackagePath": "staticwebassets\\Content\\images\\dmca-logo.png"
     },
     {
       "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\Content\\images\\ducdat.png",
@@ -1653,16 +1665,80 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\css\\style_search.css",
+      "PackagePath": "staticwebassets\\css\\style_search.css"
+    },
+    {
       "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\img\\Acer-Logo.png",
+      "PackagePath": "staticwebassets\\img\\Acer-Logo.png"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\img\\MacBook_Pro.svg",
+      "PackagePath": "staticwebassets\\img\\MacBook_Pro.svg"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\img\\Microsoft_logo.svg",
+      "PackagePath": "staticwebassets\\img\\Microsoft_logo.svg"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\img\\Microsoft_logo_(2012).svg.webp",
+      "PackagePath": "staticwebassets\\img\\Microsoft_logo_(2012).svg.webp"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\img\\Samsung_Logo.svg.png",
+      "PackagePath": "staticwebassets\\img\\Samsung_Logo.svg.png"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\img\\asus-logo.svg",
+      "PackagePath": "staticwebassets\\img\\asus-logo.svg"
     },
     {
       "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\img\\avt.user.svg",
       "PackagePath": "staticwebassets\\img\\avt.user.svg"
     },
     {
-      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\img\\logo.hubLaps.svg",
-      "PackagePath": "staticwebassets\\img\\logo.hubLaps.svg"
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\img\\cute-white-cat-peeking-cartoon-vector-illustrationx9_42750-1594.avif",
+      "PackagePath": "staticwebassets\\img\\cute-white-cat-peeking-cartoon-vector-illustrationx9_42750-1594.avif"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\img\\dell-technologies-white.webp",
+      "PackagePath": "staticwebassets\\img\\dell-technologies-white.webp"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\img\\hp-logo.svg",
+      "PackagePath": "staticwebassets\\img\\hp-logo.svg"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\img\\hubLaps.svg",
+      "PackagePath": "staticwebassets\\img\\hubLaps.svg"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\img\\lenovo-logo.svg",
+      "PackagePath": "staticwebassets\\img\\lenovo-logo.svg"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\img\\msi-logo.png",
+      "PackagePath": "staticwebassets\\img\\msi-logo.png"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\img\\partner-4.png",
+      "PackagePath": "staticwebassets\\img\\partner-4.png"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\img\\payment.png",
+      "PackagePath": "staticwebassets\\img\\payment.png"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\img\\razer-logo.png",
+      "PackagePath": "staticwebassets\\img\\razer-logo.png"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\img\\vaio-logo.png",
+      "PackagePath": "staticwebassets\\img\\vaio-logo.png"
     },
     {
       "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\js\\mfa.js",
@@ -1903,6 +1979,50 @@
     {
       "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\uploads\\49ae7d5b-e35d-4b76-9c84-8401de71d8a6.jpg",
+      "PackagePath": "staticwebassets\\uploads\\49ae7d5b-e35d-4b76-9c84-8401de71d8a6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\uploads\\5c6175ef-3d99-4640-a180-cf7e752e4686.jpg",
+      "PackagePath": "staticwebassets\\uploads\\5c6175ef-3d99-4640-a180-cf7e752e4686.jpg"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\uploads\\5ee244ea-87a8-4ae2-a89c-60c37076786b.jpg",
+      "PackagePath": "staticwebassets\\uploads\\5ee244ea-87a8-4ae2-a89c-60c37076786b.jpg"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\uploads\\75e8e770-a40d-4bdf-b245-264a12b32566.jpg",
+      "PackagePath": "staticwebassets\\uploads\\75e8e770-a40d-4bdf-b245-264a12b32566.jpg"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\uploads\\7affcb59-4d8e-4623-bdbf-cfaf186df905.jpg",
+      "PackagePath": "staticwebassets\\uploads\\7affcb59-4d8e-4623-bdbf-cfaf186df905.jpg"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\uploads\\812ccd58-efab-403b-8858-e844e0b735a2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\812ccd58-efab-403b-8858-e844e0b735a2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\uploads\\8dc17282-325b-45e1-b3d0-420eb879320a.png",
+      "PackagePath": "staticwebassets\\uploads\\8dc17282-325b-45e1-b3d0-420eb879320a.png"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\uploads\\8e99720a-a615-4433-b089-bb1beaf4a4dc.jpg",
+      "PackagePath": "staticwebassets\\uploads\\8e99720a-a615-4433-b089-bb1beaf4a4dc.jpg"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\uploads\\a65f5bf9-d251-44ba-9cc8-79adcf25229b.png",
+      "PackagePath": "staticwebassets\\uploads\\a65f5bf9-d251-44ba-9cc8-79adcf25229b.png"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\uploads\\e5029d0f-493b-412e-9eff-72a50e77b542.jpg",
+      "PackagePath": "staticwebassets\\uploads\\e5029d0f-493b-412e-9eff-72a50e77b542.jpg"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\uploads\\f72424a9-0963-493b-a9c2-4efe300607fa.jpg",
+      "PackagePath": "staticwebassets\\uploads\\f72424a9-0963-493b-a9c2-4efe300607fa.jpg"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.shop-hubLaps.props",
