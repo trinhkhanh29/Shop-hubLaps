@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/shop_hubLaps.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/style_search.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/shopping-cartcss.css" asp-append-version="true" />
+
 
     <!-- Google Fonts: Lexend -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -244,7 +246,7 @@
         <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <div class="d-flex align-items-center">
-                    <a href="/Home"><img style="width: 100%;max-width: 400px;height: auto;" src="~/img/hubLaps.svg" class="custom-logo" alt="Logo" /></a>
+                    <a href="/Home"><img style="width: 100%;max-width: 400px;height: auto;max-height:50px;" src="~/img/hubLaps.svg" class="custom-logo" alt="Logo" /></a>
                 </div>
 
 
@@ -277,10 +279,12 @@
                                 <div class="search-bar d-flex align-items-center p-2 my-2 rounded-4">
                                     <div class="d-none d-md-block me-2">
                                         <select class="form-select border-0 bg-transparent">
-                                            <option>All Categories</option>
-                                            <option>Groceries</option>
-                                            <option>Drinks</option>
-                                            <option>Chocolates</option>
+                                            <option>Tất cả danh mục</option>
+                                            <option>Laptop</option>
+                                            <option>Máy tính để bàn</option>
+                                            <option>Phụ kiện</option>
+                                            <option>Phần mềm</option>
+                                            <option>Thiết bị ngoại vi</option>
                                         </select>
                                     </div>
                                     <form id="search-form" class="d-flex flex-grow-1 align-items-center" method="get">
@@ -312,18 +316,37 @@
                                 </div>
                             </div>
                         </li>
-                    </ul>
-                </div>
 
+                      
                     <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                        <!-- Partial cho thông tin đăng nhập -->
-                        <partial name="_LoginPartial" />
+                            <ul class="navbar-nav ms-auto">
+                                <!-- Cart Button -->
+                                <li class="nav-item">
+                                    <button class="btn btn-link position-relative" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
+                                        <i class="fas fa-shopping-cart"></i>
+                                        <span class="badge bg-danger position-absolute top-0 end-0">2</span>
+                                    </button>
+                                </li>
+                                <!-- Login Partial -->
+                                <li class="nav-item"><partial name="_LoginPartial" /></li>
+                            </ul>
                     </div>
 
                 </div>
             </div>
         </nav>
     </header>
+    <!-- Shopping Cart Offcanvas -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasCart" aria-labelledby="offcanvasCartLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasCartLabel">Your Cart</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <!-- Cart content goes here -->
+            <p>Your cart is empty!</p>
+        </div>
+    </div>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -366,6 +389,22 @@
         document.getElementById('mobile-search-icon').addEventListener('click', function () {
             let searchModal = new bootstrap.Modal(document.getElementById('searchModal'), {});
             searchModal.show();
+        });
+        document.addEventListener("DOMContentLoaded", function () {
+            const cartClose = document.getElementById('cartClose');
+            const cartToggle = document.getElementById('cartToggle');
+
+            if (cartClose) {
+                cartClose.addEventListener('click', function () {
+                    // Your event handler code
+                });
+            }
+
+            if (cartToggle) {
+                cartToggle.addEventListener('click', function () {
+                    // Your event handler code
+                });
+            }
         });
 
     </script>

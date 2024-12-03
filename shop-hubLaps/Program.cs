@@ -18,25 +18,40 @@ builder.Host.UseSerilog((context, services, configuration) => configuration
     .WriteTo.Console()
     .WriteTo.File("Logs/log-.txt", rollingInterval: RollingInterval.Day));
 
-// Kết nối tới database
-var connectionString = builder.Configuration.GetConnectionString("DBContextSampleConnection")
-                       ?? throw new InvalidOperationException("Connection string 'DBContextSampleConnection' not found.");
 
-// Add DbContext with SQL Server
+
+// Lấy chuỗi kết nối từ appsettings.json
+var connectionString = builder.Configuration.GetConnectionString("AzureSqlDbConnection")
+                       ?? throw new InvalidOperationException("Connection string 'AzureSqlDbConnection' not found.");
+
 builder.Services.AddDbContext<DBContextSample>(options =>
-    options.UseSqlServer(connectionString));
+    options.UseSqlServer(connectionString, sqlOptions =>
+        sqlOptions.EnableRetryOnFailure(
+            maxRetryCount: 5,
+            maxRetryDelay: TimeSpan.FromSeconds(10),
+            errorNumbersToAdd: null)));
 
-// Thêm DbContext cho DataModel
 builder.Services.AddDbContext<DataModel>(options =>
-    options.UseSqlServer(connectionString));
+    options.UseSqlServer(connectionString));  // Dùng SQL Server cho DataModel
+
+//// Kết nối tới database
+//var connectionString = builder.Configuration.GetConnectionString("DBContextSampleConnection")
+//                       ?? throw new InvalidOperationException("Connection string 'DBContextSampleConnection' not found.");
+
+//// Add DbContext with SQL Server
+//builder.Services.AddDbContext<DBContextSample>(options =>
+//    options.UseSqlServer(connectionString));
+
+//// Thêm DbContext cho DataModel
+//builder.Services.AddDbContext<DataModel>(options =>
+//    options.UseSqlServer(connectionString));
 
 // Cấu hình Identity với vai trò
 builder.Services.AddDefaultIdentity<SampleUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddRoles<IdentityRole>() // Thêm hỗ trợ cho vai trò
     .AddEntityFrameworkStores<DBContextSample>();
 
-// Add services to the container
-builder.Services.AddControllersWithViews();
+
 
 var app = builder.Build();
 

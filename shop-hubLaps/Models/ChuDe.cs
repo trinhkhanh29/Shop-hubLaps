@@ -23,7 +23,7 @@ namespace shop_hubLaps.Models
         public string slug { get; set; }
 
         [StringLength(70)]
-        public string hinh { get; set; }
+        public string? hinh { get; set; }
 
         public virtual ICollection<TinTuc> TinTucs { get; set; }
     }

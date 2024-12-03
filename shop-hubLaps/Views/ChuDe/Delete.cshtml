@@ -1,0 +1,89 @@
+﻿@model ChuDe
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Xóa Chủ Đề";
+}
+
+<h2>Xóa Chủ Đề</h2>
+
+<h3>Are you sure you want to delete this item?</h3>
+<div>
+    <h4>@Model.tenchude</h4>
+</div>
+
+<!-- Form for AJAX deletion -->
+<form id="deleteForm" method="post">
+    <input type="hidden" name="id" value="@Model.machude" />
+    <button type="submit" class="btn btn-danger">Xóa</button>
+    <a href="@Url.Action("Index")" class="btn btn-secondary">Hủy</a>
+</form>
+
+<!-- Notification area -->
+<div id="messageArea" style="display: none;">
+    <div id="messageContent" class="alert" role="alert"></div>
+</div>
+
+<!-- jQuery and AJAX script -->
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#deleteForm').on('submit', function (e) {
+                e.preventDefault(); // Prevent default form submission
+
+                var form = $(this);
+                var url = '@Url.Action("DeleteConfirmed", "ChuDe")';
+                var formData = form.serialize();
+
+                $.ajax({
+                    type: 'POST',
+                    url: url,
+                    data: formData,
+                    success: function (response) {
+                        if (response.success) {
+                            $('#messageArea').show();
+                            $('#messageContent').removeClass('alert-danger').addClass('alert-success')
+                                .text(response.message);
+                            setTimeout(function () {
+                                window.location.href = '@Url.Action("Index")';
+                            }, 2000); // Redirect after 2 seconds
+                        } else {
+                            $('#messageArea').show();
+                            $('#messageContent').removeClass('alert-success').addClass('alert-danger')
+                                .text(response.message);
+                        }
+                    },
+                    error: function () {
+                        $('#messageArea').show();
+                        $('#messageContent').removeClass('alert-success').addClass('alert-danger')
+                            .text("An error occurred while deleting the item. Please try again.");
+                    }
+                });
+            });
+        });
+        $(document).on('click', '.delete-btn', function (e) {
+            e.preventDefault();
+
+            var id = $(this).data('id');  // Get the ID from the button's data-id attribute
+
+            $.ajax({
+                url: '/ChuDe/DeleteConfirmed',
+                type: 'POST',
+                data: { id: id },
+                success: function (response) {
+                    if (response.success) {
+                        alert(response.message);  // Show success message
+                        location.reload();  // Reload the page to reflect the changes
+                    } else {
+                        alert(response.message);  // Show failure message
+                    }
+                },
+                error: function () {
+                    alert('An error occurred while deleting the item. Please try again.');
+                }
+            });
+        });
+
+
+    </script>
+}
