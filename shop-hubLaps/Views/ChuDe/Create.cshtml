@@ -1,0 +1,37 @@
+﻿@model shop_hubLaps.Models.ChuDe
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Create New Chủ Đề";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Create" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="tenchude" class="control-label">Tên Chủ Đề</label>
+        <input asp-for="tenchude" class="form-control" />
+        <span asp-validation-for="tenchude" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="slug" class="control-label">Slug</label>
+        <input asp-for="slug" class="form-control" />
+        <span asp-validation-for="slug" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="hinh" class="control-label">Hình ảnh</label>
+        <input type="file" name="hinh" class="form-control" />
+        <span asp-validation-for="hinh" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+    <a asp-action="Index" class="btn btn-secondary ml-2">Back to List</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+@* <a href="/Dashboard" class="btn btn-secondary mt-3">Back to Dashboard</a> *@

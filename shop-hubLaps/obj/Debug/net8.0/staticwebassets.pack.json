@@ -1661,12 +1661,24 @@
       "PackagePath": "staticwebassets\\Data\\images\\visa-payment.jpg"
     },
     {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\css\\index-dashboard.css",
+      "PackagePath": "staticwebassets\\css\\index-dashboard.css"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\css\\shopping-cartcss.css",
+      "PackagePath": "staticwebassets\\css\\shopping-cartcss.css"
+    },
+    {
       "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
       "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\css\\style_search.css",
       "PackagePath": "staticwebassets\\css\\style_search.css"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\css_ChuDe\\_AdminLayout.css",
+      "PackagePath": "staticwebassets\\css_ChuDe\\_AdminLayout.css"
     },
     {
       "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\favicon.ico",
@@ -2015,6 +2027,10 @@
     {
       "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\uploads\\a65f5bf9-d251-44ba-9cc8-79adcf25229b.png",
       "PackagePath": "staticwebassets\\uploads\\a65f5bf9-d251-44ba-9cc8-79adcf25229b.png"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\uploads\\bbd4540a-9f2b-401e-b868-0c792eb8398e.jpg",
+      "PackagePath": "staticwebassets\\uploads\\bbd4540a-9f2b-401e-b868-0c792eb8398e.jpg"
     },
     {
       "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\uploads\\e5029d0f-493b-412e-9eff-72a50e77b542.jpg",

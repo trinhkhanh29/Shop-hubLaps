@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ChuDe>
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Danh sách chủ đề";
+}
+<div class="content">
+    <!-- Danh sách chủ đề -->
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead class="thead-light">
+                <tr>
+                    <th>#</th>
+                    <th>Tên Chủ Đề</th>
+                    <th>Hình Ảnh</th>
+                    <th>Thao Tác</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.machude</td>
+                        <td>@item.tenchude</td>
+                        <td>
+                            <img src="@Url.Content("~/Content/images/" + item.hinh)" alt="@item.tenchude" style="width: 50px; height: 50px;" />
+                        </td>
+                        <td>
+                            <a href="@Url.Action("Edit", "ChuDe", new { id = item.machude })" class="btn btn-primary btn-sm">Sửa</a>
+                            <a href="@Url.Action("Delete", "ChuDe", new { id = item.machude })" class="btn btn-danger btn-sm">Xóa</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

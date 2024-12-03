@@ -1,0 +1,26 @@
+﻿@model ChuDe
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Sửa Chủ Đề";
+}
+
+<h2>Sửa Chủ Đề</h2>
+
+<form asp-action="Edit" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="machude">Mã Chủ Đề</label>
+        <input type="text" class="form-control" id="machude" name="machude" value="@Model.machude" readonly />
+    </div>
+
+    <div class="form-group">
+        <label for="tenchude">Tên Chủ Đề</label>
+        <textarea class="form-control" id="tenchude" name="tenchude">@Model.tenchude</textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="hinh">Hình Ảnh</label>
+        <input type="file" class="form-control" id="newHinh" name="newHinh" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Lưu</button>
+</form>

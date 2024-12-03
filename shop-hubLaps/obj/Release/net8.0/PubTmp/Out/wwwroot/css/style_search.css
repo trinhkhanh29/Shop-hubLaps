@@ -1,0 +1,55 @@
+﻿/* Search Bar Styles */
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    width: 445px;
+}
+
+    .search-bar .form-select,
+    .search-bar input[type="text"] {
+        font-size: 14px;
+        color: #555;
+        border: none;
+        background-color: transparent;
+        padding: 0 28px;
+    }
+
+        .search-bar input[type="text"]::placeholder {
+            color: #aaa;
+        }
+
+        .search-bar input[type="text"]:focus {
+            outline: none;
+            box-shadow: none;
+        }
+
+    .search-bar button {
+        background-color: transparent;
+        border: none;
+        color: #888;
+        cursor: pointer;
+        padding: 0;
+        display: flex;
+        align-items: center;
+    }
+
+        .search-bar button:hover {
+            color: #555;
+        }
+/* Additional styling for the modal search form */
+#searchModal .modal-body {
+    padding: 20px;
+}
+
+#searchModal input[type="text"] {
+    font-size: 16px;
+}
+
+#searchModal button {
+    font-size: 16px;
+}
+.btn-link {
+    color:none !important;
+}
