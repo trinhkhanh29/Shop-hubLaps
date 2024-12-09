@@ -269,6 +269,10 @@
       "PackagePath": "staticwebassets\\Content\\images\\720-220-720x220-257.png"
     },
     {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\Content\\images\\7b2b6659-09d3-4a69-963c-0207c26eca1f.jpg",
+      "PackagePath": "staticwebassets\\Content\\images\\7b2b6659-09d3-4a69-963c-0207c26eca1f.jpg"
+    },
+    {
       "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\Content\\images\\Dang-ky-thong-bao-website-thuong-mai-dien-tu.png",
       "PackagePath": "staticwebassets\\Content\\images\\Dang-ky-thong-bao-website-thuong-mai-dien-tu.png"
     },
@@ -283,10 +287,6 @@
     {
       "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\Content\\images\\Galaxy_A23.png",
       "PackagePath": "staticwebassets\\Content\\images\\Galaxy_A23.png"
-    },
-    {
-      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\Content\\images\\Lap trinh Tren Moi Truong Windows - Danh gia hoc phan.docx",
-      "PackagePath": "staticwebassets\\Content\\images\\Lap trinh Tren Moi Truong Windows - Danh gia hoc phan.docx"
     },
     {
       "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\Content\\images\\Laptop-Blue-Background-Free-image-on-Pixabay.jpg",
@@ -1661,6 +1661,10 @@
       "PackagePath": "staticwebassets\\Data\\images\\visa-payment.jpg"
     },
     {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\css\\Alert-Notifications.css",
+      "PackagePath": "staticwebassets\\css\\Alert-Notifications.css"
+    },
+    {
       "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\css\\index-dashboard.css",
       "PackagePath": "staticwebassets\\css\\index-dashboard.css"
     },
@@ -1735,6 +1739,10 @@
     {
       "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\img\\msi-logo.png",
       "PackagePath": "staticwebassets\\img\\msi-logo.png"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\img\\no-image.png",
+      "PackagePath": "staticwebassets\\img\\no-image.png"
     },
     {
       "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\img\\partner-4.png",

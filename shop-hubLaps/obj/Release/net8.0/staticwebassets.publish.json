@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Ar07JQHapXxpd2XEapbxOxLTixrodB/R96hqBb/OrF8=",
+  "Hash": "axZ1RW7JC9e4WwV9vfUmg09TGvzZXzGbFdA91OMKhMg=",
   "Source": "shop-hubLaps",
   "BasePath": "_content/shop-hubLaps",
   "Mode": "Default",
@@ -9401,6 +9401,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\msi-logo.png"
+    },
+    {
+      "Identity": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\img\\no-image.png",
+      "SourceId": "shop-hubLaps",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\",
+      "BasePath": "_content/shop-hubLaps",
+      "RelativePath": "img/no-image.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\no-image.png"
     },
     {
       "Identity": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\img\\partner-4.png",

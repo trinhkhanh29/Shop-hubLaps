@@ -1,0 +1,44 @@
+﻿@model shop_hubLaps.Models.Hang
+
+@{
+    ViewBag.Title = "Xóa Hãng";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-sm container-fluid">
+    <div class="p-5 bg-white">
+        <h2>Xóa Hãng</h2>
+
+        <div class="mb-4">
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>Tên hãng:</dt>
+                <dd>@Model.tenhang</dd>
+
+                @if (!string.IsNullOrEmpty(Model.hinh))
+                {
+                    <dt>Hình ảnh:</dt>
+                    <dd>
+                        <img src="@Url.Content("~/Content/images/" + Model.hinh)"
+                             alt="@Model.tenhang"
+                             style="width: 120px; height: 90px; object-fit: cover;" />
+                    </dd>
+                }
+            </dl>
+        </div>
+
+        @using (Html.BeginForm("DeleteConfirmed", "Hang", new { id = Model.mahang }, FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-danger">Xóa bỏ</button>
+                @Html.ActionLink("Quay lại", "Index", "Hang", null, new { @class = "btn btn-secondary" })
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

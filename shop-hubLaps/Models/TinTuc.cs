@@ -25,8 +25,8 @@ namespace shop_hubLaps.Models
         public string tieude { get; set; }
 
         // Hình nền của tin tức
-        [StringLength(70)]
-        public string hinhnen { get; set; }
+        [StringLength(255)]
+        public string? hinhnen { get; set; }
 
         // Tóm tắt nội dung tin tức
         [StringLength(255)]
@@ -52,10 +52,10 @@ namespace shop_hubLaps.Models
         public bool? xuatban { get; set; }
 
         // Khóa ngoại cho chủ đề tin tức
-        public int? machude { get; set; }
+        [Required]
+        public int machude { get; set; }
 
         // Bộ sưu tập các bình luận liên quan đến tin tức
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BinhLuan> BinhLuans { get; set; }
 
         // Mối quan hệ với chủ đề

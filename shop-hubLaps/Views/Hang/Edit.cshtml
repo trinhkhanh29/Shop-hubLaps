@@ -1,0 +1,47 @@
+﻿@model shop_hubLaps.Models.Hang
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Sửa Hãng";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Edit" method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="mahang" />
+
+    <div class="form-group mb-3">
+        <label asp-for="tenhang" class="form-label">Tên Hãng</label>
+        <input asp-for="tenhang" class="form-control" />
+        <span asp-validation-for="tenhang" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label class="form-label">Hình ảnh hiện tại</label>
+        @if (!string.IsNullOrEmpty(Model.hinh))
+        {
+            <div class="mb-3">
+                <img src="@Url.Content("~/Content/images/" + Model.hinh)"
+                     alt="@Model.tenhang"
+                     class="img-thumbnail"
+                     style="width: 200px; height: 150px; object-fit: cover;" />
+                <p class="text-muted mt-2">Hình ảnh hiện tại của hãng</p>
+            </div>
+        }
+        else
+        {
+            <p class="text-muted">Không có hình ảnh hiện tại</p>
+        }
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="hinh" class="form-label">Cập nhật Hình Ảnh</label>
+        <input type="file" asp-for="hinh" class="form-control" />
+        <span asp-validation-for="hinh" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Cập nhật</button>
+        <a href="@Url.Action("Index", "Hang")" class="btn btn-secondary">Hủy</a>
+    </div>
+</form>

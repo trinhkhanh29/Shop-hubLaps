@@ -1,0 +1,59 @@
+﻿@model IEnumerable<shop_hubLaps.Models.Hang>
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Danh sách Hãng";
+}
+
+<h1>Danh sách Hãng</h1>
+
+<a asp-action="Create" class="btn btn-primary mb-3">Thêm mới Hãng</a>
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Tên Hãng</th>
+            <th>Hình Ảnh</th>
+            <th>Thao Tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Any())
+        {
+            int index = 1;
+            foreach (var hang in Model)
+            {
+                <tr>
+                    <td>@index</td>
+                    <td>@hang.tenhang</td>
+                    <td>
+                        @if (!string.IsNullOrEmpty(hang.hinh))
+                        {
+                            <img src="~/Content/images/@hang.hinh" alt="@hang.tenhang" style="max-height: 100px;" />
+                        }
+                        else
+                        {
+                            <span>Không có hình</span>
+                        }
+                    </td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@hang.mahang" class="btn btn-info btn-sm">Chi tiết</a>
+                        <a asp-action="Edit" asp-route-id="@hang.mahang" class="btn btn-warning btn-sm">Sửa</a>
+                        <a asp-action="Delete" asp-route-id="@hang.mahang" class="btn btn-danger btn-sm">Xóa</a>
+                    </td>
+                </tr>
+                index++;
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="4" class="text-center">Không có hãng nào để hiển thị.</td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1737,6 +1737,10 @@
       "PackagePath": "staticwebassets\\img\\msi-logo.png"
     },
     {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\img\\no-image.png",
+      "PackagePath": "staticwebassets\\img\\no-image.png"
+    },
+    {
       "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\img\\partner-4.png",
       "PackagePath": "staticwebassets\\img\\partner-4.png"
     },

@@ -1,0 +1,108 @@
+﻿@model shop_hubLaps.Models.TinTuc
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Tạo Tin Tức";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+}
+
+<form asp-action="Create" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="tieude" class="control-label"></label>
+        <input asp-for="tieude" class="form-control" />
+        <span asp-validation-for="tieude" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="tomtat" class="control-label"></label>
+        <input asp-for="tomtat" class="form-control" />
+        <span asp-validation-for="tomtat" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="slug" class="control-label"></label>
+        <input asp-for="slug" class="form-control" />
+        <span asp-validation-for="slug" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="machude" class="control-label"></label>
+        <select asp-for="machude" class="form-control" asp-items="ViewBag.ChuDeList">
+            <option value="">-- Chọn chủ đề --</option>
+        </select>
+        <span asp-validation-for="machude" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="noidung" class="control-label"></label>
+        <textarea asp-for="noidung" class="form-control"></textarea>
+        <span asp-validation-for="noidung" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="hinhnen" class="control-label"></label>
+        <input type="file" asp-for="hinhnen" class="form-control" />
+        <span asp-validation-for="hinhnen" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Tạo mới</button>
+</form>
+
+
+
+@* @section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        document.getElementById("createForm").onsubmit = function(event) {
+            // Kiểm tra lỗi phía client
+            let hasErrors = false;
+            let errorMessages = [];
+
+            // Kiểm tra nếu trường 'tieude' trống
+            let tieude = document.querySelector("input[name='tieude']");
+            if (!tieude.value) {
+                hasErrors = true;
+                errorMessages.push("Tiêu đề không được để trống.");
+            }
+
+            // Kiểm tra nếu trường 'tomtat' trống
+            let tomtat = document.querySelector("input[name='tomtat']");
+            if (!tomtat.value) {
+                hasErrors = true;
+                errorMessages.push("Tóm tắt không được để trống.");
+            }
+
+            // Kiểm tra nếu trường 'noidung' trống
+            let noidung = document.querySelector("textarea[name='noidung']");
+            if (!noidung.value) {
+                hasErrors = true;
+                errorMessages.push("Nội dung không được để trống.");
+            }
+
+            // Kiểm tra nếu hình ảnh không hợp lệ
+            let hinhnen = document.querySelector("input[name='hinhnen']");
+            if (hinhnen.files.length > 0) {
+                let file = hinhnen.files[0];
+                let validExtensions = [".jpg", ".jpeg", ".png", ".gif"];
+                let fileExtension = file.name.split('.').pop().toLowerCase();
+                if (!validExtensions.includes(fileExtension)) {
+                    hasErrors = true;
+                    errorMessages.push("Định dạng hình ảnh không hợp lệ. Hỗ trợ: .jpg, .jpeg, .png, .gif.");
+                }
+            }
+
+            // Nếu có lỗi, hiển thị thông báo và ngừng gửi form
+            if (hasErrors) {
+                event.preventDefault(); // Ngừng gửi form
+                alert("Có lỗi xảy ra:\n" + errorMessages.join("\n"));
+            }
+        };
+    </script>
+} *@

@@ -36,6 +36,13 @@ namespace shop_hubLaps.Models
             modelBuilder.Entity<DonHang>()
                 .HasKey(d => d.madon);
 
+            // Cấu hình mối quan hệ giữa TinTuc và ChuDe
+            modelBuilder.Entity<TinTuc>()
+                .HasOne(t => t.ChuDe)
+                .WithMany(c => c.TinTucs)
+                .HasForeignKey(t => t.machude)
+                .OnDelete(DeleteBehavior.SetNull); // Hoặc một hành vi khác như Cascade
+
             // Cấu hình khóa chính composite cho ChiTietDonHang
             modelBuilder.Entity<ChiTietDonHang>()
                 .HasKey(c => new { c.madon, c.malaptop });

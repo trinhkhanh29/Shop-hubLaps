@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "jILQ1rXbSn3PeLG9QaTue0QCzNI7wDaTUJD7n7MIQDk=",
+  "Hash": "3OA73iBCVVVqiH9I9IPTzNyPPJizgZTszDQ3xQVyjE4=",
   "Source": "shop-hubLaps",
   "BasePath": "_content/shop-hubLaps",
   "Mode": "Default",
@@ -2411,6 +2411,25 @@
       "OriginalItemSpec": "wwwroot\\Content\\images\\720-220-720x220-257.png"
     },
     {
+      "Identity": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\Content\\images\\7b2b6659-09d3-4a69-963c-0207c26eca1f.jpg",
+      "SourceId": "shop-hubLaps",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\",
+      "BasePath": "_content/shop-hubLaps",
+      "RelativePath": "Content/images/7b2b6659-09d3-4a69-963c-0207c26eca1f.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Content\\images\\7b2b6659-09d3-4a69-963c-0207c26eca1f.jpg"
+    },
+    {
       "Identity": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\Content\\images\\acer.png",
       "SourceId": "shop-hubLaps",
       "SourceType": "Discovered",
@@ -3530,25 +3549,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Content\\images\\khoitaodonhang.png"
-    },
-    {
-      "Identity": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\Content\\images\\Lap trinh Tren Moi Truong Windows - Danh gia hoc phan.docx",
-      "SourceId": "shop-hubLaps",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\",
-      "BasePath": "_content/shop-hubLaps",
-      "RelativePath": "Content/images/Lap trinh Tren Moi Truong Windows - Danh gia hoc phan.docx",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Content\\images\\Lap trinh Tren Moi Truong Windows - Danh gia hoc phan.docx"
     },
     {
       "Identity": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\Content\\images\\laptop-(1).jpg",
@@ -5335,6 +5335,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Content\\webfonts\\fa-solid-900.woff2"
+    },
+    {
+      "Identity": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\css\\Alert-Notifications.css",
+      "SourceId": "shop-hubLaps",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\",
+      "BasePath": "_content/shop-hubLaps",
+      "RelativePath": "css/Alert-Notifications.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Alert-Notifications.css"
     },
     {
       "Identity": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\css\\index-dashboard.css",
@@ -9401,6 +9420,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\msi-logo.png"
+    },
+    {
+      "Identity": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\img\\no-image.png",
+      "SourceId": "shop-hubLaps",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\",
+      "BasePath": "_content/shop-hubLaps",
+      "RelativePath": "img/no-image.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\no-image.png"
     },
     {
       "Identity": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\img\\partner-4.png",

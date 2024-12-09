@@ -22,11 +22,14 @@
                         <td>@item.machude</td>
                         <td>@item.tenchude</td>
                         <td>
-                            <img src="@Url.Content("~/Content/images/" + item.hinh)" alt="@item.tenchude" style="width: 50px; height: 50px;" />
+                            <img src="@Url.Content(string.IsNullOrEmpty(item.hinh) ? "~/img/no-image.png" : "~/Content/images/" + item.hinh)"
+                                 alt="@item.tenchude"
+                                 style="width: 70px; height: 50px;"
+                                 class="image-preview" />
                         </td>
                         <td>
                             <a href="@Url.Action("Edit", "ChuDe", new { id = item.machude })" class="btn btn-primary btn-sm">Sửa</a>
-                            <a href="@Url.Action("Delete", "ChuDe", new { id = item.machude })" class="btn btn-danger btn-sm">Xóa</a>
+                            <a href="@Url.Action("Delete", "ChuDe", new { id = item.machude })" class="btn btn-danger btn-sm delete-btn" data-id="@item.machude">Xóa</a>
                         </td>
                     </tr>
                 }
@@ -34,6 +37,15 @@
         </table>
     </div>
 </div>
+
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+    <script>
+        $(document).ready(function () {
+            // Ensure default image if the actual image is not found
+            $(".image-preview").on("error", function () {
+                $(this).attr("src", "~/img/no-image.png");
+            });
+        });
+    </script>
 }

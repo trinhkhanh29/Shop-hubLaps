@@ -214,6 +214,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9uSGFuZ1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/PC/source/repos/DO-AN-2024/Shop-hubLaps/shop-hubLaps/Views/Hang/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGFuZ1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/source/repos/DO-AN-2024/Shop-hubLaps/shop-hubLaps/Views/Hang/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGFuZ1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/source/repos/DO-AN-2024/Shop-hubLaps/shop-hubLaps/Views/Hang/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGFuZ1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/source/repos/DO-AN-2024/Shop-hubLaps/shop-hubLaps/Views/Hang/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGFuZ1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/source/repos/DO-AN-2024/Shop-hubLaps/shop-hubLaps/Views/Hang/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGFuZ1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/PC/source/repos/DO-AN-2024/Shop-hubLaps/shop-hubLaps/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -240,6 +260,22 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/PC/source/repos/DO-AN-2024/Shop-hubLaps/shop-hubLaps/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/source/repos/DO-AN-2024/Shop-hubLaps/shop-hubLaps/Views/TinTuc/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGluVHVjXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/source/repos/DO-AN-2024/Shop-hubLaps/shop-hubLaps/Views/TinTuc/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGluVHVjXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/source/repos/DO-AN-2024/Shop-hubLaps/shop-hubLaps/Views/TinTuc/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGluVHVjXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/source/repos/DO-AN-2024/Shop-hubLaps/shop-hubLaps/Views/TinTuc/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGluVHVjXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/PC/source/repos/DO-AN-2024/Shop-hubLaps/shop-hubLaps/Views/_ViewImports.cshtml]

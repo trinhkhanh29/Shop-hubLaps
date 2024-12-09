@@ -1,0 +1,29 @@
+﻿@model shop_hubLaps.Models.Hang
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Thêm mới Hãng";
+}
+
+<h1>Thêm mới Hãng</h1>
+
+<form asp-action="Create" enctype="multipart/form-data" method="post">
+    <div class="form-group">
+        <label asp-for="tenhang" class="control-label">Tên Hãng</label>
+        <input asp-for="tenhang" class="form-control" />
+        <span asp-validation-for="tenhang" class="text-danger"></span> 
+    </div>
+    <div class="form-group">
+        <label for="hinh">Hình ảnh</label>
+        <input type="file" class="form-control" id="hinh" name="hinh" />
+        <span asp-validation-for="hinh" class="text-danger"></span>
+
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+    <a asp-action="Index" class="btn btn-secondary ml-2">Back to List</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

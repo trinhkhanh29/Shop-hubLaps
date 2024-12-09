@@ -18,6 +18,7 @@ namespace shop_hubLaps.Models
         [Key]
         public int mahang { get; set; }
 
+
         // Tên hàng
         [Required]
         [StringLength(30)]
@@ -25,7 +26,7 @@ namespace shop_hubLaps.Models
 
         // Hình ảnh
         [StringLength(70)]
-        public string hinh { get; set; }
+        public string? hinh { get; set; }
 
         // Bộ sưu tập laptop
         public virtual ICollection<Laptop> Laptops { get; set; }

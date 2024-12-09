@@ -1,0 +1,18 @@
+﻿@model shop_hubLaps.Models.TinTuc
+
+@{
+    ViewData["Title"] = "Xóa Tin Tức";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<h3>Bạn có chắc chắn muốn xóa tin tức này không?</h3>
+<p>
+    <strong>@Model.tieude</strong>
+</p>
+
+<form asp-action="DeleteConfirmed" method="post">
+    <input type="hidden" asp-for="matin" />
+    <button type="submit" class="btn btn-danger">Xóa</button>
+    <a href="@Url.Action("Index")" class="btn btn-secondary">Hủy</a>
+</form>

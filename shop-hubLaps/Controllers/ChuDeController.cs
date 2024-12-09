@@ -36,6 +36,8 @@ namespace shop_hubLaps.Controllers
             return View(chuDe);
         }
 
+        /************************************/
+
         // Form tạo mới chủ đề
         public IActionResult Create()
         {
@@ -64,6 +66,8 @@ namespace shop_hubLaps.Controllers
             return View(chuDe);
         }
 
+        /************************************/
+
         // Form sửa chủ đề
         public async Task<IActionResult> Edit(int? id)
         {
@@ -77,106 +81,63 @@ namespace shop_hubLaps.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("machude,tenchude,slug,hinh")] ChuDe chuDe, IFormFile? newHinh)
+        public async Task<IActionResult> Edit(int id, [Bind("machude,tenchude,slug")] ChuDe chuDe, IFormFile? newHinh)
         {
-            // Kiểm tra nếu id không khớp với đối tượng chuDe
             if (id != chuDe.machude)
                 return NotFound();
 
             if (ModelState.IsValid)
             {
-                // Tìm chuDe cũ trong DB
-                var existingChuDe = await _context.ChuDes.FindAsync(id);
-
+                // Retrieve the existing entity from the database
+                var existingChuDe = await _context.ChuDes.AsNoTracking().FirstOrDefaultAsync(x => x.machude == id);
                 if (existingChuDe == null)
                     return NotFound();
 
-                // Kiểm tra và thay thế hình ảnh nếu có hình mới
+                // Preserve the existing image if no new image is uploaded
+                chuDe.hinh = existingChuDe.hinh;
+
+                // Replace the image if a new one is uploaded
                 if (newHinh != null && IsValidImage(newHinh))
                 {
-                    // Xóa hình ảnh cũ
-                    DeleteImage(existingChuDe.hinh);
+                    // Delete the old image file if it exists
+                    if (!string.IsNullOrEmpty(existingChuDe.hinh))
+                    {
+                        DeleteImage(existingChuDe.hinh);
+                    }
 
-                    // Lưu hình ảnh mới và cập nhật tên hình ảnh
-                    string newFileName = await SaveImage(newHinh);
-                    existingChuDe.hinh = newFileName;
+                    // Save the new image and update the property
+                    chuDe.hinh = await SaveImage(newHinh);
                 }
-
-                // Cập nhật các trường khác (tenchude, slug)
-                existingChuDe.tenchude = chuDe.tenchude;
-                existingChuDe.slug = chuDe.slug;
-
-                // Đảm bảo entity được đánh dấu là đã thay đổi
-                _context.Entry(existingChuDe).State = EntityState.Modified;
-
-                // Log chi tiết về đối tượng sẽ được cập nhật
-                Console.WriteLine($"ChuDe Update: {existingChuDe.machude}, {existingChuDe.tenchude}, {existingChuDe.slug}");
 
                 try
                 {
-                    // Lưu thay đổi vào cơ sở dữ liệu
+                    // Update the entity in the database
+                    _context.Entry(chuDe).State = EntityState.Modified;
                     await _context.SaveChangesAsync();
 
-                    // Thông báo thành công
                     TempData["SuccessMessage"] = "Chủ đề đã được chỉnh sửa thành công!";
                     return RedirectToAction(nameof(Index));
                 }
-                catch (DbUpdateConcurrencyException ex)
+                catch (DbUpdateConcurrencyException)
                 {
-                    // Ghi lại lỗi trong quá trình cập nhật cơ sở dữ liệu
-                    Console.WriteLine("Error: " + ex.Message);
-                    TempData["ErrorMessage"] = "Đã có lỗi xảy ra khi cập nhật dữ liệu. Vui lòng thử lại.";
-                    return View(chuDe);
+                    if (!ChuDeExists(chuDe.machude))
+                        return NotFound();
+                    else
+                        throw;
                 }
             }
 
-            // Nếu có lỗi trong model binding
+            // Log validation errors for debugging
             Console.WriteLine("ModelState is invalid: " + string.Join(", ", ModelState.Values.SelectMany(v => v.Errors.Select(e => e.ErrorMessage))));
+
+            TempData["ErrorMessage"] = "Đã xảy ra lỗi trong quá trình cập nhật. Vui lòng kiểm tra lại!";
             return View(chuDe);
         }
 
-
-        // Xác nhận xóa chủ đề
-        public async Task<IActionResult> Delete(int? id)
+        // Utility method to check if an entity exists
+        private bool ChuDeExists(int id)
         {
-            if (id == null) return NotFound();
-
-            var chuDe = await _context.ChuDes.FirstOrDefaultAsync(m => m.machude == id);
-            if (chuDe == null) return NotFound();
-
-            return View(chuDe);
-        }
-
-        // Thực hiện xóa chủ đề
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var chuDe = await _context.ChuDes.FindAsync(id);
-            if (chuDe != null)
-            {
-                try
-                {
-                    // Xóa hình ảnh nếu có
-                    DeleteImage(chuDe.hinh);
-
-                    // Xóa đối tượng chủ đề trong DB
-                    _context.ChuDes.Remove(chuDe);
-                    await _context.SaveChangesAsync();
-
-                    TempData["SuccessMessage"] = "Chủ đề đã được xóa thành công!";
-                    return Json(new { success = true, message = "Item deleted successfully!" });
-                }
-                catch (Exception ex)
-                {
-                    // Log exception
-                    Console.WriteLine($"Error deleting item: {ex.Message}");
-                    TempData["ErrorMessage"] = "Đã có lỗi xảy ra khi xóa chủ đề. Vui lòng thử lại.";
-                    return Json(new { success = false, message = "An error occurred while deleting the item." });
-                }
-            }
-
-            return Json(new { success = false, message = "Item not found!" });
+            return _context.ChuDes.Any(e => e.machude == id);
         }
 
 
@@ -198,26 +159,89 @@ namespace shop_hubLaps.Controllers
 
             return fileName;
         }
+
+        /************************************/
+
+        // Xác nhận xóa chủ đề
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null) return NotFound();
+
+            var chuDe = await _context.ChuDes.FirstOrDefaultAsync(m => m.machude == id);
+            if (chuDe == null) return NotFound();
+
+            return View(chuDe);
+        }
+
+        // Thực hiện xóa chủ đề
+        // POST: Administrator/ChuDe/Delete/5
+        [HttpPost]
+        [ActionName("DeleteConfirmed")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var chuDe = await _context.ChuDes.FindAsync(id);
+            if (chuDe == null)
+            {
+                TempData["ErrorMessage"] = "Chủ đề không tồn tại!";
+                return RedirectToAction(nameof(Index));
+            }
+
+            try
+            {
+                // Xóa hình ảnh nếu tồn tại
+                if (!string.IsNullOrEmpty(chuDe.hinh))
+                {
+                    DeleteImage(chuDe.hinh);
+                }
+
+                // Xóa chủ đề khỏi cơ sở dữ liệu
+                _context.ChuDes.Remove(chuDe);
+                await _context.SaveChangesAsync();
+
+                TempData["SuccessMessage"] = "Chủ đề đã được xóa thành công!";
+            }
+            catch (DbUpdateException ex)
+            {
+                Console.WriteLine($"Lỗi xóa chủ đề: {ex.Message}");
+                TempData["ErrorMessage"] = "Không thể xóa chủ đề vì nó đang được liên kết trong hệ thống!";
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Lỗi không xác định: {ex.Message}");
+                TempData["ErrorMessage"] = "Đã xảy ra lỗi không xác định. Vui lòng thử lại!";
+            }
+
+            return RedirectToAction(nameof(Index));
+        }
+
         // Xóa hình ảnh
         private void DeleteImage(string? imageName)
         {
             if (!string.IsNullOrEmpty(imageName))
             {
                 string filePath = Path.Combine(_imageFolder, imageName);
-                Console.WriteLine($"Attempting to delete image at: {filePath}");
-
                 if (System.IO.File.Exists(filePath))
                 {
-                    System.IO.File.Delete(filePath);
-                    Console.WriteLine($"Image {imageName} deleted.");
+                    try
+                    {
+                        System.IO.File.Delete(filePath);
+                        Console.WriteLine($"Đã xóa hình ảnh: {filePath}");
+                    }
+                    catch (IOException ex)
+                    {
+                        Console.WriteLine($"Không thể xóa hình ảnh: {ex.Message}");
+                    }
                 }
                 else
                 {
-                    Console.WriteLine($"Image {imageName} not found at {filePath}.");
+                    Console.WriteLine("Hình ảnh không tồn tại tại đường dẫn: " + filePath);
                 }
             }
         }
 
+
+        /************************************/
 
         // Đảm bảo thư mục chứa hình ảnh tồn tại
         private void EnsureImageFolderExists()

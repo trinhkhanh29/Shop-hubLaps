@@ -14,13 +14,6 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation-unobtrusive@3.2.12/dist/jquery.validate.unobtrusive.min.js"></script>
 }
 
-@if (TempData["SuccessMessage"] != null)
-{
-    <div class="alert alert-success">
-        @TempData["SuccessMessage"]
-    </div>
-}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,8 +27,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="~/css/Dashboard.css" asp-append-version="true">
     <link href="~/css_chude/_adminlayout.css" rel="stylesheet" />
+    <link href="~/css/alert-notifications.css" rel="stylesheet" />
+
+    <style>
+        @@media (max-width: 990px) {
+    .sidebar {
+        width: 100%;
+        height: 90%;
+        position: relative;
+        min-width: unset;
+    }
+    .bg-light{
+        background-color: #f8f8f8;
+    } 
+    </style>
 </head>
 
 <body>
@@ -65,17 +71,33 @@
                     <div class="collapse submenu" id="productMenu">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a href="@Url.Action("Index", "Product")" class="nav-link">- Danh sách sản phẩm</a>
+                                <a href="@Url.Action("Index", "Product")" class="nav-link">Danh sách sản phẩm</a>
                             </li>
                             <li class="nav-item">
-                                <a href="@Url.Action("Create", "Product")" class="nav-link">- Thêm sản phẩm mới</a>
+                                <a href="@Url.Action("Create", "Product")" class="nav-link">Thêm sản phẩm mới</a>
                             </li>
                             <li class="nav-item">
-                                <a href="@Url.Action("Categories", "Product")" class="nav-link">- Quản lý danh mục</a>
+                                <a href="@Url.Action("Index", "Hang")" class="nav-link">Hãng Laptop</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="@Url.Action("Index", "NhuCau")" class="nav-link">Nhu cầu</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="@Url.Action("Index", "DanhGia")" class="nav-link">Đánh giá</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="@Url.Action("Index", "MetaLaptop")" class="nav-link">Meta Laptop</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="@Url.Action("Edit", "Product")" class="nav-link">Sửa sản phẩm</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="@Url.Action("Delete", "Product")" class="nav-link">Xóa sản phẩm</a>
                             </li>
                         </ul>
                     </div>
                 </li>
+
                 <!-- Quản lý chủ đề -->
                 <li class="nav-item menu-item menu-accordion">
                     <a class="nav-link d-flex align-items-center" data-bs-toggle="collapse" href="#chuDeMenu" role="button" aria-expanded="false">
@@ -85,10 +107,10 @@
                     <div class="collapse submenu" id="chuDeMenu">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a href="@Url.Action("Index", "ChuDe")" class="nav-link">- Danh sách chủ đề</a>
+                                <a href="@Url.Action("Index", "ChuDe")" class="nav-link">Danh sách chủ đề</a>
                             </li>
                             <li class="nav-item">
-                                <a href="@Url.Action("Create", "ChuDe")" class="nav-link">- Thêm chủ đề mới</a>
+                                <a href="@Url.Action("Create", "ChuDe")" class="nav-link">Thêm chủ đề mới</a>
                             </li>                
                         </ul>
                     </div>
@@ -113,10 +135,10 @@
                     <div class="collapse submenu" id="adsMenu">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a href="@Url.Action("Index", "Ads")" class="nav-link">- Danh sách quảng cáo</a>
+                                <a href="@Url.Action("Index", "Ads")" class="nav-link">Danh sách quảng cáo</a>
                             </li>
                             <li class="nav-item">
-                                <a href="@Url.Action("Create", "Ads")" class="nav-link">- Thêm quảng cáo</a>
+                                <a href="@Url.Action("Create", "Ads")" class="nav-link">Thêm quảng cáo</a>
                             </li>
                         </ul>
                     </div>
@@ -136,14 +158,32 @@
                     <div class="collapse submenu" id="blogMenu">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a href="@Url.Action("Index", "Posts")" class="nav-link">- Danh sách bài viết</a>
+                                <a href="@Url.Action("Index", "Posts")" class="nav-link">Danh sách bài viết</a>
                             </li>
                             <li class="nav-item">
-                                <a href="@Url.Action("Create", "Posts")" class="nav-link">- Thêm bài viết</a>
+                                <a href="@Url.Action("Create", "Posts")" class="nav-link">Thêm bài viết</a>
                             </li>
                         </ul>
                     </div>
                 </li>
+                <!-- Quản lý tin tức -->
+                <li class="nav-item menu-item menu-accordion">
+                    <a class="nav-link d-flex align-items-center" data-bs-toggle="collapse" href="#newsMenu" role="button" aria-expanded="false">
+                        <i class="fas fa-newspaper"></i> <span>Tin Tức</span>
+                        <i class="fas fa-chevron-right ms-auto"></i>
+                    </a>
+                    <div class="collapse submenu" id="newsMenu">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a href="@Url.Action("Index", "TinTuc")" class="nav-link">Danh sách tin tức</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="@Url.Action("Create", "TinTuc")" class="nav-link">Thêm tin tức</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
                 <!-- Quản lý bình luận -->
                 <li class="nav-item">
                     <a class="nav-link" href="@Url.Action("Index", "Comments")">
@@ -193,16 +233,16 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script>
-      document.addEventListener('DOMContentLoaded', function () {
-    const toggleButton = document.querySelector('.toggle-menu');
-    const sidebar = document.getElementById('sidebar');
-    const content = document.querySelector('.content');
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggleButton = document.querySelector('.toggle-menu');
+            const sidebar = document.getElementById('sidebar');
+            const content = document.querySelector('.content');
 
-    // Toggle sidebar visibility
-    toggleButton.addEventListener('click', function () {
-        sidebar.classList.toggle('hidden');
-        content.classList.toggle('expanded');
-    });
+            // Toggle sidebar visibility
+            toggleButton.addEventListener('click', function () {
+                sidebar.classList.toggle('hidden');
+                content.classList.toggle('expanded');
+            });
             document.addEventListener('DOMContentLoaded', function () {
                 const accordionLinks = document.querySelectorAll('.menu-item.menu-accordion .nav-link');
                 accordionLinks.forEach(link => {
@@ -219,8 +259,51 @@
                 });
             });
         });
+        document.addEventListener("DOMContentLoaded", function () {
+            const showMessage = (message, type = "success") => {
+                let container = document.querySelector(".message-container");
+                if (!container) {
+                    container = document.createElement("div");
+                    container.className = "message-container";
+                    document.body.appendChild(container);
+                }
 
+                const messageBox = document.createElement("div");
+                messageBox.className = `message-box message-box-${type}`;
+                messageBox.innerHTML = `
+                        <i class="fa ${type === "success" ? "fa-check" : "fa-ban"} fa-2x"></i>
+                        <span class="message-text"><strong>${type.charAt(0).toUpperCase() + type.slice(1)}:</strong> ${message}</span>
+                        <i class="fa fa-times fa-2x exit-button"></i>
+                    `;
 
+                messageBox.querySelector(".exit-button").addEventListener("click", function () {
+                    messageBox.remove();
+                });
+
+                container.appendChild(messageBox);
+
+                setTimeout(() => {
+                    messageBox.remove();
+                }, 5000);
+            };
+
+       // Hiển thị lỗi từ TempData nếu có
+        @if (TempData["SuccessMessage"] != null)
+        {
+            @:showMessage("@TempData["SuccessMessage"]", "success");
+        }
+
+        @if (TempData["ErrorMessage"] != null)
+        {
+            @:showMessage("@TempData["ErrorMessage"]", "error");
+        }
+
+        // Hiển thị thông báo lỗi chi tiết từ ModelState (nếu có)
+        @if (TempData["ValidationErrors"] != null)
+        {
+            @:showMessage("@TempData["ValidationErrors"]", "error");
+        }
+              });
     </script>
     @RenderSection("Scripts", required: false)
 
