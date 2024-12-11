@@ -1,0 +1,463 @@
+2024-12-12 00:15:43.957 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/Identity/Account/Manage - null null
+2024-12-12 00:15:43.983 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /Identity/Account/Manage, Method: GET, QueryString: , Timestamp: "2024-12-11T17:15:43.9835388Z"
+2024-12-12 00:15:44.574 +07:00 [INF] Executed DbCommand (60ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[Avatar], [a].[ConcurrencyStamp], [a].[DiaChi], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NgaySinh], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[Profile], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+2024-12-12 00:15:44.714 +07:00 [INF] Executed DbCommand (62ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+2024-12-12 00:15:44.861 +07:00 [INF] Executed DbCommand (74ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2024-12-12 00:15:44.932 +07:00 [INF] Executed DbCommand (58ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2024-12-12 00:15:45.013 +07:00 [INF] Executed DbCommand (59ms) [Parameters=[@__role_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0
+2024-12-12 00:15:45.022 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /Identity/Account/Manage, Method: GET, QueryString: , Timestamp: "2024-12-11T17:15:45.0221045Z"
+2024-12-12 00:15:45.025 +07:00 [INF] Executing endpoint '/Account/Manage/Index'
+2024-12-12 00:15:45.038 +07:00 [INF] Route matched with {page = "/Account/Manage/Index", area = "Identity", action = "", controller = ""}. Executing page /Account/Manage/Index
+2024-12-12 00:15:45.049 +07:00 [INF] Executing handler method shop_hubLaps.Areas.Identity.Pages.Account.Manage.IndexModel.OnGetAsync - ModelState is "Valid"
+2024-12-12 00:15:45.054 +07:00 [INF] Executed handler method OnGetAsync, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2024-12-12 00:15:45.128 +07:00 [INF] Executed page /Account/Manage/Index in 88.3531ms
+2024-12-12 00:15:45.130 +07:00 [INF] Executed endpoint '/Account/Manage/Index'
+2024-12-12 00:15:45.132 +07:00 [INF] Request completed - User: admin@example.com, Path: /Identity/Account/Manage, Method: GET, QueryString: , Timestamp: "2024-12-11T17:15:45.0221045Z"
+2024-12-12 00:15:45.136 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/lib/bootstrap/css/bootstrap.min.css - null null
+2024-12-12 00:15:45.135 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/lib/bootstrap/js/bootstrap.bundle.min.js - null null
+2024-12-12 00:15:45.135 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/shop_hubLaps.styles.css - null null
+2024-12-12 00:15:45.175 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:15:45.1751913Z"
+2024-12-12 00:15:45.154 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-12 00:15:45.158 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/content/css/style-footer.css - null null
+2024-12-12 00:15:45.167 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /lib/bootstrap/css/bootstrap.min.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:15:45.1675767Z"
+2024-12-12 00:15:45.163 +07:00 [INF] Request completed - User: Anonymous, Path: /Identity/Account/Manage, Method: GET, QueryString: , Timestamp: "2024-12-11T17:15:43.9835388Z"
+2024-12-12 00:15:45.170 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /lib/bootstrap/js/bootstrap.bundle.min.js, Method: GET, QueryString: , Timestamp: "2024-12-11T17:15:45.1700544Z"
+2024-12-12 00:15:45.181 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:15:45.1812784Z"
+2024-12-12 00:15:45.135 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/css/site.css?v=h_g2o6-DCDUNZnE6Ao8a0QOZIQfa_rN6yI0uEnmFuig - null null
+2024-12-12 00:15:45.163 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/_vs/browserLink - null null
+2024-12-12 00:15:45.183 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 29.0601ms
+2024-12-12 00:15:45.190 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /lib/bootstrap/css/bootstrap.min.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:15:45.1905242Z"
+2024-12-12 00:15:45.192 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/Identity/Account/Manage - 200 null text/html; charset=utf-8 1234.564ms
+2024-12-12 00:15:45.195 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /lib/bootstrap/js/bootstrap.bundle.min.js, Method: GET, QueryString: , Timestamp: "2024-12-11T17:15:45.1958127Z"
+2024-12-12 00:15:45.198 +07:00 [INF] Request completed - User: admin@example.com, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:15:45.1812784Z"
+2024-12-12 00:15:45.201 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /css/site.css, Method: GET, QueryString: ?v=h_g2o6-DCDUNZnE6Ao8a0QOZIQfa_rN6yI0uEnmFuig, Timestamp: "2024-12-11T17:15:45.2010862Z"
+2024-12-12 00:15:45.186 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /content/css/style-footer.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:15:45.1862679Z"
+2024-12-12 00:15:45.218 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/_vs/browserLink - 200 null text/javascript; charset=UTF-8 55.0156ms
+2024-12-12 00:15:45.218 +07:00 [INF] Request completed - User: admin@example.com, Path: /lib/bootstrap/css/bootstrap.min.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:15:45.1905242Z"
+2024-12-12 00:15:45.224 +07:00 [INF] Request completed - User: admin@example.com, Path: /lib/bootstrap/js/bootstrap.bundle.min.js, Method: GET, QueryString: , Timestamp: "2024-12-11T17:15:45.1958127Z"
+2024-12-12 00:15:45.239 +07:00 [INF] Request completed - User: Anonymous, Path: /lib/bootstrap/css/bootstrap.min.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:15:45.1675767Z"
+2024-12-12 00:15:45.227 +07:00 [INF] Request completed - User: Anonymous, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:15:45.1751913Z"
+2024-12-12 00:15:45.231 +07:00 [INF] The file /css/site.css was not modified
+2024-12-12 00:15:45.242 +07:00 [INF] Request completed - User: Anonymous, Path: /lib/bootstrap/js/bootstrap.bundle.min.js, Method: GET, QueryString: , Timestamp: "2024-12-11T17:15:45.1700544Z"
+2024-12-12 00:15:45.242 +07:00 [INF] Sending file. Request path: '/content/css/style-footer.css'. Physical path: 'C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\wwwroot\Content\css\style-footer.css'
+2024-12-12 00:15:45.244 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/lib/bootstrap/css/bootstrap.min.css - 404 0 null 108.0287ms
+2024-12-12 00:15:45.246 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/shop_hubLaps.styles.css - 404 0 null 111.1239ms
+2024-12-12 00:15:45.247 +07:00 [INF] Request completed - User: Anonymous, Path: /css/site.css, Method: GET, QueryString: ?v=h_g2o6-DCDUNZnE6Ao8a0QOZIQfa_rN6yI0uEnmFuig, Timestamp: "2024-12-11T17:15:45.2010862Z"
+2024-12-12 00:15:45.260 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/css/site.css?v=h_g2o6-DCDUNZnE6Ao8a0QOZIQfa_rN6yI0uEnmFuig - 304 null text/css 124.3311ms
+2024-12-12 00:15:45.251 +07:00 [INF] Request completed - User: Anonymous, Path: /content/css/style-footer.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:15:45.1862679Z"
+2024-12-12 00:15:45.254 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7068/lib/bootstrap/css/bootstrap.min.css, Response status code: 404
+2024-12-12 00:15:45.258 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7068/shop_hubLaps.styles.css, Response status code: 404
+2024-12-12 00:15:45.249 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/lib/bootstrap/js/bootstrap.bundle.min.js - 404 0 null 113.8949ms
+2024-12-12 00:15:45.266 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/content/css/style-footer.css - 200 224080 text/css 109.8756ms
+2024-12-12 00:15:45.275 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7068/lib/bootstrap/js/bootstrap.bundle.min.js, Response status code: 404
+2024-12-12 00:15:45.320 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/shop_hubLaps.styles.css - null null
+2024-12-12 00:15:45.326 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:15:45.3263231Z"
+2024-12-12 00:15:45.332 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:15:45.3319295Z"
+2024-12-12 00:15:45.335 +07:00 [INF] Request completed - User: admin@example.com, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:15:45.3319295Z"
+2024-12-12 00:15:45.339 +07:00 [INF] Request completed - User: Anonymous, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:15:45.3263231Z"
+2024-12-12 00:15:45.342 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/shop_hubLaps.styles.css - 404 0 null 21.9188ms
+2024-12-12 00:15:45.352 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7068/shop_hubLaps.styles.css, Response status code: 404
+2024-12-12 00:15:45.511 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/font/Lexend/static/Lexend-Regular.ttf - null null
+2024-12-12 00:15:45.515 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /font/Lexend/static/Lexend-Regular.ttf, Method: GET, QueryString: , Timestamp: "2024-12-11T17:15:45.5157980Z"
+2024-12-12 00:15:45.519 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /font/Lexend/static/Lexend-Regular.ttf, Method: GET, QueryString: , Timestamp: "2024-12-11T17:15:45.5194285Z"
+2024-12-12 00:15:45.522 +07:00 [INF] Request completed - User: admin@example.com, Path: /font/Lexend/static/Lexend-Regular.ttf, Method: GET, QueryString: , Timestamp: "2024-12-11T17:15:45.5194285Z"
+2024-12-12 00:15:45.525 +07:00 [INF] Request completed - User: Anonymous, Path: /font/Lexend/static/Lexend-Regular.ttf, Method: GET, QueryString: , Timestamp: "2024-12-11T17:15:45.5157980Z"
+2024-12-12 00:15:45.528 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/font/Lexend/static/Lexend-Regular.ttf - 404 0 null 16.9133ms
+2024-12-12 00:15:45.532 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7068/font/Lexend/static/Lexend-Regular.ttf, Response status code: 404
+2024-12-12 00:15:54.672 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/Home - null null
+2024-12-12 00:15:54.679 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /Home, Method: GET, QueryString: , Timestamp: "2024-12-11T17:15:54.6792515Z"
+2024-12-12 00:15:54.682 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /Home, Method: GET, QueryString: , Timestamp: "2024-12-11T17:15:54.6826453Z"
+2024-12-12 00:15:54.685 +07:00 [INF] Executing endpoint 'shop_hubLaps.Controllers.HomeController.Index (shop-hubLaps)'
+2024-12-12 00:15:54.687 +07:00 [INF] Route matched with {action = "Index", controller = "Home", page = "", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller shop_hubLaps.Controllers.HomeController (shop-hubLaps).
+2024-12-12 00:15:54.690 +07:00 [INF] Executing ViewResult, running view Index.
+2024-12-12 00:15:54.757 +07:00 [INF] Executed DbCommand (64ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[Avatar], [a].[ConcurrencyStamp], [a].[DiaChi], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NgaySinh], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[Profile], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+2024-12-12 00:15:54.763 +07:00 [INF] Executed ViewResult - view Index executed in 74.2861ms.
+2024-12-12 00:15:54.766 +07:00 [INF] Executed action shop_hubLaps.Controllers.HomeController.Index (shop-hubLaps) in 76.5971ms
+2024-12-12 00:15:54.768 +07:00 [INF] Executed endpoint 'shop_hubLaps.Controllers.HomeController.Index (shop-hubLaps)'
+2024-12-12 00:15:54.769 +07:00 [INF] Request completed - User: admin@example.com, Path: /Home, Method: GET, QueryString: , Timestamp: "2024-12-11T17:15:54.6826453Z"
+2024-12-12 00:15:54.775 +07:00 [INF] Request completed - User: Anonymous, Path: /Home, Method: GET, QueryString: , Timestamp: "2024-12-11T17:15:54.6792515Z"
+2024-12-12 00:15:54.778 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/Home - 200 null text/html; charset=utf-8 105.9317ms
+2024-12-12 00:15:54.779 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-12 00:15:54.786 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 6.2953ms
+2024-12-12 00:16:01.435 +07:00 [INF] User profile is available. Using 'C:\Users\PC\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-12-12 00:16:02.012 +07:00 [INF] Now listening on: https://localhost:7068
+2024-12-12 00:16:02.014 +07:00 [INF] Now listening on: http://localhost:5265
+2024-12-12 00:16:02.064 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-12-12 00:16:02.066 +07:00 [INF] Hosting environment: Development
+2024-12-12 00:16:02.068 +07:00 [INF] Content root path: C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps
+2024-12-12 00:16:04.481 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/ - null null
+2024-12-12 00:16:04.607 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /, Method: GET, QueryString: , Timestamp: "2024-12-11T17:16:04.6059995Z"
+2024-12-12 00:16:05.002 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /, Method: GET, QueryString: , Timestamp: "2024-12-11T17:16:04.9999733Z"
+2024-12-12 00:16:05.007 +07:00 [INF] Executing endpoint 'shop_hubLaps.Controllers.HomeController.Index (shop-hubLaps)'
+2024-12-12 00:16:05.024 +07:00 [INF] Route matched with {action = "Index", controller = "Home", page = "", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller shop_hubLaps.Controllers.HomeController (shop-hubLaps).
+2024-12-12 00:16:05.034 +07:00 [INF] Executing ViewResult, running view Index.
+2024-12-12 00:16:06.803 +07:00 [INF] Executed DbCommand (113ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[Avatar], [a].[ConcurrencyStamp], [a].[DiaChi], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NgaySinh], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[Profile], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+2024-12-12 00:16:06.968 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/shop_hubLaps.styles.css - null null
+2024-12-12 00:16:06.968 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/lib/bootstrap/css/bootstrap.min.css - null null
+2024-12-12 00:16:06.970 +07:00 [INF] Executed ViewResult - view Index executed in 1936.7309ms.
+2024-12-12 00:16:06.974 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:16:06.9743779Z"
+2024-12-12 00:16:06.977 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /lib/bootstrap/css/bootstrap.min.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:16:06.9772717Z"
+2024-12-12 00:16:06.982 +07:00 [INF] Executed action shop_hubLaps.Controllers.HomeController.Index (shop-hubLaps) in 1955.8094ms
+2024-12-12 00:16:06.988 +07:00 [INF] Executed endpoint 'shop_hubLaps.Controllers.HomeController.Index (shop-hubLaps)'
+2024-12-12 00:16:06.991 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:16:06.9910322Z"
+2024-12-12 00:16:06.991 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /lib/bootstrap/css/bootstrap.min.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:16:06.9910322Z"
+2024-12-12 00:16:06.991 +07:00 [INF] Request completed - User: admin@example.com, Path: /, Method: GET, QueryString: , Timestamp: "2024-12-11T17:16:04.9999733Z"
+2024-12-12 00:16:06.997 +07:00 [INF] Request completed - User: admin@example.com, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:16:06.9910322Z"
+2024-12-12 00:16:07.002 +07:00 [INF] Request completed - User: admin@example.com, Path: /lib/bootstrap/css/bootstrap.min.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:16:06.9910322Z"
+2024-12-12 00:16:07.007 +07:00 [INF] Request completed - User: Anonymous, Path: /, Method: GET, QueryString: , Timestamp: "2024-12-11T17:16:04.6059995Z"
+2024-12-12 00:16:07.009 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/lib/bootstrap/js/bootstrap.bundle.min.js - null null
+2024-12-12 00:16:07.012 +07:00 [INF] Request completed - User: Anonymous, Path: /lib/bootstrap/css/bootstrap.min.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:16:06.9772717Z"
+2024-12-12 00:16:07.010 +07:00 [INF] Request completed - User: Anonymous, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:16:06.9743779Z"
+2024-12-12 00:16:07.023 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /lib/bootstrap/js/bootstrap.bundle.min.js, Method: GET, QueryString: , Timestamp: "2024-12-11T17:16:07.0233493Z"
+2024-12-12 00:16:07.028 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/lib/bootstrap/css/bootstrap.min.css - 404 0 null 58.8573ms
+2024-12-12 00:16:07.028 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-12 00:16:07.035 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/_vs/browserLink - null null
+2024-12-12 00:16:07.044 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7068/lib/bootstrap/css/bootstrap.min.css, Response status code: 404
+2024-12-12 00:16:07.039 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/ - 200 null text/html; charset=utf-8 2562.7238ms
+2024-12-12 00:16:07.056 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /lib/bootstrap/js/bootstrap.bundle.min.js, Method: GET, QueryString: , Timestamp: "2024-12-11T17:16:07.0559961Z"
+2024-12-12 00:16:07.035 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/shop_hubLaps.styles.css - 404 0 null 67.0805ms
+2024-12-12 00:16:07.052 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 23.9303ms
+2024-12-12 00:16:07.066 +07:00 [INF] Request completed - User: admin@example.com, Path: /lib/bootstrap/js/bootstrap.bundle.min.js, Method: GET, QueryString: , Timestamp: "2024-12-11T17:16:07.0559961Z"
+2024-12-12 00:16:07.071 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7068/shop_hubLaps.styles.css, Response status code: 404
+2024-12-12 00:16:07.079 +07:00 [INF] Request completed - User: Anonymous, Path: /lib/bootstrap/js/bootstrap.bundle.min.js, Method: GET, QueryString: , Timestamp: "2024-12-11T17:16:07.0233493Z"
+2024-12-12 00:16:07.085 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/lib/bootstrap/js/bootstrap.bundle.min.js - 404 0 null 76.3968ms
+2024-12-12 00:16:07.091 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7068/lib/bootstrap/js/bootstrap.bundle.min.js, Response status code: 404
+2024-12-12 00:16:07.099 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/_vs/browserLink - 200 null text/javascript; charset=UTF-8 64.4614ms
+2024-12-12 00:16:07.130 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/shop_hubLaps.styles.css - null null
+2024-12-12 00:16:07.133 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:16:07.1331349Z"
+2024-12-12 00:16:07.138 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:16:07.1381319Z"
+2024-12-12 00:16:07.141 +07:00 [INF] Request completed - User: admin@example.com, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:16:07.1381319Z"
+2024-12-12 00:16:07.143 +07:00 [INF] Request completed - User: Anonymous, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:16:07.1331349Z"
+2024-12-12 00:16:07.146 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/shop_hubLaps.styles.css - 404 0 null 16.5318ms
+2024-12-12 00:16:07.150 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7068/shop_hubLaps.styles.css, Response status code: 404
+2024-12-12 00:16:07.218 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/font/Lexend/static/Lexend-Regular.ttf - null null
+2024-12-12 00:16:07.222 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /font/Lexend/static/Lexend-Regular.ttf, Method: GET, QueryString: , Timestamp: "2024-12-11T17:16:07.2221231Z"
+2024-12-12 00:16:07.227 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /font/Lexend/static/Lexend-Regular.ttf, Method: GET, QueryString: , Timestamp: "2024-12-11T17:16:07.2277601Z"
+2024-12-12 00:16:07.237 +07:00 [INF] Request completed - User: admin@example.com, Path: /font/Lexend/static/Lexend-Regular.ttf, Method: GET, QueryString: , Timestamp: "2024-12-11T17:16:07.2277601Z"
+2024-12-12 00:16:07.239 +07:00 [INF] Request completed - User: Anonymous, Path: /font/Lexend/static/Lexend-Regular.ttf, Method: GET, QueryString: , Timestamp: "2024-12-11T17:16:07.2221231Z"
+2024-12-12 00:16:07.242 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/font/Lexend/static/Lexend-Regular.ttf - 404 0 null 23.9259ms
+2024-12-12 00:16:07.246 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7068/font/Lexend/static/Lexend-Regular.ttf, Response status code: 404
+2024-12-12 00:16:07.317 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7068/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map - null null
+2024-12-12 00:16:07.323 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /lib/bootstrap/dist/js/bootstrap.bundle.min.js.map, Method: GET, QueryString: , Timestamp: "2024-12-11T17:16:07.3230835Z"
+2024-12-12 00:16:07.348 +07:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map'. Physical path: 'C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map'
+2024-12-12 00:16:07.350 +07:00 [INF] Request completed - User: Anonymous, Path: /lib/bootstrap/dist/js/bootstrap.bundle.min.js.map, Method: GET, QueryString: , Timestamp: "2024-12-11T17:16:07.3230835Z"
+2024-12-12 00:16:07.354 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7068/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map - 200 327261 text/plain 37.9757ms
+2024-12-12 00:16:13.291 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/shop_hubLaps.styles.css - null null
+2024-12-12 00:16:13.291 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/lib/bootstrap/css/bootstrap.min.css - null null
+2024-12-12 00:16:13.295 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:16:13.2955491Z"
+2024-12-12 00:16:13.302 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /lib/bootstrap/css/bootstrap.min.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:16:13.3028940Z"
+2024-12-12 00:16:13.308 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:16:13.3080578Z"
+2024-12-12 00:16:13.310 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /lib/bootstrap/css/bootstrap.min.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:16:13.3103356Z"
+2024-12-12 00:16:13.312 +07:00 [INF] Request completed - User: admin@example.com, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:16:13.3080578Z"
+2024-12-12 00:16:13.317 +07:00 [INF] Request completed - User: admin@example.com, Path: /lib/bootstrap/css/bootstrap.min.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:16:13.3103356Z"
+2024-12-12 00:16:13.319 +07:00 [INF] Request completed - User: Anonymous, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:16:13.2955491Z"
+2024-12-12 00:16:13.321 +07:00 [INF] Request completed - User: Anonymous, Path: /lib/bootstrap/css/bootstrap.min.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:16:13.3028940Z"
+2024-12-12 00:16:13.323 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/shop_hubLaps.styles.css - 404 0 null 32.4457ms
+2024-12-12 00:16:13.326 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/lib/bootstrap/css/bootstrap.min.css - 404 0 null 35.0615ms
+2024-12-12 00:16:13.331 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7068/shop_hubLaps.styles.css, Response status code: 404
+2024-12-12 00:16:13.335 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7068/lib/bootstrap/css/bootstrap.min.css, Response status code: 404
+2024-12-12 00:17:36.689 +07:00 [INF] User profile is available. Using 'C:\Users\PC\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-12-12 00:17:37.106 +07:00 [INF] Now listening on: https://localhost:7068
+2024-12-12 00:17:37.109 +07:00 [INF] Now listening on: http://localhost:5265
+2024-12-12 00:17:37.165 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-12-12 00:17:37.168 +07:00 [INF] Hosting environment: Development
+2024-12-12 00:17:37.169 +07:00 [INF] Content root path: C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps
+2024-12-12 00:17:39.746 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/ - null null
+2024-12-12 00:17:39.878 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:39.8761666Z"
+2024-12-12 00:17:40.110 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:40.1104305Z"
+2024-12-12 00:17:40.114 +07:00 [INF] Executing endpoint 'shop_hubLaps.Controllers.HomeController.Index (shop-hubLaps)'
+2024-12-12 00:17:40.127 +07:00 [INF] Route matched with {action = "Index", controller = "Home", page = "", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller shop_hubLaps.Controllers.HomeController (shop-hubLaps).
+2024-12-12 00:17:40.141 +07:00 [INF] Executing ViewResult, running view Index.
+2024-12-12 00:17:42.205 +07:00 [INF] Executed DbCommand (157ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[Avatar], [a].[ConcurrencyStamp], [a].[DiaChi], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NgaySinh], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[Profile], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+2024-12-12 00:17:42.362 +07:00 [INF] Executed ViewResult - view Index executed in 2223.9546ms.
+2024-12-12 00:17:42.364 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/lib/bootstrap/css/bootstrap.min.css - null null
+2024-12-12 00:17:42.364 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/shop_hubLaps.styles.css - null null
+2024-12-12 00:17:42.368 +07:00 [INF] Executed action shop_hubLaps.Controllers.HomeController.Index (shop-hubLaps) in 2238.1383ms
+2024-12-12 00:17:42.369 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /lib/bootstrap/css/bootstrap.min.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:42.3697418Z"
+2024-12-12 00:17:42.373 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:42.3734182Z"
+2024-12-12 00:17:42.375 +07:00 [INF] Executed endpoint 'shop_hubLaps.Controllers.HomeController.Index (shop-hubLaps)'
+2024-12-12 00:17:42.384 +07:00 [INF] Request completed - User: admin@example.com, Path: /, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:40.1104305Z"
+2024-12-12 00:17:42.389 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /lib/bootstrap/css/bootstrap.min.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:42.3893474Z"
+2024-12-12 00:17:42.389 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:42.3893357Z"
+2024-12-12 00:17:42.392 +07:00 [INF] Request completed - User: Anonymous, Path: /, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:39.8761666Z"
+2024-12-12 00:17:42.397 +07:00 [INF] Request completed - User: admin@example.com, Path: /lib/bootstrap/css/bootstrap.min.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:42.3893474Z"
+2024-12-12 00:17:42.400 +07:00 [INF] Request completed - User: admin@example.com, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:42.3893357Z"
+2024-12-12 00:17:42.408 +07:00 [INF] Request completed - User: Anonymous, Path: /lib/bootstrap/css/bootstrap.min.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:42.3697418Z"
+2024-12-12 00:17:42.411 +07:00 [INF] Request completed - User: Anonymous, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:42.3734182Z"
+2024-12-12 00:17:42.434 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/lib/bootstrap/js/bootstrap.bundle.min.js - null null
+2024-12-12 00:17:42.436 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/lib/bootstrap/css/bootstrap.min.css - 404 0 null 72.2165ms
+2024-12-12 00:17:42.436 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/ - 200 null text/html; charset=utf-8 2697.5726ms
+2024-12-12 00:17:42.438 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-12 00:17:42.446 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/_vs/browserLink - null null
+2024-12-12 00:17:42.447 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/shop_hubLaps.styles.css - 404 0 null 83.1416ms
+2024-12-12 00:17:42.453 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /lib/bootstrap/js/bootstrap.bundle.min.js, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:42.4531952Z"
+2024-12-12 00:17:42.473 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7068/shop_hubLaps.styles.css, Response status code: 404
+2024-12-12 00:17:42.459 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7068/lib/bootstrap/css/bootstrap.min.css, Response status code: 404
+2024-12-12 00:17:42.469 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 31.4521ms
+2024-12-12 00:17:42.496 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /lib/bootstrap/js/bootstrap.bundle.min.js, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:42.4964372Z"
+2024-12-12 00:17:42.499 +07:00 [INF] Request completed - User: admin@example.com, Path: /lib/bootstrap/js/bootstrap.bundle.min.js, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:42.4964372Z"
+2024-12-12 00:17:42.501 +07:00 [INF] Request completed - User: Anonymous, Path: /lib/bootstrap/js/bootstrap.bundle.min.js, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:42.4531952Z"
+2024-12-12 00:17:42.504 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/lib/bootstrap/js/bootstrap.bundle.min.js - 404 0 null 91.5747ms
+2024-12-12 00:17:42.512 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7068/lib/bootstrap/js/bootstrap.bundle.min.js, Response status code: 404
+2024-12-12 00:17:42.526 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/_vs/browserLink - 200 null text/javascript; charset=UTF-8 79.6765ms
+2024-12-12 00:17:42.557 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/shop_hubLaps.styles.css - null null
+2024-12-12 00:17:42.561 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:42.5611174Z"
+2024-12-12 00:17:42.564 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:42.5649468Z"
+2024-12-12 00:17:42.568 +07:00 [INF] Request completed - User: admin@example.com, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:42.5649468Z"
+2024-12-12 00:17:42.570 +07:00 [INF] Request completed - User: Anonymous, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:42.5611174Z"
+2024-12-12 00:17:42.577 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/shop_hubLaps.styles.css - 404 0 null 20.4849ms
+2024-12-12 00:17:42.582 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7068/shop_hubLaps.styles.css, Response status code: 404
+2024-12-12 00:17:42.651 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/font/Lexend/static/Lexend-Regular.ttf - null null
+2024-12-12 00:17:42.661 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /font/Lexend/static/Lexend-Regular.ttf, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:42.6616843Z"
+2024-12-12 00:17:42.714 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /font/Lexend/static/Lexend-Regular.ttf, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:42.7142300Z"
+2024-12-12 00:17:42.717 +07:00 [INF] Request completed - User: admin@example.com, Path: /font/Lexend/static/Lexend-Regular.ttf, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:42.7142300Z"
+2024-12-12 00:17:42.720 +07:00 [INF] Request completed - User: Anonymous, Path: /font/Lexend/static/Lexend-Regular.ttf, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:42.6616843Z"
+2024-12-12 00:17:42.726 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/font/Lexend/static/Lexend-Regular.ttf - 404 0 null 74.5956ms
+2024-12-12 00:17:42.736 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7068/font/Lexend/static/Lexend-Regular.ttf, Response status code: 404
+2024-12-12 00:17:42.792 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7068/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map - null null
+2024-12-12 00:17:42.796 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /lib/bootstrap/dist/js/bootstrap.bundle.min.js.map, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:42.7961317Z"
+2024-12-12 00:17:42.819 +07:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map'. Physical path: 'C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map'
+2024-12-12 00:17:42.821 +07:00 [INF] Request completed - User: Anonymous, Path: /lib/bootstrap/dist/js/bootstrap.bundle.min.js.map, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:42.7961317Z"
+2024-12-12 00:17:42.825 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7068/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map - 200 327261 text/plain 32.5859ms
+2024-12-12 00:17:48.002 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/Identity/Account/Manage - null null
+2024-12-12 00:17:48.011 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /Identity/Account/Manage, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:48.0116405Z"
+2024-12-12 00:17:48.024 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /Identity/Account/Manage, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:48.0248293Z"
+2024-12-12 00:17:48.029 +07:00 [INF] Executing endpoint '/Account/Manage/Index'
+2024-12-12 00:17:48.048 +07:00 [INF] Route matched with {page = "/Account/Manage/Index", area = "Identity", action = "", controller = ""}. Executing page /Account/Manage/Index
+2024-12-12 00:17:48.065 +07:00 [INF] Executing handler method shop_hubLaps.Areas.Identity.Pages.Account.Manage.IndexModel.OnGetAsync - ModelState is "Valid"
+2024-12-12 00:17:48.201 +07:00 [INF] Executed DbCommand (82ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[Avatar], [a].[ConcurrencyStamp], [a].[DiaChi], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NgaySinh], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[Profile], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+2024-12-12 00:17:48.211 +07:00 [INF] Executed handler method OnGetAsync, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2024-12-12 00:17:48.281 +07:00 [INF] Executed page /Account/Manage/Index in 231.9355ms
+2024-12-12 00:17:48.283 +07:00 [INF] Executed endpoint '/Account/Manage/Index'
+2024-12-12 00:17:48.285 +07:00 [INF] Request completed - User: admin@example.com, Path: /Identity/Account/Manage, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:48.0248293Z"
+2024-12-12 00:17:48.288 +07:00 [INF] Request completed - User: Anonymous, Path: /Identity/Account/Manage, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:48.0116405Z"
+2024-12-12 00:17:48.289 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/shop_hubLaps.styles.css - null null
+2024-12-12 00:17:48.289 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/lib/bootstrap/js/bootstrap.bundle.min.js - null null
+2024-12-12 00:17:48.300 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-12 00:17:48.289 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/lib/bootstrap/css/bootstrap.min.css - null null
+2024-12-12 00:17:48.302 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /lib/bootstrap/js/bootstrap.bundle.min.js, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:48.3020991Z"
+2024-12-12 00:17:48.301 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/_vs/browserLink - null null
+2024-12-12 00:17:48.296 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:48.2967114Z"
+2024-12-12 00:17:48.316 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /lib/bootstrap/js/bootstrap.bundle.min.js, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:48.3162861Z"
+2024-12-12 00:17:48.307 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 7.3112ms
+2024-12-12 00:17:48.331 +07:00 [INF] Request completed - User: admin@example.com, Path: /lib/bootstrap/js/bootstrap.bundle.min.js, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:48.3162861Z"
+2024-12-12 00:17:48.311 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /lib/bootstrap/css/bootstrap.min.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:48.3116057Z"
+2024-12-12 00:17:48.328 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:48.3283753Z"
+2024-12-12 00:17:48.293 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/Identity/Account/Manage - 200 null text/html; charset=utf-8 292.5187ms
+2024-12-12 00:17:48.336 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/_vs/browserLink - 200 null text/javascript; charset=UTF-8 35.9429ms
+2024-12-12 00:17:48.342 +07:00 [INF] Request completed - User: Anonymous, Path: /lib/bootstrap/js/bootstrap.bundle.min.js, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:48.3020991Z"
+2024-12-12 00:17:48.345 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /lib/bootstrap/css/bootstrap.min.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:48.3455793Z"
+2024-12-12 00:17:48.347 +07:00 [INF] Request completed - User: admin@example.com, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:48.3283753Z"
+2024-12-12 00:17:48.358 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/lib/bootstrap/js/bootstrap.bundle.min.js - 404 0 null 68.16ms
+2024-12-12 00:17:48.360 +07:00 [INF] Request completed - User: admin@example.com, Path: /lib/bootstrap/css/bootstrap.min.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:48.3455793Z"
+2024-12-12 00:17:48.362 +07:00 [INF] Request completed - User: Anonymous, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:48.2967114Z"
+2024-12-12 00:17:48.366 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7068/lib/bootstrap/js/bootstrap.bundle.min.js, Response status code: 404
+2024-12-12 00:17:48.368 +07:00 [INF] Request completed - User: Anonymous, Path: /lib/bootstrap/css/bootstrap.min.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:48.3116057Z"
+2024-12-12 00:17:48.370 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/shop_hubLaps.styles.css - 404 0 null 81.6795ms
+2024-12-12 00:17:48.375 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/lib/bootstrap/css/bootstrap.min.css - 404 0 null 86.089ms
+2024-12-12 00:17:48.379 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7068/shop_hubLaps.styles.css, Response status code: 404
+2024-12-12 00:17:48.383 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7068/lib/bootstrap/css/bootstrap.min.css, Response status code: 404
+2024-12-12 00:17:48.384 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/shop_hubLaps.styles.css - null null
+2024-12-12 00:17:48.393 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:48.3932810Z"
+2024-12-12 00:17:48.396 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:48.3966475Z"
+2024-12-12 00:17:48.402 +07:00 [INF] Request completed - User: admin@example.com, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:48.3966475Z"
+2024-12-12 00:17:48.405 +07:00 [INF] Request completed - User: Anonymous, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:48.3932810Z"
+2024-12-12 00:17:48.407 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/shop_hubLaps.styles.css - 404 0 null 23.6965ms
+2024-12-12 00:17:48.411 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7068/shop_hubLaps.styles.css, Response status code: 404
+2024-12-12 00:17:48.565 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/font/Lexend/static/Lexend-Regular.ttf - null null
+2024-12-12 00:17:48.570 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /font/Lexend/static/Lexend-Regular.ttf, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:48.5702764Z"
+2024-12-12 00:17:48.574 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /font/Lexend/static/Lexend-Regular.ttf, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:48.5742654Z"
+2024-12-12 00:17:48.578 +07:00 [INF] Request completed - User: admin@example.com, Path: /font/Lexend/static/Lexend-Regular.ttf, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:48.5742654Z"
+2024-12-12 00:17:48.581 +07:00 [INF] Request completed - User: Anonymous, Path: /font/Lexend/static/Lexend-Regular.ttf, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:48.5702764Z"
+2024-12-12 00:17:48.583 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/font/Lexend/static/Lexend-Regular.ttf - 404 0 null 18.342ms
+2024-12-12 00:17:48.588 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7068/font/Lexend/static/Lexend-Regular.ttf, Response status code: 404
+2024-12-12 00:17:52.798 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/Identity/Account/Manage/ChangePassword - null null
+2024-12-12 00:17:52.803 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /Identity/Account/Manage/ChangePassword, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:52.8035276Z"
+2024-12-12 00:17:52.813 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /Identity/Account/Manage/ChangePassword, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:52.8134224Z"
+2024-12-12 00:17:52.817 +07:00 [INF] Executing endpoint '/Account/Manage/ChangePassword'
+2024-12-12 00:17:52.823 +07:00 [INF] Route matched with {page = "/Account/Manage/ChangePassword", area = "Identity", action = "", controller = ""}. Executing page /Account/Manage/ChangePassword
+2024-12-12 00:17:52.827 +07:00 [INF] Executing handler method shop_hubLaps.Areas.Identity.Pages.Account.Manage.ChangePasswordModel.OnGetAsync - ModelState is "Valid"
+2024-12-12 00:17:52.925 +07:00 [INF] Executed DbCommand (79ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[Avatar], [a].[ConcurrencyStamp], [a].[DiaChi], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NgaySinh], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[Profile], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+2024-12-12 00:17:52.930 +07:00 [INF] Executed handler method OnGetAsync, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2024-12-12 00:17:52.950 +07:00 [INF] Executed page /Account/Manage/ChangePassword in 124.8044ms
+2024-12-12 00:17:52.952 +07:00 [INF] Executed endpoint '/Account/Manage/ChangePassword'
+2024-12-12 00:17:52.954 +07:00 [INF] Request completed - User: admin@example.com, Path: /Identity/Account/Manage/ChangePassword, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:52.8134224Z"
+2024-12-12 00:17:52.957 +07:00 [INF] Request completed - User: Anonymous, Path: /Identity/Account/Manage/ChangePassword, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:52.8035276Z"
+2024-12-12 00:17:52.995 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/lib/bootstrap/css/bootstrap.min.css - null null
+2024-12-12 00:17:52.995 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/_vs/browserLink - null null
+2024-12-12 00:17:52.995 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-12 00:17:53.007 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /lib/bootstrap/css/bootstrap.min.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:53.0077976Z"
+2024-12-12 00:17:52.995 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/lib/bootstrap/js/bootstrap.bundle.min.js - null null
+2024-12-12 00:17:53.028 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /lib/bootstrap/css/bootstrap.min.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:53.0285887Z"
+2024-12-12 00:17:53.033 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /lib/bootstrap/js/bootstrap.bundle.min.js, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:53.0330801Z"
+2024-12-12 00:17:53.038 +07:00 [INF] Request completed - User: admin@example.com, Path: /lib/bootstrap/css/bootstrap.min.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:53.0285887Z"
+2024-12-12 00:17:52.997 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/Identity/Account/Manage/ChangePassword - 200 null text/html; charset=utf-8 199.5592ms
+2024-12-12 00:17:53.016 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 21.1113ms
+2024-12-12 00:17:52.994 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/shop_hubLaps.styles.css - null null
+2024-12-12 00:17:53.041 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/_vs/browserLink - 200 null text/javascript; charset=UTF-8 45.977ms
+2024-12-12 00:17:53.043 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /lib/bootstrap/js/bootstrap.bundle.min.js, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:53.0435740Z"
+2024-12-12 00:17:53.046 +07:00 [INF] Request completed - User: Anonymous, Path: /lib/bootstrap/css/bootstrap.min.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:53.0077976Z"
+2024-12-12 00:17:53.056 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:53.0564045Z"
+2024-12-12 00:17:53.061 +07:00 [INF] Request completed - User: admin@example.com, Path: /lib/bootstrap/js/bootstrap.bundle.min.js, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:53.0435740Z"
+2024-12-12 00:17:53.063 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/lib/bootstrap/css/bootstrap.min.css - 404 0 null 68.4495ms
+2024-12-12 00:17:53.066 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:53.0667464Z"
+2024-12-12 00:17:53.068 +07:00 [INF] Request completed - User: Anonymous, Path: /lib/bootstrap/js/bootstrap.bundle.min.js, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:53.0330801Z"
+2024-12-12 00:17:53.071 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7068/lib/bootstrap/css/bootstrap.min.css, Response status code: 404
+2024-12-12 00:17:53.073 +07:00 [INF] Request completed - User: admin@example.com, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:53.0667464Z"
+2024-12-12 00:17:53.075 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/lib/bootstrap/js/bootstrap.bundle.min.js - 404 0 null 80.6785ms
+2024-12-12 00:17:53.079 +07:00 [INF] Request completed - User: Anonymous, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:53.0564045Z"
+2024-12-12 00:17:53.082 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7068/lib/bootstrap/js/bootstrap.bundle.min.js, Response status code: 404
+2024-12-12 00:17:53.085 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/shop_hubLaps.styles.css - 404 0 null 90.2107ms
+2024-12-12 00:17:53.090 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7068/shop_hubLaps.styles.css, Response status code: 404
+2024-12-12 00:17:53.093 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/shop_hubLaps.styles.css - null null
+2024-12-12 00:17:53.096 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:53.0965833Z"
+2024-12-12 00:17:53.100 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:53.1002858Z"
+2024-12-12 00:17:53.103 +07:00 [INF] Request completed - User: admin@example.com, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:53.1002858Z"
+2024-12-12 00:17:53.105 +07:00 [INF] Request completed - User: Anonymous, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:53.0965833Z"
+2024-12-12 00:17:53.107 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/shop_hubLaps.styles.css - 404 0 null 14.659ms
+2024-12-12 00:17:53.111 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7068/shop_hubLaps.styles.css, Response status code: 404
+2024-12-12 00:17:53.159 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/font/Lexend/static/Lexend-Regular.ttf - null null
+2024-12-12 00:17:53.165 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /font/Lexend/static/Lexend-Regular.ttf, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:53.1658709Z"
+2024-12-12 00:17:53.172 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /font/Lexend/static/Lexend-Regular.ttf, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:53.1720282Z"
+2024-12-12 00:17:53.175 +07:00 [INF] Request completed - User: admin@example.com, Path: /font/Lexend/static/Lexend-Regular.ttf, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:53.1720282Z"
+2024-12-12 00:17:53.177 +07:00 [INF] Request completed - User: Anonymous, Path: /font/Lexend/static/Lexend-Regular.ttf, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:53.1658709Z"
+2024-12-12 00:17:53.180 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/font/Lexend/static/Lexend-Regular.ttf - 404 0 null 20.7853ms
+2024-12-12 00:17:53.197 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7068/font/Lexend/static/Lexend-Regular.ttf, Response status code: 404
+2024-12-12 00:17:55.396 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/Dashboard - null null
+2024-12-12 00:17:55.402 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /Dashboard, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:55.4029630Z"
+2024-12-12 00:17:55.408 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /Dashboard, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:55.4084689Z"
+2024-12-12 00:17:55.413 +07:00 [INF] Executing endpoint 'DashboardController.Index (shop-hubLaps)'
+2024-12-12 00:17:55.417 +07:00 [INF] Route matched with {action = "Index", controller = "Dashboard", page = "", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller DashboardController (shop-hubLaps).
+2024-12-12 00:17:55.422 +07:00 [INF] Executing ViewResult, running view Index.
+2024-12-12 00:17:55.489 +07:00 [INF] Executed DbCommand (57ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[Avatar], [a].[ConcurrencyStamp], [a].[DiaChi], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NgaySinh], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[Profile], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+2024-12-12 00:17:55.550 +07:00 [INF] Executed ViewResult - view Index executed in 128.278ms.
+2024-12-12 00:17:55.553 +07:00 [INF] Executed action DashboardController.Index (shop-hubLaps) in 131.2267ms
+2024-12-12 00:17:55.555 +07:00 [INF] Executed endpoint 'DashboardController.Index (shop-hubLaps)'
+2024-12-12 00:17:55.557 +07:00 [INF] Request completed - User: admin@example.com, Path: /Dashboard, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:55.4084689Z"
+2024-12-12 00:17:55.560 +07:00 [INF] Request completed - User: Anonymous, Path: /Dashboard, Method: GET, QueryString: , Timestamp: "2024-12-11T17:17:55.4029630Z"
+2024-12-12 00:17:55.567 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/Dashboard - 200 null text/html; charset=utf-8 171.5094ms
+2024-12-12 00:17:55.575 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-12 00:17:55.577 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/_vs/browserLink - null null
+2024-12-12 00:17:55.585 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 10.8398ms
+2024-12-12 00:17:55.611 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/_vs/browserLink - 200 null text/javascript; charset=UTF-8 34.7646ms
+2024-12-12 00:18:00.883 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/Identity/Account/Manage/ChangePassword - null null
+2024-12-12 00:18:00.890 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /Identity/Account/Manage/ChangePassword, Method: GET, QueryString: , Timestamp: "2024-12-11T17:18:00.8901965Z"
+2024-12-12 00:18:00.899 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /Identity/Account/Manage/ChangePassword, Method: GET, QueryString: , Timestamp: "2024-12-11T17:18:00.8994591Z"
+2024-12-12 00:18:00.903 +07:00 [INF] Executing endpoint '/Account/Manage/ChangePassword'
+2024-12-12 00:18:00.905 +07:00 [INF] Route matched with {page = "/Account/Manage/ChangePassword", area = "Identity", action = "", controller = ""}. Executing page /Account/Manage/ChangePassword
+2024-12-12 00:18:00.906 +07:00 [INF] Executing handler method shop_hubLaps.Areas.Identity.Pages.Account.Manage.ChangePasswordModel.OnGetAsync - ModelState is "Valid"
+2024-12-12 00:18:00.967 +07:00 [INF] Executed DbCommand (59ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[Avatar], [a].[ConcurrencyStamp], [a].[DiaChi], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NgaySinh], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[Profile], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+2024-12-12 00:18:00.975 +07:00 [INF] Executed handler method OnGetAsync, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2024-12-12 00:18:00.984 +07:00 [INF] Executed page /Account/Manage/ChangePassword in 78.1181ms
+2024-12-12 00:18:00.991 +07:00 [INF] Executed endpoint '/Account/Manage/ChangePassword'
+2024-12-12 00:18:01.056 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-12 00:18:01.058 +07:00 [INF] Request completed - User: admin@example.com, Path: /Identity/Account/Manage/ChangePassword, Method: GET, QueryString: , Timestamp: "2024-12-11T17:18:00.8994591Z"
+2024-12-12 00:18:01.067 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 10.0645ms
+2024-12-12 00:18:01.073 +07:00 [INF] Request completed - User: Anonymous, Path: /Identity/Account/Manage/ChangePassword, Method: GET, QueryString: , Timestamp: "2024-12-11T17:18:00.8901965Z"
+2024-12-12 00:18:01.081 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/Identity/Account/Manage/ChangePassword - 200 null text/html; charset=utf-8 199.4226ms
+2024-12-12 00:18:07.267 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/lib/bootstrap/css/bootstrap.min.css - null null
+2024-12-12 00:18:07.267 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/shop_hubLaps.styles.css - null null
+2024-12-12 00:18:07.271 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /lib/bootstrap/css/bootstrap.min.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:18:07.2719654Z"
+2024-12-12 00:18:07.274 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:18:07.2747601Z"
+2024-12-12 00:18:07.279 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /lib/bootstrap/css/bootstrap.min.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:18:07.2792567Z"
+2024-12-12 00:18:07.282 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:18:07.2828614Z"
+2024-12-12 00:18:07.284 +07:00 [INF] Request completed - User: admin@example.com, Path: /lib/bootstrap/css/bootstrap.min.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:18:07.2792567Z"
+2024-12-12 00:18:07.287 +07:00 [INF] Request completed - User: admin@example.com, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:18:07.2828614Z"
+2024-12-12 00:18:07.288 +07:00 [INF] Request completed - User: Anonymous, Path: /lib/bootstrap/css/bootstrap.min.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:18:07.2719654Z"
+2024-12-12 00:18:07.291 +07:00 [INF] Request completed - User: Anonymous, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:18:07.2747601Z"
+2024-12-12 00:18:07.293 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/lib/bootstrap/css/bootstrap.min.css - 404 0 null 26.5004ms
+2024-12-12 00:18:07.296 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/shop_hubLaps.styles.css - 404 0 null 29.4682ms
+2024-12-12 00:18:07.300 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7068/lib/bootstrap/css/bootstrap.min.css, Response status code: 404
+2024-12-12 00:18:07.303 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7068/shop_hubLaps.styles.css, Response status code: 404
+2024-12-12 00:18:12.560 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/Home - null null
+2024-12-12 00:18:12.565 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /Home, Method: GET, QueryString: , Timestamp: "2024-12-11T17:18:12.5658811Z"
+2024-12-12 00:18:12.569 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /Home, Method: GET, QueryString: , Timestamp: "2024-12-11T17:18:12.5699606Z"
+2024-12-12 00:18:12.572 +07:00 [INF] Executing endpoint 'shop_hubLaps.Controllers.HomeController.Index (shop-hubLaps)'
+2024-12-12 00:18:12.573 +07:00 [INF] Route matched with {action = "Index", controller = "Home", page = "", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller shop_hubLaps.Controllers.HomeController (shop-hubLaps).
+2024-12-12 00:18:12.586 +07:00 [INF] Executing ViewResult, running view Index.
+2024-12-12 00:18:12.653 +07:00 [INF] Executed DbCommand (57ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[Avatar], [a].[ConcurrencyStamp], [a].[DiaChi], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NgaySinh], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[Profile], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+2024-12-12 00:18:12.685 +07:00 [INF] Executed ViewResult - view Index executed in 108.1608ms.
+2024-12-12 00:18:12.694 +07:00 [INF] Executed action shop_hubLaps.Controllers.HomeController.Index (shop-hubLaps) in 118.1769ms
+2024-12-12 00:18:12.701 +07:00 [INF] Executed endpoint 'shop_hubLaps.Controllers.HomeController.Index (shop-hubLaps)'
+2024-12-12 00:18:12.718 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/shop_hubLaps.styles.css - null null
+2024-12-12 00:18:12.720 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/lib/bootstrap/js/bootstrap.bundle.min.js - null null
+2024-12-12 00:18:12.720 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/lib/bootstrap/css/bootstrap.min.css - null null
+2024-12-12 00:18:12.723 +07:00 [INF] Request completed - User: admin@example.com, Path: /Home, Method: GET, QueryString: , Timestamp: "2024-12-11T17:18:12.5699606Z"
+2024-12-12 00:18:12.728 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:18:12.7281170Z"
+2024-12-12 00:18:12.732 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /lib/bootstrap/js/bootstrap.bundle.min.js, Method: GET, QueryString: , Timestamp: "2024-12-11T17:18:12.7321378Z"
+2024-12-12 00:18:12.738 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-12 00:18:12.735 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /lib/bootstrap/css/bootstrap.min.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:18:12.7352595Z"
+2024-12-12 00:18:12.745 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /lib/bootstrap/js/bootstrap.bundle.min.js, Method: GET, QueryString: , Timestamp: "2024-12-11T17:18:12.7459002Z"
+2024-12-12 00:18:12.742 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:18:12.7423295Z"
+2024-12-12 00:18:12.757 +07:00 [INF] Request completed - User: admin@example.com, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:18:12.7423295Z"
+2024-12-12 00:18:12.738 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/_vs/browserLink - null null
+2024-12-12 00:18:12.748 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 10.9829ms
+2024-12-12 00:18:12.754 +07:00 [INF] Request completed - User: admin@example.com, Path: /lib/bootstrap/js/bootstrap.bundle.min.js, Method: GET, QueryString: , Timestamp: "2024-12-11T17:18:12.7459002Z"
+2024-12-12 00:18:12.752 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /lib/bootstrap/css/bootstrap.min.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:18:12.7521786Z"
+2024-12-12 00:18:12.761 +07:00 [INF] Request completed - User: Anonymous, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:18:12.7281170Z"
+2024-12-12 00:18:12.737 +07:00 [INF] Request completed - User: Anonymous, Path: /Home, Method: GET, QueryString: , Timestamp: "2024-12-11T17:18:12.5658811Z"
+2024-12-12 00:18:12.804 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/_vs/browserLink - 200 null text/javascript; charset=UTF-8 65.8759ms
+2024-12-12 00:18:12.805 +07:00 [INF] Request completed - User: Anonymous, Path: /lib/bootstrap/js/bootstrap.bundle.min.js, Method: GET, QueryString: , Timestamp: "2024-12-11T17:18:12.7321378Z"
+2024-12-12 00:18:12.811 +07:00 [INF] Request completed - User: admin@example.com, Path: /lib/bootstrap/css/bootstrap.min.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:18:12.7521786Z"
+2024-12-12 00:18:12.814 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/shop_hubLaps.styles.css - 404 0 null 95.7125ms
+2024-12-12 00:18:12.817 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/Home - 200 null text/html; charset=utf-8 256.8903ms
+2024-12-12 00:18:12.822 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/lib/bootstrap/js/bootstrap.bundle.min.js - 404 0 null 102.0148ms
+2024-12-12 00:18:12.824 +07:00 [INF] Request completed - User: Anonymous, Path: /lib/bootstrap/css/bootstrap.min.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:18:12.7352595Z"
+2024-12-12 00:18:12.828 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7068/shop_hubLaps.styles.css, Response status code: 404
+2024-12-12 00:18:12.834 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7068/lib/bootstrap/js/bootstrap.bundle.min.js, Response status code: 404
+2024-12-12 00:18:12.836 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/lib/bootstrap/css/bootstrap.min.css - 404 0 null 116.0687ms
+2024-12-12 00:18:12.863 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/shop_hubLaps.styles.css - null null
+2024-12-12 00:18:12.896 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7068/lib/bootstrap/css/bootstrap.min.css, Response status code: 404
+2024-12-12 00:18:12.899 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:18:12.8995472Z"
+2024-12-12 00:18:12.906 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:18:12.9061829Z"
+2024-12-12 00:18:12.909 +07:00 [INF] Request completed - User: admin@example.com, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:18:12.9061829Z"
+2024-12-12 00:18:12.911 +07:00 [INF] Request completed - User: Anonymous, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2024-12-11T17:18:12.8995472Z"
+2024-12-12 00:18:12.913 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/shop_hubLaps.styles.css - 404 0 null 50.6653ms
+2024-12-12 00:18:12.921 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7068/shop_hubLaps.styles.css, Response status code: 404
+2024-12-12 00:18:12.968 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/font/Lexend/static/Lexend-Regular.ttf - null null
+2024-12-12 00:18:12.973 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /font/Lexend/static/Lexend-Regular.ttf, Method: GET, QueryString: , Timestamp: "2024-12-11T17:18:12.9736131Z"
+2024-12-12 00:18:12.980 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /font/Lexend/static/Lexend-Regular.ttf, Method: GET, QueryString: , Timestamp: "2024-12-11T17:18:12.9804311Z"
+2024-12-12 00:18:12.984 +07:00 [INF] Request completed - User: admin@example.com, Path: /font/Lexend/static/Lexend-Regular.ttf, Method: GET, QueryString: , Timestamp: "2024-12-11T17:18:12.9804311Z"
+2024-12-12 00:18:12.989 +07:00 [INF] Request completed - User: Anonymous, Path: /font/Lexend/static/Lexend-Regular.ttf, Method: GET, QueryString: , Timestamp: "2024-12-11T17:18:12.9736131Z"
+2024-12-12 00:18:12.998 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/font/Lexend/static/Lexend-Regular.ttf - 404 0 null 30.2193ms
+2024-12-12 00:18:13.016 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7068/font/Lexend/static/Lexend-Regular.ttf, Response status code: 404

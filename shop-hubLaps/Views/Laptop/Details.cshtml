@@ -1,0 +1,24 @@
+﻿@model shop_hubLaps.Models.Laptop
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Laptop Details";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div>
+    <h4>@Model.tenlaptop</h4>
+    <p>Price: @Model.giaban</p>
+    <p>Description: @Model.mota</p>
+    <p>CPU: @Model.cpu</p>
+    <p>GPU: @Model.gpu</p>
+    <p>RAM: @Model.ram</p>
+    <p>Stock Quantity: @Model.soluongton</p>
+    <p>Battery: @Model.pin</p>
+    <p>Status: @(Model.trangthai == true ? "Available" : "Out of Stock")</p>
+    <img src="@Model.hinh" alt="Laptop Image" class="img-fluid" />
+</div>
+
+<a href="@Url.Action("Edit", "Laptop", new { id = Model.malaptop })" class="btn btn-warning">Edit</a>
+<a href="@Url.Action("Index", "Laptop")" class="btn btn-secondary">Back to List</a>

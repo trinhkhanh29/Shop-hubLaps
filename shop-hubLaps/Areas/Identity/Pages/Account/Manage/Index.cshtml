@@ -1,23 +1,137 @@
 ﻿@page
 @model IndexModel
+
 @{
     ViewData["Title"] = "Profile";
-    ViewData["ActivePage"] = ManageNavPages.Index;
+    // ViewData["ActivePage"] = ManageNavPages.Index;
 }
+@* @await Html.PartialAsync("_StatusMessage", Model.StatusMessage) *@
 
-<h3>@ViewData["Title"]</h3>
-<partial name="_StatusMessage" for="StatusMessage" />
-<div class="row">
-    <div class="col-12">
-        <h4 style="font-family: Lexend;">Hình ảnh đại diện</h4>
-        <hr />
-    </div>
+ <head>
+    <style>
+        body{
+            font-family: 'Lexend';
+        }
+        .message-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
 
-    <div class="row mb-4 justify-content-center">
-        <div class="col-md-4 text-center">
+        .message-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 0.3s ease-out;
+            background-color: #fff;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .message-box-success {
+            border-left: 4px solid #28a745;
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .message-box-error {
+            border-left: 4px solid #dc3545;
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        .message-box-warning {
+            border-left: 4px solid #ffc107;
+            background-color: #fff3cd;
+            color: #856404;
+        }
+
+        .message-box i {
+            margin-right: 10px;
+        }
+
+        .message-box .close-alert {
+            background: none;
+            border: none;
+            color: inherit;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        @@keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }        
+        /* Responsive behavior for ManageNav */
+        @@media (max-width: 992px) {
+            /* Stack the columns vertically on smaller screens */
+            .manage-nav-container {
+                flex-direction: column;
+            }
+
+            .col-md-3 {
+                max-width: 100%; /* Sidebar should not overflow */
+            }
+
+            .col-md-9 {
+                max-width: 100%;
+            }
+        }
+        .row{
+            justify-content:center;
+        }
+        @@media (min-width: 768px) {
+    .col-md-9 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 75%;
+        flex: 0 0 75%;
+        max-width: 100% !important;
+    </style>
+
+</head>
+
+
+@* <div class="container-fluid">*@
+    @* <div class="row manage-nav-container" style="justify-content:flex-start">*@
+        
+
+        <!-- Sidebar for navigation -->
+    @*<div class="col-md-3 col-12">
+            @await Html.PartialAsync("_ManageNav")
+        </div> *@
+
+        <!-- Main content area -->
+<h3 class="text-start" style="font-family: Lexend;font-weight: 500;font-size: 30px;">@ViewData["Title"]</h3>
+<hr />
+<div class="container-fluid">
+    <!-- Tiêu đề -->
+@*     <div class="row mb-3">
+        <div class="col-12">
+            <h4 class="text-center" style="font-family: Lexend;">Hình ảnh đại diện</h4>
+            <hr />
+        </div>
+    </div> *@
+
+    <!-- Hình ảnh đại diện -->
+    <div class="row justify-content-center">
+        <div class="col-12 text-center" style="padding-bottom:10px">
             @if (!string.IsNullOrEmpty(Model.Avatar))
             {
-                <img style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%;" src="@Model.Avatar" class="custom-logo img-fluid mb-2" alt="Profile Picture" />
+                <img src="@Model.Avatar" class="custom-logo img-fluid mb-2" alt="Profile Picture" style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%;" />
+                <!-- Nút xóa hình ảnh -->
                 <div class="mt-2">
                     <form method="post" enctype="multipart/form-data" asp-page-handler="RemoveProfilePicture">
                         <button type="submit" class="btn btn-danger">
@@ -28,82 +142,138 @@
             }
             else
             {
-                <img style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%;" src="/img/avt.user.svg" class="custom-logo img-fluid mb-2" alt="Default Profile Picture" />
-                <div class="input-group mt-2">
-                    <form method="post" enctype="multipart/form-data" asp-page-handler="UploadProfilePicture">
-                        <input type="file" accept="image/*" class="form-control" id="Input_ProfilePicture" name="Input.ProfilePicture" />
-                        <button id="update-profile-button" type="submit" class="w-100 btn btn-lg btn-primary mt-2">Tải lên</button>
+                <img src="/img/avt.user.svg" class="custom-logo img-fluid mb-2" alt="Default Profile Picture" style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%;" />
+                <!-- Form tải lên hình ảnh -->
+                <div class="input-group mt-2 justify-content-center">
+                    <form method="post" enctype="multipart/form-data" asp-page-handler="UploadProfilePicture" class="d-flex w-100 justify-content-center">
+                        <input type="file" accept="image/*" class="form-control w-50" id="Input_ProfilePicture" name="Input.ProfilePicture" />
+                        <button id="update-profile-button" type="submit" class="btn btn-primary ms-2">
+                            Tải lên
+                        </button>
                     </form>
                 </div>
             }
             <span asp-validation-for="Input.ProfilePicture" class="text-danger"></span>
         </div>
     </div>
+</div>
 
-    <div class="col-md-9">
-        <form id="profile-form" method="post" asp-page-handler="UpdateProfile" enctype="multipart/form-data">
-            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
 
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label asp-for="Username" class="form-label">Username</label>
-                    <div class="input-group">
-                        <span class="input-group-text"><i class="fas fa-user"></i></span>
-                        <input asp-for="Username" class="form-control" placeholder="Please choose your username." disabled />
+
+            <form id="profile-form" method="post" asp-page-handler="UpdateProfile" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Username" class="form-label">Username</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            <input asp-for="Username" class="form-control" placeholder="Please choose your username." disabled />
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Input.PhoneNumber" class="form-label">Phone Number</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                            <input asp-for="Input.PhoneNumber" class="form-control" placeholder="Please enter your phone number." />
+                        </div>
+                        <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
                     </div>
                 </div>
 
-                <div class="col-md-6 mb-3">
-                    <label asp-for="Input.PhoneNumber" class="form-label">Phone Number</label>
-                    <div class="input-group">
-                        <span class="input-group-text"><i class="fas fa-phone"></i></span>
-                        <input asp-for="Input.PhoneNumber" class="form-control" placeholder="Please enter your phone number." />
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Input.FirstName" class="form-label">First Name</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-user-edit"></i></span>
+                            <input asp-for="Input.FirstName" class="form-control" placeholder="First Name" />
+                        </div>
                     </div>
-                    <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
-                </div>
-            </div>
 
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label asp-for="Input.FirstName" class="form-label">First Name</label>
-                    <div class="input-group">
-                        <span class="input-group-text"><i class="fas fa-user-edit"></i></span>
-                        <input asp-for="Input.FirstName" class="form-control" placeholder="First Name" />
-                    </div>
-                </div>
-
-                <div class="col-md-6 mb-3">
-                    <label asp-for="Input.LastName" class="form-label">Last Name</label>
-                    <div class="input-group">
-                        <span class="input-group-text"><i class="fas fa-user-edit"></i></span>
-                        <input asp-for="Input.LastName" class="form-control" placeholder="Last Name" />
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label asp-for="Input.DiaChi" class="form-label">Address</label>
-                    <div class="input-group">
-                        <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
-                        <input asp-for="Input.DiaChi" class="form-control" placeholder="Address" />
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Input.LastName" class="form-label">Last Name</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-user-edit"></i></span>
+                            <input asp-for="Input.LastName" class="form-control" placeholder="Last Name" />
+                        </div>
                     </div>
                 </div>
 
-                <div class="col-md-6 mb-3">
-                    <label asp-for="Input.NgaySinh" class="form-label">Date of Birth</label>
-                    <div class="input-group">
-                        <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
-                        <input asp-for="Input.NgaySinh" type="date" class="form-control" />
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Input.DiaChi" class="form-label">Address</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+                            <input asp-for="Input.DiaChi" class="form-control" placeholder="Address" />
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Input.NgaySinh" class="form-label">Date of Birth</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                            <input asp-for="Input.NgaySinh" type="date" class="form-control" />
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <button id="update-profile-button" type="submit" class="w-100 btn btn-lg btn-primary">Lưu</button>
-        </form>
+                <button id="update-profile-button" type="submit" class="w-100 btn btn-lg btn-primary">Lưu</button>
+            </form>
+            
+         </div>
     </div>
 </div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+
+     <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const showMessage = (message, type = "success") => {
+                let container = document.querySelector(".message-container");
+                if (!container) {
+                    container = document.createElement("div");
+                    container.className = "message-container";
+                    document.body.appendChild(container);
+                }
+
+                const messageBox = document.createElement("div");
+                messageBox.className = `message-box message-box-${type}`;
+                messageBox.innerHTML = `
+                        <i class="fa ${type === "success" ? "fa-check-circle" : (type === "error" ? "fa-exclamation-circle" : "fa-exclamation-triangle")}"></i>
+                        <span>${message}</span>
+                        <button class="close-alert">&times;</button>
+                    `;
+
+                messageBox.querySelector(".close-alert").addEventListener("click", () => {
+                    messageBox.remove();
+                });
+
+                container.appendChild(messageBox);
+
+                setTimeout(() => {
+                    messageBox.remove();
+                }, 5000);
+            };
+
+            // Hiển thị lỗi từ TempData nếu có
+        @if (TempData["StatusMessage"] != null)
+        {
+            @:showMessage("@TempData["StatusMessage"]", "success");
+        }
+
+        @if (TempData["ErrorMessage"] != null)
+        {
+            @:showMessage("@TempData["ErrorMessage"]", "error");
+        }
+
+        @if (TempData["WarningMessage"] != null)
+        {
+            @:showMessage("@TempData["WarningMessage"]", "warning");
+        }
+            });
+    </script>
+
+
 }

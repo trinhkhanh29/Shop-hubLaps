@@ -1,0 +1,29 @@
+﻿@model shop_hubLaps.Models.Laptop
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Delete Laptop";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<h4>Are you sure you want to delete this laptop?</h4>
+
+<div>
+    <h4>@Model.tenlaptop</h4>
+    <p><strong>Price:</strong> @Model.giaban</p>
+    <p><strong>Description:</strong> @Model.mota</p>
+    <p><strong>CPU:</strong> @Model.cpu</p>
+    <p><strong>GPU:</strong> @Model.gpu</p>
+    <p><strong>RAM:</strong> @Model.ram</p>
+    <p><strong>Stock Quantity:</strong> @Model.soluongton</p>
+    <p><strong>Battery:</strong> @Model.pin</p>
+    <p><strong>Status:</strong> @(Model.trangthai == true ? "Available" : "Out of Stock")</p>
+    <img src="@Model.hinh" alt="Laptop Image" class="img-fluid" />
+</div>
+
+<form method="post">
+    <input type="hidden" asp-for="malaptop" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a href="@Url.Action("Index", "Laptop")" class="btn btn-secondary">Cancel</a>
+</form>

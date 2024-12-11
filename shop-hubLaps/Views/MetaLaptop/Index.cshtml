@@ -1,0 +1,62 @@
+﻿@model IEnumerable<shop_hubLaps.Models.MetaLaptop>
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Danh sách Meta Laptop";
+}
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<div class="container mt-4">
+    <h1 class="text-start" style="font-family: Lexend; font-weight: 500; font-size: 30px;">Danh sách Meta Laptop</h1>
+
+    <div class="text-end mb-3">
+        <a asp-action="Create" class="btn btn-primary">
+            <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11.9944 10.0011L11.9944 13.9989" stroke="#ffffff" stroke-width="1.69904" stroke-linecap="round"></path>
+                <path d="M13.9932 12H9.99541" stroke="#ffffff" stroke-width="1.69904" stroke-linecap="round"></path>
+                <path d="M20.845 12V6.50968C20.845 4.48821 19.2062 2.84949 17.1848 2.84949H6.50419C4.48272 2.84949 2.84399 4.48821 2.84399 6.50968V17.4903C2.84399 19.5117 4.48272 21.1504 6.50419 21.1504H11.8445" stroke="#ffffff" stroke-width="1.69904" stroke-linecap="round"></path>
+                <path d="M20.7847 15.8827L18.8316 13.8971C18.6335 13.6957 18.3123 13.6957 18.1142 13.8971L14.3579 17.716C14.2491 17.8266 14.1956 17.9813 14.2123 18.1368L14.4272 20.1323C14.4401 20.2525 14.5334 20.3474 14.6517 20.3605L16.6145 20.5789C16.7673 20.5959 16.9196 20.5415 17.0283 20.431L20.7847 16.612C20.9828 16.4106 20.9828 16.0841 20.7847 15.8827Z" stroke="#ffffff" stroke-width="1.69904" stroke-linecap="round"></path>
+            </svg> Thêm Meta Laptop
+        </a>
+    </div>
+
+    <table class="table table-bordered table-hover table-responsive">
+        <thead class="table">
+            <tr>
+                <th>Mã Meta Laptop</th>
+                <th>Key Meta</th>
+                <th>Value Meta</th>
+                <th>Tên Laptop</th>
+                <th>Hành động</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.mameta</td>
+                    <td>@item.keymeta</td>
+                    <td>@item.valuemeta</td>
+                    <td>@item.Laptop.tenlaptop</td> <!-- Assuming you have a Laptop navigation property -->
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.mameta" class="btn btn-warning btn-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 16 16">
+                                <path d="M 12.203125 1.003906 C 11.878906 1.007813 11.554688 1.132813 11.3125 1.382813 L 6.648438 6.125 L 5.953125 9.046875 L 8.875 8.351563 L 8.976563 8.257813 L 13.621094 3.6875 C 14.117188 3.203125 14.125 2.386719 13.628906 1.894531 L 13.105469 1.367188 C 12.859375 1.121094 12.53125 1 12.203125 1.003906 Z"></path>
+                            </svg> Sửa
+                        </a>
+                        <a asp-action="Delete" asp-route-id="@item.mameta" class="btn btn-danger btn-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 48 48">
+                                <path d="M 24 4 C 20.604985 4 17.871931 6.6709362 17.601562 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.1796875 13 L 11.5625 39.203125 C 11.9155 41.937125 14.261578 44 17.017578 44 L 23.632812 44 C 22.777812 43.111 22.050609 42.103 21.474609 41 L 17.015625 41 C 15.762625 41 14.698109 40.062312 14.537109 38.820312 L 11.205078 13 L 36.792969 13 L 35.599609 22.261719 C 36.616609 22.467719 37.583047 22.803422 38.498047 23.232422 L 39.818359 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 30.398438 10 C 30.128069 6.6709362 27.395015 4 24 4 z"></path>
+                            </svg> Xóa
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,86 @@
+﻿@model shop_hubLaps.Models.Laptop
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Create New Laptop";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Create" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="tenlaptop" class="control-label">Tên Laptop</label>
+        <input asp-for="tenlaptop" class="form-control" />
+        <span asp-validation-for="tenlaptop" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="giaban" class="control-label">Giá Bán</label>
+        <input asp-for="giaban" class="form-control" />
+        <span asp-validation-for="giaban" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="mota" class="control-label">Mô Tả</label>
+        <textarea asp-for="mota" class="form-control"></textarea>
+        <span asp-validation-for="mota" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="hinh" class="control-label">Hình Ảnh</label>
+        <input type="file" name="hinh" class="form-control" />
+        <span asp-validation-for="hinh" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="cpu" class="control-label">CPU</label>
+        <input asp-for="cpu" class="form-control" />
+        <span asp-validation-for="cpu" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="gpu" class="control-label">GPU</label>
+        <input asp-for="gpu" class="form-control" />
+        <span asp-validation-for="gpu" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ram" class="control-label">RAM</label>
+        <input asp-for="ram" class="form-control" />
+        <span asp-validation-for="ram" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="hardware" class="control-label">Hardware</label>
+        <input asp-for="hardware" class="form-control" />
+        <span asp-validation-for="hardware" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="manhinh" class="control-label">Màn Hình</label>
+        <input asp-for="manhinh" class="form-control" />
+        <span asp-validation-for="manhinh" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="pin" class="control-label">Pin</label>
+        <input asp-for="pin" class="form-control" />
+        <span asp-validation-for="pin" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="trangthai" class="control-label">Trạng Thái</label>
+        <select asp-for="trangthai" class="form-control">
+            <option value="true">Available</option>
+            <option value="false">Out of Stock</option>
+        </select>
+        <span asp-validation-for="trangthai" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+    <a asp-action="Index" class="btn btn-secondary ml-2">Back to List</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

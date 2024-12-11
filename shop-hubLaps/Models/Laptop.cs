@@ -34,7 +34,7 @@ namespace shop_hubLaps.Models
 
         // Hình ảnh
         [StringLength(70)]
-        public string hinh { get; set; }
+        public string? hinh { get; set; }
 
         // Mã hàng và nhu cầu
         public int? mahang { get; set; }
@@ -75,5 +75,6 @@ namespace shop_hubLaps.Models
         public virtual ICollection<DanhGia> DanhGias { get; set; }
 
         public virtual ICollection<MetaLaptop> MetaLaptops { get; set; }
+
     }
 }

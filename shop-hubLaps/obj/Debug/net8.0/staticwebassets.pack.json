@@ -265,12 +265,24 @@
       "PackagePath": "staticwebassets\\Content\\css\\styles.css"
     },
     {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\Content\\images\\2abe5cdd-122e-41c8-8f62-5bf791554718.svg",
+      "PackagePath": "staticwebassets\\Content\\images\\2abe5cdd-122e-41c8-8f62-5bf791554718.svg"
+    },
+    {
       "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\Content\\images\\720-220-720x220-257.png",
       "PackagePath": "staticwebassets\\Content\\images\\720-220-720x220-257.png"
     },
     {
       "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\Content\\images\\7b2b6659-09d3-4a69-963c-0207c26eca1f.jpg",
       "PackagePath": "staticwebassets\\Content\\images\\7b2b6659-09d3-4a69-963c-0207c26eca1f.jpg"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\Content\\images\\94ca72d1-f70e-4c15-9bd3-c9090934a88a.png",
+      "PackagePath": "staticwebassets\\Content\\images\\94ca72d1-f70e-4c15-9bd3-c9090934a88a.png"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\Content\\images\\9a5e66d3-2115-4871-bab9-a3c1f6b7496e.png",
+      "PackagePath": "staticwebassets\\Content\\images\\9a5e66d3-2115-4871-bab9-a3c1f6b7496e.png"
     },
     {
       "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\Content\\images\\Dang-ky-thong-bao-website-thuong-mai-dien-tu.png",
@@ -315,6 +327,10 @@
     {
       "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\Content\\images\\Zenbook_Oled.png",
       "PackagePath": "staticwebassets\\Content\\images\\Zenbook_Oled.png"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\Content\\images\\a87e0be5-b39f-4cb3-926d-b1792f8df392.png",
+      "PackagePath": "staticwebassets\\Content\\images\\a87e0be5-b39f-4cb3-926d-b1792f8df392.png"
     },
     {
       "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\Content\\images\\acer.png",
@@ -391,6 +407,10 @@
     {
       "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\Content\\images\\banner-vang.png",
       "PackagePath": "staticwebassets\\Content\\images\\banner-vang.png"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\Content\\images\\bc4adc32-4549-4c70-8eac-446927a29b68.png",
+      "PackagePath": "staticwebassets\\Content\\images\\bc4adc32-4549-4c70-8eac-446927a29b68.png"
     },
     {
       "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\Content\\images\\bot.png",
@@ -1689,6 +1709,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\images\\Acer-Logo.png",
+      "PackagePath": "staticwebassets\\images\\Acer-Logo.png"
+    },
+    {
       "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\img\\Acer-Logo.png",
       "PackagePath": "staticwebassets\\img\\Acer-Logo.png"
     },
@@ -2001,8 +2025,16 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\uploads\\08e0c19b-a675-4ead-8799-850329d56b6d.jpg",
+      "PackagePath": "staticwebassets\\uploads\\08e0c19b-a675-4ead-8799-850329d56b6d.jpg"
+    },
+    {
       "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\uploads\\49ae7d5b-e35d-4b76-9c84-8401de71d8a6.jpg",
       "PackagePath": "staticwebassets\\uploads\\49ae7d5b-e35d-4b76-9c84-8401de71d8a6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\uploads\\4a8f05f3-dc7e-4e84-a6b2-4a0a208f8efc.jpg",
+      "PackagePath": "staticwebassets\\uploads\\4a8f05f3-dc7e-4e84-a6b2-4a0a208f8efc.jpg"
     },
     {
       "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\uploads\\5c6175ef-3d99-4640-a180-cf7e752e4686.jpg",
@@ -2011,6 +2043,10 @@
     {
       "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\uploads\\5ee244ea-87a8-4ae2-a89c-60c37076786b.jpg",
       "PackagePath": "staticwebassets\\uploads\\5ee244ea-87a8-4ae2-a89c-60c37076786b.jpg"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\uploads\\5f94a88b-4311-48a6-b63d-a44421c1742a.jpg",
+      "PackagePath": "staticwebassets\\uploads\\5f94a88b-4311-48a6-b63d-a44421c1742a.jpg"
     },
     {
       "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\uploads\\75e8e770-a40d-4bdf-b245-264a12b32566.jpg",
@@ -2025,6 +2061,10 @@
       "PackagePath": "staticwebassets\\uploads\\812ccd58-efab-403b-8858-e844e0b735a2.jpg"
     },
     {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\uploads\\88145573-f38b-4f15-91bc-1bb75197beba.jpg",
+      "PackagePath": "staticwebassets\\uploads\\88145573-f38b-4f15-91bc-1bb75197beba.jpg"
+    },
+    {
       "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\uploads\\8dc17282-325b-45e1-b3d0-420eb879320a.png",
       "PackagePath": "staticwebassets\\uploads\\8dc17282-325b-45e1-b3d0-420eb879320a.png"
     },
@@ -2033,12 +2073,24 @@
       "PackagePath": "staticwebassets\\uploads\\8e99720a-a615-4433-b089-bb1beaf4a4dc.jpg"
     },
     {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\uploads\\999d82dd-8eaa-4a5a-848c-a6412e048af3.ico",
+      "PackagePath": "staticwebassets\\uploads\\999d82dd-8eaa-4a5a-848c-a6412e048af3.ico"
+    },
+    {
       "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\uploads\\a65f5bf9-d251-44ba-9cc8-79adcf25229b.png",
       "PackagePath": "staticwebassets\\uploads\\a65f5bf9-d251-44ba-9cc8-79adcf25229b.png"
     },
     {
       "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\uploads\\bbd4540a-9f2b-401e-b868-0c792eb8398e.jpg",
       "PackagePath": "staticwebassets\\uploads\\bbd4540a-9f2b-401e-b868-0c792eb8398e.jpg"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\uploads\\c0e5b7ef-b911-4fd3-9fcc-5d329639db0e.jpg",
+      "PackagePath": "staticwebassets\\uploads\\c0e5b7ef-b911-4fd3-9fcc-5d329639db0e.jpg"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\uploads\\d00cd0df-0984-4306-ac3a-e3900e9ea7c4.jpg",
+      "PackagePath": "staticwebassets\\uploads\\d00cd0df-0984-4306-ac3a-e3900e9ea7c4.jpg"
     },
     {
       "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\uploads\\e5029d0f-493b-412e-9eff-72a50e77b542.jpg",

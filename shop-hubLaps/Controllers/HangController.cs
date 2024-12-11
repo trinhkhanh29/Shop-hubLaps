@@ -250,10 +250,9 @@ namespace shop_hubLaps.Controllers
         // Kiểm tra định dạng hình ảnh hợp lệ
         private bool IsValidImage(IFormFile file)
         {
-            string[] validExtensions = { ".jpg", ".jpeg", ".png", ".gif" };
+            string[] validExtensions = { ".jpg", ".jpeg", ".png", ".gif", ".svg" };
             string fileExtension = Path.GetExtension(file.FileName).ToLower();
 
-            // Kiểm tra chiều dài của tên file
             if (file.FileName.Length > 70)
             {
                 ModelState.AddModelError("Hinh", "Tên hình ảnh quá dài. Vui lòng chọn hình ảnh khác.");
@@ -262,6 +261,7 @@ namespace shop_hubLaps.Controllers
 
             return validExtensions.Contains(fileExtension);
         }
+
 
     }
 }
