@@ -1,0 +1,53 @@
+﻿@model shop_hubLaps.Models.QuangCao
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Chi tiết Quảng Cáo";
+}
+
+<h1 class="text-start" style="font-family: Lexend; font-weight: 500; font-size: 30px;">@ViewData["Title"]</h1>
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-lg-6 col-md-8 col-sm-12">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h3 class="card-title">@Model.tenqc</h3>
+                    <p><strong>Công ty:</strong> @Model.tencongty</p>
+                    <p>
+                        <strong>Hình nền:</strong>
+                        @if (!string.IsNullOrEmpty(Model.hinhnen))
+                        {
+                            <img src="@Model.hinhnen" alt="Hình nền quảng cáo" class="img-fluid" style="max-width: 100px;">
+                        }
+                        else
+                        {
+                            <span class="text-muted">Không có hình nền</span>
+                        }
+                    </p>
+                    <p><strong>Link:</strong> <a href="@Model.link" target="_blank" class="text-primary">@Model.link</a></p>
+                    <p><strong>Ngày bắt đầu:</strong> @Model.ngaybatdau?.ToString("yyyy-MM-dd")</p>
+                    <p><strong>Ngày hết hạn:</strong> @Model.ngayhethan?.ToString("yyyy-MM-dd")</p>
+
+                    <!-- Trạng thái -->
+                    <p>
+                        <strong>Trạng thái:</strong>
+                        @if (Model.trangthai)
+                        {
+                            <span class="badge bg-success"><i class="bi bi-check-circle-fill"></i> Đã Duyệt</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-danger"><i class="bi bi-x-circle-fill"></i> Chưa Duyệt</span>
+                        }
+                    </p>
+
+                    <div class="mt-3">
+                        <a asp-action="Edit" asp-route-id="@Model.maqc" class="btn btn-warning btn-sm me-2"><i class="bi bi-pencil-square"></i> Sửa</a>
+                        <a asp-action="Index" class="btn btn-secondary btn-sm"><i class="bi bi-arrow-left-circle"></i> Quay lại</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

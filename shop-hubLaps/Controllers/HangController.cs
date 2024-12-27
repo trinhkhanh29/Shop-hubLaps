@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using shop_hubLaps.Models;
 using System.IO;
@@ -7,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace shop_hubLaps.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class HangController : Controller
     {
         private readonly DataModel _context;
@@ -19,10 +21,16 @@ namespace shop_hubLaps.Controllers
         }
 
         // Hiển thị danh sách hãng
-        public async Task<IActionResult> Index()
+        public IActionResult Index(string searchTerm)
         {
-            var hangList = await _context.Hangs.ToListAsync();
-            return View(hangList);
+            var hangList = _context.Hangs.AsQueryable();
+
+            if (!string.IsNullOrEmpty(searchTerm))
+            {
+                hangList = hangList.Where(h => h.tenhang.Contains(searchTerm));
+            }
+
+            return View(hangList.ToList());
         }
 
         // Hiển thị chi tiết hãng
@@ -233,8 +241,6 @@ namespace shop_hubLaps.Controllers
                 System.IO.File.Delete(imagePath);
             }
         }
-
-
 
         /************************************/
 

@@ -1,0 +1,43 @@
+﻿@model shop_hubLaps.Models.DonHang
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Xóa Đơn Hàng";
+}
+
+<h2 class="font-weight-bold" style="font-family: 'Lexend', sans-serif;">Xóa Đơn Hàng</h2>
+
+<hr />
+
+<h3>Bạn có chắc muốn xóa đơn hàng này?</h3>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">Mã đơn hàng</dt>
+        <dd class="col-sm-10">@Model.madon</dd>
+
+        <dt class="col-sm-2">Mã khách hàng</dt>
+        <dd class="col-sm-10">@Model.makh</dd>
+
+        <dt class="col-sm-2">Tổng giá</dt>
+        <dd class="col-sm-10">@Model.gia.ToString("C")</dd>
+
+        <dt class="col-sm-2">Tình trạng</dt>
+        <dd class="col-sm-10">@Model.tinhtrang</dd>
+
+        <dt class="col-sm-2">Ngày đặt hàng</dt>
+        <dd class="col-sm-10">@Model.ngaydat?.ToString("dd/MM/yyyy")</dd>
+
+        <dt class="col-sm-2">Ngày giao hàng</dt>
+        <dd class="col-sm-10">@Model.ngaygiao?.ToString("dd/MM/yyyy")</dd>
+
+        <dt class="col-sm-2">Thanh toán</dt>
+        <dd class="col-sm-10">@Model.thanhtoan == true ? "Đã thanh toán" : "Chưa thanh toán"</dd>
+    </dl>
+
+    <form asp-action="DeleteConfirmed" method="post">
+        <input type="hidden" asp-for="madon" />
+        <button type="submit" class="btn btn-danger">Xóa</button>
+        <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+    </form>
+</div>

@@ -1,5 +1,34 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model shop_hubLaps.Models.MetaLaptop
 @{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Xóa Meta Laptop";
 }
+
+<div class="container mt-4">
+    <h1 class="text-start">Xóa Meta Laptop</h1>
+
+    <div class="alert alert-warning">
+        <p>Bạn có chắc chắn muốn xóa Meta Laptop có mã <strong>@Model.mameta</strong> không?</p>
+    </div>
+
+    <div class="form-group">
+        <label>Key Meta</label>
+        <p>@Model.keymeta</p>
+    </div>
+
+    <div class="form-group">
+        <label>Value Meta</label>
+        <p>@Model.valuemeta</p>
+    </div>
+
+    <div class="form-group">
+        <label>Laptop</label>
+        <p>@Model.Laptop.tenlaptop</p>
+    </div>
+
+    <form asp-action="DeleteConfirmed" method="post">
+        <input type="hidden" name="id" value="@Model.mameta" />
+        <button type="submit" class="btn btn-danger">Xóa</button>
+        <a href="@Url.Action("Index", "MetaLaptop")" class="btn btn-secondary">Quay lại</a>
+    </form>
+</div>

@@ -1,0 +1,27 @@
+﻿@model shop_hubLaps.Models.QuangCao
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Xóa Quảng Cáo";
+}
+
+<h1 class="text-start" style="font-family: Lexend; font-weight: 500; font-size: 30px;">@ViewData["Title"]</h1>
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-lg-6 col-md-8 col-sm-12">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h3 class="card-title">Bạn có chắc chắn muốn xóa quảng cáo: @Model.tenqc?</h3>
+                    <p><strong>Công ty:</strong> @Model.tencongty</p>
+                    <p><strong>Ngày hết hạn:</strong> @Model.ngayhethan?.ToString("yyyy-MM-dd")</p>
+
+                    <form method="post">
+                        <button type="submit" class="btn btn-danger btn-sm me-2">Xóa</button>
+                        <a asp-action="Index" class="btn btn-secondary btn-sm">Hủy</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

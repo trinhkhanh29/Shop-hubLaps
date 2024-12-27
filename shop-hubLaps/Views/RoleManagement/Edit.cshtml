@@ -1,0 +1,20 @@
+﻿@* @model Microsoft.AspNetCore.Identity.IdentityRole
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Edit Role";
+}
+
+<div class="container mt-4">
+    <h1 class="text-start" style="font-family: Lexend; font-weight: 500; font-size: 30px;">Edit Role</h1>
+
+    <form asp-action="Edit" method="post">
+        <input type="hidden" name="id" value="@Model.Id" />
+        <div class="form-group">
+            <label for="newName">Role Name</label>
+            <input type="text" name="newName" id="newName" class="form-control" value="@Model.Name" required />
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Save Changes</button>
+    </form>
+</div>
+ *@

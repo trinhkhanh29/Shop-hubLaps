@@ -2,13 +2,16 @@
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using shop_hubLaps.Models;
 
 namespace shop_hubLaps.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class LaptopController : Controller
     {
         private readonly DataModel _context;
@@ -22,9 +25,30 @@ namespace shop_hubLaps.Controllers
         }
 
         // GET: Laptop
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchTerm)
         {
-            var laptops = await _context.Laptops.ToListAsync();
+            var laptopsQuery = _context.Laptops
+                .Include(l => l.NhuCau)
+                .Include(l => l.Hang)
+                .AsQueryable();  // Start with the full list of laptops
+
+            // If a search term is provided, filter the laptops
+            if (!string.IsNullOrEmpty(searchTerm))
+            {
+                laptopsQuery = laptopsQuery.Where(l =>
+                    l.tenlaptop.Contains(searchTerm) || // Search by laptop name
+                    (l.Hang != null && l.Hang.tenhang.Contains(searchTerm)) || // Search by brand name (if Hang is not null)
+                    (l.NhuCau != null && l.NhuCau.tennhucau.Contains(searchTerm)) || // Search by needs (if NhuCau is not null)
+                    (l.cpu != null && l.cpu.Contains(searchTerm)) || // Search by CPU (if cpu is not null)
+                    (l.gpu != null && l.gpu.Contains(searchTerm)) // Search by GPU (if gpu is not null)
+                );
+            }
+
+            var laptops = await laptopsQuery.ToListAsync();
+
+            ViewBag.NhuCauList = _context.NhuCaus.ToList();
+            ViewBag.HangList = _context.Hangs.ToList();
+
             return View(laptops);
         }
 
@@ -33,32 +57,31 @@ namespace shop_hubLaps.Controllers
         // GET: Laptop/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var laptop = await _context.Laptops.FirstOrDefaultAsync(m => m.malaptop == id);
+            var laptop = _context.Laptops.FirstOrDefault(l => l.malaptop == id);
             if (laptop == null)
             {
                 return NotFound();
             }
 
-            return View(laptop);
+            return View(laptop);  // Pass a single Laptop object to the view
         }
 
         /************************************/
 
         // GET: Laptop/Create
-        public IActionResult Create()
-        {
+        public IActionResult Create()        {
+           
+            ViewBag.HangList = _context.Hangs.ToList();
+
+            ViewBag.NhuCauList = _context.NhuCaus.ToList(); 
+
             return View();
         }
 
         // POST: Laptop/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("tenlaptop,giaban,mota,hinh,cpu,gpu,ram,hardware,manhinh,pin,trangthai")] Laptop laptop, IFormFile? hinh)
+        public async Task<IActionResult> Create([Bind("tenlaptop,giaban,mota,hinh,cpu,gpu,ram,hardware,manhinh,pin,trangthai,mahang,manhucau,soluongton")] Laptop laptop,IFormFile? hinh)
         {
             if (!ModelState.IsValid)
             {
@@ -89,8 +112,7 @@ namespace shop_hubLaps.Controllers
                     // Nếu không có ảnh, loại bỏ lỗi yêu cầu trường hình ảnh
                     ModelState.Remove("hinh");
                 }
-
-                // Thêm laptop vào cơ sở dữ liệu
+                laptop.ngaycapnhat = DateTime.Now;
                 _context.Add(laptop);
                 await _context.SaveChangesAsync();
 
@@ -138,85 +160,102 @@ namespace shop_hubLaps.Controllers
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
-            {
+            
                 return NotFound();
-            }
 
             var laptop = await _context.Laptops.FindAsync(id);
+
+            ViewBag.HangList = _context.Hangs.ToList();
+
+            ViewBag.NhuCauList = _context.NhuCaus.ToList();
+
             if (laptop == null)
-            {
+            
                 return NotFound();
-            }
-
+            
             return View(laptop);
+
+
         }
-
-
-        // POST: Laptop/Edit/5
         // POST: Laptop/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("malaptop,tenlaptop,giaban,mota,hinh,cpu,gpu,ram,hardware,manhinh,pin,trangthai")] Laptop laptop, IFormFile? hinh)
+        public async Task<IActionResult> Edit(int id, [Bind("malaptop,tenlaptop,giaban,mota,hinh,cpu,gpu,ram,hardware,manhinh,pin,trangthai,manhucau,mahang,soluongton")] Laptop laptop, IFormFile? hinh)
+
         {
             if (id != laptop.malaptop)
             {
-                return NotFound();
+                TempData["ErrorMessage"] = "ID Laptop không khớp.";
+                return RedirectToAction(nameof(Edit), new { id });
             }
-
             if (!ModelState.IsValid)
             {
-                TempData["ErrorMessage"] = "Dữ liệu nhập vào không hợp lệ.";
+                TempData["ErrorMessage"] = "Dữ liệu không hợp lệ.";
                 return View(laptop);
             }
-
             try
             {
-                // Kiểm tra và xử lý ảnh
-                if (hinh != null && hinh.Length > 0) // Nếu có ảnh mới
+                // Kiểm tra nếu có upload hình mới
+                if (hinh != null && hinh.Length > 0)
                 {
-                    var fileName = Path.GetFileName(hinh.FileName);
-                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images", fileName);
+                    // Kiểm tra tính hợp lệ của hình ảnh
+                    if (!IsValidImage(hinh))
+                    {
+                        TempData["ErrorMessage"] = "Hình ảnh không hợp lệ. Chỉ chấp nhận JPG, PNG, GIF, tên file dưới 70 ký tự.";
+                        return RedirectToAction("Index", "Laptop");
+                    }
 
-                    // Xóa ảnh cũ nếu có
+                    // Đường dẫn và tên file mới
+                    var fileName = Path.GetFileName(hinh.FileName);
+                    var filePath = Path.Combine(_imageFolder, fileName);
+
+                    // Xóa hình ảnh cũ (nếu có)
                     if (!string.IsNullOrEmpty(laptop.hinh))
                     {
-                        var oldFilePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images", Path.GetFileName(laptop.hinh));
+                        var oldFilePath = Path.Combine(_imageFolder, Path.GetFileName(laptop.hinh));
                         if (System.IO.File.Exists(oldFilePath))
                         {
                             System.IO.File.Delete(oldFilePath);
                         }
                     }
 
-                    // Lưu ảnh mới vào thư mục
+                    // Lưu hình ảnh mới vào thư mục
                     using (var stream = new FileStream(filePath, FileMode.Create))
                     {
                         await hinh.CopyToAsync(stream);
                     }
 
-                    // Lưu đường dẫn ảnh mới vào đối tượng Laptop
+                    // Cập nhật đường dẫn ảnh mới
                     laptop.hinh = "/images/" + fileName;
                 }
 
-                // Cập nhật laptop trong cơ sở dữ liệu
+                laptop.ngaycapnhat = DateTime.Now;
+
                 _context.Update(laptop);
+
                 await _context.SaveChangesAsync();
 
                 TempData["SuccessMessage"] = "Cập nhật Laptop thành công!";
-                return RedirectToAction(nameof(Index));
             }
             catch (DbUpdateConcurrencyException)
             {
                 if (!LaptopExists(laptop.malaptop))
                 {
-                    return NotFound();
+                    TempData["ErrorMessage"] = "Laptop không tồn tại.";
                 }
                 else
                 {
-                    throw;
+                    TempData["ErrorMessage"] = "Lỗi xung đột khi cập nhật dữ liệu.";
                 }
             }
-        }
+            catch (Exception ex)
+            {
+                TempData["ErrorMessage"] = $"Đã xảy ra lỗi: {ex.Message}";
+            }
 
+            // Dù đúng hay sai, luôn quay về trang chính
+            return RedirectToAction("Index", "Laptop");
+        }
         /************************************/
 
         // GET: Laptop/Delete/5
@@ -256,7 +295,14 @@ namespace shop_hubLaps.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-
+        // API endpoint để lấy danh sách laptops
+        [HttpGet("GetLaptops")]
+        public IActionResult GetLaptops()
+        {
+            // Lấy danh sách laptops từ database
+            var laptops = _context.Laptops.ToList();
+            return Ok(laptops); // Trả về kết quả dưới dạng JSON
+        }
         /************************************/
 
         private bool LaptopExists(int id)
@@ -285,5 +331,6 @@ namespace shop_hubLaps.Controllers
                 Directory.CreateDirectory(_imageFolder);
             }
         }
+
     }
 }

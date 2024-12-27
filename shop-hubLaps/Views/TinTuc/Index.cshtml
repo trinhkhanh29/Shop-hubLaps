@@ -5,37 +5,52 @@
     ViewData["Title"] = "Danh sách Tin Tức";
 }
 
-<h2>@ViewData["Title"]</h2>
+<h1 class="text-start" style="font-family: Lexend; font-weight: 500; font-size: 30px;">@ViewData["Title"]</h1>
+<a href="@Url.Action("Create", "TinTuc")" class="btn btn-primary mb-3">Tạo Tin Tức Mới</a>
 
+<div class="container mt-4">
+    <div class="card shadow-sm">
+        <div class="card-body">
 
-<p>
-    <a class="btn btn-primary" href="@Url.Action("Create")">Tạo Tin Tức</a>
-</p>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>Tiêu Đề</th>
-            <th>Chủ Đề</th>
-            <th>Ngày Cập Nhật</th>
-            <th>Hành Động</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.tieude</td>
-                <td>@item.ChuDe.tenchude</td>
-                <td>@item.ngaycapnhat?.ToString("dd/MM/yyyy")</td>
-                <td>
-                    <a class="btn btn-info" href="@Url.Action("Edit", new { id = item.matin })">Sửa</a>
-                    <a class="btn btn-danger" href="@Url.Action("Delete", new { id = item.matin })">Xóa</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
-@section Scripts {
-    <partial name="_ValidationScriptsPartial" />  
-}
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Tiêu Đề</th>
+                        <th>Slug</th>
+                        <th>Chủ Đề</th>
+                        <th>Ngày Cập Nhật</th>
+                        <th>Xuất Bản</th>
+                        <th>Hành Động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (!Model.Any())
+                    {
+                        <tr>
+                            <td colspan="7" class="text-center">Không có tin tức nào để hiển thị.</td>
+                        </tr>
+                    }
+                    else
+                    {
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.matin</td>
+                                <td>@item.tieude</td>
+                                <td>@item.slug</td>
+                                <td>@(item.ChuDe?.tenchude ?? "Chủ đề không tồn tại")</td>
+                                <td>@item.ngaycapnhat?.ToString("dd/MM/yyyy")</td>
+                                <td>@(item.xuatban == true ? "Có" : "Không")</td>
+                                <td>
+                                    <a href="@Url.Action("Edit", "TinTuc", new { id = item.matin })" class="btn btn-sm btn-warning">Sửa</a>
+                                    <a href="@Url.Action("Delete", "TinTuc", new { id = item.matin })" class="btn btn-sm btn-danger">Xóa</a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

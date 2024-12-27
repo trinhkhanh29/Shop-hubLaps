@@ -9,7 +9,6 @@ namespace shop_hubLaps.Models
     public partial class TinTuc
     {
         // Khởi tạo các bình luận liên quan
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TinTuc()
         {
             BinhLuans = new HashSet<BinhLuan>();

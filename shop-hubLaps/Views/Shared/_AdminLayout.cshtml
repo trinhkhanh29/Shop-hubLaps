@@ -173,17 +173,17 @@
                     <div class="collapse submenu" id="adsMenu">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a href="@Url.Action("Index", "Ads")" class="nav-link">Danh sách quảng cáo</a>
+                                <a href="@Url.Action("Index", "QuangCao")" class="nav-link">Danh sách quảng cáo</a>
                             </li>
                             <li class="nav-item">
-                                <a href="@Url.Action("Create", "Ads")" class="nav-link">Thêm quảng cáo</a>
+                                <a href="@Url.Action("CreateAdmin", "QuangCao")" class="nav-link">Thêm quảng cáo</a>
                             </li>
                         </ul>
                     </div>
                 </li>
                 <!-- Quản lý vai trò thành viên -->
                 <li class="nav-item">
-                    <a class="nav-link" href="@Url.Action("Index", "Roles")">
+                    <a class="nav-link" href="@Url.Action("Index", "RoleManagement")">
                         <i class="fas fa-user-shield"></i> Vai trò thành viên
                     </a>
                 </li>
@@ -194,7 +194,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="@Url.Action("Index", "Orders")">
+                    <a class="nav-link" href="@Url.Action("Index", "DonHang")">
                         <i class="fas fa-shopping-cart"></i> Đơn hàng
                     </a>
                 </li>            
@@ -213,7 +213,7 @@
             </ul>
         </div>
         <!-- Content -->
-        <div class="content">
+        <div class="content" style="background-color: #F8F9FA;">
             <nav class="navbar navbar-light bg-light mb-3">
                 <div class="container-fluid">
                     <button class="btn btn-primary toggle-menu" type="button">

@@ -1,0 +1,360 @@
+﻿/*liên hệ*/
+#ContactForConsultation {
+    display: none;
+    transition-duration: .3s;
+    transition-delay: .3s;
+    z-index: 99999;
+    border-radius: 10px;
+    position: fixed;
+    right: 60px;
+    bottom: 163px;
+    border-left: 1px solid #ebebeb;
+    box-shadow: 3px 4px 3px rgba(0, 0, 0, 0.1);
+}
+
+    #ContactForConsultation.ishow {
+        display: block
+    }
+
+    #ContactForConsultation .contact {
+        width: 340px;
+    }
+
+        #ContactForConsultation .contact::after {
+            border-left: 12px solid transparent;
+            border-right: 12px solid transparent;
+            border-top: 12px solid #fff;
+            left: 80%;
+            right: auto;
+            -webkit-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+            transform: translateX(195%);
+            top: 100%;
+            content: '';
+            height: 0;
+            position: absolute;
+            width: 0;
+        }
+
+        #ContactForConsultation .contact .contact-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 12px 12px 12px;
+            background-color: #2F5A75;
+            border-radius: 10px 10px 0px 0px;
+        }f
+
+            #ContactForConsultation .contact .contact-header .header-group {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+
+.contact .contact-header strong {
+    font-size: 15px;
+    color: #ffffff;
+}
+
+.contact .contact-header i {
+    font-size: 24px;
+    line-height: 24px;
+    width: 24px;
+}
+
+.contact .contact-header img {
+    max-width: 24px
+}
+
+.contact .contact-header i {
+    font-size: 24px;
+    line-height: 24px;
+    width: 24px;
+}
+
+#ContactForConsultation .fs-closes {
+    width: 24px;
+    height: 24px;
+    color: #fff;
+    line-height: 1.28;
+    text-align: center;
+    text-decoration: none;
+    text-indent: 0;
+    background: #fd5465;
+    -webkit-border-radius: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+#ContactForConsultation .contect-info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px 12px 12px 12px;
+    background-color: white;
+    border-radius: 0px 0px 10px 10px;
+}
+
+    #ContactForConsultation .contect-info .contect-info-item {
+        display: flex;
+        align-items: center;
+        padding: 12px;
+        gap: 8px;
+        border: 1px solid #EBEBEB;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+        #ContactForConsultation .contect-info .contect-info-item:hover, #ContactForConsultation .contect-info .contect-info-item.active {
+            border: 1px solid #005a99;
+        }
+
+        #ContactForConsultation .contect-info .contect-info-item span {
+            color: #191919;
+        }
+
+        #ContactForConsultation .contect-info .contect-info-item:hover span, #ContactForConsultation .contect-info .contect-info-item.active span {
+            color: #009981;
+        }
+
+        #ContactForConsultation .contect-info .contect-info-item img {
+            max-width: 32px;
+        }
+
+/*chatbox*/
+.chat-button-div {
+    position: relative
+}
+
+    .chat-button-div .chat-button {
+        position: fixed;
+        right: -20px;
+        bottom: 110px;
+        transition-duration: .3s;
+        transition-delay: .3s;
+        z-index: 9999999;
+    }
+    .chat-button {
+        width: 170px;
+        height: 70px;
+    }
+.chat-button:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 60px;
+    height: 60px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 50px;
+    transform: translate(-50%, -50%);
+    animation: ripple 2s infinite;
+}
+
+@keyframes ripple {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 0.3;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(2);
+        opacity: 0;
+    }
+}
+
+.chat-button {
+    /*    width: 70px;
+    height: 70px;*/
+    border-radius: 9999px;
+    border: none;
+    background-color: transparent;
+}
+
+    .chat-button img {
+        width: 50px;
+        height: 50px;
+        z-index: 1;
+        position: relative;
+        transition: transform 0.3s ease;
+    }
+
+        .chat-button img:hover {
+            transform: scale(1.02);
+            cursor: pointer;
+        }
+
+.bx-chat-view {
+    display: none;
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    transition-duration: .5s;
+    transition-delay: .3s;
+    z-index: 9999999;
+}
+
+    .bx-chat-view.isShow {
+        display: block
+    }
+
+.bx-chat {
+    width: 440px;
+    max-height: calc(100vh - 8rem);
+    border-radius: 10px;
+    background: white;
+    height: 700px;
+    display: flex;
+    flex: 1 1 0%;
+    flex-direction: column;
+}
+
+    .bx-chat .header-chat {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: .75rem;
+        background-color: #009981;
+        font-size: 20px;
+        border-radius: 10px 10px 0px 0px;
+        color: white;
+    }
+
+        .bx-chat .header-chat div {
+            --tw-space-x-reverse: 0;
+            margin-right: calc(.5rem* var(--tw-space-x-reverse));
+            margin-left: calc(.5rem* calc(1 - var(--tw-space-x-reverse)));
+            padding: .5rem;
+            background-color: #ffffff1a;
+            border-radius: .375rem;
+            cursor: pointer;
+            display: flex;
+        }
+
+            .bx-chat .header-chat div:hover {
+                background-color: #fff3;
+            }
+
+        .bx-chat .header-chat i {
+            font-size: 16px;
+            line-height: 16px;
+        }
+
+    .bx-chat .content-chat {
+        padding: .75rem;
+        border-radius: 10px 20px 30px 50px;
+        display: flex;
+        flex: 1 1 0%;
+        flex-direction: column;
+        overflow-y: auto;
+        scrollbar-width: none;
+    }
+
+.content-chat .bx-message {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.content-chat .bx-message {
+    --tw-space-y-reverse: 0;
+    margin-top: calc(.75rem * calc(1 - var(--tw-space-y-reverse)));
+    margin-bottom: calc(.75rem * var(--tw-space-y-reverse));
+    /* color: white; */
+    /* width: calc(100% - 40px); */
+}
+
+    .content-chat .bx-message .message {
+        display: flex;
+        /* flex: 1 1 0%; */
+        align-items: flex-end;
+        gap: .5rem;
+        font-size: 14px;
+        justify-content: flex-end;
+        width: calc(100% - 40px);
+    }
+
+    .content-chat .bx-message.bx-user-admin .message {
+        justify-content: start;
+    }
+
+    .content-chat .bx-message .message p {
+        font-size: 14px;
+        margin: 0;
+    }
+
+    .content-chat .bx-message .message div {
+        padding-top: .625rem;
+        padding-bottom: .625rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        border-radius: 1.5rem;
+    }
+
+    .content-chat .bx-message.bx-user-admin img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .content-chat .bx-message.bx-user-admin .message div {
+        --tw-bg-opacity: 1;
+        background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+        --tw-space-x-reverse: 0;
+        margin-right: calc(.25rem* var(--tw-space-x-reverse));
+        margin-left: calc(.25rem* calc(1 - var(--tw-space-x-reverse)));
+    }
+
+    .content-chat .bx-message.bx-user-client .message div {
+        background-color: rgb(32, 151, 243);
+        margin-left: auto;
+        /* width: calc(100% - 40px); */
+        color: white;
+    }
+
+
+.bx-input * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.bx-input .p-3 {
+    padding: .75rem
+}
+
+.input-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 10;
+    margin-left: auto;
+    display: flex;
+    height: 100%;
+    width: 3rem;
+    cursor: pointer;
+    align-items: center;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    opacity: .5;
+}
+
+    .input-btn i {
+        font-size: 24px;
+        line-height: 24px;
+    }
+.icon-minutes:before {
+    content: "\f00d" !important;
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    font-style: normal;
+}
+

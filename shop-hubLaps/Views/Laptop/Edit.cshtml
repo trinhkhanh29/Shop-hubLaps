@@ -1,4 +1,6 @@
-﻿@model shop_hubLaps.Models.Laptop
+﻿@using shop_hubLaps.Views.Laptop
+@model shop_hubLaps.Models.Laptop
+
 
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -8,21 +10,50 @@
 <h2>@ViewData["Title"]</h2>
 
 <form asp-action="Edit" method="post" enctype="multipart/form-data">
+
+    <input type="hidden" asp-for="malaptop" />
+
+   <!-- Bổ sung trường Mã Hãng -->
+    <div class="form-group">
+        <label asp-for="mahang" class="control-label">Hãng</label>
+        <select asp-for="mahang" class="form-control">
+            <option value="">Chọn hãng...</option>
+            @foreach (var hang in ViewBag.HangList)
+            {
+                    <option value="@hang.mahang">@hang.tenhang</option>
+            }
+        </select>
+        <span asp-validation-for="mahang" class="text-danger"></span>
+    </div>
+
+    <!-- Bổ sung trường Mã Nhu Cầu -->
+    <div class="form-group">
+        <label asp-for="manhucau" class="control-label">Nhu Cầu</label>
+        <select asp-for="manhucau" class="form-control">
+            <option value="">Chọn nhu cầu...</option>
+            @foreach (var nhucau in ViewBag.NhuCauList)
+            {
+                    <option value="@nhucau.manhucau">@nhucau.tennhucau</option>
+            }
+        </select>
+        <span asp-validation-for="manhucau" class="text-danger"></span>
+    </div>
+
     <div class="form-group">
         <label asp-for="tenlaptop" class="control-label">Tên Laptop</label>
-        <input asp-for="tenlaptop" class="form-control" />
+        <input asp-for="tenlaptop" class="form-control" value="@Model.tenlaptop" />
         <span asp-validation-for="tenlaptop" class="text-danger"></span>
     </div>
 
     <div class="form-group">
         <label asp-for="giaban" class="control-label">Giá Bán</label>
-        <input asp-for="giaban" class="form-control" />
+        <input asp-for="giaban" class="form-control" value="@Model.giaban" />
         <span asp-validation-for="giaban" class="text-danger"></span>
     </div>
 
     <div class="form-group">
         <label asp-for="mota" class="control-label">Mô Tả</label>
-        <textarea asp-for="mota" class="form-control"></textarea>
+        <textarea asp-for="mota" class="form-control">@Model.mota</textarea>
         <span asp-validation-for="mota" class="text-danger"></span>
     </div>
 
@@ -30,55 +61,131 @@
         <label asp-for="hinh" class="control-label">Hình Ảnh</label>
         <input type="file" name="hinh" class="form-control" />
         <span asp-validation-for="hinh" class="text-danger"></span>
+        @if (!string.IsNullOrEmpty(Model.hinh))
+        {
+            <div class="mt-2">
+                <img src="@Url.Content(Model.hinh)" alt="Laptop Image" style="max-height: 150px;" />
+            </div>
+        }
     </div>
 
     <div class="form-group">
         <label asp-for="cpu" class="control-label">CPU</label>
-        <input asp-for="cpu" class="form-control" />
+        <select asp-for="cpu" class="form-control">
+            @foreach (var cpu in LaptopAttributes.CpuNames)
+            {
+                <option value="@cpu.Key">@cpu.Value</option>
+            }
+        </select>
         <span asp-validation-for="cpu" class="text-danger"></span>
     </div>
 
     <div class="form-group">
         <label asp-for="gpu" class="control-label">GPU</label>
-        <input asp-for="gpu" class="form-control" />
+        <select asp-for="gpu" class="form-control">
+            @foreach (var cpu in LaptopAttributes.CpuNames)
+            {
+                <option value="@cpu.Key" selected="@(cpu.Key == Model.cpu)">@cpu.Value</option>
+            }
+        </select>
         <span asp-validation-for="gpu" class="text-danger"></span>
     </div>
 
     <div class="form-group">
         <label asp-for="ram" class="control-label">RAM</label>
-        <input asp-for="ram" class="form-control" />
+        <select asp-for="ram" class="form-control">
+            @foreach (var ram in LaptopAttributes.RamSizes)
+            {
+                <option value="@ram.Key">@ram.Value</option>
+
+            }
+        </select>
         <span asp-validation-for="ram" class="text-danger"></span>
     </div>
 
     <div class="form-group">
         <label asp-for="hardware" class="control-label">Hardware</label>
-        <input asp-for="hardware" class="form-control" />
+        <select asp-for="hardware" class="form-control">
+            @foreach (var hardware in LaptopAttributes.HardwareTypes)
+            {
+                <option value="@hardware.Key">@hardware.Value</option>
+            }
+        </select>
         <span asp-validation-for="hardware" class="text-danger"></span>
     </div>
 
     <div class="form-group">
         <label asp-for="manhinh" class="control-label">Màn Hình</label>
-        <input asp-for="manhinh" class="form-control" />
+        <select asp-for="manhinh" class="form-control">
+            @foreach (var screen in LaptopAttributes.ScreenSizes)
+            {
+                <option value="@screen.Key">@screen.Value</option>
+            }
+        </select>
         <span asp-validation-for="manhinh" class="text-danger"></span>
     </div>
 
     <div class="form-group">
         <label asp-for="pin" class="control-label">Pin</label>
-        <input asp-for="pin" class="form-control" />
+        <select asp-for="pin" class="form-control">
+            @foreach (var pin in LaptopAttributes.PinNames)
+            {
+                <option value="@pin.Key">@pin.Value</option>
+            }
+        </select>
         <span asp-validation-for="pin" class="text-danger"></span>
+    </div>
+     <div class="form-group">
+        <label asp-for="soluongton" class="control-label">Số Lượng Tồn</label>
+        <input asp-for="soluongton" class="form-control" value="@Model.soluongton" />
+        <span asp-validation-for="soluongton" class="text-danger"></span>
     </div>
 
     <div class="form-group">
         <label asp-for="trangthai" class="control-label">Trạng Thái</label>
         <select asp-for="trangthai" class="form-control">
-            <option value="true" selected="@Model.trangthai">Available</option>
-            <option value="false" selected="@(Model.trangthai == false)">Out of Stock</option>
+            <option value="true" selected="@Model.trangthai">Còn hàng</option>
+            <option value="false" selected="@(Model.trangthai == false)">Hết hàng</option>
         </select>
         <span asp-validation-for="trangthai" class="text-danger"></span>
     </div>
 
-    <button type="submit" class="btn btn-primary">Save Changes</button>
-    <a asp-action="Index" class="btn btn-secondary ml-2">Back to List</a>
+    <button type="submit" class="btn btn-primary m-2">
+        <svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="24" height="24" viewBox="0 0 30 30" version="1.1" id="svg822" inkscape:version="0.92.4 (f8dce91, 2019-08-02)" sodipodi:docname="save-copy.svg">
+            <defs id="defs816" fill="#fff" style="">
+                <inkscape:path-effect only_selected="false" apply_with_weight="true" apply_no_weight="true" helper_size="0" steps="2" weight="33.333333" is_visible="true" id="path-effect1025" effect="bspline" fill="#fff" style=""></inkscape:path-effect>
+                <inkscape:path-effect only_selected="false" apply_with_weight="true" apply_no_weight="true" helper_size="0" steps="2" weight="33.333333" is_visible="true" id="path-effect1021" effect="bspline" fill="#fff" style=""></inkscape:path-effect>
+            </defs>
+            <sodipodi:namedview id="base" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:zoom="17.833333" inkscape:cx="10.013341" inkscape:cy="14.421413" inkscape:document-units="px" inkscape:current-layer="layer1" showgrid="true" units="px" inkscape:window-width="1366" inkscape:window-height="713" inkscape:window-x="0" inkscape:window-y="0" inkscape:window-maximized="1" showguides="false" inkscape:guide-bbox="true" fill="#fff" style="">
+                <sodipodi:guide position="21.126168,22.794393" orientation="1,0" id="guide1575" inkscape:locked="false" fill="#fff" style=""></sodipodi:guide>
+                <sodipodi:guide position="22.682243,23.285047" orientation="1,0" id="guide1635" inkscape:locked="false" fill="#fff" style=""></sodipodi:guide>
+                <sodipodi:guide position="22.682243,7.6455921" orientation="0,1" id="guide1639" inkscape:locked="false" fill="#fff" style=""></sodipodi:guide>
+                <sodipodi:guide position="18.859863,18.859863" orientation="1,0" id="guide1242" inkscape:locked="false" fill="#fff" style=""></sodipodi:guide>
+                <inkscape:grid type="xygrid" id="grid1103" fill="#fff" style=""></inkscape:grid>
+            </sodipodi:namedview>
+            <metadata id="metadata819" fill="#fff" style="">
+                <rdf:rdf fill="#fff" style="">
+                    <cc:work rdf:about="" fill="#fff" style="">
+                        <dc:format fill="#fff" style="">image/svg+xml</dc:format>
+                        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" fill="#fff" style=""></dc:type>
+                        <dc:title fill="#fff" style=""></dc:title>
+                    </cc:work>
+                </rdf:rdf>
+            </metadata>
+            <g inkscape:label="Layer 1" inkscape:groupmode="layer" id="layer1" transform="translate(0,-289.0625)" fill="#fff" style="">
+                <path style="" d="M 5.3535156 2.8828125 C 4.4410446 2.8828125 3.7050781 3.6168269 3.7050781 4.5292969 L 3.7050781 17.705078 L 7 21 L 7.8242188 21 L 8.9980469 21 L 8.9980469 7.9082031 C 8.9980469 6.8504431 9.8191937 6 10.835938 6 L 11.751953 6 L 11.751953 6.0058594 L 13.587891 6.0058594 L 13.587891 6 L 20.175781 6 L 20.175781 4.5292969 C 20.175781 3.6168269 19.441768 2.8828125 18.529297 2.8828125 L 17.705078 2.8828125 L 17.705078 2.8867188 L 16.058594 2.8867188 L 16.058594 2.8828125 L 7.8242188 2.8828125 L 7.8242188 2.8867188 L 6.1757812 2.8867188 L 6.1757812 2.8828125 L 5.3535156 2.8828125 z " transform="translate(0,289.0625)" id="path907" fill="#fff"></path>
+                <path style="" d="m 12.529412,297.0625 c -0.912471,0 -1.647059,0.73459 -1.647059,1.64706 v 13.17647 l 3.294118,3.29412 H 15 v -3.29412 -0.82353 h 8.235294 v 4.11765 h 2.470588 c 0.912471,0 1.647059,-0.73459 1.647059,-1.64706 v -14.82353 c 0,-0.91247 -0.734588,-1.64706 -1.647059,-1.64706 h -0.823529 v 8.2353 H 13.352941 v -8.2353 z m 2.470588,0 v 6.58824 h 8.235294 v -6.58824 z m 1.647059,15.64706 v 2.47059 h 4.941176 v -2.47059 z" id="rect1037" inkscape:connector-curvature="0" fill="#fff"></path>
+            </g>
+        </svg>
+        Lưu
+    </button>
+    <a asp-action="Index" class="btn btn-secondary ml-2 m-2">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10.4697 8.4696C10.7626 8.17671 11.2374 8.17671 11.5303 8.4696L14 10.9393L16.4697 8.46961C16.7626 8.17672 17.2374 8.17672 17.5303 8.46961C17.8232 8.7625 17.8232 9.23738 17.5303 9.53027L15.0607 11.9999L17.5303 14.4696C17.8232 14.7625 17.8232 15.2374 17.5303 15.5303C17.2374 15.8232 16.7626 15.8232 16.4697 15.5303L14 13.0606L11.5303 15.5303C11.2374 15.8232 10.7626 15.8232 10.4697 15.5303C10.1768 15.2374 10.1768 14.7625 10.4697 14.4696L12.9393 11.9999L10.4697 9.53026C10.1768 9.23737 10.1768 8.76249 10.4697 8.4696Z" fill="#fff" style=""></path>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M8.40595 4.94995C7.25488 4.94995 6.16757 5.47859 5.45665 6.38388L1.89515 10.9191C1.39693 11.5536 1.39693 12.4464 1.89515 13.0808L5.45665 17.616C6.16758 18.5213 7.25488 19.05 8.40595 19.05H19.0526C20.5714 19.05 21.8026 17.8187 21.8026 16.3V7.69995C21.8026 6.18117 20.5714 4.94995 19.0526 4.94995H8.40595ZM6.63637 7.31031C7.06292 6.76714 7.71531 6.44995 8.40595 6.44995H19.0526C19.743 6.44995 20.3026 7.0096 20.3026 7.69995V16.3C20.3026 16.9903 19.743 17.55 19.0526 17.55H8.40595C7.71531 17.55 7.06292 17.2328 6.63637 16.6896L3.07486 12.1544C3.00369 12.0637 3.00369 11.9362 3.07486 11.8455L6.63637 7.31031Z" fill="#fff" style=""></path>
+        </svg>
+        Quay lại danh sách
+    </a>
 </form>
 
 @section Scripts {

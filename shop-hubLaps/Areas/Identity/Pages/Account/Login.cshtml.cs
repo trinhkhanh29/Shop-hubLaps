@@ -96,8 +96,6 @@ namespace shop_hubLaps.Areas.Identity.Pages.Account
             /*var username = new EmailAddressAttribute().IsValid(Input.Email)
                 ? (await _userManager.FindByEmailAsync(Input.Email))?.UserName 
                 : Input.Email;*/
-
-
             if (ModelState.IsValid)
             {
 

@@ -53,3 +53,14 @@
 .btn-link {
     color:none !important;
 }
+.search-bar.d-flex.align-items-center.p-2.my-2.rounded-4 {
+    border: none;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    background: #fff;
+    border-radius: 0 10px 10px 0;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}

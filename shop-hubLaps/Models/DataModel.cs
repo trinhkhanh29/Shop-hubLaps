@@ -24,6 +24,7 @@ namespace shop_hubLaps.Models
         public virtual DbSet<NhuCau> NhuCaus { get; set; }
         public virtual DbSet<QuangCao> QuangCaos { get; set; }
         public virtual DbSet<TinTuc> TinTucs { get; set; }
+        //public virtual DbSet<Reply> Replies { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

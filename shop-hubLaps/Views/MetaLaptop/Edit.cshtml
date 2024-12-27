@@ -1,37 +1,47 @@
 ﻿@model shop_hubLaps.Models.MetaLaptop
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
-    ViewData["Title"] = "Sửa Meta Laptop";
+    ViewData["Title"] = "Chỉnh sửa Meta Laptop";
 }
 
+<div class="container mt-4">
+    <h1 class="text-start">Chỉnh sửa Meta Laptop</h1>
 
-<h1>Edit Meta Laptop</h1>
+    <form asp-action="Edit" method="post">
+        <input type="hidden" asp-for="mameta" />
 
-<form method="post">
-    <div class="form-group">
-        <label for="keymeta">Key Meta</label>
-        <input type="text" class="form-control" id="keymeta" name="keymeta" value="@Model.keymeta" required />
-    </div>
+        <div class="form-group">
+            <label for="keymeta">Key Meta</label>
+            <input type="text" class="form-control" id="keymeta" name="keymeta" value="@Model?.keymeta" required />
+        </div>
 
-    <div class="form-group">
-        <label for="valuemeta">Value Meta</label>
-        <input type="text" class="form-control" id="valuemeta" name="valuemeta" value="@Model.valuemeta" required />
-    </div>
+        <div class="form-group">
+            <label for="valuemeta">Value Meta</label>
+            <input type="text" class="form-control" id="valuemeta" name="valuemeta" value="@Model?.valuemeta" required />
+        </div>
 
-    <div class="form-group">
-        <label for="LaptopId">Laptop</label>
-        <select class="form-control" id="LaptopId" name="LaptopId">
-            <option value="">-- Select Laptop --</option>
-            @foreach (var laptop in ViewData["LaptopId"] as SelectList)
-            {
-@*                 <option value="@laptop.Value" @(laptop.Value == Model.LaptopId.ToString() ? "selected" : "")>@laptop.Text</option>
- *@            }
-        </select>
-    </div>
+        <div class="form-group">
+            <label for="malaptop">Laptop</label>
+            <select asp-for="malaptop" class="form-control" required>
+                <option value="">Chọn Laptop...</option>
+                @if (ViewData["LaptopList"] != null)
+                {
+                    var laptopList = ViewData["LaptopList"] as SelectList;
+                    if (laptopList != null)
+                    {
+                        foreach (var laptop in laptopList.Items)
+                        {
+                            var laptopItem = (shop_hubLaps.Models.Laptop)laptop;
+                            <option value="@laptopItem.malaptop" selected="@(laptopItem.malaptop == Model?.malaptop ? "selected" : "")">
+                                @laptopItem.tenlaptop
+                            </option>
+                        }
+                    }
+                }
+            </select>
+        </div>
 
-    <button type="submit" class="btn btn-primary">Save Changes</button>
-</form>
-
-@section Scripts {
-    <partial name="_ValidationScriptsPartial" />
-}
+        <button type="submit" class="btn btn-primary mt-3">Cập nhật</button>
+        <a href="@Url.Action("Index", "MetaLaptop")" class="btn btn-secondary mt-3">Quay lại</a>
+    </form>
+</div>

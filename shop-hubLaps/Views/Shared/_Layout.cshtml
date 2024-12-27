@@ -1,19 +1,37 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@using shop_hubLaps.Areas.Identity.Data
+@inject UserManager<SampleUser> UserManager
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation-unobtrusive@3.2.12/dist/jquery.validate.unobtrusive.min.js"></script>
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - shop_hubLaps</title>
+    <title>Shop_hubLaps</title>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" asp-append-version="true" />
+
+  <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" />
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Font Awesome 6.7.1 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/brands.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/solid.min.css" />
 
     <!-- Custom Styles -->
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/shop_hubLaps.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/style_search.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/shopping-cartcss.css" asp-append-version="true" />
-
+    <link rel="stylesheet" href="~/css/box-chat.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/alert-notification-2.css" asp-append-version="true" />
 
     <!-- Google Fonts: Lexend -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,228 +40,13 @@
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+
     <style>
        body{
            font-family: Lexend !important;
        }
 </style>
-    <!-- Additional CSS Files -->
-@*     <link rel="stylesheet" href="~/Content/css/bootstrap.min.css">
-    <link rel="stylesheet" href="~/Content/css/all.min.css">
-    <link rel="stylesheet" href="~/Content/css/style.css"> *@
-@*     <link href="~/Content/css/styles.css" rel="stylesheet" /> *@
-@*     <link href="~/Content/css/phonerang.css" rel="stylesheet" />
-    <link href="~/Areas/Administrator/Data/libraries/css/toastr.min.css" rel="stylesheet" />
-    <link href="~/Areas/Administrator/Data/libraries/css/sweetalert2.min.css" rel="stylesheet" /> *@
-
-    @* <style>
-        html, body {
-            height: 100%;
-            font-family: 'Lexend', sans-serif; /* Ensure Lexend is the default font */
-        }
-
-        .footer {
-            position: relative;
-            min-height: 100px; /* Set minimum height for the footer */
-            margin-top: auto; /* This pushes the footer to the bottom */
-        }
-        #myBtn {
-            display: none;
-            position: fixed;
-            bottom: 20px;
-            right: 10px;
-            z-index: 99;
-            border: none;
-            outline: none;
-            background-color: red;
-            border: 4px solid #ccc;
-            color: red;
-            cursor: pointer;
-            border-radius: 30px;
-            opacity: 0.7;
-            width: 60px;
-        }
-
-            #myBtn:hover {
-                background-color: #f1f1f1;
-            }
-
-        .neonText {
-            color: #fff;
-            text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #0fa, 0 0 82px #0fa, 0 0 92px #0fa, 0 0 102px #0fa, 0 0 151px #0fa;
-        }
-
-        .neonBack {
-            border-radius: 25px;
-            color: #fff;
-            box-shadow: 0 0 2px #fff, 0 0 10px #fff, 0 0 20px #0ba9ca, 0 0 30px #0ba9ca, 0 0 40px #0ba9ca, 0 0 50px #0ba9ca;
-            -webkit-animation: blink 0.7s infinite alternate;
-            animation: blink 0.7s infinite alternate;
-        }
-
-        .formDiv {
-            padding: 20px;
-            border-radius: 25px;
-            box-shadow: 0 0 2px #fff, 0 0 10px #fff, 0 0 20px #04f19a, 0 0 30px #04f19a, 0 0 40px #04f19a, 0 0 50px #04f19a;
-            -webkit-animation: blink 0.7s infinite alternate;
-            animation: blink 0.7s infinite alternate;
-        }
-
-        .formDiv-orange {
-            padding: 20px;
-            border-radius: 25px;
-            box-shadow: 0 0 2px #fff, 0 0 10px #fff, 0 0 20px orange, 0 0 30px orange, 0 0 40px orange, 0 0 50px orange;
-            -webkit-animation: blink 0.7s infinite alternate;
-            animation: blink 0.7s infinite alternate;
-        }
-
-        .formDiv-green {
-            padding: 20px;
-            border-radius: 25px;
-            box-shadow: 0 0 2px #fff, 0 0 10px #fff, 0 0 20px green, 0 0 30px green, 0 0 40px green, 0 0 50px green;
-            -webkit-animation: blink 0.7s infinite alternate;
-            animation: blink 0.7s infinite alternate;
-        }
-
-        .formDiv-blue {
-            padding: 20px;
-            border-radius: 25px;
-            box-shadow: 0 0 2px #fff, 0 0 10px #fff, 0 0 20px blue, 0 0 30px blue, 0 0 40px blue, 0 0 50px blue;
-            -webkit-animation: blink 0.7s infinite alternate;
-            animation: blink 0.7s infinite alternate;
-        }
-
-        .formDiv-red {
-            padding: 20px;
-            border-radius: 25px;
-            box-shadow: 0 0 2px #fff, 0 0 10px #fff, 0 0 20px red, 0 0 30px red, 0 0 40px red, 0 0 50px red;
-            -webkit-animation: blink 0.7s infinite alternate;
-            animation: blink 0.7s infinite alternate;
-        }
-
-        .laptopzoom {
-            transition: transform .2s;
-        }
-
-            .laptopzoom:hover {
-                transform: scale(1.2);
-                z-index: 100;
-            }
-
-
-        .header__search {
-            /* margin-top: 8px; */
-            flex: 1;
-            height: 40px;
-            border-radius: 2px;
-            background-color: var(--white-color);
-            display: flex;
-            align-items: center;
-        }
-
-        .header__search-input-wrap {
-            height: 100%;
-            flex: 1;
-            position: relative;
-            z-index: 2;
-        }
-
-        /* Search history */
-        .header__search-history {
-            position: absolute;
-            top: calc(100% + 4px);
-            left: 0;
-            width: calc(100% - 16px);
-            background-color: var(--white-color);
-            border-radius: 3px;
-            box-shadow: 0 1px 3px #666;
-            display: none;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .header__search-history-heading {
-            margin: 6px 12px;
-            font-size: 1.4rem;
-            color: #999;
-            font-weight: 400;
-        }
-
-        .header__search-history-list {
-            padding-left: 0;
-            list-style: none;
-            margin-bottom: 6px 0 0;
-        }
-
-        .header__search-history-item {
-            height: 38px;
-            padding: 0 12px;
-        }
-
-            .header__search-history-item:last-child {
-                border-bottom-left-radius: 3px;
-                border-bottom-right-radius: 3px;
-            }
-
-            .header__search-history-item:hover {
-                background-color: #fafafa;
-            }
-
-            .header__search-history-item a {
-                text-decoration: none;
-                font-size: 1.4rem;
-                color: var(--text-color);
-                line-height: 38px;
-                display: block;
-            }
-
-        .sticky-sidebar {
-        }
-
-            .sticky-sidebar.active {
-                display: block;
-            }
-
-            .sticky-sidebar div {
-                position: fixed;
-                top: 195px;
-                width: 89px;
-                z-index: 999;
-            }
-
-        .banner {
-            margin-top: 300px;
-        }
-
-        /*Căn chỉnh sidebar banner*/
-        @@media screen and (max-width: 2000px) {
-            .sticky-sidebar .banner-left {
-                left: calc(((100vw - 1200px)/2) - 80px);
-            }
-        }
-
-        @@media screen and (max-width: 2000px) {
-            .sticky-sidebar .banner-right {
-                right: calc(((100vw - 1200px)/2) - 90px);
-            }
-        }
-
-        @@media screen and (max-width: 2200px) {
-            .sticky-sidebar .banner {
-                right: calc(((100vw - 1200px)/2) - 200px);
-            }
-        }
-
-        @@media screen and (max-width: 1200px) {
-            .sticky-sidebar div {
-                width: 69px;
-            }
-        }
-
-        .modal-backdrop {
-            opacity: 0.3 !important;
-        }
-    </style> *@
 </head>
 <body>
     <header>
@@ -252,134 +55,233 @@
                 <div class="d-flex align-items-center">
                     <a href="/Home"><img style="width: 100%;max-width: 400px;height: auto;max-height:50px;" src="~/img/hubLaps.svg" class="custom-logo" alt="Logo" /></a>
                 </div>
-
-
-
-
-
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item" style="display:flex;align-items:center;">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Trang chủ</a>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-center">       
+                    <ul class="navbar-nav flex-grow-1 justify-content-center">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="Home">Home</a>
+                        </li>       
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="#">Blog</a>
                         </li>
-
-                        <!-- Search List Item -->
-                        <li class="nav-item" style="display:flex;align-items:center;">
-                            <!-- Search Icon for Small Screens -->
-                            <div class="d-lg-none">
-                                <button class="btn btn-link p-0" id="mobile-search-icon" data-bs-toggle="modal" data-bs-target="#searchModal" >
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                        <path fill="currentColor" d="M21.71 20.29L18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a1 1 0 0 0 1.42 0a1 1 0 0 0 0-1.39ZM11 18a7 7 0 1 1 7-7a7 7 0 0 1-7 7Z" />
-                                    </svg>
-                                </button>
-                            </div>
-
-                            <!-- Search Bar for Large Screens -->
-                            <div class="col-sm-6 offset-sm-2 offset-md-0 col-lg-5 d-none d-lg-block">
-                                <div class="search-bar d-flex align-items-center p-2 my-2 rounded-4">
-                                    <div class="d-none d-md-block me-2">
-                                        <select class="form-select border-0 bg-transparent">
-                                            <option>Tất cả danh mục</option>
-                                            <option>Laptop</option>
-                                            <option>Máy tính để bàn</option>
-                                            <option>Phụ kiện</option>
-                                            <option>Phần mềm</option>
-                                            <option>Thiết bị ngoại vi</option>
-                                        </select>
-                                    </div>
-                                    <form id="search-form" class="d-flex flex-grow-1 align-items-center" method="get">
-                                        <input type="text" id="search-input" class="form-control border-0 bg-transparent" placeholder="Search 20,000+ products" />
-                                        <button type="submit" form="search-form" class="btn btn-link p-0 ms-2">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                                <path fill="currentColor" d="M21.71 20.29L18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a1 1 0 0 0 1.42 0a1 1 0 0 0 0-1.39ZM11 18a7 7 0 1 1 7-7a7 7 0 0 1-7 7Z" />
-                                            </svg>
-                                        </button>
-                                    </form>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="#">Giới thiệu</a>
+                        </li>
+                    </ul>
+                    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                            <ul class="navbar-nav ms-auto">
+                            <!-- Search List Item -->
+                            <li class="nav-item" style="display:flex;align-items:center;">
+                                <!-- Search Icon for Small Screens -->
+                                <div class="d-lg-none">
+                                    <button class="btn btn-link p-0" id="mobile-search-icon" data-bs-toggle="modal" data-bs-target="#searchModal">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                            <path fill="currentColor" d="M21.71 20.29L18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a1 1 0 0 0 1.42 0a1 1 0 0 0 0-1.39ZM11 18a7 7 0 1 1 7-7a7 7 0 0 1-7 7Z" />
+                                        </svg>
+                                    </button>
                                 </div>
-                            </div>
 
+                                <!-- Search Bar for Large Screens -->
+                                <div class="col-sm-6 offset-sm-2 offset-md-0 col-lg-5 d-none d-lg-block">
+                                    <div class="search-bar d-flex align-items-center p-2 my-2 rounded-4">
+
+                                        <form id="search-form" class="d-flex flex-grow-1 align-items-center" method="get" data-bs-toggle="modal" data-bs-target="#searchModal">
+                                            <input type="text" id="search-input" class="form-control border-0 bg-transparent" placeholder="Search 20,000+ products" />
+                                            <button type="submit" form="search-form" class="btn btn-link p-0 ms-2">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                                    <path fill="currentColor" d="M21.71 20.29L18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a1 1 0 0 0 1.42 0a1 1 0 0 0 0-1.39ZM11 18a7 7 0 1 1 7-7a7 7 0 0 1-7 7Z" />
+                                                </svg>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+ 
                             <!-- Search Modal -->
                             <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                                            <h5 class="modal-title" id="searchModalLabel">Tìm kiếm sản phẩm</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <form id="modal-search-form" method="get">
-                                                <input type="text" class="form-control" placeholder="Search for products" />
-                                                <button type="submit" class="btn btn-primary mt-2 w-100">Search</button>
+                                            <form id="modal-search-form" method="get" action="/Home/Search">
+                                                <input type="text" name="query" class="form-control" placeholder="Nhập tên sản phẩm..." required />
+                                                <button type="submit" class="btn btn-primary mt-2 w-100">Tìm kiếm</button>
                                             </form>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </li>
+                            <!-- Cart Button -->
+                             <!-- Cart Button -->
+                            <li class="nav-item">
+                                <a class="btn btn-link position-relative" href="javascript:void(0);" id="cartButton" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    <span class="badge bg-danger position-absolute top-0 end-0" id="cartItemCount">0</span>
+                                </a>
+                            </li>
 
-                      
-                    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                            <ul class="navbar-nav ms-auto">
-                                <!-- Cart Button -->
-                                <li class="nav-item">
-                                    <button class="btn btn-link position-relative" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
-                                        <i class="fas fa-shopping-cart"></i>
-                                        <span class="badge bg-danger position-absolute top-0 end-0">2</span>
-                                    </button>
-                                </li>
                                 <!-- Login Partial -->
                                 <li class="nav-item"><partial name="_LoginPartial" /></li>
                             </ul>
-                    </div>
-
+                      </div>
                 </div>
             </div>
         </nav>
     </header>
     <!-- Shopping Cart Offcanvas -->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasCart" aria-labelledby="offcanvasCartLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasCartLabel">Your Cart</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            <!-- Cart content goes here -->
-            <p>Your cart is empty!</p>
-        </div>
+        <a href="cart.html" class="header-item">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasCartLabel">
+                    <a class="getstarted scrollto active" href="@Url.Action("Index", "Cart")" style="font-weight:bold; text-decoration:none">
+                        <i class="fas fa-shopping-bag me-2"></i> Giỏ hàng ( @ViewBag.Tongsoluong )
+                    </a>
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <!-- Cart content goes here -->
+                @if (ViewBag.Tongsoluong > 0)
+                {
+                    <p>Bạn có @ViewBag.Tongsoluong sản phẩm trong giỏ hàng.</p>
+                }
+                else
+                {
+                    <p>Giỏ hàng của bạn đang trống!</p>
+                }
+            </div>
+        </a>    
     </div>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
+        <div class="zalo-chat-widget"
+             data-oaid="4280370596736441140"
+             data-welcome-message="Rất vui khi được hỗ trợ bạn!"
+             data-autopopup="0"
+             data-width="300"
+             data-height="500">
+        </div>
+
+    <div class="chat-button-div" id="btn-chatbox">
+        <!-- Chat Button -->
+        <button class="chat-button" id="chatToggle">
+            <img src="~/img/phone.png" alt="Chat Icon">
+            @* <img src="~/img/animationchatt.png" alt="Chat Icon"> *@
+        </button>   
+
+        <div id="ContactForConsultation">
+            <div class="contact">
+                <div class="contact-header">
+                    <div class="header-group">
+                        <img src="~/img/icon contact.png" alt="Contact Icon"/>
+                        <strong>LIÊN HỆ ĐỂ ĐƯỢC TƯ VẤN</strong>
+                    </div>
+                     <i class="icon-minutes fs-closes  fa-window-close" id="chatClose"></i>
+                </div>
+                <div class="contect-info">
+                    <a href="tel:0368977130" target="_self" class="contect-info-item">
+                        <img src="~/img/frame-3766-2.png" alt="Contact Icon" />
+                        <span>Gọi 0368977130</span>
+                    <a href="https://m.me/489220207612098" target="_blank" class="contect-info-item">
+                        <img src="~/img/frame-3767-1.png" alt="Messenger" />
+                        <span>Nhắn Facebook Messenger</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
     <footer>
         <partial name="_FooterPartial" />   
     </footer> 
-    <!--Start of Tawk.to Script-->
-    
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
 
-  @*   <script type="text/javascript" src="~/Content/js/jquery.min.js"></script>
-    <script type="text/javascript" src="~/Content/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="~/Content/js/script.js"></script>
-    <script type="text/javascript" src="~/Content/js/scripts.js"></script>
- *@
-       <!-- Toastr && SweetAlert2 -->
-  @*   <script src="~/Areas/Administrator/Data/libraries/js/karma.laclac.min.js"></script>
-    <script src="~/Areas/Administrator/Data/libraries/js/toastr.min.js"></script>
-    <script src="~/Areas/Administrator/Data/libraries/js/sweetalert2.min.js"></script> *@
+  <script src="https://sp.zalo.me/plugins/sdk.js"></script>
+  <script src="~/lib/jquery/dist/jquery.min.js"></script>
+  <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="~/js/site.js" asp-append-version="true"></script>
+  <script src="https://cdn.ckeditor.com/4.20.2/standard/ckeditor.js"></script>
 
-@*     <script src="https://sp.zalo.me/plugins/sdk.js"></script>
- *@
+  <script>
+       // This function fetches the cart information and updates the cart view
+    function fetchCartData() {
+        fetch('@Url.Action("GetCartData", "Cart")') // Adjust this URL to point to your API endpoint
+            .then(response => response.json())
+            .then(data => {
+                // Update the cart item count
+                document.getElementById('cartItemCount').textContent = data.itemCount;
 
-    @await RenderSectionAsync("Scripts", required: false)
-    <script>
+                // Update the cart details in the offcanvas
+                updateCartOffcanvas(data.cartItems);
+            })
+            .catch(error => console.error('Error fetching cart data:', error));
+    }
+
+    // This function updates the offcanvas with the cart details
+    function updateCartOffcanvas(cartItems) {
+        const cartBody = document.querySelector('.offcanvas-body');
+        cartBody.innerHTML = ''; // Clear current cart content
+
+        if (cartItems.length > 0) {
+            let cartTable = `<table class="table table-bordered">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>Sản phẩm</th>
+                                        <th>Đơn giá</th>
+                                        <th>Số lượng</th>
+                                        <th>Thành tiền</th>
+                                        <th>Hành động</th>
+                                    </tr>
+                                </thead>
+                                <tbody>`;
+
+            cartItems.forEach(item => {
+                cartTable += `<tr>
+                                <td>${item.productName}</td>
+                                <td>${item.price}</td>
+                                <td>${item.quantity}</td>
+                                <td>${item.totalPrice}</td>
+                                <td>
+                                    <button class="btn btn-danger btn-sm" onclick="removeItemFromCart(${item.productId})">Xóa</button>
+                                </td>
+                              </tr>`;
+            });
+
+            cartTable += `</tbody></table>`;
+
+            cartBody.innerHTML = cartTable;
+        } else {
+            cartBody.innerHTML = '<p>Giỏ hàng của bạn đang trống!</p>';
+        }
+    }
+
+    // Function to remove an item from the cart
+    function removeItemFromCart(productId) {
+        fetch('@Url.Action("RemoveItem", "Cart")', {
+            method: 'POST',
+            body: JSON.stringify({ productId }),
+            headers: { 'Content-Type': 'application/json' }
+        })
+        .then(response => response.json())
+        .then(() => fetchCartData()) // Refresh cart data after removing item
+        .catch(error => console.error('Error removing item from cart:', error));
+    }
+
+    // Call fetchCartData when the page is loaded and when the cart button is clicked
+    document.addEventListener('DOMContentLoaded', fetchCartData);
+
+    // Optional: Call fetchCartData when the offcanvas is shown (if you need to refresh data on every open)
+    document.getElementById('offcanvasCart').addEventListener('show.bs.offcanvas', fetchCartData);
+
           // Handle main search form submission
         document.getElementById('search-form').onsubmit = function (e) {
             e.preventDefault();
@@ -410,7 +312,101 @@
                 });
             }
         });
+            document.addEventListener('DOMContentLoaded', function () {
+        const chatToggle = document.getElementById('chatToggle');
+        const chatBox = document.getElementById('ContactForConsultation');
+        const chatClose = document.getElementById('chatClose');
 
+        chatToggle.addEventListener('click', () => {
+            chatBox.style.display = chatBox.style.display === 'none' || chatBox.style.display === '' ? 'block' : 'none';
+        });
+
+        chatClose.addEventListener('click', () => {
+            chatBox.style.display = 'none';
+        });
+
+    });
+        // < !--Start of Tawk.to Script-- >
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/675c005749e2fd8dfef75237/1ievm2lo5';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+        //<!--End of Tawk.to Script-->
+
+        //Details.cshtml
+        document.addEventListener("DOMContentLoaded", function () {
+            if (typeof CKEDITOR !== "undefined") {
+                CKEDITOR.replace("noidung");
+            }
+        });
+        const stars = document.querySelectorAll('.star');
+        const voteInput = document.getElementById('vote');
+
+        stars.forEach(star => {
+            star.addEventListener('click', function () {
+                const value = this.getAttribute('data-value');
+                voteInput.value = value;
+
+                // Xóa lớp "selected" khỏi tất cả sao
+                stars.forEach(star => star.classList.remove('selected'));
+
+                // Thêm lớp "selected" vào sao đã chọn
+                for (let i = 0; i < value; i++) {
+                    stars[i].classList.add('selected');
+                }
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const showMessage = (message, type = "success") => {
+                let container = document.querySelector(".message-container");
+                if (!container) {
+                    container = document.createElement("div");
+                    container.className = "message-container";
+                    document.body.appendChild(container);
+                }
+
+                const messageBox = document.createElement("div");
+                messageBox.className = `message-box message-box-${type}`;
+                messageBox.innerHTML = `
+                                    <i class="fa ${type === "success" ? "fa-check" : "fa-ban"} fa-2x"></i>
+                                    <span class="message-text"><strong>${type.charAt(0).toUpperCase() + type.slice(1)}:</strong> ${message}</span>
+                                    <i class="fa fa-times fa-2x exit-button"></i>
+                                `;
+
+                messageBox.querySelector(".exit-button").addEventListener("click", function () {
+                    messageBox.remove();
+                });
+
+                container.appendChild(messageBox);
+
+                setTimeout(() => {
+                    messageBox.remove();
+                }, 5000);
+            };
+
+            // Hiển thị thông báo từ TempData
+        @if (TempData["SuccessMessage"] != null)
+        {
+            @:showMessage("@TempData["SuccessMessage"]", "success");
+        }
+
+        @if (TempData["ErrorMessage"] != null)
+        {
+            @:showMessage("@TempData["ErrorMessage"]", "error");
+        }
+                });
     </script>
+
+    @RenderSection("Scripts", required: false)
+
 </body>
+
+
 </html>
+

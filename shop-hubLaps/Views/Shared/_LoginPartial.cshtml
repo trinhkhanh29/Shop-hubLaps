@@ -68,15 +68,18 @@
                         Đổi Mật Khẩu
                     </a>
                 </li>
-                <li>
-                    <a class="dropdown-item text-dark"
-                       asp-controller="Dashboard"
-                       asp-action="Index"
-                       title="Manage"
-                       style="text-decoration: none; padding: 0.5rem 1rem; text-align: left;">
-                        Dashboard manager
-                    </a>
-                </li>
+                @if (await UserManager.IsInRoleAsync(currentUser, "Admin"))
+                {
+                    <li>
+                        <a class="dropdown-item text-dark"
+                           asp-controller="Dashboard"
+                           asp-action="Index"
+                           title="Manage"
+                           style="text-decoration: none; padding: 0.5rem 1rem; text-align: left;">
+                            Dashboard manager
+                        </a>
+                    </li>
+                }
                 <li>
                     <form id="logoutForm" class="dropdown-item" style="padding-left: 16px;"
                           asp-area="Identity"

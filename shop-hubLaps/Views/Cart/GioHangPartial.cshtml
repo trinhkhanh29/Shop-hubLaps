@@ -1,0 +1,35 @@
+﻿@* @model shop_hubLaps.Models.DonHang
+@using Microsoft.AspNetCore.Identity
+@using shop_hubLaps.Areas.Identity.Data
+@inject UserManager<SampleUser> UserManager
+
+<li class="nav-item">
+    <button class="btn btn-link position-relative" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="badge bg-danger position-absolute top-0 end-0">2</span>
+    </button>
+</li>
+<!-- Shopping Cart Offcanvas -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasCart" aria-labelledby="offcanvasCartLabel">
+    <a href="cart.html" class="header-item">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasCartLabel">
+                <a class="getstarted scrollto active" href="@Url.Action("Index", "Cart")" style="font-weight:bold; text-decoration:none">
+                    <i class="fas fa-shopping-bag me-2"></i> Giỏ hàng ( @ViewBag.Tongsoluong )
+                </a>
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <!-- Cart content goes here -->
+            @if (ViewBag.Tongsoluong > 0)
+            {
+                <p>Bạn có @ViewBag.Tongsoluong sản phẩm trong giỏ hàng.</p>
+            }
+            else
+            {
+                <p>Giỏ hàng của bạn đang trống!</p>
+            }
+        </div>
+    </a>
+</div> *@
