@@ -21,10 +21,11 @@ namespace shop_hubLaps.Models
 
         public DateTime? ngaydanhgia { get; set; }
 
-        public int? malaptop { get; set; }
+        public int malaptop { get; set; }
 
         public bool? trangthai { get; set; }
 
+        [ForeignKey("malaptop")]
         public virtual Laptop Laptop { get; set; }
     }
 }

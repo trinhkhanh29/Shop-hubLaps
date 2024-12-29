@@ -14,6 +14,7 @@ C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\CKSource.FileSystem.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\EFCore.AutomaticMigrations.NetTopologySuite.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\EFCore5.0.AutomaticMigrations.dll
+C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\EPPlus.Interfaces.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\Humanizer.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\ImageProcessor.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\itext.barcodes.dll
@@ -36,6 +37,8 @@ C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\Microsoft.AspNetCore.Identity.UI.dll
+C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\Microsoft.AspNetCore.Razor.Language.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\Microsoft.Build.dll
@@ -90,11 +93,12 @@ C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
-C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\Microsoft.Win32.SystemEvents.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\Mono.TextTemplating.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\NetTopologySuite.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\NetTopologySuite.IO.SqlServerBytes.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\Newtonsoft.Json.dll
+C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\Newtonsoft.Json.Bson.dll
+C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\Newtonsoft.Json.Schema.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\NuGet.Common.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\NuGet.Configuration.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\NuGet.DependencyResolver.Core.dll
@@ -105,6 +109,7 @@ C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\NuGet.Protocol.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\NuGet.Versioning.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\Owin.dll
+C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\RestSharp.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\Serilog.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\Serilog.AspNetCore.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\Serilog.Extensions.Hosting.dll
@@ -114,6 +119,7 @@ C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\Serilog.Sinks.Console.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\Serilog.Sinks.Debug.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\Serilog.Sinks.File.dll
+C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\Stripe.net.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\System.CodeDom.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\System.Composition.AttributedModel.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\System.Composition.Convention.dll
@@ -121,14 +127,11 @@ C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\System.Composition.Runtime.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\System.Composition.TypedParts.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\System.Configuration.ConfigurationManager.dll
-C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\System.Drawing.Common.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\System.Memory.Data.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\System.Reflection.MetadataLoadContext.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\System.Runtime.Caching.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\System.Security.Cryptography.ProtectedData.dll
-C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\System.Security.Permissions.dll
-C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\System.Windows.Extensions.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\af\Humanizer.resources.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\ar\Humanizer.resources.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\az\Humanizer.resources.dll
@@ -274,9 +277,5 @@ C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\runtimes\win\lib\net7.0\Microsoft.Win32.SystemEvents.dll
-C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\runtimes\win\lib\net7.0\System.Drawing.Common.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
-C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\shop-hubLaps.deps.json

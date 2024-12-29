@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using shop_hubLaps.Models;
 using System.IO;
@@ -7,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace shop_hubLaps.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ChuDeController : Controller
     {
         private readonly DataModel _context;
@@ -36,33 +38,64 @@ namespace shop_hubLaps.Controllers
             return View(chuDe);
         }
 
+        /************************************/
+
         // Form tạo mới chủ đề
         public IActionResult Create()
         {
             return View();
         }
 
-        // Xử lý tạo mới chủ đề (bao gồm tải lên hình ảnh)
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("machude,tenchude,slug")] ChuDe chuDe, IFormFile? hinh)
+        public async Task<IActionResult> Create([Bind("machude,tenchude,slug,hinh")] ChuDe chuDe, IFormFile? hinh)
         {
             if (ModelState.IsValid)
             {
-                // Kiểm tra và lưu hình ảnh
-                if (hinh != null && IsValidImage(hinh))
+                try
                 {
-                    string fileName = await SaveImage(hinh);
-                    chuDe.hinh = fileName;
-                }
+                    // Kiểm tra và lưu hình ảnh
+                    if (hinh != null)
+                    {
+                        // Kiểm tra xem ảnh có hợp lệ không
+                        if (!IsValidImage(hinh))
+                        {
+                            ModelState.AddModelError("hinh", "Định dạng hình ảnh không hợp lệ. Vui lòng chọn ảnh JPG, JPEG, PNG hoặc GIF.");
+                            return View(chuDe);  // Trả về form với lỗi nếu ảnh không hợp lệ
+                        }
 
-                _context.Add(chuDe);
-                await _context.SaveChangesAsync();
-                TempData["SuccessMessage"] = "Chủ đề đã được tạo thành công!";
-                return RedirectToAction(nameof(Index));
+                        // Lưu ảnh vào thư mục và lấy tên file
+                        string fileName = await SaveImage(hinh);
+                        chuDe.hinh = fileName;  // Lưu tên file hình ảnh vào chuDe
+                    }
+
+                    // Thêm chủ đề mới vào cơ sở dữ liệu
+                    _context.Add(chuDe);
+                    await _context.SaveChangesAsync();
+                    TempData["SuccessMessage"] = "Chủ đề đã được tạo thành công!";
+                    return RedirectToAction(nameof(Index));
+                }
+                catch (Exception ex)
+                {
+                    // Log lỗi chi tiết
+                    Console.WriteLine($"Lỗi khi tạo chủ đề: {ex.Message}");
+
+                    // Thêm thông báo lỗi chung
+                    TempData["ErrorMessage"] = "Đã xảy ra lỗi khi tạo chủ đề. Vui lòng thử lại!";
+                    return View(chuDe);
+                }
             }
-            return View(chuDe);
+            else
+            {
+                // Trả về form với lỗi nếu model không hợp lệ
+                TempData["ErrorMessage"] = "Dữ liệu nhập vào không hợp lệ. Vui lòng kiểm tra lại!";
+                return View(chuDe);
+            }
         }
+
+
+
+        /************************************/
 
         // Form sửa chủ đề
         public async Task<IActionResult> Edit(int? id)
@@ -79,62 +112,112 @@ namespace shop_hubLaps.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("machude,tenchude,slug,hinh")] ChuDe chuDe, IFormFile? newHinh)
         {
-            // Kiểm tra nếu id không khớp với đối tượng chuDe
             if (id != chuDe.machude)
+            {
+                TempData["ErrorMessage"] = "ID không khớp với chủ đề!";
                 return NotFound();
+            }
 
             if (ModelState.IsValid)
             {
-                // Tìm chuDe cũ trong DB
-                var existingChuDe = await _context.ChuDes.FindAsync(id);
-
+                var existingChuDe = await _context.ChuDes.AsNoTracking().FirstOrDefaultAsync(x => x.machude == id);
                 if (existingChuDe == null)
-                    return NotFound();
-
-                // Kiểm tra và thay thế hình ảnh nếu có hình mới
-                if (newHinh != null && IsValidImage(newHinh))
                 {
-                    // Xóa hình ảnh cũ
-                    DeleteImage(existingChuDe.hinh);
-
-                    // Lưu hình ảnh mới và cập nhật tên hình ảnh
-                    string newFileName = await SaveImage(newHinh);
-                    existingChuDe.hinh = newFileName;
+                    TempData["ErrorMessage"] = "Không tìm thấy chủ đề để chỉnh sửa!";
+                    return NotFound();
                 }
 
-                // Cập nhật các trường khác (tenchude, slug)
-                existingChuDe.tenchude = chuDe.tenchude;
-                existingChuDe.slug = chuDe.slug;
+                chuDe.hinh = existingChuDe.hinh;
 
-                // Đảm bảo entity được đánh dấu là đã thay đổi
-                _context.Entry(existingChuDe).State = EntityState.Modified;
+                if (newHinh != null)
+                {
+                    if (!IsValidImage(newHinh))
+                    {
+                        ModelState.AddModelError("hinh", "Định dạng hình ảnh không hợp lệ. Vui lòng chọn ảnh JPG, JPEG, PNG hoặc GIF.");
+                        return View(chuDe); 
+                    }
 
-                // Log chi tiết về đối tượng sẽ được cập nhật
-                Console.WriteLine($"ChuDe Update: {existingChuDe.machude}, {existingChuDe.tenchude}, {existingChuDe.slug}");
+                    if (!string.IsNullOrEmpty(existingChuDe.hinh))
+                    {
+                        DeleteImage(existingChuDe.hinh);
+                    }
+
+                    chuDe.hinh = await SaveImage(newHinh);
+                }
 
                 try
                 {
-                    // Lưu thay đổi vào cơ sở dữ liệu
+                    _context.Entry(chuDe).State = EntityState.Modified;
                     await _context.SaveChangesAsync();
 
-                    // Thông báo thành công
                     TempData["SuccessMessage"] = "Chủ đề đã được chỉnh sửa thành công!";
                     return RedirectToAction(nameof(Index));
                 }
                 catch (DbUpdateConcurrencyException ex)
                 {
-                    // Ghi lại lỗi trong quá trình cập nhật cơ sở dữ liệu
-                    Console.WriteLine("Error: " + ex.Message);
-                    TempData["ErrorMessage"] = "Đã có lỗi xảy ra khi cập nhật dữ liệu. Vui lòng thử lại.";
+                    Console.WriteLine($"Lỗi khi cập nhật chủ đề: {ex.Message}");
+                    TempData["ErrorMessage"] = "Đã xảy ra lỗi trong quá trình cập nhật chủ đề. Vui lòng thử lại!";
+                    return View(chuDe);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Lỗi không xác định: {ex.Message}");
+                    TempData["ErrorMessage"] = "Đã xảy ra lỗi không xác định. Vui lòng thử lại!";
                     return View(chuDe);
                 }
             }
-
-            // Nếu có lỗi trong model binding
-            Console.WriteLine("ModelState is invalid: " + string.Join(", ", ModelState.Values.SelectMany(v => v.Errors.Select(e => e.ErrorMessage))));
-            return View(chuDe);
+            else
+            {
+                Console.WriteLine("ModelState is invalid: " + string.Join(", ", ModelState.Values.SelectMany(v => v.Errors.Select(e => e.ErrorMessage))));
+                TempData["ErrorMessage"] = "Dữ liệu nhập vào không hợp lệ. Vui lòng kiểm tra lại!";
+                return View(chuDe);
+            }
         }
 
+
+        // Utility method to check if an entity exists
+        private bool ChuDeExists(int id)
+        {
+            return _context.ChuDes.Any(e => e.machude == id);
+        }
+
+
+
+        // Lưu hình ảnh
+        private async Task<string> SaveImage(IFormFile image)
+        {
+            EnsureImageFolderExists();  // Đảm bảo thư mục chứa ảnh tồn tại
+
+            string fileName = Path.GetFileName(image.FileName); // Lấy tên file ảnh
+            string filePath = Path.Combine(_imageFolder, fileName); // Đường dẫn lưu ảnh
+
+            // Kiểm tra xem ảnh đã tồn tại chưa
+            if (System.IO.File.Exists(filePath))
+            {
+                // Nếu ảnh tồn tại, có thể đổi tên hoặc xử lý phù hợp
+                fileName = Path.GetFileNameWithoutExtension(image.FileName) + Guid.NewGuid() + Path.GetExtension(image.FileName);
+                filePath = Path.Combine(_imageFolder, fileName);
+            }
+
+            // Lưu ảnh vào thư mục
+            using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                await image.CopyToAsync(stream);
+            }
+
+            return fileName; // Trả về tên file để lưu vào database
+        }
+
+        // Đảm bảo thư mục chứa hình ảnh tồn tại
+        private void EnsureImageFolderExists()
+        {
+            if (!Directory.Exists(_imageFolder))  // Kiểm tra thư mục chứa ảnh
+            {
+                Directory.CreateDirectory(_imageFolder); // Nếu không có, tạo thư mục
+            }
+        }
+
+        /************************************/
 
         // Xác nhận xóa chủ đề
         public async Task<IActionResult> Delete(int? id)
@@ -148,85 +231,76 @@ namespace shop_hubLaps.Controllers
         }
 
         // Thực hiện xóa chủ đề
-        [HttpPost, ActionName("Delete")]
+        // POST: Administrator/ChuDe/Delete/5
+        [HttpPost]
+        [ActionName("DeleteConfirmed")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var chuDe = await _context.ChuDes.FindAsync(id);
-            if (chuDe != null)
+            if (chuDe == null)
             {
-                try
+                TempData["ErrorMessage"] = "Chủ đề không tồn tại!";
+                return RedirectToAction(nameof(Index));
+            }
+
+            try
+            {
+                // Xóa hình ảnh nếu tồn tại
+                if (!string.IsNullOrEmpty(chuDe.hinh))
                 {
-                    // Xóa hình ảnh nếu có
                     DeleteImage(chuDe.hinh);
-
-                    // Xóa đối tượng chủ đề trong DB
-                    _context.ChuDes.Remove(chuDe);
-                    await _context.SaveChangesAsync();
-
-                    TempData["SuccessMessage"] = "Chủ đề đã được xóa thành công!";
-                    return Json(new { success = true, message = "Item deleted successfully!" });
                 }
-                catch (Exception ex)
-                {
-                    // Log exception
-                    Console.WriteLine($"Error deleting item: {ex.Message}");
-                    TempData["ErrorMessage"] = "Đã có lỗi xảy ra khi xóa chủ đề. Vui lòng thử lại.";
-                    return Json(new { success = false, message = "An error occurred while deleting the item." });
-                }
+
+                // Xóa chủ đề khỏi cơ sở dữ liệu
+                _context.ChuDes.Remove(chuDe);
+                await _context.SaveChangesAsync();
+
+                TempData["SuccessMessage"] = "Chủ đề đã được xóa thành công!";
             }
-
-            return Json(new { success = false, message = "Item not found!" });
-        }
-
-
-
-        // Lưu hình ảnh
-        private async Task<string> SaveImage(IFormFile image)
-        {
-            EnsureImageFolderExists();
-
-            string fileName = Path.GetFileName(image.FileName);
-            string filePath = Path.Combine(_imageFolder, fileName);
-
-            Console.WriteLine($"Saving image: {filePath}");
-
-            using (var stream = new FileStream(filePath, FileMode.Create))
+            catch (DbUpdateException ex)
             {
-                await image.CopyToAsync(stream);
+                Console.WriteLine($"Lỗi xóa chủ đề: {ex.Message}");
+                TempData["ErrorMessage"] = "Không thể xóa chủ đề vì nó đang được liên kết trong hệ thống!";
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Lỗi không xác định: {ex.Message}");
+                TempData["ErrorMessage"] = "Đã xảy ra lỗi không xác định. Vui lòng thử lại!";
             }
 
-            return fileName;
+            return RedirectToAction(nameof(Index));
         }
+
         // Xóa hình ảnh
         private void DeleteImage(string? imageName)
         {
             if (!string.IsNullOrEmpty(imageName))
             {
                 string filePath = Path.Combine(_imageFolder, imageName);
-                Console.WriteLine($"Attempting to delete image at: {filePath}");
-
                 if (System.IO.File.Exists(filePath))
                 {
-                    System.IO.File.Delete(filePath);
-                    Console.WriteLine($"Image {imageName} deleted.");
+                    try
+                    {
+                        System.IO.File.Delete(filePath);
+                        Console.WriteLine($"Đã xóa hình ảnh: {filePath}");
+                    }
+                    catch (IOException ex)
+                    {
+                        Console.WriteLine($"Không thể xóa hình ảnh: {ex.Message}");
+                    }
                 }
                 else
                 {
-                    Console.WriteLine($"Image {imageName} not found at {filePath}.");
+                    Console.WriteLine("Hình ảnh không tồn tại tại đường dẫn: " + filePath);
                 }
             }
         }
 
 
-        // Đảm bảo thư mục chứa hình ảnh tồn tại
-        private void EnsureImageFolderExists()
-        {
-            if (!Directory.Exists(_imageFolder))
-            {
-                Directory.CreateDirectory(_imageFolder);
-            }
-        }
+        /************************************/
+
+
 
         // Kiểm tra định dạng hình ảnh hợp lệ
         private bool IsValidImage(IFormFile file)

@@ -16,7 +16,7 @@ namespace shop_hubLaps.Models
         [Key, Column(Order = 1)] // Đánh dấu đây là khóa chính thứ hai
         public int malaptop { get; set; }
 
-        public decimal dongia { get; set; }
+        public decimal dongia { get; set; } 
 
         public int soluong { get; set; }
 
@@ -25,5 +25,12 @@ namespace shop_hubLaps.Models
 
         // Mối quan hệ với Laptop
         public virtual Laptop Laptop { get; set; }
+
+        public decimal gia { get; set; }
+
+        //public HashSet<ChiTietDonHang> ChiTietDonHangs { get; }
+
     }
+
 }
+    

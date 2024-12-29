@@ -6,10 +6,10 @@
     ViewData["ActivePage"] = ManageNavPages.TwoFactorAuthentication;
 }
 
-<div class="container mt-4">
+<div class="container">
     <partial name="_StatusMessage" for="StatusMessage" />
-    <h3 class="mb-4">@ViewData["Title"]</h3>
-
+    <h3 class="text-start" style="font-family: Lexend;font-weight: 500;font-size: 30px;">@ViewData["Title"]</h3>
+    <hr />
     @if (Model.Is2faEnabled)
     {
         <div class="mb-4">

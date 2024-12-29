@@ -1,0 +1,1260 @@
+﻿body {
+    --ligtWhiteGrayBg: #F5F5F5;
+    --grayText: #AAAAAA;
+    --darkGreen: #004080;
+    --darkGreenBorder: 1px solid #004080;
+    --lightGreen: #2196F3;
+    --lightGreenBorder: 1px solid #2196F3;
+    --lightGray: #E0E0E0;
+    --lightGrayBorder: 1px solid #E0E0E0;
+    --font-family: 'Lexend', sans-serif;
+    --blackText: #333333;
+    --redText: #FD475A;
+    --orangeText: #FF9800;
+    --goldText: #FFC107; /* Văn bản vàng nhấn */
+}
+
+body, a, h1, h2, h3, h4, h5, h6, p, span, li, div, input, textarea, button {
+    font-family: 'Lexend', sans-serif !important;
+}
+
+
+.v5-list .v5-sort-list-bg > .v5-sort-list-more > a {
+    display: block;
+    color: #fff;
+    border: var(--lightGreenBorder);
+    background: var(--lightGreen);
+    padding: 6px 12px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+
+        .v5-list .v5-sort-list-bg .v5-sort-list-options {
+            display: grid;
+            grid-gap: 15px;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            flex-grow: 3;
+        }
+
+            .v5-list .v5-sort-list-bg .v5-sort-list-options a {
+                display: block;
+                color: #4B4B4B;
+                background: #fff;
+                padding: 6px 12px;
+                border-radius: 5px;
+                text-align: center;
+            }
+
+                .v5-list .v5-sort-list-bg .v5-sort-list-options a:hover {
+                    background: var(--ligtWhiteGrayBg)
+                }
+
+                .v5-list .v5-sort-list-bg .v5-sort-list-options a.selected {
+                    background: var(--lightGreen);
+                    color: #fff;
+                }
+
+                .v5-list .v5-sort-list-bg .v5-sort-list-options a i {
+                    font-size: 10px;
+                }
+
+.v5-sort-list-more {
+    position: relative;
+}
+
+    .v5-sort-list-more .more-sort {
+        position: absolute;
+        display: none;
+    }
+
+    .v5-sort-list-more:hover .more-sort {
+        display: block;
+    }
+
+    .v5-sort-list-more:hover > a {
+        background: var(--darkGreen)
+    }
+
+    .v5-sort-list-more .more-sort a {
+        display: block;
+        padding: 6px 12px;
+        white-space: nowrap;
+        border-bottom: var(--lightGrayBorder);
+        color: var(--blackText)
+    }
+
+        .v5-sort-list-more .more-sort a:hover {
+            background: var(--ligtWhiteGrayBg)
+        }
+
+
+
+.v5-fs-list-bg {
+    background: #fff;
+    padding: 10px 0 0 20px;
+    border-radius: 10px;
+}
+
+    .v5-fs-list-bg h4 {
+        margin: 0;
+        padding: 0 0 10px 0;
+    }
+
+    .v5-fs-list-bg .v5-fs-list-options {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+        .v5-fs-list-bg .v5-fs-list-options .option {
+            display: flex;
+            margin-right: 15px;
+            margin-bottom: 10px;
+        }
+
+.v5-fs-list-options .option label {
+    margin-right: 5px;
+    display: block;
+    padding: 6px 0;
+}
+
+    .v5-fs-list-options .option label i {
+        color: var(--grayText);
+        font-size: 10px;
+    }
+
+.v5-fs-list-options .option .option-value {
+    background: var(--ligtWhiteGrayBg);
+    padding: 6px 8px;
+    border-radius: 6px;
+    margin-right: 10px;
+}
+
+    .v5-fs-list-options .option .option-value a {
+        font-size: 10px;
+        color: var(--orangeText);
+    }
+
+        .v5-fs-list-options .option .option-value a:hover {
+            color: var(--lightGreen)
+        }
+
+
+.v5-list .v5-hl-list-bg {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+    .v5-list .v5-hl-list-bg > .label {
+        display: block;
+        padding: 6px 0;
+    }
+
+    .v5-list .v5-hl-list-bg > .label {
+        max-width: 90px;
+        flex-grow: 1;
+    }
+
+    .v5-list .v5-hl-list-bg .v5-hl-list-options {
+        display: flex;
+    }
+
+        .v5-list .v5-hl-list-bg .v5-hl-list-options a {
+            display: block;
+            color: #4B4B4B;
+            background: #fff;
+            padding: 6px 12px;
+            border-radius: 5px;
+            text-align: center;
+            margin-right: 10px;
+            white-space: nowrap;
+        }
+
+            .v5-list .v5-hl-list-bg .v5-hl-list-options a:hover {
+                background: var(--lightGreen);
+                color: #fff;
+            }
+
+            .v5-list .v5-hl-list-bg .v5-hl-list-options a.selected {
+                background: var(--lightGreen);
+                color: #fff;
+            }
+
+            .v5-list .v5-hl-list-bg .v5-hl-list-options a i {
+                font-size: 10px;
+            }
+
+
+.v5-filter .v5-hl-list-bg {
+    margin-bottom: 0
+}
+
+    .v5-filter .v5-hl-list-bg .v5-hl-list-options {
+        flex-wrap: wrap
+    }
+
+        .v5-filter .v5-hl-list-bg .v5-hl-list-options a {
+            margin: 0 5px 6px 0;
+            background: #f3f3f3;
+            padding: 5px 5px;
+        }
+
+.v5-list .v5-list-filters {
+    flex-grow: 1;
+    min-width: 210px;
+    width: 210px;
+}
+
+.v5-list .v5-list-items {
+    flex-grow: 3;
+}
+
+    .v5-list .v5-list-items .v5-item {
+        background: #fff;
+        border-radius: 10px;
+        padding: 12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        justify-items: start;
+    }
+
+        .v5-list .v5-list-items .v5-item a.img {
+            display: block;
+            margin: 0 auto;
+        }
+
+            .v5-list .v5-list-items .v5-item a.img img {
+                max-width: 100%;
+            }
+
+        .v5-list .v5-list-items .v5-item h3 {
+            flex-grow: 5;
+            text-align: center;
+        }
+
+            .v5-list .v5-list-items .v5-item h3 a {
+                color: var(--blackText);
+                font-size: 12px;
+                font-weight: 600;
+            }
+
+                .v5-list .v5-list-items .v5-item h3 a:hover {
+                }
+
+        .v5-list .v5-list-items .v5-item .price {
+            margin-bottom: 12px;
+            font-size: 15px;
+            display: flex;
+            justify-content: center;
+            justify-items: stretch;
+        }
+
+            .v5-list .v5-list-items .v5-item .price strong {
+                color: var(--redText);
+                line-height: 18px;
+                padding-right: 10px;
+            }
+
+            .v5-list .v5-list-items .v5-item .price strike {
+                font-size: 11px;
+                line-height: 18px;
+                color: #C9C9C9
+            }
+
+
+        .v5-list .v5-list-items .v5-item .specs {
+            background: var(--ligtWhiteGrayBg);
+            border-radius: 5px;
+            padding: 8px 12px 2px 12px;
+            margin-bottom: 10px;
+        }
+
+            .v5-list .v5-list-items .v5-item .specs ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+                .v5-list .v5-list-items .v5-item .specs ul li {
+                    padding-bottom: 6px;
+                    display: flex;
+                    color: #191919;
+                    font-size: 14px;
+                }
+
+                    .v5-list .v5-list-items .v5-item .specs ul li label {
+                        margin-right: 8px;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                    }
+
+                        .v5-list .v5-list-items .v5-item .specs ul li label.icon {
+                            font-size: 16px;
+                        }
+
+                    .v5-list .v5-list-items .v5-item .specs ul li div {
+                        flex-grow: 3;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                    }
+
+                        .v5-list .v5-list-items .v5-item .specs ul li div span {
+                            display: block;
+                            line-height: 18px;
+                        }
+
+        .v5-list .v5-list-items .v5-item .promotion {
+            background: #FFDFD4;
+            padding: 8px 12px;
+            border-radius: 6px;
+            color: #FC521D;
+            text-align: center;
+            font-size: 12px;
+            display: flex;
+            justify-content: center;
+            justify-items: center;
+        }
+
+            .v5-list .v5-list-items .v5-item .promotion i {
+                font-size: 18px;
+                margin-right: 5px;
+            }
+
+            .v5-list .v5-list-items .v5-item .promotion strong {
+                line-height: 18px;
+                font-size: 13px;
+            }
+
+        .v5-list .v5-list-items .v5-item .note {
+            background: #F3F3F3;
+            padding: 4px 8px;
+            border-radius: 5px;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+
+.v5-item .promotion-list {
+    display: flex;
+    flex-direction: column;
+}
+
+    .v5-item .promotion-list > div {
+        display: flex;
+        height: 24px;
+        overflow: hidden;
+        margin-bottom: 8px;
+    }
+
+        .v5-item .promotion-list > div label {
+            background: #FFDFD4;
+            padding: 2px 6px;
+            color: #FC521D;
+            border-radius: 3px;
+            font-weight: 800;
+            margin-right: 5px;
+            font-size: 11px;
+            line-height: 19px;
+        }
+
+        .v5-item .promotion-list > div span {
+            line-height: 24px;
+        }
+
+        .v5-item .promotion-list > div.more {
+            text-align: center;
+            justify-content: center;
+            font-weight: 800;
+            color: #FC521D;
+            margin-bottom: 0
+        }
+
+.v5-list .v5-grid-items {
+    display: grid;
+    grid-gap: 12px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin-bottom: 15px;
+}
+
+.v5-list .v5-list-filters {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin-right: 12px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    border: 1px solid #C9C9C9;
+}
+
+    .v5-list .v5-list-filters .v5-filter {
+        padding-bottom: 10px;
+    }
+
+.v5-more-product {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    margin-bottom: 20px
+}
+
+    .v5-more-product a {
+        padding: 10px 30px;
+        border-radius: 6px;
+        color: #fff;
+        margin: 0 auto;
+        display: block;
+        background: var(--lightGreen);
+    }
+
+        .v5-more-product a:hover {
+            background: var(--darkGreen);
+        }
+
+.v5-filter .price-range {
+}
+
+    .v5-filter .price-range .form-price-range {
+        display: grid;
+        grid-gap: 10px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: stretch;
+        margin-bottom: 10px;
+    }
+
+        .v5-filter .price-range .form-price-range input {
+            line-height: 20px;
+            border: 1px solid #EBEBEB;
+            outline: none;
+            padding: 6px 12px;
+            font-size: 13px;
+            font-weight: 600;
+            border-radius: 6px;
+        }
+
+    .v5-filter .price-range .form-price-submit {
+        margin-bottom: 20px;
+        display: flex;
+    }
+
+        .v5-filter .price-range .form-price-submit button {
+            flex-basis: 100%;
+            font-weight: 600;
+            line-height: 20px;
+            background: var(--lightGreen);
+            border: var(--lightGreenBorder);
+            outline: none;
+            padding: 7px 12px 5px 12px;
+            border-radius: 6px;
+            text-align: center;
+            color: #fff;
+        }
+
+            .v5-filter .price-range .form-price-submit button:hover {
+                background: var(--darkGreen);
+                border-color: var(--darkGreen);
+            }
+
+    .v5-filter .price-range ul {
+        display: flex;
+        flex-direction: column;
+    }
+
+        .v5-filter .price-range ul li {
+            margin-bottom: 0;
+        }
+
+            .v5-filter .price-range ul li.hide {
+                display: none;
+            }
+
+            .v5-filter .price-range ul li a {
+                display: flex;
+                text-align: center;
+                justify-content: center;
+                padding: 6px 12px;
+                background: #F3F3F3;
+                border-radius: 6px;
+                flex-grow: 3;
+                color: #333;
+            }
+
+                .v5-filter .price-range ul li a:hover,
+                .v5-filter .price-range ul li a.selected {
+                    background: var(--lightGreen);
+                    color: #fff;
+                }
+
+                .v5-filter .price-range ul li a.selected {
+                    position: relative;
+                }
+
+                    .v5-filter .price-range ul li a.selected i {
+                        font-size: 10px;
+                        position: absolute;
+                        left: 10px;
+                        top: 8px;
+                    }
+
+            .v5-filter .price-range ul li.more a {
+                padding: 6px 20px;
+                font-weight: 600;
+                background: #fff;
+                justify-content: center;
+                justify-items: center;
+                border: 1px solid #C9C9C9;
+                border-radius: 6px;
+            }
+
+                .v5-filter .price-range ul li.more a span {
+                    display: flex;
+                }
+
+                    .v5-filter .price-range ul li.more a span label {
+                        margin-right: 5px;
+                        color: #4B4B4B;
+                    }
+
+                    .v5-filter .price-range ul li.more a span i {
+                        display: block;
+                        color: #4B4B4B;
+                    }
+
+                .v5-filter .price-range ul li.more a i,
+                .v5-filter .price-range ul li.more a.close i {
+                    line-height: 20px;
+                }
+
+                .v5-filter .price-range ul li.more a.open i {
+                    rotate: -180deg;
+                    margin-top: -5px;
+                }
+
+                .v5-filter .price-range ul li.more a:hover {
+                    background: #F3F3F3;
+                }
+
+.v5-filter h3 {
+    color: #191919;
+    font-weight: 700;
+    font-size: 15px;
+    margin: 0;
+    padding: 0 0 10px 0;
+}
+
+.v5-filter ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+    .v5-filter ul li {
+        padding: 0 0 5px 0;
+        font-size: 13px;
+        font-weight: 400;
+        display: flex;
+    }
+
+        .v5-filter ul li.selected {
+        }
+
+            .v5-filter ul li.selected label {
+                color: var(--lightGreen)
+            }
+
+        .v5-filter ul li label,
+        .v5-filter ul li div {
+            flex-grow: 3;
+            line-height: 18px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+            .v5-filter ul li label span i {
+                float: right;
+                font-style: normal;
+                color: #ccc
+            }
+
+
+.v5-filter .v5-filter-category li {
+    display: flex;
+    flex-direction: column;
+    padding-left: 5px;
+    font-size: 13px;
+}
+
+    .v5-filter .v5-filter-category li ul {
+        padding-left: 10px;
+        padding-top: 5px;
+    }
+
+        .v5-filter .v5-filter-category li ul li {
+            font-size: 12px;
+            font-weight: normal;
+        }
+
+    .v5-filter .v5-filter-category li a {
+        color: var(--blackText);
+    }
+
+        .v5-filter .v5-filter-category li a:hover {
+            color: var(--lightGreen);
+        }
+
+    .v5-filter .v5-filter-category li ul li i {
+        font-size: 8px;
+    }
+
+.v5-list-filters .filter-reset {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    margin: 10px 0;
+}
+
+    .v5-list-filters .filter-reset a {
+        display: flex;
+        justify-content: center;
+        justify-items: center;
+        cursor: pointer;
+        color: var(--blackText);
+        padding: 8px 20px;
+        background: #fff;
+        justify-content: center;
+        justify-items: center;
+        border: 1px solid #c9c9c9;
+        border-radius: 6px;
+    }
+
+        .v5-list-filters .filter-reset a label {
+            cursor: pointer;
+        }
+
+        .v5-list-filters .filter-reset a:hover {
+            background: var(--ligtWhiteGrayBg);
+        }
+
+        .v5-list-filters .filter-reset a * {
+            line-height: 14px;
+            padding: 0 5px;
+        }
+
+.v5-filter ul li {
+    --borderColor: #c9c9c9;
+    --borderWidth: .125em;
+    --selectColor: var(--lightGreen);
+}
+
+    .v5-filter ul li span {
+        display: block;
+        max-width: 100%;
+        margin: 0 5px 0 0;
+        line-height: 18px;
+        cursor: pointer;
+    }
+
+    .v5-filter ul li input[type=checkbox] {
+        -webkit-appearance: none;
+        appearance: none;
+        vertical-align: middle;
+        background: #fff;
+        font-size: 15px;
+        border-radius: 0.125em;
+        display: inline-block;
+        border: var(--borderWidth) solid var(--borderColor);
+        width: 1em;
+        height: 1em;
+        position: relative;
+        cursor: pointer;
+    }
+
+        .v5-filter ul li input[type=checkbox]:checked {
+            background: var(--selectColor);
+            border-color: var(--selectColor);
+        }
+
+        .v5-filter ul li input[type=checkbox]:before,
+        .v5-filter ul li input[type=checkbox]:after {
+            content: "";
+            position: absolute;
+            background: var(--borderColor);
+            width: calc(var(--borderWidth) * 3);
+            height: var(--borderWidth);
+            top: 50%;
+            left: 10%;
+            transform-origin: left center;
+        }
+
+        .v5-filter ul li input[type=checkbox]:before {
+            transform: rotate(45deg) translate(calc(var(--borderWidth) / -2), calc(var(--borderWidth) / -2)) scaleX(0);
+            transition: transform 200ms ease-in 200ms;
+        }
+
+        .v5-filter ul li input[type=checkbox]:after {
+            width: calc(var(--borderWidth) * 5);
+            transform: rotate(-45deg) translateY(calc(var(--borderWidth) * 2)) scaleX(0);
+            transform-origin: left center;
+            transition: transform 200ms ease-in;
+            background: #fff;
+        }
+
+        .v5-filter ul li input[type=checkbox]:checked:before {
+            transform: rotate(45deg) translate(calc(var(--borderWidth) / -2), calc(var(--borderWidth) / -2)) scaleX(1);
+            transition: transform 200ms ease-in;
+        }
+
+        .v5-filter ul li input[type=checkbox]:checked:after {
+            width: calc(var(--borderWidth) * 5);
+            transform: rotate(-45deg) translateY(calc(var(--borderWidth) * 2)) scaleX(1);
+            transition: transform 200ms ease-out 200ms;
+        }
+
+        .v5-filter ul li input[type=checkbox]:focus {
+            outline: calc(var(--borderWidth) / 2) dotted rgba(0, 0, 0, 0.25);
+        }
+
+
+.v5-list .slick-padding {
+    padding: 0;
+}
+
+.v5-list .v5-brand-list {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-bottom: 20px;
+}
+
+
+    .v5-list .v5-brand-list a {
+        width: 100%;
+        border-radius: 6px;
+        background: #fff;
+        border: 1px solid #C9C9C9;
+        overflow: hidden;
+        height: 32px;
+        overflow: hidden;
+        margin-right: 10px;
+        display: flex;
+        justify-content: center;
+        justify-items: center;
+        border-radius: 4px;
+        align-items: center;
+    }
+
+        .v5-list .v5-brand-list a img {
+            max-height: 25px;
+        }
+
+        .v5-list .v5-brand-list a .no-logo {
+            color: var(--blackText);
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            justify-items: center;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .v5-list .v5-brand-list a:hover {
+            border-color: var(--lightGreen);
+        }
+
+        .v5-list .v5-brand-list a.selected {
+            border-color: var(--lightGreen);
+        }
+
+.special-products-slide .v5-hl-list-options .slick-track {
+    display: flex;
+    align-items: stretch;
+}
+
+.special-products-slide .v5-hl-list-bg {
+    display: block;
+}
+
+.v5-filter.list-special-products {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+    .v5-filter.list-special-products .v5-hl-list-bg {
+        justify-content: space-around;
+    }
+
+        .v5-filter.list-special-products .v5-hl-list-bg .v5-hl-list-options {
+            gap: 12px;
+            flex-wrap: nowrap;
+            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(10, minmax(0, 1fr));
+        }
+
+    .v5-filter.list-special-products.gap-auto .v5-hl-list-bg .v5-hl-list-options {
+        gap: unset
+    }
+
+    .v5-filter.list-special-products strong {
+        font-size: 15px;
+        line-height: 22.5px;
+        font-weight: 600
+    }
+
+    .v5-filter.list-special-products .v5-hl-list-bg a {
+        display: flex;
+        gap: 10px;
+        font-size: 12px;
+        background: url();
+        width: 70px;
+        max-width: 70px;
+        align-content: space-around;
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        padding: 12px 6px;
+    }
+
+    .v5-filter.list-special-products .v5-hl-list-bg .img {
+        width: 50px;
+        height: 50px;
+        background: #EBEBEB;
+        border-radius: 50%;
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+        .v5-filter.list-special-products .v5-hl-list-bg .img img {
+            max-width: 30px;
+            max-height: 100%;
+        }
+
+    .v5-filter.list-special-products .v5-hl-list-bg a p {
+        font-size: 12px;
+        line-height: 1.3;
+        margin: 0;
+        margin-top: 5px;
+        white-space: normal;
+        font-weight: 500;
+    }
+
+section.range-slider {
+    position: relative;
+    width: 100%;
+    height: 20px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+    section.range-slider .range-bg {
+        position: absolute;
+        background: #d3d3d3;
+        display: block;
+        width: 100%;
+        height: 6px;
+        top: 7px;
+        z-index: 2;
+        border-radius: 5px;
+    }
+
+    section.range-slider input {
+        pointer-events: none;
+        -webkit-appearance: none;
+        position: absolute;
+        overflow: hidden;
+        left: 0;
+        top: 0;
+        width: 100%;
+        outline: none;
+        height: 20px;
+        margin: 0;
+        padding: 0;
+        background: none;
+        outline: none;
+    }
+
+        section.range-slider input::-webkit-slider-thumb {
+            pointer-events: all;
+            position: relative;
+            top: 0;
+            z-index: 10;
+            outline: 0;
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            min-height: 20px;
+            line-height: 20px;
+            border-radius: 50%;
+            background: var(--lightGreen);
+            cursor: pointer;
+        }
+
+        section.range-slider input::-moz-range-thumb {
+            pointer-events: all;
+            position: relative;
+            z-index: 10;
+            -moz-appearance: none;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            border-radius: 50%;
+            background: var(--lightGreen);
+            cursor: pointer;
+        }
+
+.v5-list .v5-list-items .v5-item {
+    position: relative;
+}
+
+
+    .v5-list .v5-list-items .v5-item .last-price {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        background: #FF0200;
+        padding: 4px;
+        display: flex;
+    }
+
+        .v5-list .v5-list-items .v5-item .last-price:before {
+            content: " ";
+            width: 8px;
+            height: 8px;
+            background: #fff;
+            border-radius: 16px;
+            margin: auto 5px auto 0;
+        }
+
+        .v5-list .v5-list-items .v5-item .last-price .bg {
+            background: #fff;
+            padding: 3px 8px;
+            border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            justify-items: center;
+        }
+
+            .v5-list .v5-list-items .v5-item .last-price .bg strong {
+                font-size: 9px;
+            }
+
+            .v5-list .v5-list-items .v5-item .last-price .bg label {
+                font-size: 10px;
+                margin-top: -2px;
+                font-weight: bold;
+            }
+
+    .v5-list .v5-list-items .v5-item .last-price {
+        border-radius: 4px;
+        background: #fb706f;
+    }
+
+    .v5-list .v5-list-items .v5-item .cover {
+        position: absolute;
+        width: 95%;
+        top: 105px;
+        text-align: center
+    }
+
+    .v5-list .v5-list-items .v5-item h3 {
+        padding: 0;
+        margin: 0 0 10px 0;
+        font-size: 15px;
+    }
+
+.v5-item .price-offer {
+    margin-bottom: 12px;
+    background: #FD475A;
+    text-align: center;
+    padding: 4px 8px;
+    border-radius: 5px;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+    .v5-item .price-offer label {
+        font-size: 11px;
+        font-weight: 400;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .v5-item .price-offer strong {
+        font-size: 15px;
+    }
+
+.v5-item .price-tradein {
+    margin-bottom: 10px;
+    background: #DBF9EB;
+    text-align: center;
+    padding: 4px 8px;
+    border-radius: 5px;
+    color: #1a53a2;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+    .v5-item .price-tradein label {
+        font-size: 11px;
+        font-style: normal;
+        font-weight: 400;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .v5-item .price-tradein strong {
+        font-size: 15px;
+    }
+
+.v5-filter-mb {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    z-index: 99999;
+    width: 100%;
+}
+
+.v5-sort-list-bg {
+    background: #EBEBEB;
+    border-radius: 10px;
+    padding: 12px 20px;
+    margin-bottom: 12px;
+}
+
+.label {
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.v5-filter-mb-tool ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    text-align: center;
+    align-items: center;
+}
+
+    .v5-filter-mb-tool ul li {
+        flex-shrink: 0;
+        min-width: 100px;
+        max-width: 150px;
+        width: 100%;
+        height: 30px;
+    }
+
+        .v5-filter-mb-tool ul li a {
+            text-decoration: none;
+            color: #000;
+            display: flex;
+            padding: 10px 15px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 13px;
+            height: 100%;
+            box-sizing: border-box;
+            align-items: center;
+            justify-content: center;
+        }
+
+            .v5-filter-mb-tool ul li a:hover {
+                color: #007bff;
+            }
+
+.sort-icon {
+    position: relative;
+    height: 16px;
+    display: block;
+}
+
+    .sort-icon .rotate-up,
+    .sort-icon .rotate-down {
+        position: absolute;
+        font-size: 8px;
+        height: 8px;
+        color: #4B4B4B;
+    }
+
+    .sort-icon .rotate-up {
+        rotate: -90deg;
+        top: 0;
+    }
+
+    .sort-icon .rotate-down {
+        rotate: 90deg;
+        bottom: 0;
+    }
+
+    .sort-icon .actived {
+        color: #fff;
+    }
+
+li a.actived .sort-icon .rotate-down {
+    bottom: 5px;
+}
+
+li a.actived .sort-icon .rotate-up {
+    top: 5px;
+}
+
+.v5-filter-mb-tool ul li a.actived {
+    background: var(--lightGreen);
+    color: #fff;
+    border: 1px solid var(--lightGreen);
+}
+
+.v5-filter-mb-tool ul li a:hover {
+    border: 1px solid var(--lightGreen);
+    color: var(--lightGreen)
+}
+
+.v5-filter-mb-tool ul li a.actived:hover {
+    color: #fff;
+    background: var(--darkGreen);
+}
+
+.v5-filter-category li a {
+    display: flex;
+}
+
+    .v5-filter-category li a i {
+        font-size: 6px;
+        margin-right: 6px;
+        line-height: 18px;
+    }
+
+    .v5-filter-category li a.actived {
+        font-weight: bold;
+        color: var(--lightGreen)
+    }
+
+
+
+.v5-list-filters .v5-filter h3 a {
+    display: flex;
+    color: #191919;
+    justify-content: space-between;
+}
+
+    .v5-list-filters .v5-filter h3 a:hover {
+        color: var(--lightGreen);
+    }
+
+    .v5-list-filters .v5-filter h3 a span {
+        display: none;
+        color: var(--grayText);
+        font-weight: normal;
+    }
+
+        .v5-list-filters .v5-filter h3 a span.s {
+            display: block;
+        }
+
+
+.v5-list-filters .sethide h3 a span.s {
+    display: none;
+}
+
+.v5-list-filters .sethide h3 a span.h {
+    display: block;
+}
+
+.v5-list-filters .sethide .options,
+.v5-list-filters .sethide .v5-hl-list-options,
+.v5-list-filters .sethide .price-range {
+    display: none;
+}
+
+transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.box-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+}
+
+    .box-container .box-card {
+        width: 255px;
+    }
+    .box-card .card-title {
+        color: var(--blackText);
+        font-size: 16px;
+        font-weight: 600;
+        text-align:center;
+    }
+
+.card-body .price {
+    margin-bottom: 12px;
+    font-size: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-items: stretch;
+}
+    .card-body .price strong 
+{
+    color: var(--redText);
+    line-height: 18px;
+    padding-right: 10px;
+}
+.card-body .price strike {
+    font-size: 11px;
+    line-height: 18px;
+    color: #C9C9C9;
+}
+
+.box-card .card-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+
+.specs{
+
+}
+    .specs ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        justify-content: space-between;
+    }
+        .specs ul li {
+            margin-right: 15px;
+        }
+ul.list-unstyled {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: space-between;
+}
+.right-container .text-center{
+    padding-top:10px!important;
+}
+

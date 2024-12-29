@@ -1,0 +1,54 @@
+﻿@model shop_hubLaps.Models.Laptop
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Chi Tiết Laptop";
+}
+
+<h2 class="text-center " style="font-family: Lexend; font-weight: 500; font-size: 30px;">@ViewData["Title"]</h2>
+
+<div class="card shadow-sm mx-auto " style="max-width: 800px;">
+    <div class="card-header bg-primary text-white text-center">
+        <h4 class="mb-0 text-start">@Model.tenlaptop</h4>
+    </div>
+    <div class="card-body">
+        <div class="d-flex flex-wrap align-items-center justify-content-center">
+            <!-- Hiển thị ảnh laptop hoặc ảnh mặc định nếu không có -->
+            <div class="text-center me-3">
+                <img src="@(!string.IsNullOrEmpty(Model.hinh) ? Model.hinh : Url.Content("~/img/no-image.png"))"
+                     alt="Hình Laptop"
+                     class="img-thumbnail mb-3"
+                     style="max-height: 200px;" />
+            </div>
+            <div>
+                <ul class="list-unstyled">
+                    <li><strong>Giá bán:</strong> @String.Format("{0:N0} VND", Model.giaban)</li>
+                    <li><strong>Mô tả:</strong> @Model.mota</li>
+                    <li><strong>CPU:</strong> @Model.cpu</li>
+                    <li><strong>GPU:</strong> @Model.gpu</li>
+                    <li><strong>RAM:</strong> @Model.ram</li>
+                    <li><strong>Số lượng tồn kho:</strong> @(Model.soluongton.HasValue ? Model.soluongton.Value.ToString() : "Không có")</li>
+                    <li><strong>Pin:</strong> @Model.pin</li>
+                    <li><strong>Status:</strong> @(Model.trangthai == true ? "Còn hàng" : "Hết hàng")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-footer text-center d-flex justify-content-end">
+        <a href="@Url.Action("Edit", "Laptop", new { id = Model.malaptop })" class="btn btn-warning">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" fill="#ffffff" style=""></path>
+                <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" fill="#ffffff" style=""></path>
+            </svg>
+            Chỉnh sửa
+        </a>
+        <a href="@Url.Action("Index", "Laptop")" class="btn btn-secondary ms-2">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10.4697 8.4696C10.7626 8.17671 11.2374 8.17671 11.5303 8.4696L14 10.9393L16.4697 8.46961C16.7626 8.17672 17.2374 8.17672 17.5303 8.46961C17.8232 8.7625 17.8232 9.23738 17.5303 9.53027L15.0607 11.9999L17.5303 14.4696C17.8232 14.7625 17.8232 15.2374 17.5303 15.5303C17.2374 15.8232 16.7626 15.8232 16.4697 15.5303L14 13.0606L11.5303 15.5303C11.2374 15.8232 10.7626 15.8232 10.4697 15.5303C10.1768 15.2374 10.1768 14.7625 10.4697 14.4696L12.9393 11.9999L10.4697 9.53026C10.1768 9.23737 10.1768 8.76249 10.4697 8.4696Z" fill="#fff" style=""></path>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M8.40595 4.94995C7.25488 4.94995 6.16757 5.47859 5.45665 6.38388L1.89515 10.9191C1.39693 11.5536 1.39693 12.4464 1.89515 13.0808L5.45665 17.616C6.16758 18.5213 7.25488 19.05 8.40595 19.05H19.0526C20.5714 19.05 21.8026 17.8187 21.8026 16.3V7.69995C21.8026 6.18117 20.5714 4.94995 19.0526 4.94995H8.40595ZM6.63637 7.31031C7.06292 6.76714 7.71531 6.44995 8.40595 6.44995H19.0526C19.743 6.44995 20.3026 7.0096 20.3026 7.69995V16.3C20.3026 16.9903 19.743 17.55 19.0526 17.55H8.40595C7.71531 17.55 7.06292 17.2328 6.63637 16.6896L3.07486 12.1544C3.00369 12.0637 3.00369 11.9362 3.07486 11.8455L6.63637 7.31031Z" fill="#fff" style=""></path>
+            </svg>
+            Quay lại danh sách
+        </a>
+    </div>
+</div>

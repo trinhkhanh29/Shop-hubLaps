@@ -5,10 +5,10 @@
     ViewData["ActivePage"] = ManageNavPages.PersonalData;
 }
 
-<h3>@ViewData["Title"]</h3>
-
+<h3 class="text-start" style="font-family: Lexend;font-weight: 500;font-size: 30px;">@ViewData["Title"]</h3>
+<hr />
 <div class="row">
-    <div class="col-md-6">
+    <div>
         <p>Tài khoản của bạn chứa dữ liệu cá nhân mà bạn đã cung cấp cho chúng tôi. Trang này cho phép bạn tải xuống hoặc xóa dữ liệu đó.</p>
         <p>
             <strong>Xóa dữ liệu này sẽ permanently remove your account, và điều này không thể khôi phục lại.</strong>
@@ -16,11 +16,22 @@
         <div class="d-flex justify-content-start align-items-center">
             <form id="download-data" method="post" asp-page-handler="DownloadPersonalData" class="me-2">
                 <button class="btn btn-primary" type="submit">
-                    <i class="bi bi-download"></i> Tải xuống
+                    <svg fill="#fff" width="32px" height="32px" viewBox="-9 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                        <title>download</title>
+                        <path d="M13.48 17.6c-0.48 0-0.84 0.36-0.84 0.84v3.92c0 0.48-0.36 0.84-0.84 0.84h-9.28c-0.48 0-0.84-0.36-0.84-0.84v-3.92c0-0.44-0.36-0.84-0.84-0.84s-0.84 0.4-0.84 0.84v3.92c0 1.4 1.12 2.52 2.52 2.52h9.28c1.4 0 2.52-1.12 2.52-2.52v-3.92c0-0.44-0.36-0.84-0.84-0.84zM6.56 18.48c0.040 0.040 0.2 0.28 0.6 0.28s0.56-0.24 0.6-0.28l3.52-3.52c0.32-0.32 0.32-0.84 0-1.2-0.32-0.32-0.84-0.32-1.2 0l-2.080 2.12v-7.92c0-0.48-0.36-0.84-0.84-0.84s-0.84 0.36-0.84 0.84v7.92l-2.080-2.080c-0.32-0.32-0.84-0.32-1.2 0-0.32 0.32-0.32 0.84 0 1.2l3.52 3.48z"></path>
+                    </svg> Tải xuống
                 </button>
             </form>
             <button id="delete" class="btn btn-danger" onclick="confirmDelete()">
-                <i class="bi bi-trash"></i> Xóa
+                <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" stroke="#fff" xmlns="http://www.w3.org/2000/svg">
+                    <g id="Iconly/Curved/Delete">
+                        <g id="Delete">
+                            <path id="Stroke 1" d="M18.8892 9.5542C18.8892 17.5732 20.0435 21.198 12.2797 21.198C4.5149 21.198 5.693 17.5732 5.693 9.5542" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path id="Stroke 3" d="M20.3651 6.47985H4.2146" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path id="Stroke 5" d="M15.7148 6.47983C15.7148 6.47983 16.2434 2.71411 12.2891 2.71411C8.33578 2.71411 8.86435 6.47983 8.86435 6.47983" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </g>
+                    </g>
+                </svg> Xóa
             </button>
         </div>
     </div>

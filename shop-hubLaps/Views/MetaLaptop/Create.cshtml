@@ -1,0 +1,45 @@
+﻿@model shop_hubLaps.Models.MetaLaptop
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Tạo Meta Laptop";
+}
+
+<div class="container mt-4">
+    <h1 class="text-start">Thêm Meta Laptop</h1>
+
+
+    <form asp-action="Create" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="keymeta">Key Meta</label>
+            <input type="text" class="form-control" id="keymeta" name="keymeta" value="@Model?.keymeta" required />
+        </div>
+
+        <div class="form-group">
+            <label for="valuemeta">Value Meta</label>
+            <input type="text" class="form-control" id="valuemeta" name="valuemeta" value="@Model?.valuemeta" required />
+        </div>
+
+
+        <div class="form-group">
+            <label asp-for="malaptop" class="control-label">Laptop</label>
+            <select asp-for="malaptop" class="form-control" required>
+                <option value="">Chọn Laptop...</option>
+                @foreach (var laptop in ViewBag.LaptopList)
+                {
+                    <option value="@laptop.malaptop" selected="@(laptop.malaptop == Model?.malaptop ? "selected" : "")">
+                        @laptop.tenlaptop
+                    </option>
+                }
+            </select>
+            <span asp-validation-for="malaptop" class="text-danger"></span>
+        </div>
+
+
+
+        <button type="submit" class="btn btn-primary mt-3">Thêm</button>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

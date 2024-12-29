@@ -24,6 +24,8 @@ namespace shop_hubLaps.Models
         public virtual DbSet<NhuCau> NhuCaus { get; set; }
         public virtual DbSet<QuangCao> QuangCaos { get; set; }
         public virtual DbSet<TinTuc> TinTucs { get; set; }
+        public virtual DbSet<VnpayModel> VnpayModels { get; set; }
+        //public virtual DbSet<Reply> Replies { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -35,6 +37,13 @@ namespace shop_hubLaps.Models
 
             modelBuilder.Entity<DonHang>()
                 .HasKey(d => d.madon);
+
+            // Cấu hình mối quan hệ giữa TinTuc và ChuDe
+            modelBuilder.Entity<TinTuc>()
+                .HasOne(t => t.ChuDe)
+                .WithMany(c => c.TinTucs)
+                .HasForeignKey(t => t.machude)
+                .OnDelete(DeleteBehavior.SetNull); // Hoặc một hành vi khác như Cascade
 
             // Cấu hình khóa chính composite cho ChiTietDonHang
             modelBuilder.Entity<ChiTietDonHang>()

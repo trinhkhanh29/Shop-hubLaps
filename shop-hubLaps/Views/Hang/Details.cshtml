@@ -1,0 +1,23 @@
+﻿@model shop_hubLaps.Models.Hang
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Chi Tiết Hãng";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Tên Hãng: @Model.tenhang</h5>
+        <p class="card-text">
+            Hình ảnh:
+            @if (!string.IsNullOrEmpty(Model.hinh))
+            {
+                <img src="~/Content/images/@Model.hinh" alt="@Model.tenhang" class="img-fluid" width="150" />
+            }
+        </p>
+    </div>
+</div>
+
+<a href="@Url.Action("Index", "Hang")" class="btn btn-secondary">Quay lại</a>

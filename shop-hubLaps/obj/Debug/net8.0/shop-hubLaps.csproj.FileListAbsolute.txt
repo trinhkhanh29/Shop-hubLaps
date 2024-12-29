@@ -331,7 +331,6 @@ C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\M
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
-C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\Mono.TextTemplating.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\Newtonsoft.Json.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\NuGet.Common.dll
@@ -351,14 +350,11 @@ C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\S
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\System.Composition.Runtime.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\System.Composition.TypedParts.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
-C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\System.Drawing.Common.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\System.Memory.Data.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\System.Reflection.MetadataLoadContext.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\System.Runtime.Caching.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\System.Security.Permissions.dll
-C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\System.Windows.Extensions.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\af\Humanizer.resources.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\ar\Humanizer.resources.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\az\Humanizer.resources.dll
@@ -504,11 +500,7 @@ C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\r
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\runtimes\win\lib\net7.0\Microsoft.Win32.SystemEvents.dll
-C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
-C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Debug\net8.0\shop-hubLaps.csproj.AssemblyReference.cache
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Debug\net8.0\shop-hubLaps.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Debug\net8.0\shop-hubLaps.AssemblyInfoInputs.cache
@@ -577,3 +569,10 @@ C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\A
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\CKSource.CKFinder.Connector.Core.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\CKSource.FileSystem.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\ImageProcessor.dll
+C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\EPPlus.Interfaces.dll
+C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
+C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\RestSharp.dll
+C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\Newtonsoft.Json.Schema.dll
+C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\Stripe.net.dll

@@ -1,0 +1,61 @@
+﻿.message-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.message-box {
+    width: 300px;
+    border-radius: 6px;
+    padding: 10px 15px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: slide-in 0.5s ease-out;
+    overflow: hidden;
+}
+
+    .message-box i {
+        vertical-align: middle;
+        margin-right: 10px;
+    }
+
+    .message-box .exit-button {
+        margin-left: auto;
+        opacity: 0.4;
+        cursor: pointer;
+        transition: opacity 0.3s;
+    }
+
+        .message-box .exit-button:hover {
+            opacity: 0.8;
+        }
+
+.message-box-success {
+    background-color: #DDF3D5;
+    border: 2px solid #A4C2A4;
+    color: #597151;
+}
+
+.message-box-error {
+    background-color: #ECC8C5;
+    border: 2px solid #C27B7B;
+    color: #B83C37;
+}
+/*
+@keyframes slide-in {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}*/

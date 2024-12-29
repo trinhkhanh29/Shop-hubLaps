@@ -1,0 +1,100 @@
+﻿@model shop_hubLaps.Models.DonHang
+
+@{
+    ViewData["Title"] = "Chỉnh sửa đơn hàng";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="font-weight-bold" style="font-family: 'Lexend', sans-serif;">Chỉnh sửa đơn hàng</h2>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <form asp-action="Edit" method="post">
+            <div class="form-group mb-4">
+                <label asp-for="madon" class="control-label">Mã đơn hàng</label>
+                <input asp-for="madon" class="form-control" readonly />
+                <span asp-validation-for="madon" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-4">
+                <label asp-for="makh" class="control-label">Mã khách hàng</label>
+                <input asp-for="makh" class="form-control" />
+                <span asp-validation-for="makh" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-4">
+                <label asp-for="gia" class="control-label">Giá</label>
+                <input asp-for="gia" class="form-control" type="number" step="0.01" />
+                <span asp-validation-for="gia" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-4">
+                <label asp-for="tinhtrang" class="control-label">Tình trạng</label>
+                <select asp-for="tinhtrang" class="form-control">
+                    <option value="COMPLETED">Hoàn thành</option>
+                    <option value="REFUNDED">Đã hoàn tiền</option>
+                    <option value="CANCELLED">Đã hủy</option>
+                    <option value="DELIVERED">Đã giao hàng thành công</option>
+                    <option value="SHIPPED">Đã giao hàng</option>
+                    <option value="PENDING">Chờ xử lý</option>
+                    <option value="PROCESSING">Đang xử lý đơn hàng</option>
+                    <option value="CART">Giỏ hàng</option>                                    
+                </select>
+                <span asp-validation-for="tinhtrang" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-4">
+                <label asp-for="ngaydat" class="control-label">Ngày đặt hàng</label>
+                <input asp-for="ngaydat" class="form-control" type="date" />
+                <span asp-validation-for="ngaydat" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-4">
+                <label asp-for="ngaygiao" class="control-label">Ngày giao hàng</label>
+                <input asp-for="ngaygiao" class="form-control" type="date" />
+                <span asp-validation-for="ngaygiao" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-4">
+                <label asp-for="thanhtoan" class="control-label">Phương thức thanh toán</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox"
+                           id="thanhtoan"
+                           name="thanhtoan"
+                           value="true"
+                    @(Model.thanhtoan == true ? "checked" : "") />
+                    <label class="form-check-label" for="thanhtoan">Đã thanh toán</label>
+                </div>
+                <input type="hidden" name="thanhtoan" value="false" />
+                <span asp-validation-for="thanhtoan" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-4">
+                <label asp-for="giaohang" class="control-label">Thông tin giao hàng</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox"
+                           id="giaohang"
+                           name="giaohang"
+                           value="true"
+                    @(Model.giaohang == true ? "checked" : "") />
+                    <label class="form-check-label" for="giaohang">Đã giao hàng</label>
+                </div>
+                <input type="hidden" name="giaohang" value="false" />
+                <span asp-validation-for="giaohang" class="text-danger"></span>
+            </div>
+
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
+                <a asp-action="Index" class="btn btn-secondary">Hủy bỏ</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

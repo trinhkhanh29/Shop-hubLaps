@@ -14,28 +14,47 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation-unobtrusive@3.2.12/dist/jquery.validate.unobtrusive.min.js"></script>
 }
 
-@if (TempData["SuccessMessage"] != null)
-{
-    <div class="alert alert-success">
-        @TempData["SuccessMessage"]
-    </div>
-}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Admin Dashboard</title>
+    @* <title>@ViewBag.Title - Admin Dashboard</title> *@
+    <title>Dashboard</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'><path d='M 8.5 9 C 6.57 9 5 10.57 5 12.5 L 5 31.5 C 5 33.43 6.57 35 8.5 35 L 39.5 35 C 41.43 35 43 33.43 43 31.5 L 43 12.5 C 43 10.57 41.43 9 39.5 9 L 8.5 9 z M 27.474609 14.013672 C 27.582109 14.034922 27.684531 14.080391 27.769531 14.150391 C 27.939531 14.280391 28.030234 14.479688 27.990234 14.679688 C 27.980234 14.779687 27.82 15.660625 27 16.640625 C 26.12 17.700625 24.870312 17.970234 24.820312 17.990234 C 24.770312 18.000234 24.719922 18 24.669922 18 C 24.509922 18 24.350469 17.949609 24.230469 17.849609 C 24.070469 17.729609 23.98 17.539609 24 17.349609 C 24.01 17.299609 24.140391 16.129453 25.150391 15.189453 C 26.110391 14.309453 27.040391 14.049531 27.150391 14.019531 C 27.255391 13.994531 27.367109 13.992422 27.474609 14.013672 z M 21.449219 19 C 22.729219 19 22.909375 19.669922 24.359375 19.669922 C 25.819375 19.669922 25.999531 19 27.269531 19 C 28.119531 19 28.839219 19.290078 29.449219 19.830078 C 28.449219 20.370078 27.820312 21.48 27.820312 22.75 C 27.820312 24.22 28.73 25.430078 30 25.830078 C 29.16 27.710078 27.819844 29 27.089844 29 C 25.999844 29 25.639375 28.330078 24.359375 28.330078 C 23.089375 28.330078 22.730625 29 21.640625 29 C 20.550625 29 18 26.169922 18 22.669922 C 18 20.499922 19.599219 19 21.449219 19 z M 2.5 38 A 1.50015 1.50015 0 1 0 2.5 41 L 45.5 41 A 1.50015 1.50015 0 1 0 45.5 38 L 2.5 38 z'></path></svg>">
+
 
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="~/css/Dashboard.css" asp-append-version="true">
     <link href="~/css_chude/_adminlayout.css" rel="stylesheet" />
+    <link href="~/css/alert-notifications.css" rel="stylesheet" />
+
+    <style>
+        html, body {
+            height: 100%;
+            font-family: 'Lexend', sans-serif; /* Ensure Lexend is the default font */
+        }
+
+     @@media (max-width: 990px) {
+    .sidebar {
+        width: 100%;
+        height: 90%;
+        position: relative;
+        min-width: unset;
+    }
+    .bg-light{
+        background-color: #f8f8f8;
+    } 
+
+    </style>
 </head>
 
 <body>
@@ -54,7 +73,18 @@
             <ul class="nav flex-column mt-4">
                 <li class="nav-item">
                     <a class="nav-link" href="@Url.Action("Index", "Dashboard")">
-                        <i class="fas fa-tachometer-alt"></i> Bảng điều khiển
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 48 48">
+                            <path fill="#f48fb1" d="M22.214,20h-7.429C13.247,20,12,18.806,12,17.333v-2.667C12,13.194,13.247,12,14.786,12h7.429	C23.753,12,25,13.194,25,14.667v2.667C25,18.806,23.753,20,22.214,20z"></path>
+                            <path fill="#f48fb1" d="M22.214,43.821h-7.429c-1.539,0-2.786-1.247-2.786-2.786V28.964c0-1.539,1.247-2.786,2.786-2.786	h7.429c1.539,0,2.786,1.247,2.786,2.786v12.071C25,42.574,23.753,43.821,22.214,43.821z"></path>
+                            <path fill="#f48fb1" d="M41.214,36h-7.429C32.247,36,31,37.194,31,38.667v2.667C31,42.806,32.247,44,33.786,44h7.429	C42.753,44,44,42.806,44,41.333v-2.667C44,37.194,42.753,36,41.214,36z"></path>
+                            <path fill="#f48fb1" d="M41.214,12h-7.429C32.247,12,31,13.247,31,14.786v12.429C31,28.753,32.247,30,33.786,30h7.429	C42.753,30,44,28.753,44,27.214V14.786C44,13.247,42.753,12,41.214,12z"></path>
+                            <path fill="none" stroke="#18193f" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="3" d="M18.5,16.5h-8c-1.657,0-3-1.343-3-3v-3c0-1.657,1.343-3,3-3h8c1.657,0,3,1.343,3,3v3C21.5,15.157,20.157,16.5,18.5,16.5z"></path>
+                            <path fill="none" stroke="#18193f" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="3" d="M21.5,37.5c0,1.657-1.343,3-3,3h-8c-1.657,0-3-1.343-3-3v-7.372"></path>
+                            <path fill="none" stroke="#18193f" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="3" d="M7.5,25.787V24.5c0-1.657,1.343-3,3-3h8c1.657,0,3,1.343,3,3v8.245"></path>
+                            <path fill="none" stroke="#18193f" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="3" d="M37.5,31.5h-8c-1.657,0-3,1.343-3,3v3c0,1.657,1.343,3,3,3h8c1.657,0,3-1.343,3-3v-3C40.5,32.843,39.157,31.5,37.5,31.5z"></path>
+                            <path fill="none" stroke="#18193f" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="3" d="M40.5,17.681V10.5c0-1.657-1.343-3-3-3h-8c-1.657,0-3,1.343-3,3v1.819"></path>
+                            <path fill="none" stroke="#18193f" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="3" d="M26.5,17v6.5c0,1.657,1.343,3,3,3h8c1.657,0,3-1.343,3-3"></path>
+                        </svg> Bảng điều khiển
                     </a>
                 </li>
                 <li class="nav-item menu-item menu-accordion">
@@ -65,44 +95,74 @@
                     <div class="collapse submenu" id="productMenu">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a href="@Url.Action("Index", "Product")" class="nav-link">- Danh sách sản phẩm</a>
+                                <a href="@Url.Action("Index", "Laptop")" class="nav-link">Danh sách sản phẩm</a>
                             </li>
                             <li class="nav-item">
-                                <a href="@Url.Action("Create", "Product")" class="nav-link">- Thêm sản phẩm mới</a>
+                                <a href="@Url.Action("Index", "Hang")" class="nav-link">Hãng Laptop</a>
                             </li>
                             <li class="nav-item">
-                                <a href="@Url.Action("Categories", "Product")" class="nav-link">- Quản lý danh mục</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <!-- Quản lý chủ đề -->
-                <li class="nav-item menu-item menu-accordion">
-                    <a class="nav-link d-flex align-items-center" data-bs-toggle="collapse" href="#chuDeMenu" role="button" aria-expanded="false">
-                        <i class="fas fa-tags"></i> <span>Chủ đề</span>
-                        <i class="fas fa-chevron-right ms-auto"></i>
-                    </a>
-                    <div class="collapse submenu" id="chuDeMenu">
-                        <ul class="nav flex-column">
-                            <li class="nav-item">
-                                <a href="@Url.Action("Index", "ChuDe")" class="nav-link">- Danh sách chủ đề</a>
+                                <a href="@Url.Action("Index", "NhuCau")" class="nav-link">Nhu cầu</a>
                             </li>
                             <li class="nav-item">
-                                <a href="@Url.Action("Create", "ChuDe")" class="nav-link">- Thêm chủ đề mới</a>
-                            </li>                
+                                <a href="@Url.Action("Index", "MetaLaptop")" class="nav-link">Meta Laptop</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="@Url.Action("Index", "DanhGia")" class="nav-link">Đánh giá</a>
+                            </li>
                         </ul>
                     </div>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="@Url.Action("Index", "Orders")">
-                        <i class="fas fa-shopping-cart"></i> Đơn hàng
+                <!-- Quản lý bài viết -->
+                <li class="nav-item menu-item menu-accordion">
+                    <a class="nav-link d-flex align-items-center" data-bs-toggle="collapse" href="#contentManagementMenu" role="button" aria-expanded="false">
+                        <i class="fas fa-folder"></i> <span>Tin tức & Bài viết</span>
+                        <i class="fas fa-chevron-right ms-auto"></i>
                     </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="@Url.Action("Index", "Customers")">
-                        <i class="fas fa-users"></i> Khách hàng
-                    </a>
+                    <div class="collapse submenu" id="contentManagementMenu">
+                        <ul class="nav flex-column">
+                            <!-- Chủ đề -->
+                            <li class="nav-item menu-item menu-accordion">
+                                <a class="nav-link d-flex align-items-center" data-bs-toggle="collapse" href="#chuDeSubMenu" role="button" aria-expanded="false">
+                                    <i class="fas fa-tags"></i> <span>Chủ đề</span>
+                                    <i class="fas fa-chevron-right ms-auto"></i>
+                                </a>
+                                <div class="collapse submenu" id="chuDeSubMenu">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a href="@Url.Action("Index", "ChuDe")" class="nav-link">Danh sách chủ đề</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="@Url.Action("Create", "ChuDe")" class="nav-link">Thêm chủ đề mới</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <!-- Tin tức -->
+                            <li class="nav-item menu-item menu-accordion">
+                                <a class="nav-link d-flex align-items-center" data-bs-toggle="collapse" href="#newsSubMenu" role="button" aria-expanded="false">
+                                    <i class="fas fa-newspaper"></i> <span>Tin Tức</span>
+                                    <i class="fas fa-chevron-right ms-auto"></i>
+                                </a>
+                                <div class="collapse submenu" id="newsSubMenu">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a href="@Url.Action("Index", "TinTuc")" class="nav-link">Danh sách tin tức</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="@Url.Action("Create", "TinTuc")" class="nav-link">Thêm tin tức</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <!-- Bình luận -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="@Url.Action("Index", "Comments")">
+                                    <i class="fas fa-comments"></i> Bình luận
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
                 <!-- Quản lý quảng cáo -->
                 <li class="nav-item menu-item menu-accordion">
@@ -113,49 +173,32 @@
                     <div class="collapse submenu" id="adsMenu">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a href="@Url.Action("Index", "Ads")" class="nav-link">- Danh sách quảng cáo</a>
+                                <a href="@Url.Action("Index", "QuangCao")" class="nav-link">Danh sách quảng cáo</a>
                             </li>
                             <li class="nav-item">
-                                <a href="@Url.Action("Create", "Ads")" class="nav-link">- Thêm quảng cáo</a>
+                                <a href="@Url.Action("CreateAdmin", "QuangCao")" class="nav-link">Thêm quảng cáo</a>
                             </li>
                         </ul>
                     </div>
-                </li>
-                <!-- Quản lý nhu cầu -->
-                <li class="nav-item">
-                    <a class="nav-link" href="@Url.Action("Index", "NhuCau")">
-                        <i class="fas fa-list"></i> Nhu cầu
-                    </a>
-                </li>
-                <!-- Quản lý bài viết -->
-                <li class="nav-item menu-item menu-accordion">
-                    <a class="nav-link d-flex align-items-center" data-bs-toggle="collapse" href="#blogMenu" role="button" aria-expanded="false">
-                        <i class="fas fa-newspaper"></i> <span>Bài viết</span>
-                        <i class="fas fa-chevron-right ms-auto"></i>
-                    </a>
-                    <div class="collapse submenu" id="blogMenu">
-                        <ul class="nav flex-column">
-                            <li class="nav-item">
-                                <a href="@Url.Action("Index", "Posts")" class="nav-link">- Danh sách bài viết</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="@Url.Action("Create", "Posts")" class="nav-link">- Thêm bài viết</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <!-- Quản lý bình luận -->
-                <li class="nav-item">
-                    <a class="nav-link" href="@Url.Action("Index", "Comments")">
-                        <i class="fas fa-comments"></i> Bình luận
-                    </a>
                 </li>
                 <!-- Quản lý vai trò thành viên -->
                 <li class="nav-item">
-                    <a class="nav-link" href="@Url.Action("Index", "Roles")">
+                    <a class="nav-link" href="@Url.Action("Index", "RoleManagement")">
                         <i class="fas fa-user-shield"></i> Vai trò thành viên
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "Customers")">
+                        <i class="fas fa-users"></i> Khách hàng
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "DonHang")">
+                        <i class="fas fa-shopping-cart"></i> Đơn hàng
+                    </a>
+                </li>            
+
                 <!-- Quản lý chi tiết đơn hàng -->
                 <li class="nav-item">
                     <a class="nav-link" href="@Url.Action("Index", "OrderDetails")">
@@ -168,11 +211,9 @@
                     </a>
                 </li>
             </ul>
-
         </div>
-
         <!-- Content -->
-        <div class="content">
+        <div class="content" style="background-color: #F8F9FA;">
             <nav class="navbar navbar-light bg-light mb-3">
                 <div class="container-fluid">
                     <button class="btn btn-primary toggle-menu" type="button">
@@ -187,22 +228,21 @@
 
     <!-- Scripts -->
     <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
-
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.19.3/jquery.validate.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script>
-      document.addEventListener('DOMContentLoaded', function () {
-    const toggleButton = document.querySelector('.toggle-menu');
-    const sidebar = document.getElementById('sidebar');
-    const content = document.querySelector('.content');
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggleButton = document.querySelector('.toggle-menu');
+            const sidebar = document.getElementById('sidebar');
+            const content = document.querySelector('.content');
 
-    // Toggle sidebar visibility
-    toggleButton.addEventListener('click', function () {
-        sidebar.classList.toggle('hidden');
-        content.classList.toggle('expanded');
-    });
+            // Toggle sidebar visibility
+            toggleButton.addEventListener('click', function () {
+                sidebar.classList.toggle('hidden');
+                content.classList.toggle('expanded');
+            });
             document.addEventListener('DOMContentLoaded', function () {
                 const accordionLinks = document.querySelectorAll('.menu-item.menu-accordion .nav-link');
                 accordionLinks.forEach(link => {
@@ -219,8 +259,51 @@
                 });
             });
         });
+        document.addEventListener("DOMContentLoaded", function () {
+            const showMessage = (message, type = "success") => {
+                let container = document.querySelector(".message-container");
+                if (!container) {
+                    container = document.createElement("div");
+                    container.className = "message-container";
+                    document.body.appendChild(container);
+                }
 
+                const messageBox = document.createElement("div");
+                messageBox.className = `message-box message-box-${type}`;
+                messageBox.innerHTML = `
+                        <i class="fa ${type === "success" ? "fa-check" : "fa-ban"} fa-2x"></i>
+                        <span class="message-text"><strong>${type.charAt(0).toUpperCase() + type.slice(1)}:</strong> ${message}</span>
+                        <i class="fa fa-times fa-2x exit-button"></i>
+                    `;
 
+                messageBox.querySelector(".exit-button").addEventListener("click", function () {
+                    messageBox.remove();
+                });
+
+                container.appendChild(messageBox);
+
+                setTimeout(() => {
+                    messageBox.remove();
+                }, 5000);
+            };
+
+       // Hiển thị lỗi từ TempData nếu có
+        @if (TempData["SuccessMessage"] != null)
+        {
+            @:showMessage("@TempData["SuccessMessage"]", "success");
+        }
+
+        @if (TempData["ErrorMessage"] != null)
+        {
+            @:showMessage("@TempData["ErrorMessage"]", "error");
+        }
+
+        // Hiển thị thông báo lỗi chi tiết từ ModelState (nếu có)
+        @if (TempData["ValidationErrors"] != null)
+        {
+            @:showMessage("@TempData["ValidationErrors"]", "error");
+        }
+              });
     </script>
     @RenderSection("Scripts", required: false)
 

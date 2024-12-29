@@ -40,5 +40,7 @@ namespace shop_hubLaps.Models
 
         // Trạng thái quảng cáo (có hoạt động hay không)
         public bool trangthai { get; set; }
+
+
     }
 }

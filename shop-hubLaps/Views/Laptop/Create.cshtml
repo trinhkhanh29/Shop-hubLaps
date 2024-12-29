@@ -1,0 +1,160 @@
+﻿@using shop_hubLaps.Views.Laptop
+@model shop_hubLaps.Models.Laptop
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Tạo Laptop Mới";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Create" method="post" enctype="multipart/form-data">
+       <!-- Bổ sung trường Mã Hãng -->
+    <div class="form-group">
+        <label asp-for="mahang" class="control-label">Hãng</label>
+        <select asp-for="mahang" class="form-control">
+            <option value="">Chọn hãng...</option>
+            @foreach (var hang in ViewBag.HangList)
+            {
+                <option value="@hang.mahang">@hang.tenhang</option>
+            }
+        </select>
+        <span asp-validation-for="mahang" class="text-danger"></span>
+    </div>
+
+    <!-- Bổ sung trường Mã Nhu Cầu -->
+    <div class="form-group">
+        <label asp-for="manhucau" class="control-label">Nhu Cầu</label>
+        <select asp-for="manhucau" class="form-control">
+            <option value="">Chọn nhu cầu...</option>
+            @foreach (var nhucau in ViewBag.NhuCauList)
+            {
+                <option value="@nhucau.manhucau">@nhucau.tennhucau</option>
+            }
+        </select>
+        <span asp-validation-for="manhucau" class="text-danger"></span>
+    </div>
+
+
+    <div class="form-group">
+        <label asp-for="tenlaptop" class="control-label">Tên Laptop</label>
+        <input asp-for="tenlaptop" class="form-control" />
+        <span asp-validation-for="tenlaptop" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="giaban" class="control-label">Giá Bán</label>
+        <input asp-for="giaban" class="form-control" />
+        <span asp-validation-for="giaban" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="mota" class="control-label">Mô Tả</label>
+        <textarea asp-for="mota" class="form-control"></textarea>
+        <span asp-validation-for="mota" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="hinh" class="control-label">Hình Ảnh</label>
+        <input type="file" name="hinh" class="form-control" />
+        <span asp-validation-for="hinh" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="cpu" class="control-label">CPU</label>
+        <select asp-for="cpu" class="form-control">
+            @foreach (var cpu in LaptopAttributes.CpuNames)
+            {
+                <option value="@cpu.Key">@cpu.Value</option>
+            }
+        </select>
+        @* <input asp-for="cpu" class="form-control mt-2" placeholder="Nhập CPU khác nếu không có trong danh sách" /> *@
+        <span asp-validation-for="cpu" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="gpu" class="control-label">GPU</label>
+        <select asp-for="gpu" class="form-control">
+          @foreach (var gpu in LaptopAttributes.GpuNames)
+          {
+              <option value="@gpu.Key">@gpu.Value</option>
+
+          }
+        </select>
+        @* <input asp-for="gpu" class="form-control mt-2" placeholder="Nhập GPU khác nếu không có trong danh sách" /> *@
+        <span asp-validation-for="gpu" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ram" class="control-label">RAM</label>
+        <select asp-for="ram" class="form-control">
+            @foreach (var ram in LaptopAttributes.RamSizes)
+            {
+                <option value="@ram.Key">@ram.Value</option>
+
+            }
+        </select>
+        @* <input asp-for="ram" class="form-control mt-2" placeholder="Nhập RAM khác nếu không có trong danh sách" /> *@
+        <span asp-validation-for="ram" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="hardware" class="control-label">Hardware</label>
+        <select asp-for="hardware" class="form-control">
+            @foreach (var hardware in LaptopAttributes.HardwareTypes)
+            {
+                <option value="@hardware.Key">@hardware.Value</option>
+            }
+        </select>
+        @* <input asp-for="hardware" class="form-control mt-2" placeholder="Nhập loại Hardware khác nếu không có trong danh sách" /> *@
+        <span asp-validation-for="hardware" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="manhinh" class="control-label">Màn Hình</label>
+        <select asp-for="manhinh" class="form-control">
+            @foreach (var screen in LaptopAttributes.ScreenSizes)
+            {
+                <option value="@screen.Key">@screen.Value</option>
+            }
+
+            <option value="other">Khác...</option>
+        </select>
+        @* <input asp-for="manhinh" class="form-control mt-2" placeholder="Nhập kích thước màn hình khác nếu không có trong danh sách" /> *@
+        <span asp-validation-for="manhinh" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="pin" class="control-label">Pin</label>
+        <select asp-for="pin" class="form-control">
+            @foreach (var pin in LaptopAttributes.PinNames)
+            {
+                <option value="@pin.Key">@pin.Value</option>
+            }
+        </select>
+        @* <input asp-for="pin" class="form-control mt-2" placeholder="Nhập dung lượng pin khác nếu không có trong danh sách" /> *@
+        <span asp-validation-for="pin" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="soluongton" class="control-label">Số Lượng Tồn</label>
+        <input asp-for="soluongton" class="form-control" type="number" min="0" />
+        <span asp-validation-for="soluongton" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="trangthai" class="control-label">Trạng Thái</label>
+        <select asp-for="trangthai" class="form-control">
+            <option value="true">Còn Hàng</option>
+            <option value="false">Hết Hàng</option>
+        </select>
+        <span asp-validation-for="trangthai" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success">Tạo Mới</button>
+    <a asp-action="Index" class="btn btn-secondary ml-2">Quay Lại Danh Sách</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

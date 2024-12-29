@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace shop_hubLaps.Models
 {
@@ -11,6 +12,7 @@ namespace shop_hubLaps.Models
         public DonHang()
         {
             ChiTietDonHangs = new HashSet<ChiTietDonHang>();
+            tinhtrang = "CART";
         }
 
         [Key]
@@ -25,17 +27,27 @@ namespace shop_hubLaps.Models
         [StringLength(450)] // Chỉnh sửa chiều dài cho makh
         public string makh { get; set; }
 
-        [StringLength(1)]
+        [Column("gia")]
+        public decimal gia { get; set; }
+
+        [StringLength(10)]
         public string tinhtrang { get; set; }
 
-        public virtual ICollection<ChiTietDonHang> ChiTietDonHangs { get; set; }
+        [StringLength(50)]
+        public string? PhuongThucThanhToan { get; set; }
 
-        public int Property
+        [JsonPropertyName("donhang")]
+        public virtual ICollection<ChiTietDonHang> ChiTietDonHangs { get; set; }
+       
+        public void CapNhatGiaTri()
         {
-            get => default;
-            set
+            gia = ChiTietDonHangs.Sum(ct => ct.dongia * ct.soluong);
+
+            foreach (var chiTiet in ChiTietDonHangs)
             {
+                chiTiet.gia = chiTiet.dongia * chiTiet.soluong;
             }
         }
+
     }
 }

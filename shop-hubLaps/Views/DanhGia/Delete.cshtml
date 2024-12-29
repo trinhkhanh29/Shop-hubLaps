@@ -1,0 +1,43 @@
+﻿@model shop_hubLaps.Models.DanhGia
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Xóa Đánh Giá";
+}
+
+<div class="alert alert-warning">
+    Bạn có chắc chắn muốn xóa đánh giá của <strong>@Model.ten</strong> không?
+</div>
+
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <tr>
+            <th>Tên</th>
+            <td>@Model.ten</td>
+        </tr>
+        <tr>
+            <th>Nội dung</th>
+            <td>@Model.noidung</td>
+        </tr>
+        <tr>
+            <th>Vote</th>
+            <td>@Model.vote</td>
+        </tr>
+        <tr>
+            <th>Ngày đánh giá</th>
+            <td>@Model.ngaydanhgia?.ToString("dd/MM/yyyy")</td>
+        </tr>
+        <tr>
+            <th>Laptop</th>
+            <td>@Model.Laptop?.tenlaptop</td>
+        </tr>
+    </table>
+</div>
+
+<form method="post" asp-action="DeleteConfirmed">
+    <input type="hidden" name="id" value="@Model.madanhgia" />
+    <div class="form-group text-center">
+        <button type="submit" class="btn btn-danger btn-lg">Yes, Delete</button>
+        <a href="@Url.Action("Index")" class="btn btn-secondary btn-lg">Cancel</a>
+    </div>
+</form>

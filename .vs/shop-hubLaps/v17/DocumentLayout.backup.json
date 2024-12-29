@@ -3,36 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{30D179EF-1E35-4B6F-BC4F-FC0DB641C35F}|shop-hubLaps\\shop-hubLaps.csproj|c:\\users\\pc\\source\\repos\\do-an-2024\\shop-hublaps\\shop-hublaps\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30D179EF-1E35-4B6F-BC4F-FC0DB641C35F}|shop-hubLaps\\shop-hubLaps.csproj|solutionrelative:shop-hublaps\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{30D179EF-1E35-4B6F-BC4F-FC0DB641C35F}|shop-hubLaps\\shop-hubLaps.csproj|c:\\users\\pc\\source\\repos\\do-an-2024\\shop-hublaps\\shop-hublaps\\areas\\identity\\pages\\account\\manage\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30D179EF-1E35-4B6F-BC4F-FC0DB641C35F}|shop-hubLaps\\shop-hubLaps.csproj|solutionrelative:shop-hublaps\\areas\\identity\\pages\\account\\manage\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{30D179EF-1E35-4B6F-BC4F-FC0DB641C35F}|shop-hubLaps\\shop-hubLaps.csproj|c:\\users\\pc\\source\\repos\\do-an-2024\\shop-hublaps\\shop-hublaps\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{30D179EF-1E35-4B6F-BC4F-FC0DB641C35F}|shop-hubLaps\\shop-hubLaps.csproj|solutionrelative:shop-hublaps\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30D179EF-1E35-4B6F-BC4F-FC0DB641C35F}|shop-hubLaps\\shop-hubLaps.csproj|c:\\users\\pc\\source\\repos\\do-an-2024\\shop-hublaps\\shop-hublaps\\views\\chude\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{30D179EF-1E35-4B6F-BC4F-FC0DB641C35F}|shop-hubLaps\\shop-hubLaps.csproj|solutionrelative:shop-hublaps\\views\\chude\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30D179EF-1E35-4B6F-BC4F-FC0DB641C35F}|shop-hubLaps\\shop-hubLaps.csproj|c:\\users\\pc\\source\\repos\\do-an-2024\\shop-hublaps\\shop-hublaps\\controllers\\chudecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30D179EF-1E35-4B6F-BC4F-FC0DB641C35F}|shop-hubLaps\\shop-hubLaps.csproj|solutionrelative:shop-hublaps\\controllers\\chudecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30D179EF-1E35-4B6F-BC4F-FC0DB641C35F}|shop-hubLaps\\shop-hubLaps.csproj|c:\\users\\pc\\source\\repos\\do-an-2024\\shop-hublaps\\shop-hublaps\\views\\chude\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{30D179EF-1E35-4B6F-BC4F-FC0DB641C35F}|shop-hubLaps\\shop-hubLaps.csproj|solutionrelative:shop-hublaps\\views\\chude\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30D179EF-1E35-4B6F-BC4F-FC0DB641C35F}|shop-hubLaps\\shop-hubLaps.csproj|c:\\users\\pc\\source\\repos\\do-an-2024\\shop-hublaps\\shop-hublaps\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{30D179EF-1E35-4B6F-BC4F-FC0DB641C35F}|shop-hubLaps\\shop-hubLaps.csproj|solutionrelative:shop-hublaps\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30D179EF-1E35-4B6F-BC4F-FC0DB641C35F}|shop-hubLaps\\shop-hubLaps.csproj|c:\\users\\pc\\source\\repos\\do-an-2024\\shop-hublaps\\shop-hublaps\\views\\chude\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{30D179EF-1E35-4B6F-BC4F-FC0DB641C35F}|shop-hubLaps\\shop-hubLaps.csproj|solutionrelative:shop-hublaps\\views\\chude\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30D179EF-1E35-4B6F-BC4F-FC0DB641C35F}|shop-hubLaps\\shop-hubLaps.csproj|c:\\users\\pc\\source\\repos\\do-an-2024\\shop-hublaps\\shop-hublaps\\views\\chude\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{30D179EF-1E35-4B6F-BC4F-FC0DB641C35F}|shop-hubLaps\\shop-hubLaps.csproj|solutionrelative:shop-hublaps\\views\\chude\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{30D179EF-1E35-4B6F-BC4F-FC0DB641C35F}|shop-hubLaps\\shop-hubLaps.csproj|c:\\users\\pc\\source\\repos\\do-an-2024\\shop-hublaps\\shop-hublaps\\areas\\identity\\pages\\account\\manage\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{30D179EF-1E35-4B6F-BC4F-FC0DB641C35F}|shop-hubLaps\\shop-hubLaps.csproj|solutionrelative:shop-hublaps\\areas\\identity\\pages\\account\\manage\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -70,106 +46,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\appsettings.json",
-              "RelativeDocumentMoniker": "shop-hubLaps\\appsettings.json",
-              "ToolTip": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\appsettings.json",
-              "RelativeToolTip": "shop-hubLaps\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-12-02T15:29:27.842Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\Program.cs",
-              "RelativeDocumentMoniker": "shop-hubLaps\\Program.cs",
-              "ToolTip": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\Program.cs",
-              "RelativeToolTip": "shop-hubLaps\\Program.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAC4AAAAsAAAAAAAAAA==",
+              "Title": "Index.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml.cs",
+              "RelativeDocumentMoniker": "shop-hubLaps\\Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml.cs",
+              "ToolTip": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml.cs",
+              "RelativeToolTip": "shop-hubLaps\\Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml.cs",
+              "ViewState": "AgIAAJQAAAAAAAAAAAAswP4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-02T15:29:26.107Z",
+              "WhenOpened": "2024-12-29T04:47:10.778Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Delete.cshtml",
-              "DocumentMoniker": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\Views\\ChuDe\\Delete.cshtml",
-              "RelativeDocumentMoniker": "shop-hubLaps\\Views\\ChuDe\\Delete.cshtml",
-              "ToolTip": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\Views\\ChuDe\\Delete.cshtml",
-              "RelativeToolTip": "shop-hubLaps\\Views\\ChuDe\\Delete.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADcAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-30T05:22:11.83Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\Views\\ChuDe\\Edit.cshtml",
-              "RelativeDocumentMoniker": "shop-hubLaps\\Views\\ChuDe\\Edit.cshtml",
-              "ToolTip": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\Views\\ChuDe\\Edit.cshtml",
-              "RelativeToolTip": "shop-hubLaps\\Views\\ChuDe\\Edit.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-30T04:31:25.548Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 1,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\Views\\ChuDe\\Index.cshtml",
-              "RelativeDocumentMoniker": "shop-hubLaps\\Views\\ChuDe\\Index.cshtml",
-              "ToolTip": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\Views\\ChuDe\\Index.cshtml",
-              "RelativeToolTip": "shop-hubLaps\\Views\\ChuDe\\Index.cshtml",
-              "ViewState": "AgIAABIAAAAAAAAAAAAmwCYAAAABAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml",
+              "RelativeDocumentMoniker": "shop-hubLaps\\Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml",
+              "ToolTip": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml",
+              "RelativeToolTip": "shop-hubLaps\\Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml",
+              "ViewState": "AgIAAKgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-30T04:15:29.381Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "_AdminLayout.cshtml",
-              "DocumentMoniker": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\Views\\Shared\\_AdminLayout.cshtml",
-              "RelativeDocumentMoniker": "shop-hubLaps\\Views\\Shared\\_AdminLayout.cshtml",
-              "ToolTip": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\Views\\Shared\\_AdminLayout.cshtml",
-              "RelativeToolTip": "shop-hubLaps\\Views\\Shared\\_AdminLayout.cshtml",
-              "ViewState": "AgIAALIAAAAAAAAAAABBwLsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-24T10:06:12.359Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ChuDeController.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\Controllers\\ChuDeController.cs",
-              "RelativeDocumentMoniker": "shop-hubLaps\\Controllers\\ChuDeController.cs",
-              "ToolTip": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\Controllers\\ChuDeController.cs",
-              "RelativeToolTip": "shop-hubLaps\\Controllers\\ChuDeController.cs",
-              "ViewState": "AgIAAIQAAAAAAAAAAAAmwLMAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-24T10:05:37.626Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\Views\\ChuDe\\Create.cshtml",
-              "RelativeDocumentMoniker": "shop-hubLaps\\Views\\ChuDe\\Create.cshtml",
-              "ToolTip": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\Views\\ChuDe\\Create.cshtml",
-              "RelativeToolTip": "shop-hubLaps\\Views\\ChuDe\\Create.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-24T02:44:46.623Z",
+              "WhenOpened": "2024-12-29T04:46:59.587Z",
               "EditorCaption": ""
             }
           ]

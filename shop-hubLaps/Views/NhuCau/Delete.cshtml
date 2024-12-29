@@ -1,0 +1,35 @@
+﻿@model shop_hubLaps.Models.NhuCau
+
+@{
+    ViewBag.Title = "Xóa Nhu Cầu";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-sm container-fluid mt-5">
+    <div class="p-4 bg-white shadow-sm">
+        <h2 class="text-danger">Xóa Nhu Cầu</h2>
+
+        <div class="mb-4">
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>Tên Nhu Cầu:</dt>
+                <dd>@Model.tennhucau</dd>
+            </dl>
+        </div>
+
+        @using (Html.BeginForm("Delete", "NhuCau", new { id = Model.manhucau }, FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-danger">Xóa bỏ</button>
+                @Html.ActionLink("Quay lại", "Index", "NhuCau", null, new { @class = "btn btn-secondary" })
+            </div>
+        }
+
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

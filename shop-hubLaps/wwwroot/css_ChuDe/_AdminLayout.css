@@ -1,4 +1,13 @@
-﻿﻿body {
+﻿table th, table td, tbody tr {
+    text-align: center;
+    vertical-align: middle;
+}
+
+tbody, td, tfoot, th, thead, tr {
+    text-align: center !important;
+    vertical-align: middle !important;
+}
+﻿body {
     background-color: #ffff;
     font-family: 'Lexend', sans-serif;
     margin: 0;
@@ -58,6 +67,7 @@
     flex: 1;
     padding: 20px;
     overflow-y: auto;
+    background-color: #F8F9FA;
 }
 
 @media (max-width: 990px) {

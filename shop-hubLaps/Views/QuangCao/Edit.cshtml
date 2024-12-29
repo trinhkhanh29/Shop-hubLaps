@@ -1,0 +1,86 @@
+﻿@model shop_hubLaps.Models.QuangCao
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Chỉnh sửa Quảng Cáo";
+}
+<h1 class="text-start" style="font-family: Lexend; font-weight: 500; font-size: 30px;">@ViewData["Title"]</h1>
+<div class="container mt-5">
+    <form asp-action="Edit" method="post">
+        <div class="row g-3">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="tenqc" class="form-label"></label>
+                    <input asp-for="tenqc" class="form-control" />
+                    <span asp-validation-for="tenqc" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="tencongty" class="form-label"></label>
+                    <input asp-for="tencongty" class="form-control" />
+                    <span asp-validation-for="tencongty" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-3 mt-3">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="hinhnen" class="form-label"></label>
+                    <input asp-for="hinhnen" class="form-control" />
+                    <span asp-validation-for="hinhnen" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="link" class="form-label"></label>
+                    <input asp-for="link" class="form-control" />
+                    <span asp-validation-for="link" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-3 mt-3">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="ngaybatdau" class="form-label"></label>
+                    <input asp-for="ngaybatdau" type="datetime-local" class="form-control" />
+                    <span asp-validation-for="ngaybatdau" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="ngayhethan" class="form-label"></label>
+                    <input asp-for="ngayhethan" type="datetime-local" class="form-control" />
+                    <span asp-validation-for="ngayhethan" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-3 mt-3">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="trangthai" class="form-label">Trạng thái</label>
+                    <select asp-for="trangthai" class="form-select">
+                        <option value="true" selected="@(Model.trangthai == true)">Đã duyệt</option> <!-- Khi trang thái là true, chọn "Đã duyệt" -->
+                        <option value="false" selected="@(Model.trangthai == false)">Chưa duyệt</option> <!-- Khi trang thái là false, chọn "Chưa duyệt" -->
+                    </select>
+                    <span asp-validation-for="trangthai" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="mt-4">
+            <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
+            <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

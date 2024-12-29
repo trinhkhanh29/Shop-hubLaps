@@ -1,0 +1,33 @@
+﻿@model shop_hubLaps.Models.MetaLaptop
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Chi tiết Meta Laptop";
+}
+
+<div class="container mt-4">
+    <h1 class="text-start">Chi tiết Meta Laptop</h1>
+
+    <div class="form-group">
+        <label>Mã Meta</label>
+        <p>@Model.mameta</p>
+    </div>
+
+    <div class="form-group">
+        <label>Key Meta</label>
+        <p>@Model.keymeta</p>
+    </div>
+
+    <div class="form-group">
+        <label>Value Meta</label>
+        <p>@Model.valuemeta</p>
+    </div>
+
+    <div class="form-group">
+        <label>Laptop</label>
+        <p>@Model.Laptop.tenlaptop</p>
+    </div>
+
+    <a href="@Url.Action("Edit", "MetaLaptop", new { id = Model.mameta })" class="btn btn-warning">Chỉnh sửa</a>
+    <a href="@Url.Action("Delete", "MetaLaptop", new { id = Model.mameta })" class="btn btn-danger">Xóa</a>
+    <a href="@Url.Action("Index", "MetaLaptop")" class="btn btn-secondary">Quay lại</a>
+</div>

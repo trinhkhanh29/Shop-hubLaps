@@ -5,6 +5,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -35,6 +36,12 @@ namespace shop_hubLaps.Areas.Identity.Pages.Account.Manage
 
         [TempData]
         public string StatusMessage { get; set; }
+
+        [TempData]
+        public string ErrorMessage { get; set; }
+
+        [TempData]
+        public string WarningMessage { get; set; }
 
         [BindProperty]
         public InputModel Input { get; set; }
@@ -152,45 +159,96 @@ namespace shop_hubLaps.Areas.Identity.Pages.Account.Manage
             // Validate the model state
             if (!ModelState.IsValid)
             {
-                await LoadAsync(user);
+                await LoadAsync(user); // Reload user data if the form has errors
+                TempData["ErrorMessage"] = "Thông tin không hợp lệ. Vui lòng kiểm tra lại!";
                 return Page();
             }
 
-            // Update user properties
-            user.FirstName = Input.FirstName; // Update First Name
-            user.LastName = Input.LastName; // Update Last Name
-            user.DiaChi = Input.DiaChi; // Update address
-            user.NgaySinh = Input.NgaySinh; // Update date of birth
+            // Regex to validate Vietnamese phone numbers
+            string phonePattern = "^(03|05|07|08|09)\\d{8}$";
+            if (!Regex.IsMatch(Input.PhoneNumber, phonePattern))
+            {
+                TempData["WarningMessage"] = "Số điện thoại không hợp lệ. Vui lòng nhập số bắt đầu với 03, 05, 07, 08, hoặc 09 và đủ 10 chữ số.";
+                return RedirectToPage();
+            }
 
-            // Update phone number
+            // Track updates
+            bool isUpdated = false;
+
+            if (string.IsNullOrWhiteSpace(Input.FirstName))
+            {
+                TempData["WarningMessage"] = "Họ tên không được để trống!";
+                return RedirectToPage();
+            }
+            if (user.FirstName != Input.FirstName)
+            {
+                user.FirstName = Input.FirstName;
+                isUpdated = true;
+            }
+
+            if (string.IsNullOrWhiteSpace(Input.LastName))
+            {
+                TempData["WarningMessage"] = "Tên không được để trống!";
+                return RedirectToPage();
+            }
+            if (user.LastName != Input.LastName)
+            {
+                user.LastName = Input.LastName;
+                isUpdated = true;
+            }
+
+            if (user.DiaChi != Input.DiaChi)
+            {
+                user.DiaChi = Input.DiaChi;
+                isUpdated = true;
+            }
+
+            if (user.NgaySinh != Input.NgaySinh)
+            {
+                if (Input.NgaySinh > DateTime.Now)
+                {
+                    TempData["WarningMessage"] = "Ngày sinh không thể là ngày trong tương lai!";
+                    return RedirectToPage();
+                }
+                user.NgaySinh = Input.NgaySinh;
+                isUpdated = true;
+            }
+
             var currentPhoneNumber = await _userManager.GetPhoneNumberAsync(user);
             if (Input.PhoneNumber != currentPhoneNumber)
             {
                 var setPhoneResult = await _userManager.SetPhoneNumberAsync(user, Input.PhoneNumber);
                 if (!setPhoneResult.Succeeded)
                 {
-                    StatusMessage = "Unexpected error when trying to set phone number.";
+                    TempData["ErrorMessage"] = "Có lỗi xảy ra khi cập nhật số điện thoại. Vui lòng thử lại!";
                     return RedirectToPage();
                 }
+                isUpdated = true;
             }
 
-            // Attempt to update the user in the database
-            var result = await _userManager.UpdateAsync(user);
-            if (!result.Succeeded)
+            if (isUpdated)
             {
-                // Add errors to model state
-                foreach (var error in result.Errors)
+                var result = await _userManager.UpdateAsync(user);
+                if (!result.Succeeded)
                 {
-                    ModelState.AddModelError(string.Empty, error.Description);
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.AddModelError(string.Empty, error.Description);
+                    }
+                    await LoadAsync(user); // Reload user data if update fails
+                    TempData["ErrorMessage"] = "Không thể cập nhật thông tin. Vui lòng thử lại!";
+                    return Page();
                 }
-                await LoadAsync(user);
-                return Page();
+
+                await _signInManager.RefreshSignInAsync(user);
+                TempData["StatusMessage"] = "Thông tin cá nhân đã được cập nhật thành công!";
+            }
+            else
+            {
+                TempData["StatusMessage"] = "Không có thay đổi nào được thực hiện.";
             }
 
-            // Refresh sign-in to ensure authentication state is updated
-            await _signInManager.RefreshSignInAsync(user);
             return RedirectToPage();
         }
-
     }
 }

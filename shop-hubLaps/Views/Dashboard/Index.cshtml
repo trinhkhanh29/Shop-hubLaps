@@ -1,37 +1,352 @@
-﻿﻿@{
+﻿@{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 @{
-    <title> Quản lý chương trình học</title>
-
+    <title>Quản lý chương trình học</title>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
-    <link rel="stylesheet" href="~/css/index-dashboard.css" asp-append-version="true" />
+}    
+<style>
+    body{
+        font-family: 'Lexend', sans-serif !important;
+    }
+         .dashboard-page {
+             font-family: 'Lexend', sans-serif;
+         }
 
-}
+             .dashboard-page header h1 {
+                 color: #333;
+                 font-weight: 600;
+             }
 
-<header>
-    <h1>#Laptop-Sales-Management</h1>
-    <p>Dev by Shop Hub Laps | shop-hublaps.com</p>
-</header>
+             .dashboard-page header p {
+                 color: #666;
+             }
 
-<div class="container">
-    <div class="content-left">
-        <iframe src="https://lottie.host/embed/ed157b50-953a-4b7c-ba25-ea323388b4ee/TZqXglfJhq.json"
-                style="width: 350px; height: 350px; border: none;"
-                allowfullscreen
-                frameborder="0">
-        </iframe>
-    </div>
-    <div class="content-right">
-        <h2 class="title">QUẢN LÝ</br><span> BÁN HÀNG</span></h2>
-        <div class="team-info">
-            <div>
-                <i class="fas fa-palette design"></i>
-                <span>Leader: Trinh, Quoc Khanh (tTrinh)</span>
+             .dashboard-page .card {
+                 border-radius: 10px;
+                 transition: transform 0.3s;
+                 display: flex;
+                 align-items: center;
+             }
+
+                 .dashboard-page .card:hover {
+                     transform: translateY(-5px);
+                 }
+
+             .dashboard-page .icon-box {
+                 width: 60px;
+                 height: 60px;
+                 background-color: #f1f1f1;
+                 display: flex;
+                 justify-content: center;
+                 align-items: center;
+                 border-radius: 50%;
+                 margin-right: 15px;
+             }
+
+             .dashboard-page .icon {
+                 font-size: 1.5rem;
+                 color: #007bff;
+             }
+
+             .dashboard-page .ellipsis {
+                 white-space: nowrap;
+                 overflow: hidden;
+                 text-overflow: ellipsis;
+             }
+
+         .stat-card {
+             display: flex;
+             justify-content: space-between;
+             align-items: center;
+             border-radius: 10px;
+             padding: 20px;
+             transition: transform 0.3s;
+             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+         }
+
+             .stat-card:hover {
+                 transform: translateY(-5px);
+             }
+
+             .stat-card .stat-info {
+                 text-align: left;
+             }
+
+             .stat-card .stat-title {
+                 font-size: 1.1rem;
+                 font-weight: 600;
+                 color: #333;
+             }
+
+             .stat-card .stat-value {
+                 font-size: 1.5rem;
+                 font-weight: bold;
+                 color: #032db6;
+             }
+
+             .stat-card .icon-box {
+                 width: 60px;
+                 height: 60px;
+                 display: flex;
+                 justify-content: center;
+                 align-items: center;
+                 background-color: #f1f1f1;
+                 border-radius: 50%;
+             }
+
+             .stat-card .icon {
+                 font-size: 1.5rem;
+                 color: #007bff;
+             }
+
+    .nav-link{
+        color: #000000;
+    }
+
+        .nav-link:hover {
+            color: #ffffff;
+            background-color: #007bff;
+            transform: scale(1.05);       
+        }
+
+    .nav-link {
+        display: block;
+        padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
+        font-size: var(--bs-nav-link-font-size);
+        font-weight: var(--bs-nav-link-font-weight);
+        color: #000000;
+        text-decoration: none;
+        background: 0 0;
+        border: 0;
+        transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+    }
+</style>
+
+<div class="dashboard-page">
+    <header class="my-4 text-end">
+        <h1>#Laptop-Sales-Management</h1>
+        <p>Dev by Shop Hub Laps | shop-hublaps.com</p>
+    </header>
+
+    <div class="container my-5">
+        <div class="row g-4">
+
+            <div class="row">
+                <!-- Tổng Doanh Thu -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <div class="stat-title">Tổng Doanh Thu</div>
+                            <div class="stat-value">@ViewBag.TotalRevenue.ToString("#,0") VNĐ</div>
+                        </div>
+                        <div class="icon-box">
+                            <svg fill="#000000" width="24" height="24" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+
+                                <g data-name="28. Saving" id="_28._Saving" fill="#001e94" style="">
+
+                                    <path d="M31.47,17.11a5,5,0,0,0-6.53.87l-3.2,3.65A4,4,0,0,0,18,19h-.93a2.54,2.54,0,0,1-1.41-.43A9.38,9.38,0,0,0,3.84,19.74L.29,23.29a1,1,0,0,0,1.42,1.42l3.55-3.55a7.35,7.35,0,0,1,9.29-.92,4.52,4.52,0,0,0,2.52.76H18a2,2,0,0,1,2,2H13a1,1,0,0,0,0,2h8a1,1,0,0,0,.74-.35h0l4.69-5.36a3,3,0,0,1,3-.92L22.4,27.8A3,3,0,0,1,20,29H11.41a4.4,4.4,0,0,0-3.12,1.29,1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0,2.37,2.37,0,0,1,1.7-.71H20a5,5,0,0,0,4-2l7.8-10.4a1.1,1.1,0,0,0,.15-.8A1.16,1.16,0,0,0,31.47,17.11Z" fill="#001e94" style=""></path>
+
+                                    <path d="M20,16a8,8,0,1,0-8-8A8,8,0,0,0,20,16ZM20,2a6,6,0,1,1-6,6A6,6,0,0,1,20,2Z" fill="#001e94" style=""></path>
+
+                                    <path d="M19.29,11.54a1,1,0,0,0,1.42,0l2.83-2.83a1,1,0,0,0,0-1.42L20.71,4.46a1,1,0,0,0-1.42,0L16.46,7.29a1,1,0,0,0,0,1.42ZM20,6.59,21.41,8,20,9.41,18.59,8Z" fill="#001e94" style=""></path>
+
+                                    <path d="M5,5H6V6A1,1,0,0,0,8,6V5H9A1,1,0,0,0,9,3H8V2A1,1,0,0,0,6,2V3H5A1,1,0,0,0,5,5Z" fill="#001e94" style=""></path>
+
+                                </g>
+
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Các trạng thái đơn hàng -->
+                @foreach (var status in ViewBag.OrderStatusCounts)
+                {
+                    <div class="col-md-6 col-lg-4">
+                        <div class="stat-card">
+                            <div class="stat-info">
+                                <div class="stat-title">@status.Key</div>
+                                <div class="stat-value">@status.Value đơn hàng</div>
+                            </div>
+                            <div class="icon-box">
+                                <svg width="26" height="26" viewBox="0 0 32 32" id="svg5" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+
+                                    <defs id="defs2" fill="#004094" style=""></defs>
+
+                                    <g id="layer1" transform="translate(-396,-244)" fill="#004094" style="">
+
+                                        <path d="m 405,268.00586 c -1.64501,0 -3,1.35499 -3,3 0,1.64501 1.35499,3 3,3 1.64501,0 3,-1.35499 3,-3 0,-1.64501 -1.35499,-3 -3,-3 z m 0,2 c 0.56413,0 1,0.43587 1,1 0,0.56413 -0.43587,1 -1,1 -0.56413,0 -1,-0.43587 -1,-1 0,-0.56413 0.43587,-1 1,-1 z" id="circle5345" style="" fill="#004094"></path>
+
+                                        <path d="m 419,268.00586 c -1.64501,0 -3,1.35499 -3,3 0,1.64501 1.35499,3 3,3 1.64501,0 3,-1.35499 3,-3 0,-1.64501 -1.35499,-3 -3,-3 z m 0,2 c 0.56413,0 1,0.43587 1,1 0,0.56413 -0.43587,1 -1,1 -0.56413,0 -1,-0.43587 -1,-1 0,-0.56413 0.43587,-1 1,-1 z" id="circle5347" style="" fill="#004094"></path>
+
+                                        <path d="m 420,246.00586 c -3.30186,0 -6,2.69814 -6,6 0,3.30186 2.69814,6 6,6 3.30186,0 6,-2.69814 6,-6 0,-3.30186 -2.69814,-6 -6,-6 z m 0,2 c 2.22098,0 4,1.77902 4,4 0,2.22098 -1.77902,4 -4,4 -2.22098,0 -4,-1.77902 -4,-4 0,-2.22098 1.77902,-4 4,-4 z" id="circle5351" style="" fill="#004094"></path>
+
+                                        <path d="m 420,249.00586 a 1,1 0 0 0 -1,1 v 2 a 1.0001,1.0001 0 0 0 1,1 h 2 a 1,1 0 0 0 1,-1 1,1 0 0 0 -1,-1 h -1 v -1 a 1,1 0 0 0 -1,-1 z" id="path5353" style="" fill="#004094"></path>
+
+                                        <path d="m 399,246.00586 a 1,1 0 0 0 -1,1 1,1 0 0 0 1,1 h 1.17969 l 2.65039,13.24219 C 401.7593,261.70823 401,262.77542 401,264.00586 c 0,1.6447 1.3553,3 3,3 h 17 a 1,1 0 0 0 1,-1 1,1 0 0 0 -1,-1 h -17 c -0.5713,0 -1,-0.4287 -1,-1 0,-0.5713 0.4287,-1 1,-1 h 15 a 1,1 0 0 0 0.0293,-0.006 H 422 a 1.0001,1.0001 0 0 0 0.98828,-0.84375 l 0.93945,-5.96875 a 1,1 0 0 0 -0.83203,-1.14453 1,1 0 0 0 -1.14453,0.83398 L 421.14453,261 h -16.32422 l -1.80078,-8.99414 h 12.08399 a 1,1 0 0 0 1,-1 1,1 0 0 0 -1,-1 h -12.48438 l -0.63867,-3.19531 A 1.0001,1.0001 0 0 0 401,246.00586 Z" id="path21250" style="" fill="#004094"></path>
+
+                                    </g>
+
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+
+
+            <div class="row d-flex justify-content-evenly">
+                <!-- Sản phẩm bán chạy nhất -->
+                <div class="col-md-6 col-lg-7 stat-card my-4">
+                    <div class="card border shadow-sm p-3" style="width:100%;">
+                        <h5 class="my-4">Sản Phẩm Bán Chạy Nhất</h5>
+                        <canvas id="topSellingChart" width="400" height="300"></canvas>
+                    </div>
+                </div>
+
+                <!-- Biểu đồ tròn doanh thu hôm nay -->
+                <div class="col-md-6 col-lg-4 stat-card my-4" style="display:block; align-items:normal;">
+                    <div class="p-3">
+                        <h5 class="my-4 text-center">Doanh số bán hàng hôm nay</h5>
+                        <canvas id="todayRevenueChart" width="300" height="300"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Sản phẩm mới nhất -->
+                <div class="col-md-6 my-4">
+                    <h5 class="my-4">Sản Phẩm Mới Nhất</h5>
+                    <ul class="list-group" style="padding-top:31px">
+                        @foreach (var laptop in ViewBag.NewLaptops)
+                        {
+                            <li class="list-group-item d-flex align-items-center">
+                                <img src="@laptop.hinh" alt="@laptop.tenlaptop" class="me-3" style="width: 50px; height: 50px; object-fit: cover;">
+                                <span class="ellipsis"><strong>@laptop.tenlaptop</strong></span>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            <!-- Sản phẩm tồn kho thấp -->
+            <div class="col-12 my-4">
+                <h5 class="my-4">Sản Phẩm Tồn Kho Thấp</h5>
+                <ul class="list-group">
+                    @foreach (var laptop in ViewBag.LowStockProducts)
+                    {
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span><strong>@laptop.tenlaptop</strong></span>
+                            <span>Tồn kho: @laptop.soluongton</span>
+                        </li>
+                    }
+                </ul>
+            </div>
+
+            <!-- Sản phẩm chưa được đánh giá -->
+            <div class="col-12">
+                <h5 class="my-4">Sản Phẩm Chưa Được Đánh Giá</h5>
+                <ul class="list-group">
+                    @foreach (var laptop in ViewBag.UnratedProducts)
+                    {
+                        <li class="list-group-item"><strong>@laptop.tenlaptop</strong></li>
+                    }
+                </ul>
             </div>
         </div>
     </div>
 </div>
 
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    //4.Doanh số bán chạy nhất
+    @{
+        var topSellingProductLabels = ((IEnumerable<dynamic>)ViewBag.TopSellingProducts).Select(p => p.LaptopName.Length > 20 ? p.LaptopName.Substring(0, 20) + "..." : p.LaptopName).ToList();
+        var topSellingProductData = ((IEnumerable<dynamic>)ViewBag.TopSellingProducts).Select(p => p.TotalSold).ToList();
+    }
+        const topSellingLabels = @Html.Raw(Json.Serialize(topSellingProductLabels));
+    const topSellingData = @Html.Raw(Json.Serialize(topSellingProductData));
+
+    // Cấu hình biểu đồ cột
+    const ctxBar = document.getElementById('topSellingChart').getContext('2d');
+    new Chart(ctxBar, {
+        type: 'bar',
+        data: {
+            labels: topSellingLabels,
+            datasets: [{
+                label: 'Số lượng bán',
+                data: topSellingData,
+                backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1,
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Số lượng'
+                    }
+                },
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Tên Laptop'
+                    }
+                }
+            }
+        }
+    });
+
+    // Lấy dữ liệu từ ViewBag cho biểu đồ tròn
+    const todayRevenue = @ViewBag.TodayRevenue || 0; // Default to 0 if undefined
+    const totalRevenue = @ViewBag.TotalRevenue || 1; // Default to 1 to avoid division by 0
+
+    // Kiểm tra để tránh lỗi chia cho 0
+    const todayRevenuePercentage = (totalRevenue > 0) ? (todayRevenue / totalRevenue) * 100 : 0;
+    const otherRevenuePercentage = 100 - todayRevenuePercentage;
+
+    // Dữ liệu cho biểu đồ tròn doanh thu hôm nay
+    const todayRevenueData = {
+        labels: ['Doanh Thu Hôm Nay', 'Doanh Thu Khác'],
+        datasets: [{
+            label: 'Tỷ lệ doanh thu hôm nay',
+            data: [todayRevenuePercentage, otherRevenuePercentage],
+            backgroundColor: ['#36A2EB', '#FF6384'],
+            hoverOffset: 4
+        }]
+    };
+
+    // Tạo biểu đồ tròn
+    const ctxPie = document.getElementById('todayRevenueChart').getContext('2d');
+    new Chart(ctxPie, {
+        type: 'pie',
+        data: todayRevenueData,
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function (tooltipItem) {
+                            // Tính toán doanh thu thực tế từ phần trăm
+                            const value = tooltipItem.raw; // Giá trị phần trăm
+                            const actualRevenue = value === todayRevenuePercentage ? todayRevenue : totalRevenue - todayRevenue;
+
+                            return tooltipItem.label + ': ' + actualRevenue.toLocaleString() + ' VNĐ';
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+</script>

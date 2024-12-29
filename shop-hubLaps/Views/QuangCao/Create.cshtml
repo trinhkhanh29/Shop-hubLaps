@@ -1,0 +1,58 @@
+﻿@model shop_hubLaps.Models.QuangCao
+
+@{
+    ViewData["Title"] = "Đăng Ký Quảng Cáo";
+}
+
+<div class="container mt-5">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            <h4>Đăng Ký Quảng Cáo</h4>
+        </div>
+        <div class="card-body">
+            <form asp-action="Create" method="post">
+                <div class="mb-3">
+                    <label asp-for="tenqc" class="form-label">Tên Quảng Cáo</label>
+                    <input asp-for="tenqc" class="form-control" placeholder="Nhập tên quảng cáo" />
+                    <span asp-validation-for="tenqc" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="tencongty" class="form-label">Tên Công Ty</label>
+                    <input asp-for="tencongty" class="form-control" placeholder="Nhập tên công ty" />
+                    <span asp-validation-for="tencongty" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="hinhnen" class="form-label">Hình Nền</label>
+                    <input asp-for="hinhnen" class="form-control" placeholder="URL hình nền quảng cáo" />
+                    <span asp-validation-for="hinhnen" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="link" class="form-label">Link Quảng Cáo</label>
+                    <input asp-for="link" class="form-control" placeholder="Nhập link quảng cáo" />
+                    <span asp-validation-for="link" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="ngaybatdau" class="form-label">Ngày Bắt Đầu</label>
+                    <input asp-for="ngaybatdau" type="date" class="form-control" />
+                    <span asp-validation-for="ngaybatdau" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="ngayhethan" class="form-label">Ngày Hết Hạn</label>
+                    <input asp-for="ngayhethan" type="date" class="form-control" />
+                    <span asp-validation-for="ngayhethan" class="text-danger"></span>
+                </div>
+
+                <button type="submit" class="btn btn-success">Đăng Ký</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

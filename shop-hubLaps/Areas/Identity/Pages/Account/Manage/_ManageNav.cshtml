@@ -1,37 +1,181 @@
-﻿@inject SignInManager<SampleUser> SignInManager
+﻿ @inject SignInManager<SampleUser> SignInManager
+
 @{
     var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
 }
-@{
-    <style>
-        .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-            background-color: #fee !important; /* Corrected position of !important */
-            border: .5px solid #e11b1e;
-            border-radius: 10px;
-            color:#000 !important;
-        }
+@* @{
+    ViewData["ActivePage"] = ManageNavPages.PersonalData;
+} *@
+ @{
+    // <style>
+    //     .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    //         background-color: #fee !important; /* Corrected position of !important */
+    //         border: .5px solid #e11b1e;
+    //         border-radius: 10px;
+    //         color:#000 !important;
+    //     }
 
-        .nav-item {
-            position: relative; /* Đảm bảo label-tag có thể định vị đúng */
-        }
+    //     .nav-item {
+    //         position: relative; /* Đảm bảo label-tag có thể định vị đúng */
+    //     }
 
-        .label-tag {
-            background-color: #f6fbfc;
-            border-radius: 3px;
-            box-shadow: 0 0 0 0.5px #d70018;
-            color: #d70018;
-            font-size: 10px;
-            height: 20px;
-            line-height: 12px; /* Thay đổi để căn giữa chữ */
-            padding: 2px 5px;
-            position: absolute;
-            right: -5px;
-            top: 0%;
-            transform: translateY(-50%);
-            z-index: 1;
-        }
-    </style>
+    //     .label-tag {
+    //         background-color: #f6fbfc;
+    //         border-radius: 3px;
+    //         box-shadow: 0 0 0 0.5px #d70018;
+    //         color: #d70018;
+    //         font-size: 10px;
+    //         height: 20px;
+    //         line-height: 12px; /* Thay đổi để căn giữa chữ */
+    //         padding: 2px 5px;
+    //         position: absolute;
+    //         right: -5px;
+    //         top: 0%;
+    //         transform: translateY(-50%);
+    //         z-index: 1;
+    //     }
+ 
+      
+    //     .sidebar {
+    //       position: fixed;
+    //       top: 0;
+    //       left: 0;
+    //       height: 100%;
+    //       width: 85px;
+    //       display: flex;
+    //       overflow-x: hidden;
+    //       flex-direction: column;
+    //       background: #161a2d;
+    //       padding: 25px 20px;
+    //       transition: all 0.4s ease;
+    //     }
+
+    //     .sidebar:hover {
+    //       width: 260px;
+    //     }
+
+    //     .sidebar .sidebar-header {
+    //       display: flex;
+    //       align-items: center;
+    //     }
+
+    //     .sidebar .sidebar-header img {
+    //       width: 42px;
+    //       border-radius: 50%;
+    //     }
+
+    //     .sidebar .sidebar-header h2 {
+    //       color: #fff;
+    //       font-size: 1.25rem;
+    //       font-weight: 600;
+    //       white-space: nowrap;
+    //       margin-left: 23px;
+    //     }
+
+    //     .sidebar-links h4 {
+    //       color: #fff;
+    //       font-weight: 500;
+    //       white-space: nowrap;
+    //       margin: 10px 0;
+    //       position: relative;
+    //     }
+
+    //     .sidebar-links h4 span {
+    //       opacity: 0;
+    //     }
+
+    //     .sidebar:hover .sidebar-links h4 span {
+    //       opacity: 1;
+    //     }
+
+    //     .sidebar-links .menu-separator {
+    //       position: absolute;
+    //       left: 0;
+    //       top: 50%;
+    //       width: 100%;
+    //       height: 1px;
+    //       transform: scaleX(1);
+    //       transform: translateY(-50%);
+    //       background: #4f52ba;
+    //       transform-origin: right;
+    //       transition-delay: 0.2s;
+    //     }
+
+    //     .sidebar:hover .sidebar-links .menu-separator {
+    //       transition-delay: 0s;
+    //       transform: scaleX(0);
+    //     }
+
+    //     .sidebar-links {
+    //       list-style: none;
+    //       margin-top: 20px;
+    //       height: 80%;
+    //       overflow-y: auto;
+    //       scrollbar-width: none;
+    //     }
+
+    //     .sidebar-links::-webkit-scrollbar {
+    //       display: none;
+    //     }
+
+    //     .sidebar-links li a {
+    //       display: flex;
+    //       align-items: center;
+    //       gap: 0 20px;
+    //       color: #fff;
+    //       font-weight: 500;
+    //       white-space: nowrap;
+    //       padding: 15px 10px;
+    //       text-decoration: none;
+    //       transition: 0.2s ease;
+    //     }
+
+    //     .sidebar-links li a:hover {
+    //       color: #161a2d;
+    //       background: #fff;
+    //       border-radius: 4px;
+    //     }
+
+    //     .user-account {
+    //       margin-top: auto;
+    //       padding: 12px 10px;
+    //       margin-left: -10px;
+    //     }
+
+    //     .user-profile {
+    //       display: flex;
+    //       align-items: center;
+    //       color: #161a2d;
+    //     }
+
+    //     .user-profile img {
+    //       width: 42px;
+    //       border-radius: 50%;
+    //       border: 2px solid #fff;
+    //     }
+
+    //     .user-profile h3 {
+    //       font-size: 1rem;
+    //       font-weight: 600;
+    //     }
+
+    //     .user-profile span {
+    //       font-size: 0.775rem;
+    //       font-weight: 600;
+    //     }
+
+    //     .user-detail {
+    //       margin-left: 23px;
+    //       white-space: nowrap;
+    //     }
+
+    //     .sidebar:hover .user-account {
+    //       background: #fff;
+    //       border-radius: 4px;
+    //     }
+    // </style>
 }
+@*
 <div class="container mt-4">
     <ul class="nav nav-pills flex-column">
         <li class="nav-item">
@@ -140,4 +284,366 @@
     function confirmLogout() {
         document.getElementById('logout-form').submit();
     }
-</script>
+</script> *@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+<body style="font-family: 'Lexend', sans-serif;">
+    <aside class="sidebar">
+
+        <ul class="sidebar-links" style="padding-left:0;">
+
+            <li>
+                <a href="#">
+                    <span class="material-symbols-outlined"> dashboard </span>
+                    <span class="menu-text">Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link @ManageNavPages.IndexNavClass(ViewContext)" id="profile" asp-page="./Index">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25" height="25" viewBox="0 0 32 32">
+                        <path d="M 16 5 C 12.144531 5 9 8.144531 9 12 C 9 14.410156 10.230469 16.550781 12.09375 17.8125 C 8.527344 19.34375 6 22.882813 6 27 L 8 27 C 8 24.109375 9.527344 21.59375 11.8125 20.1875 C 12.484375 21.835938 14.121094 23 16 23 C 17.878906 23 19.515625 21.835938 20.1875 20.1875 C 22.472656 21.59375 24 24.109375 24 27 L 26 27 C 26 22.882813 23.472656 19.34375 19.90625 17.8125 C 21.769531 16.550781 23 14.410156 23 12 C 23 8.144531 19.855469 5 16 5 Z M 16 7 C 18.773438 7 21 9.226563 21 12 C 21 14.773438 18.773438 17 16 17 C 13.226563 17 11 14.773438 11 12 C 11 9.226563 13.226563 7 16 7 Z M 16 19 C 16.820313 19 17.601563 19.117188 18.34375 19.34375 C 17.996094 20.308594 17.089844 21 16 21 C 14.910156 21 14.003906 20.308594 13.65625 19.34375 C 14.398438 19.117188 15.179688 19 16 19 Z"></path>
+                    </svg>
+                    <span class="menu-text">Hồ sơ</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link @ManageNavPages.EmailNavClass(ViewContext)" id="email" asp-page="./Email">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25" height="25" viewBox="0 0 48 48">
+                        <path fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M42.5,23.5v10c0,2.8-2.2,5-5,5h-27c-2.8,0-5-2.2-5-5v-3"></path>
+                        <path fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5.5,24.9V14.5c0-2.8,2.2-5,5-5h27c2.8,0,5,2.2,5,5v2"></path>
+                        <path fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M11.7,19.8L23,26c0.6,0.3,1.3,0.3,1.9,0l17.5-9.5"></path>
+                    </svg>
+                    <span class="menu-text">Email</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link @ManageNavPages.ChangePasswordNavClass(ViewContext)" id="change-password" asp-page="./ChangePassword">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25" height="25" viewBox="0 0 48 48">
+                        <circle cx="17" cy="30" r="2"></circle>
+                        <circle cx="24" cy="30" r="2"></circle>
+                        <circle cx="31" cy="30" r="2"></circle>
+                        <path fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="3" d="M17.5,17.5c0,0,0-1.9,0-5.5s2.9-6.5,6.5-6.5s6.5,2.9,6.5,6.5c0,2,0,5.5,0,5.5"></path>
+                        <path fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="3" d="M23.9,42.5H12.5c-1.7,0-3-1.3-3-3v-19c0-1.7,1.3-3,3-3h5"></path>
+                        <path fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="3" d="M24,17.5h11.5c1.7,0,3,1.3,3,3v19c0,1.7-1.3,3-3,3h-5"></path>
+                    </svg>
+                    <span class="menu-text">Mật khẩu</span>
+                </a>
+            </li>
+             @if (hasExternalLogins)
+            {
+                <li id="external-logins" class="nav-item">
+                    <a id="external-login" class="nav-link @ManageNavPages.ExternalLoginsNavClass(ViewContext)" asp-page="./ExternalLogins">
+                        <span class="menu-text">
+                            <i class="fas fa-sign-in-alt"></i> Đăng nhập bên ngoài
+                        </span>
+
+                    </a>
+                </li>
+            } 
+            <li class="nav-item" style="position: relative;">
+                <a class="nav-link @ManageNavPages.TwoFactorAuthenticationNavClass(ViewContext)" id="two-factor" asp-page="./TwoFactorAuthentication">
+    @*                 <svg aria-hidden="true" height="25" viewBox="0 0 16 16" version="1.1" width="25" data-view-component="true" class="octicon octicon-shield-lock">
+                        <path d="m8.533.133 5.25 1.68A1.75 1.75 0 0 1 15 3.48V7c0 1.566-.32 3.182-1.303 4.682-.983 1.498-2.585 2.813-5.032 3.855a1.697 1.697 0 0 1-1.33 0c-2.447-1.042-4.049-2.357-5.032-3.855C1.32 10.182 1 8.566 1 7V3.48a1.75 1.75 0 0 1 1.217-1.667l5.25-1.68a1.748 1.748 0 0 1 1.066 0Zm-.61 1.429.001.001-5.25 1.68a.251.251 0 0 0-.174.237V7c0 1.36.275 2.666 1.057 3.859.784 1.194 2.121 2.342 4.366 3.298a.196.196 0 0 0 .154 0c2.245-.957 3.582-2.103 4.366-3.297C13.225 9.666 13.5 8.358 13.5 7V3.48a.25.25 0 0 0-.174-.238l-5.25-1.68a.25.25 0 0 0-.153 0ZM9.5 6.5c0 .536-.286 1.032-.75 1.3v2.45a.75.75 0 0 1-1.5 0V7.8A1.5 1.5 0 1 1 9.5 6.5Z"></path>
+                    </svg> *@
+                    <svg width="24px" height="24px" viewBox="0 0 512 512" id="Layer_1" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><style type="text/css">
+	                    .st0{fill:#2B79C2;}
+	                    .st1{fill:#3B4652;}
+	                    .st2{fill:#333333;}
+                    </style><path class="st1" d="M449.4,136.3c-41.3,0-74.8-33.5-74.8-74.8c0-2.4,0.1-4.9,0.4-7.3H140.8c0.2,2.4,0.3,4.8,0.3,7.3  c0,10.4-2.1,20.4-6,29.4c-11.4,26.8-38,45.5-68.9,45.5c-3.3,0-6.4-0.2-9.6-0.6c1.3,35.5,6.9,69.6,16.4,101.7  c11.3,38.6,28.1,74.2,49.3,105.6c34.5,51.1,80.6,91.2,133.7,114.8c112.8-50.2,194-174.6,199.3-321.8  C453.3,136.2,451.4,136.3,449.4,136.3z M389,253.6H256.1v157.3c0,0,0,0-0.1,0c-38.3-20.8-72.2-52.1-98.7-91.5  c-13.7-20.3-25.2-42.4-34.3-65.8h133.1V96.3h81.6c11,35,38,63,72.4,75.3C406.2,200,399.1,227.6,389,253.6z"></path></svg>
+                    <span class="menu-text">Xác thực 2 yếu tố</span>
+                </a>
+                @* <div class="label-tag">MỚI</div> *@
+            </li>
+            <li class="nav-item">
+                <a class="nav-link @ManageNavPages.PersonalDataNavClass(ViewContext)" id="personal-data" asp-page="./PersonalData">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25" height="25" viewBox="0 0 24 24">
+                        <path d="M 6 1.25 C 5.271 1.25 4.5706875 1.5396875 4.0546875 2.0546875 C 3.5396875 2.5706875 3.25 3.271 3.25 4 L 3.25 20 C 3.25 20.729 3.5396875 21.429312 4.0546875 21.945312 C 4.5706875 22.460313 5.271 22.75 6 22.75 L 18 22.75 C 19.519 22.75 20.75 21.519 20.75 20 L 20.75 8.4140625 C 20.75 7.9500625 20.565328 7.5057344 20.236328 7.1777344 L 14.822266 1.7636719 C 14.494266 1.4346719 14.049938 1.25 13.585938 1.25 L 6 1.25 z M 6 2.75 L 13.25 2.75 L 13.25 6 C 13.25 7.519 14.481 8.75 16 8.75 L 19.25 8.75 L 19.25 20 C 19.25 20.69 18.69 21.25 18 21.25 L 6 21.25 C 5.668 21.25 5.3502344 21.118766 5.1152344 20.884766 C 4.8812344 20.649766 4.75 20.332 4.75 20 L 4.75 4 C 4.75 3.668 4.8812344 3.3502344 5.1152344 3.1152344 C 5.3502344 2.8812344 5.668 2.75 6 2.75 z M 14.75 3.8085938 L 18.191406 7.25 L 16 7.25 C 15.31 7.25 14.75 6.69 14.75 6 L 14.75 3.8085938 z M 12 10.25 C 10.482 10.25 9.25 11.482 9.25 13 C 9.25 14.518 10.482 15.75 12 15.75 C 13.518 15.75 14.75 14.518 14.75 13 C 14.75 11.482 13.518 10.25 12 10.25 z M 12 11.75 C 12.69 11.75 13.25 12.31 13.25 13 C 13.25 13.69 12.69 14.25 12 14.25 C 11.31 14.25 10.75 13.69 10.75 13 C 10.75 12.31 11.31 11.75 12 11.75 z M 10.328125 16.25 C 9.599125 16.25 8.9007656 16.539688 8.3847656 17.054688 C 7.9637656 17.475687 7.4707031 17.970703 7.4707031 17.970703 C 7.1777031 18.262703 7.1777031 18.737297 7.4707031 19.029297 C 7.7627031 19.322297 8.2372969 19.322297 8.5292969 19.029297 C 8.5292969 19.029297 9.0243125 18.536234 9.4453125 18.115234 C 9.6793125 17.881234 9.997125 17.75 10.328125 17.75 L 13.671875 17.75 C 14.002875 17.75 14.320688 17.881234 14.554688 18.115234 C 14.975687 18.536234 15.470703 19.029297 15.470703 19.029297 C 15.762703 19.322297 16.237297 19.322297 16.529297 19.029297 C 16.822297 18.737297 16.822297 18.262703 16.529297 17.970703 C 16.529297 17.970703 16.036234 17.475688 15.615234 17.054688 C 15.099234 16.539687 14.400875 16.25 13.671875 16.25 L 10.328125 16.25 z"></path>
+                    </svg>
+                    <span class="menu-text">Dữ liệu cá nhân</span>
+                </a>
+
+            </li>
+            <li class="nav-item">
+                <a class="nav-link @ManageNavPages.PersonalDataNavClass(ViewContext)" id="personal-data" asp-page="./Orders">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 7V18C4 19.1046 4.89543 20 6 20H18C19.1046 20 20 19.1046 20 18M4 7L6 3H18L20 7M4 7H6M20 7V14M20 7H10M15 11C15 12.6569 13.6569 14 12 14C10.3431 14 9 12.6569 9 11" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style=""></path>
+                    </svg>
+                    <span class="menu-text">Lịch sử mua hàng</span>
+                </a>
+
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="logout" href="#" onclick="event.preventDefault(); showLogoutModal();">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.90039 7.56023C9.21039 3.96023 11.0604 2.49023 15.1104 2.49023H15.2404C19.7104 2.49023 21.5004 4.28023 21.5004 8.75023V15.2702C21.5004 19.7402 19.7104 21.5302 15.2404 21.5302H15.1104C11.0904 21.5302 9.24039 20.0802 8.91039 16.5402" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M14.9991 12H3.61914" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M5.85 8.65039L2.5 12.0004L5.85 15.3504" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <span class="menu-text">Đăng xuất</span>
+                </a>
+            </li>
+            </aside>
+    <!-- Modal Đăng xuất-->
+    <div class="modal" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="logoutModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="logoutModalLabel">Xác nhận đăng xuất</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="hideLogoutModal()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Bạn có chắc chắn muốn thoát tài khoản không?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="hideLogoutModal()">Không</button>
+                    <button type="button" class="btn btn-primary" onclick="confirmLogout()">Xác nhận</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Form Đăng Xuất -->
+    <form id="logout-form" asp-area="Identity" asp-page="/Account/Logout" method="post" style="display: none;">
+        @Html.AntiForgeryToken()
+    </form>
+
+    <script>
+        function showLogoutModal() {
+            $('#logoutModal').modal('show');
+        }
+
+        function hideLogoutModal() {
+            $('#logoutModal').modal('hide');
+        }
+
+        function confirmLogout() {
+            document.getElementById('logout-form').submit();
+        }
+    </script>
+</body>
+</html>
+
+<style>
+    body{
+        font-family: 'Lexend';
+    }
+    /* Importing Google font - Poppins */
+/*     body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        display: flex;
+    } */
+
+    .sidebar {
+        width: 250px; /* Chiều rộng sidebar */
+        /* position: fixed; */
+       
+         /* Giữ sidebar luôn cố định */
+        background-color: none;
+        color: black;
+        overflow-y: auto; /* Cuộn nếu nội dung quá nhiều */
+    }
+
+    .main-content {
+/*         margin-left: 250px; /* Đẩy nội dung chính sang phải */
+         /* padding: 20px; */ /* Khoảng cách nội dung với biên */
+/*         width: calc(100% - 250px); /* Tự động điều chỉnh kích thước */
+       /*  background-color: #f8f9fa; */ /* Màu nền nội dung */
+    }
+/*     * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+    } */
+
+/*     body {
+        min-height: 100vh;
+        background: #F0F4FF;
+    } */
+/*      .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 80px; /* Make sidebar narrower */
+        display: flex;
+        overflow-x: hidden;
+        flex-direction: column;
+        background: #161a2d;
+        padding: 20px 15px; /* Reduce padding */
+        transition: all 0.4s ease;
+    }  */
+
+/*     .sidebar {
+        position: relative;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 80px;
+        display: flex;
+        overflow-x: hidden;
+        flex-direction: column;
+        background: #161a2d;
+        padding: 20px 15px;
+        transition: all 0.4s ease;
+    } */
+
+    .sidebar:hover {
+        width: 250px; /* Mở rộng sidebar khi hover */
+    }
+
+   /*  .sidebar a {
+        display: flex;
+        align-items: center;
+        /* color: #fff; */
+        text-decoration: none;
+        padding: 10px;
+        white-space: nowrap;
+        transition: all 0.4s ease;
+        overflow: hidden; /* Để text không tràn khi sidebar nhỏ */
+    }
+
+        .sidebar a span {
+            display: none; /* Ẩn text khi sidebar nhỏ */
+            margin-left: 10px;
+        } */
+/* 
+    .sidebar:hover a span {
+        display: inline; /* Hiện text khi hover */
+    }
+ */
+      /*   .sidebar:hover {
+            width: 250px; /* Expand width on hover */
+        } */
+
+        .sidebar .sidebar-header {
+            display: flex;
+            align-items: center;
+        }
+
+            .sidebar .sidebar-header img {
+                width: 35px; /* Reduce logo size */
+                border-radius: 50%;
+            }
+
+            .sidebar .sidebar-header h2 {
+                color: #fff;
+                font-size: 1rem; /* Make text smaller */
+                font-weight: 600;
+                white-space: nowrap;
+                margin-left: 15px;
+            }
+
+    .sidebar-links h4 {
+        color: #fff;
+        font-weight: 500;
+        white-space: nowrap;
+        margin: 10px 0;
+        position: relative;
+    }
+
+        .sidebar-links h4 span {
+            opacity: 0;
+        }
+
+    .sidebar:hover .sidebar-links h4 span {
+        opacity: 1;
+    }
+
+    .sidebar-links .menu-separator {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 100%;
+        height: 1px;
+        transform: scaleX(1);
+        transform: translateY(-50%);
+        background: #4f52ba;
+        transform-origin: right;
+        transition-delay: 0.2s;
+    }
+
+    .sidebar:hover .sidebar-links .menu-separator {
+        transition-delay: 0s;
+        transform: scaleX(0);
+    }
+
+    .sidebar-links {
+        list-style: none;
+        margin-top: 15px; /* Reduce space between items */
+        height: 80%;
+        overflow-y: auto;
+        scrollbar-width: none;
+    }
+
+        .sidebar-links::-webkit-scrollbar {
+            display: none;
+        }
+
+        .sidebar-links li a {
+            display: flex;
+            align-items: center;
+            gap: 0 10px; /* Make gap between icon and text smaller */
+            color: #000000;
+            font-weight: 500;
+            white-space: nowrap;
+            padding: 12px 8px; /* Reduce padding */
+            text-decoration: none;
+            transition: 0.2s ease;
+        }
+
+            .sidebar-links li a:hover {
+                color: #161a2d;
+                background: #fff;
+                border-radius: 4px;
+            }
+
+    /* Hide text and show only icons initially */
+/*     .menu-text {
+        display: none;
+    } */
+
+    .sidebar:hover .menu-text {
+        display: inline-block;
+    }
+
+    .user-account {
+        margin-top: auto;
+        padding: 10px 8px; /* Reduce padding */
+        margin-left: -10px;
+    }
+
+    .user-profile {
+        display: flex;
+        align-items: center;
+        color: #161a2d;
+    }
+
+        .user-profile img {
+            width: 35px; /* Make profile image smaller */
+            border-radius: 50%;
+            border: 2px solid #fff;
+        }
+
+        .user-profile h3 {
+            font-size: 0.9rem; /* Reduce text size */
+            font-weight: 600;
+        }
+
+        .user-profile span {
+            font-size: 0.75rem; /* Reduce text size */
+            font-weight: 600;
+        }
+
+    .user-detail {
+        margin-left: 15px;
+        white-space: nowrap;
+    }
+
+    .sidebar:hover .user-account {
+        background: #fff;
+        border-radius: 4px;
+    }
+</style>

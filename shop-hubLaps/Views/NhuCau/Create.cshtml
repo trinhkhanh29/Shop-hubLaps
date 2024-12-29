@@ -1,0 +1,28 @@
+﻿@model shop_hubLaps.Models.NhuCau
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Danh sách Hãng";
+}
+
+<div class="container mt-4">
+    <h1 class="text-center">Thêm Nhu Cầu Mới</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form asp-action="Create" method="post" class="p-4 border rounded">
+                <div class="form-group mb-3">
+                    <label asp-for="tennhucau" class="form-label"></label>
+                    <input asp-for="tennhucau" class="form-control" />
+                    <span asp-validation-for="tennhucau" class="text-danger"></span>
+                </div>
+                <div class="text-end">
+                    <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+                    <button type="submit" class="btn btn-primary">Lưu</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

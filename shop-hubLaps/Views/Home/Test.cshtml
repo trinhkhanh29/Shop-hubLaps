@@ -1,0 +1,2539 @@
+﻿ @* @model shop_hubLaps.Models.HomeIndexViewModel
+ @using shop_hubLaps.Views.Laptop
+
+
+ @{
+     ViewData["Title"] = "Home";
+ }
+ <!DOCTYPE html>
+ <html>
+ <head>
+     <meta charset="utf-8" />
+     <link rel="stylesheet" href="globals.css" />
+     <link rel="stylesheet" href="style.css" />
+     <style>
+         .product-details-page {
+   background-color: #ffffff;
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   width: 100%;
+ }
+
+ .product-details-page .div {
+   background-color: #ffffff;
+   overflow: hidden;
+   width: 1920px;
+   height: 3829px;
+   position: relative;
+ }
+
+ .product-details-page .needus {
+   position: absolute;
+   top: 109px;
+   left: 80px;
+   font-family: "Inconsolata-Bold", Helvetica;
+   font-weight: 700;
+   color: transparent;
+   font-size: 48px;
+   letter-spacing: 0;
+   line-height: normal;
+   white-space: nowrap;
+ }
+
+ .product-details-page .text-wrapper {
+   color: #191919;
+ }
+
+ .product-details-page .span {
+   color: #e73c17;
+ }
+
+ .product-details-page .overlap {
+   position: absolute;
+   width: 925px;
+   height: 76px;
+   top: 97px;
+   left: 451px;
+   border: 2px solid;
+   border-color: #f0f0f0;
+ }
+
+ .product-details-page .text-wrapper-2 {
+   position: absolute;
+   top: 23px;
+   left: 43px;
+   font-family: "Inter-Light", Helvetica;
+   font-weight: 300;
+   color: #959595;
+   font-size: 20px;
+   letter-spacing: 0;
+   line-height: normal;
+   white-space: nowrap;
+ }
+
+ .product-details-page .text-wrapper-3 {
+   top: 23px;
+   left: 671px;
+   font-family: "Inter-Light", Helvetica;
+   font-weight: 300;
+   color: #191919;
+   font-size: 20px;
+   white-space: nowrap;
+   position: absolute;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .line {
+   position: absolute;
+   width: 2px;
+   height: 76px;
+   top: -2px;
+   left: 645px;
+ }
+
+ .product-details-page .overlap-group {
+   position: absolute;
+   width: 63px;
+   height: 66px;
+   top: 5px;
+   left: 857px;
+   background-color: #2f333a;
+ }
+
+ .product-details-page .frame {
+   position: absolute;
+   width: 24px;
+   height: 24px;
+   top: 21px;
+   left: 20px;
+ }
+
+ .product-details-page .img {
+   position: absolute;
+   width: 24px;
+   height: 24px;
+   top: 24px;
+   left: 813px;
+ }
+
+ .product-details-page .navbar {
+   position: absolute;
+   width: 1920px;
+   height: 76px;
+   top: 210px;
+   left: 0;
+   background-color: #2f333a;
+ }
+
+ .product-details-page .overlap-2 {
+   position: absolute;
+   width: 371px;
+   height: 76px;
+   top: 0;
+   left: 80px;
+   background-color: #e73c17;
+ }
+
+ .product-details-page .frame-2 {
+   position: absolute;
+   width: 30px;
+   height: 30px;
+   top: 23px;
+   left: 48px;
+ }
+
+ .product-details-page .text-wrapper-4 {
+   position: absolute;
+   top: 22px;
+   left: 105px;
+   font-family: "Inter-Medium", Helvetica;
+   font-weight: 500;
+   color: #ffffff;
+   font-size: 24px;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .frame-3 {
+   position: absolute;
+   width: 30px;
+   height: 30px;
+   top: 23px;
+   left: 293px;
+ }
+
+ .product-details-page .line-2 {
+   position: absolute;
+   width: 2px;
+   height: 76px;
+   top: 0;
+   left: 1540px;
+ }
+
+ .product-details-page .frame-4 {
+   position: absolute;
+   width: 20px;
+   height: 20px;
+   top: 28px;
+   left: 716px;
+ }
+
+ .product-details-page .frame-5 {
+   position: absolute;
+   width: 20px;
+   height: 20px;
+   top: 28px;
+   left: 862px;
+ }
+
+ .product-details-page .frame-6 {
+   position: absolute;
+   width: 20px;
+   height: 20px;
+   top: 28px;
+   left: 1026px;
+ }
+
+ .product-details-page .frame-7 {
+   position: absolute;
+   width: 20px;
+   height: 20px;
+   top: 28px;
+   left: 1145px;
+ }
+
+ .product-details-page .frame-8 {
+   position: absolute;
+   width: 20px;
+   height: 20px;
+   top: 28px;
+   left: 1314px;
+ }
+
+ .product-details-page .home {
+   top: 27px;
+   left: 660px;
+   font-family: "Inter-Regular", Helvetica;
+   font-weight: 400;
+   color: #ffffff;
+   font-size: 16px;
+   white-space: nowrap;
+   position: absolute;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .about {
+   top: 27px;
+   left: 797px;
+   font-family: "Inter-Regular", Helvetica;
+   font-weight: 400;
+   color: #ffffff;
+   font-size: 16px;
+   white-space: nowrap;
+   position: absolute;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .product {
+   top: 27px;
+   left: 936px;
+   font-family: "Inter-Regular", Helvetica;
+   font-weight: 400;
+   color: #e73c17;
+   font-size: 16px;
+   white-space: nowrap;
+   position: absolute;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .pages {
+   top: 27px;
+   left: 1085px;
+   font-family: "Inter-Regular", Helvetica;
+   font-weight: 400;
+   color: #ffffff;
+   font-size: 16px;
+   white-space: nowrap;
+   position: absolute;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .contact {
+   position: absolute;
+   top: 27px;
+   left: 1225px;
+   font-family: "Inter-Regular", Helvetica;
+   font-weight: 400;
+   color: #ffffff;
+   font-size: 16px;
+   letter-spacing: 0;
+   line-height: normal;
+   white-space: nowrap;
+ }
+
+ .product-details-page .contact-us {
+   position: absolute;
+   top: 15px;
+   left: 1707px;
+   font-family: "Inter-Light", Helvetica;
+   font-weight: 300;
+   color: #ffffff;
+   font-size: 15px;
+   letter-spacing: 0;
+   line-height: normal;
+   white-space: nowrap;
+ }
+
+ .product-details-page .element {
+   top: 38px;
+   left: 1708px;
+   font-family: "Inter-Medium", Helvetica;
+   font-weight: 500;
+   color: #ffffff;
+   font-size: 18px;
+   position: absolute;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .image {
+   width: 40px;
+   height: 40px;
+   top: 18px;
+   left: 1632px;
+   position: absolute;
+   object-fit: cover;
+ }
+
+ .product-details-page .login-signup {
+   position: absolute;
+   top: 122px;
+   left: 1604px;
+   font-family: "Inter-Light", Helvetica;
+   font-weight: 300;
+   color: transparent;
+   font-size: 20px;
+   letter-spacing: 0;
+   line-height: normal;
+   white-space: nowrap;
+ }
+
+ .product-details-page .text-wrapper-5 {
+   color: #f0f0f0;
+ }
+
+ .product-details-page .overlap-3 {
+   position: absolute;
+   width: 1920px;
+   height: 60px;
+   top: 0;
+   left: 0;
+ }
+
+ .product-details-page .frame-9 {
+   position: absolute;
+   width: 20px;
+   height: 20px;
+   top: 19px;
+   left: 1735px;
+ }
+
+ .product-details-page .frame-10 {
+   position: absolute;
+   width: 20px;
+   height: 20px;
+   top: 19px;
+   left: 1820px;
+ }
+
+ .product-details-page .rectangle {
+   position: absolute;
+   width: 1920px;
+   height: 60px;
+   top: 0;
+   left: 0;
+   background-color: #2f333a;
+ }
+
+ .product-details-page .text-wrapper-6 {
+   position: absolute;
+   top: 20px;
+   left: 1683px;
+   font-family: "Inter-Light", Helvetica;
+   font-weight: 300;
+   color: #ffffff;
+   font-size: 16px;
+   letter-spacing: 0;
+   line-height: normal;
+   white-space: nowrap;
+ }
+
+ .product-details-page .welcome-to-needus {
+   position: absolute;
+   top: 19px;
+   left: 80px;
+   font-family: "Inter-Light", Helvetica;
+   font-weight: 300;
+   color: #ffffff;
+   font-size: 16px;
+   letter-spacing: 0;
+   line-height: normal;
+   white-space: nowrap;
+ }
+
+ .product-details-page .text-wrapper-7 {
+   position: absolute;
+   top: 20px;
+   left: 1782px;
+   font-family: "Inter-Light", Helvetica;
+   font-weight: 300;
+   color: #ffffff;
+   font-size: 16px;
+   letter-spacing: 0;
+   line-height: normal;
+   white-space: nowrap;
+ }
+
+ .product-details-page .line-3 {
+   position: absolute;
+   width: 1px;
+   height: 16px;
+   top: 22px;
+   left: 1758px;
+   object-fit: cover;
+ }
+
+ .product-details-page .frame-11 {
+   position: absolute;
+   width: 20px;
+   height: 20px;
+   top: 20px;
+   left: 1721px;
+ }
+
+ .product-details-page .frame-12 {
+   position: absolute;
+   width: 20px;
+   height: 20px;
+   top: 20px;
+   left: 1820px;
+ }
+
+ .product-details-page .akar-icons-heart {
+   position: absolute;
+   width: 24px;
+   height: 24px;
+   top: 123px;
+   left: 1775px;
+ }
+
+ .product-details-page .overlap-4 {
+   position: absolute;
+   width: 37px;
+   height: 42px;
+   top: 105px;
+   left: 1816px;
+ }
+
+ .product-details-page .bi-cart {
+   position: absolute;
+   width: 24px;
+   height: 24px;
+   top: 18px;
+   left: 0;
+ }
+
+ .product-details-page .ellipse {
+   position: absolute;
+   width: 30px;
+   height: 30px;
+   top: 0;
+   left: 7px;
+   background-color: #e23000;
+   border-radius: 15px;
+ }
+
+ .product-details-page .text-wrapper-8 {
+   position: absolute;
+   top: 5px;
+   left: 17px;
+   font-family: "Inter-SemiBold", Helvetica;
+   font-weight: 600;
+   color: #ffffff;
+   font-size: 16px;
+   letter-spacing: 0;
+   line-height: normal;
+   white-space: nowrap;
+ }
+
+ .product-details-page .overlap-5 {
+   position: absolute;
+   width: 1920px;
+   height: 322px;
+   top: 286px;
+   left: 0;
+ }
+
+ .product-details-page .rectangle-2 {
+   position: absolute;
+   width: 1920px;
+   height: 256px;
+   top: 0;
+   left: 0;
+   background-color: #f4f5f8;
+ }
+
+ .product-details-page .TV-collection {
+   position: absolute;
+   top: 81px;
+   left: 800px;
+   font-family: "Inter-Medium", Helvetica;
+   font-weight: 500;
+   color: #191919;
+   font-size: 40px;
+   letter-spacing: 0;
+   line-height: normal;
+   white-space: nowrap;
+ }
+
+ .product-details-page .home-product-tv {
+   position: absolute;
+   top: 149px;
+   left: 763px;
+   font-family: "Inter-Light", Helvetica;
+   font-weight: 300;
+   color: #191919;
+   font-size: 18px;
+   line-height: 18px;
+ }
+
+ .product-details-page .text-wrapper-9 {
+   letter-spacing: 0.65px;
+   line-height: 32px;
+ }
+
+ .product-details-page .text-wrapper-10 {
+   letter-spacing: 0;
+ }
+
+ .product-details-page .text-wrapper-11 {
+   letter-spacing: 0.65px;
+ }
+
+ .product-details-page .rectangle-3 {
+   position: absolute;
+   width: 119px;
+   height: 132px;
+   top: 190px;
+   left: 1721px;
+   background-color: #2f333a;
+   box-shadow: 0px 30px 30px #2f333a24;
+ }
+
+ .product-details-page .bi-cart-2 {
+   position: absolute;
+   width: 24px;
+   height: 24px;
+   top: 232px;
+   left: 1761px;
+ }
+
+ .product-details-page .ellipse-2 {
+   position: absolute;
+   width: 30px;
+   height: 30px;
+   top: 214px;
+   left: 1770px;
+   background-color: #e23000;
+   border-radius: 15px;
+ }
+
+ .product-details-page .text-wrapper-12 {
+   top: 219px;
+   left: 1780px;
+   font-family: "Inter-SemiBold", Helvetica;
+   font-weight: 600;
+   color: #ffffff;
+   font-size: 16px;
+   white-space: nowrap;
+   position: absolute;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .rectangle-4 {
+   position: absolute;
+   width: 84px;
+   height: 31px;
+   top: 278px;
+   left: 1739px;
+   background-color: #ffffff;
+   border-radius: 100px;
+ }
+
+ .product-details-page .text-wrapper-13 {
+   top: 285px;
+   left: 1754px;
+   font-family: "Inter-SemiBold", Helvetica;
+   font-weight: 600;
+   color: #e73c17;
+   font-size: 13px;
+   position: absolute;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .LG {
+   position: absolute;
+   width: 799px;
+   top: 749px;
+   left: 1041px;
+   font-family: "Inter-Medium", Helvetica;
+   font-weight: 500;
+   color: #191919;
+   font-size: 32px;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .USD-incl-of-all {
+   position: absolute;
+   top: 1291px;
+   left: 1041px;
+   font-family: "Inter-Regular", Helvetica;
+   font-weight: 400;
+   color: #191919;
+   font-size: 16px;
+   letter-spacing: 0;
+   line-height: normal;
+   white-space: nowrap;
+ }
+
+ .product-details-page .text-wrapper-14 {
+   font-family: "Inter-Regular", Helvetica;
+   font-weight: 400;
+   color: #191919;
+   font-size: 16px;
+   letter-spacing: 0;
+ }
+
+ .product-details-page .text-wrapper-15 {
+   top: 1323px;
+   left: 1041px;
+   font-family: "Inter-Regular", Helvetica;
+   font-weight: 400;
+   color: #191919;
+   font-size: 32px;
+   position: absolute;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .text-wrapper-16 {
+   position: absolute;
+   top: 2092px;
+   left: 829px;
+   font-family: "Inter-Medium", Helvetica;
+   font-weight: 500;
+   color: #191919;
+   font-size: 32px;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .text-wrapper-17 {
+   position: absolute;
+   top: 1568px;
+   left: 638px;
+   font-family: "Inter-Medium", Helvetica;
+   font-weight: 500;
+   color: #191919;
+   font-size: 24px;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .text-wrapper-18 {
+   position: absolute;
+   top: 1568px;
+   left: 885px;
+   font-family: "Inter-Medium", Helvetica;
+   font-weight: 500;
+   color: #191919;
+   font-size: 24px;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .text-wrapper-19 {
+   position: absolute;
+   top: 1568px;
+   left: 1150px;
+   font-family: "Inter-Medium", Helvetica;
+   font-weight: 500;
+   color: #191919;
+   font-size: 24px;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .overlap-6 {
+   position: absolute;
+   width: 96px;
+   height: 29px;
+   top: 1328px;
+   left: 1185px;
+ }
+
+ .product-details-page .text-wrapper-20 {
+   top: 0;
+   left: 0;
+   font-family: "Inter-Regular", Helvetica;
+   font-weight: 400;
+   color: #d9d9d9;
+   font-size: 24px;
+   position: absolute;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .line-4 {
+   position: absolute;
+   width: 96px;
+   height: 1px;
+   top: 15px;
+   left: 0;
+   object-fit: cover;
+ }
+
+ .product-details-page .text-wrapper-21 {
+   top: 1291px;
+   left: 1203px;
+   font-family: "Inter-Regular", Helvetica;
+   font-weight: 400;
+   color: #000000;
+   font-size: 16px;
+   white-space: nowrap;
+   position: absolute;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .overlap-7 {
+   position: absolute;
+   width: 693px;
+   height: 719px;
+   top: 638px;
+   left: 314px;
+   background-color: #f1f1f1;
+ }
+
+ .product-details-page .rectangle-5 {
+   position: absolute;
+   width: 403px;
+   height: 16px;
+   top: 492px;
+   left: 145px;
+   background-color: #191919;
+   border-radius: 100px;
+   filter: blur(40px);
+   opacity: 0.6;
+ }
+
+ .product-details-page .image-2 {
+   width: 613px;
+   height: 407px;
+   top: 156px;
+   left: 40px;
+   position: absolute;
+   object-fit: cover;
+ }
+
+ .product-details-page .brand-LG {
+   position: absolute;
+   top: 637px;
+   left: 1041px;
+   font-family: "Inter-Regular", Helvetica;
+   font-weight: 400;
+   color: #191919;
+   font-size: 18px;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .text-wrapper-22 {
+   font-family: "Inter-Regular", Helvetica;
+   font-weight: 400;
+   color: #191919;
+   font-size: 18px;
+   letter-spacing: 0;
+ }
+
+ .product-details-page .text-wrapper-23 {
+   font-family: "Inter-Light", Helvetica;
+   font-weight: 300;
+ }
+
+ .product-details-page .element-AI-processor {
+   position: absolute;
+   top: 897px;
+   left: 1062px;
+   font-family: "Inter-Light", Helvetica;
+   font-weight: 300;
+   color: #191919;
+   font-size: 18px;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .the-LG {
+   position: absolute;
+   width: 1002px;
+   top: 1658px;
+   left: 459px;
+   font-family: "Inter-Light", Helvetica;
+   font-weight: 300;
+   color: transparent;
+   font-size: 18px;
+   letter-spacing: 0;
+   line-height: 32px;
+ }
+
+ .product-details-page .pixel-dimming {
+   position: absolute;
+   top: 932px;
+   left: 1062px;
+   font-family: "Inter-Light", Helvetica;
+   font-weight: 300;
+   color: #191919;
+   font-size: 18px;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .p {
+   position: absolute;
+   top: 967px;
+   left: 1062px;
+   font-family: "Inter-Light", Helvetica;
+   font-weight: 300;
+   color: #191919;
+   font-size: 18px;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .text-wrapper-24 {
+   position: absolute;
+   top: 1002px;
+   left: 1062px;
+   font-family: "Inter-Light", Helvetica;
+   font-weight: 300;
+   color: #191919;
+   font-size: 18px;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .text-wrapper-25 {
+   position: absolute;
+   top: 1037px;
+   left: 1062px;
+   font-family: "Inter-Light", Helvetica;
+   font-weight: 300;
+   color: #191919;
+   font-size: 18px;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .model {
+   position: absolute;
+   top: 672px;
+   left: 1041px;
+   font-family: "Inter-Regular", Helvetica;
+   font-weight: 400;
+   color: #191919;
+   font-size: 18px;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .availability-only {
+   position: absolute;
+   top: 707px;
+   left: 1041px;
+   font-family: "Inter-Regular", Helvetica;
+   font-weight: 400;
+   color: #191919;
+   font-size: 18px;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .text-wrapper-26 {
+   font-family: "Inter-Medium", Helvetica;
+   font-weight: 500;
+ }
+
+ .product-details-page .star {
+   left: 1042px;
+   position: absolute;
+   width: 29px;
+   height: 27px;
+   top: 848px;
+ }
+
+ .product-details-page .star-2 {
+   left: 1082px;
+   position: absolute;
+   width: 29px;
+   height: 27px;
+   top: 848px;
+ }
+
+ .product-details-page .star-3 {
+   left: 1122px;
+   position: absolute;
+   width: 29px;
+   height: 27px;
+   top: 848px;
+ }
+
+ .product-details-page .star-4 {
+   left: 1162px;
+   position: absolute;
+   width: 29px;
+   height: 27px;
+   top: 848px;
+ }
+
+ .product-details-page .star-5 {
+   left: 1202px;
+   position: absolute;
+   width: 29px;
+   height: 27px;
+   top: 848px;
+ }
+
+ .product-details-page .ellipse-3 {
+   position: absolute;
+   width: 8px;
+   height: 8px;
+   top: 905px;
+   left: 1041px;
+   background-color: #191919;
+   border-radius: 4px;
+ }
+
+ .product-details-page .ellipse-4 {
+   position: absolute;
+   width: 8px;
+   height: 8px;
+   top: 940px;
+   left: 1041px;
+   background-color: #191919;
+   border-radius: 4px;
+ }
+
+ .product-details-page .ellipse-5 {
+   position: absolute;
+   width: 8px;
+   height: 8px;
+   top: 975px;
+   left: 1041px;
+   background-color: #191919;
+   border-radius: 4px;
+ }
+
+ .product-details-page .ellipse-6 {
+   position: absolute;
+   width: 8px;
+   height: 8px;
+   top: 1010px;
+   left: 1041px;
+   background-color: #191919;
+   border-radius: 4px;
+ }
+
+ .product-details-page .ellipse-7 {
+   position: absolute;
+   width: 8px;
+   height: 8px;
+   top: 1045px;
+   left: 1041px;
+   background-color: #191919;
+   border-radius: 4px;
+ }
+
+ .product-details-page .line-5 {
+   position: absolute;
+   width: 666px;
+   height: 1px;
+   top: 1093px;
+   left: 1041px;
+   object-fit: cover;
+ }
+
+ .product-details-page .line-6 {
+   position: absolute;
+   width: 666px;
+   height: 1px;
+   top: 1271px;
+   left: 1041px;
+   object-fit: cover;
+ }
+
+ .product-details-page .overlap-8 {
+   position: absolute;
+   width: 1760px;
+   height: 2px;
+   top: 1619px;
+   left: 80px;
+ }
+
+ .product-details-page .line-7 {
+   position: absolute;
+   width: 1760px;
+   height: 1px;
+   top: 1px;
+   left: 0;
+   object-fit: cover;
+ }
+
+ .product-details-page .line-8 {
+   position: absolute;
+   width: 132px;
+   height: 2px;
+   top: 0;
+   left: 558px;
+ }
+
+ .product-details-page .div-wrapper {
+   position: absolute;
+   width: 200px;
+   height: 60px;
+   top: 1126px;
+   left: 1041px;
+   border: 1px solid;
+   border-color: #e73c17;
+ }
+
+ .product-details-page .text-wrapper-27 {
+   position: absolute;
+   top: 17px;
+   left: 47px;
+   font-family: "Inter-Regular", Helvetica;
+   font-weight: 400;
+   color: #e73c17;
+   font-size: 18px;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .text-wrapper-28 {
+   top: 1144px;
+   left: 1288px;
+   font-family: "Inter-Light", Helvetica;
+   font-weight: 300;
+   color: #6f6f6f;
+   font-size: 18px;
+   position: absolute;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .text-wrapper-29 {
+   position: absolute;
+   top: 1401px;
+   left: 314px;
+   font-family: "Inter-Light", Helvetica;
+   font-weight: 300;
+   color: #6f6f6f;
+   font-size: 15px;
+   letter-spacing: 0;
+   line-height: normal;
+   white-space: nowrap;
+ }
+
+ .product-details-page .text-wrapper-30 {
+   top: 1144px;
+   left: 1470px;
+   font-family: "Inter-Light", Helvetica;
+   font-weight: 300;
+   color: #6f6f6f;
+   font-size: 18px;
+   position: absolute;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .text-wrapper-31 {
+   top: 1218px;
+   left: 1090px;
+   font-family: "Inter-Light", Helvetica;
+   font-weight: 300;
+   color: #6f6f6f;
+   font-size: 18px;
+   position: absolute;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .text-wrapper-32 {
+   top: 1218px;
+   left: 1288px;
+   font-family: "Inter-Light", Helvetica;
+   font-weight: 300;
+   color: #6f6f6f;
+   font-size: 18px;
+   position: absolute;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .text-wrapper-33 {
+   top: 1218px;
+   left: 1470px;
+   font-family: "Inter-Light", Helvetica;
+   font-weight: 300;
+   color: #6f6f6f;
+   font-size: 18px;
+   position: absolute;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .overlap-9 {
+   position: absolute;
+   width: 202px;
+   height: 60px;
+   top: 1383px;
+   left: 1041px;
+   border: 1px solid;
+   border-color: #f0f0f0;
+ }
+
+ .product-details-page .overlap-10 {
+   position: absolute;
+   width: 74px;
+   height: 60px;
+   top: 0;
+   left: 64px;
+   border: 1px solid;
+   border-color: #f0f0f0;
+ }
+
+ .product-details-page .text-wrapper-34 {
+   top: 8px;
+   left: 28px;
+   font-family: "Inter-Regular", Helvetica;
+   font-weight: 400;
+   color: #191919;
+   font-size: 32px;
+   position: absolute;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .frame-13 {
+   position: absolute;
+   width: 24px;
+   height: 24px;
+   top: 17px;
+   left: 20px;
+ }
+
+ .product-details-page .frame-14 {
+   position: absolute;
+   width: 24px;
+   height: 24px;
+   top: 17px;
+   left: 156px;
+ }
+
+ .product-details-page .overlap-11 {
+   position: absolute;
+   width: 202px;
+   height: 60px;
+   top: 1383px;
+   left: 1273px;
+   background-color: #e73c17;
+ }
+
+ .product-details-page .text-wrapper-35 {
+   position: absolute;
+   top: 18px;
+   left: 62px;
+   font-family: "Inter-Medium", Helvetica;
+   font-weight: 500;
+   color: #ffffff;
+   font-size: 18px;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .overlap-12 {
+   position: absolute;
+   width: 202px;
+   height: 60px;
+   top: 1383px;
+   left: 1505px;
+   border: 1px solid;
+   border-color: #e73c17;
+ }
+
+ .product-details-page .text-wrapper-36 {
+   position: absolute;
+   top: 17px;
+   left: 50px;
+   font-family: "Inter-Medium", Helvetica;
+   font-weight: 500;
+   color: #e73c17;
+   font-size: 18px;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .image-wrapper {
+   position: absolute;
+   width: 200px;
+   height: 151px;
+   top: 638px;
+   left: 80px;
+   border: 1px solid;
+   border-color: #e73c17;
+ }
+
+ .product-details-page .image-3 {
+   width: 168px;
+   height: 89px;
+   top: 35px;
+   left: 15px;
+   position: absolute;
+   object-fit: cover;
+ }
+
+ .product-details-page .img-wrapper {
+   position: absolute;
+   width: 200px;
+   height: 151px;
+   top: 828px;
+   left: 80px;
+   border: 1px solid;
+   border-color: #f0f0f0;
+ }
+
+ .product-details-page .image-4 {
+   position: absolute;
+   width: 140px;
+   height: 105px;
+   top: 22px;
+   left: 29px;
+   object-fit: cover;
+ }
+
+ .product-details-page .overlap-group-2 {
+   position: absolute;
+   width: 200px;
+   height: 151px;
+   top: 1018px;
+   left: 80px;
+   border: 1px solid;
+   border-color: #f0f0f0;
+ }
+
+ .product-details-page .overlap-13 {
+   position: absolute;
+   width: 200px;
+   height: 151px;
+   top: 1206px;
+   left: 80px;
+   border: 1px solid;
+   border-color: #f0f0f0;
+ }
+
+ .product-details-page .image-5 {
+   width: 140px;
+   height: 93px;
+   top: 29px;
+   left: 29px;
+   position: absolute;
+   object-fit: cover;
+ }
+
+ .product-details-page .overlap-14 {
+   position: absolute;
+   width: 418px;
+   height: 561px;
+   top: 2228px;
+   left: 80px;
+   background-color: #f1f1f1;
+ }
+
+ .product-details-page .overlap-15 {
+   position: absolute;
+   width: 67px;
+   height: 26px;
+   top: 22px;
+   left: 23px;
+   background-color: #12a05c;
+   border-radius: 100px;
+ }
+
+ .product-details-page .text-wrapper-37 {
+   position: absolute;
+   top: 4px;
+   left: 19px;
+   font-family: "Inter-Medium", Helvetica;
+   font-weight: 500;
+   color: #ffffff;
+   font-size: 12px;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .ant-design-heart-wrapper {
+   position: absolute;
+   width: 60px;
+   height: 60px;
+   top: 22px;
+   left: 336px;
+   border-radius: 30px;
+   border: 1px solid;
+   border-color: #d6d6d6;
+ }
+
+ .product-details-page .ant-design-heart {
+   position: absolute;
+   width: 30px;
+   height: 30px;
+   top: 16px;
+   left: 14px;
+ }
+
+ .product-details-page .overlap-16 {
+   position: absolute;
+   width: 319px;
+   height: 330px;
+   top: 101px;
+   left: 59px;
+ }
+
+ .product-details-page .overlap-17 {
+   position: absolute;
+   width: 300px;
+   height: 330px;
+   top: 0;
+   left: 0;
+ }
+
+ .product-details-page .image-6 {
+   width: 300px;
+   height: 300px;
+   top: 30px;
+   left: 0;
+   position: absolute;
+   object-fit: cover;
+ }
+
+ .product-details-page .polygon {
+   position: absolute;
+   width: 16px;
+   height: 19px;
+   top: 10px;
+   left: 270px;
+ }
+
+ .product-details-page .rectangle-6 {
+   position: absolute;
+   width: 97px;
+   height: 39px;
+   top: 0;
+   left: 177px;
+   background-color: #6e6e6e;
+   border-radius: 4px;
+ }
+
+ .product-details-page .text-wrapper-38 {
+   position: absolute;
+   top: 10px;
+   left: 191px;
+   font-family: "Inter-Regular", Helvetica;
+   font-weight: 400;
+   color: #ffffff;
+   font-size: 13px;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .frame-15 {
+   position: absolute;
+   width: 24px;
+   height: 24px;
+   top: 6px;
+   left: 295px;
+ }
+
+ .product-details-page .overlap-18 {
+   position: absolute;
+   width: 248px;
+   height: 64px;
+   top: 469px;
+   left: 85px;
+   background-color: #ffffff;
+ }
+
+ .product-details-page .text-wrapper-39 {
+   position: absolute;
+   top: 20px;
+   left: 89px;
+   font-family: "Inter-Medium", Helvetica;
+   font-weight: 500;
+   color: #6f6f6f;
+   font-size: 18px;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .bi-cart-3 {
+   position: absolute;
+   width: 18px;
+   height: 18px;
+   top: 23px;
+   left: 62px;
+ }
+
+ .product-details-page .overlap-19 {
+   position: absolute;
+   width: 418px;
+   height: 561px;
+   top: 2228px;
+   left: 528px;
+   background-color: #f1f1f1;
+ }
+
+ .product-details-page .overlap-20 {
+   position: absolute;
+   width: 67px;
+   height: 26px;
+   top: 22px;
+   left: 22px;
+   background-color: #e73c17;
+   border-radius: 100px;
+ }
+
+ .product-details-page .overlap-21 {
+   position: absolute;
+   width: 60px;
+   height: 60px;
+   top: 22px;
+   left: 335px;
+   border-radius: 30px;
+   border: 1px solid;
+   border-color: #d6d6d6;
+ }
+
+ .product-details-page .image-7 {
+   width: 354px;
+   height: 300px;
+   top: 131px;
+   left: 32px;
+   position: absolute;
+   object-fit: cover;
+ }
+
+ .product-details-page .overlap-22 {
+   position: absolute;
+   width: 418px;
+   height: 561px;
+   top: 2228px;
+   left: 976px;
+   background-color: #f1f1f1;
+ }
+
+ .product-details-page .overlap-23 {
+   position: absolute;
+   width: 67px;
+   height: 26px;
+   top: 22px;
+   left: 22px;
+   background-color: #ff9900;
+   border-radius: 100px;
+ }
+
+ .product-details-page .text-wrapper-40 {
+   position: absolute;
+   top: 4px;
+   left: 21px;
+   font-family: "Inter-Medium", Helvetica;
+   font-weight: 500;
+   color: #ffffff;
+   font-size: 12px;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .image-8 {
+   width: 320px;
+   height: 320px;
+   top: 121px;
+   left: 49px;
+   position: absolute;
+   object-fit: cover;
+ }
+
+ .product-details-page .overlap-24 {
+   position: absolute;
+   width: 418px;
+   height: 561px;
+   top: 2228px;
+   left: 1424px;
+   background-color: #f1f1f1;
+ }
+
+ .product-details-page .overlap-25 {
+   position: absolute;
+   width: 136px;
+   height: 26px;
+   top: 22px;
+   left: 22px;
+   background-color: #7e7cf6;
+   border-radius: 100px;
+ }
+
+ .product-details-page .text-wrapper-41 {
+   top: 4px;
+   left: 18px;
+   font-family: "Inter-Medium", Helvetica;
+   font-weight: 500;
+   color: #ffffff;
+   font-size: 12px;
+   position: absolute;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .text-wrapper-42 {
+   position: absolute;
+   top: 20px;
+   left: 83px;
+   font-family: "Inter-Medium", Helvetica;
+   font-weight: 500;
+   color: #e73c17;
+   font-size: 18px;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .bi-cart-4 {
+   position: absolute;
+   width: 18px;
+   height: 18px;
+   top: 23px;
+   left: 56px;
+ }
+
+ .product-details-page .image-9 {
+   width: 300px;
+   height: 200px;
+   top: 181px;
+   left: 59px;
+   position: absolute;
+   object-fit: cover;
+ }
+
+ .product-details-page .text-wrapper-43 {
+   position: absolute;
+   top: 2826px;
+   left: 156px;
+   font-family: "Inter-Regular", Helvetica;
+   font-weight: 400;
+   color: #191919;
+   font-size: 20px;
+   letter-spacing: 0;
+   line-height: normal;
+   white-space: nowrap;
+ }
+
+ .product-details-page .text-wrapper-44 {
+   position: absolute;
+   top: 2826px;
+   left: 605px;
+   font-family: "Inter-Regular", Helvetica;
+   font-weight: 400;
+   color: #191919;
+   font-size: 20px;
+   letter-spacing: 0;
+   line-height: normal;
+   white-space: nowrap;
+ }
+
+ .product-details-page .text-wrapper-45 {
+   position: absolute;
+   top: 2826px;
+   left: 1072px;
+   font-family: "Inter-Regular", Helvetica;
+   font-weight: 400;
+   color: #191919;
+   font-size: 20px;
+   letter-spacing: 0;
+   line-height: normal;
+   white-space: nowrap;
+ }
+
+ .product-details-page .text-wrapper-46 {
+   position: absolute;
+   top: 2826px;
+   left: 1533px;
+   font-family: "Inter-Regular", Helvetica;
+   font-weight: 400;
+   color: #191919;
+   font-size: 20px;
+   letter-spacing: 0;
+   line-height: normal;
+   white-space: nowrap;
+ }
+
+ .product-details-page .text-wrapper-47 {
+   top: 2863px;
+   left: 194px;
+   font-family: "Inter-SemiBold", Helvetica;
+   font-weight: 600;
+   color: #191919;
+   font-size: 20px;
+   white-space: nowrap;
+   position: absolute;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .text-wrapper-48 {
+   top: 2863px;
+   left: 1143px;
+   font-family: "Inter-SemiBold", Helvetica;
+   font-weight: 600;
+   color: #191919;
+   font-size: 20px;
+   white-space: nowrap;
+   position: absolute;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .text-wrapper-49 {
+   top: 2863px;
+   left: 695px;
+   font-family: "Inter-SemiBold", Helvetica;
+   font-weight: 600;
+   color: #191919;
+   font-size: 20px;
+   white-space: nowrap;
+   position: absolute;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .text-wrapper-50 {
+   top: 2863px;
+   left: 1591px;
+   font-family: "Inter-SemiBold", Helvetica;
+   font-weight: 600;
+   color: #191919;
+   font-size: 20px;
+   white-space: nowrap;
+   position: absolute;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .overlap-26 {
+   position: absolute;
+   width: 94px;
+   height: 24px;
+   top: 2863px;
+   left: 291px;
+ }
+
+ .product-details-page .text-wrapper-51 {
+   top: 0;
+   left: 0;
+   font-family: "Inter-SemiBold", Helvetica;
+   font-weight: 600;
+   color: #d9d9d9;
+   font-size: 20px;
+   white-space: nowrap;
+   position: absolute;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .line-9 {
+   position: absolute;
+   width: 94px;
+   height: 2px;
+   top: 12px;
+   left: 0;
+ }
+
+ .product-details-page .overlap-27 {
+   position: absolute;
+   width: 1920px;
+   height: 613px;
+   top: 3259px;
+   left: 0;
+   background-color: #2f333a;
+ }
+
+ .product-details-page .about-us {
+   position: absolute;
+   top: 57px;
+   left: 80px;
+   font-family: "Inter-Medium", Helvetica;
+   font-weight: 500;
+   color: #ffffff;
+   font-size: 24px;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .information {
+   position: absolute;
+   top: 57px;
+   left: 632px;
+   font-family: "Inter-Medium", Helvetica;
+   font-weight: 500;
+   color: #ffffff;
+   font-size: 24px;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .text-wrapper-52 {
+   position: absolute;
+   top: 57px;
+   left: 930px;
+   font-family: "Inter-Medium", Helvetica;
+   font-weight: 500;
+   color: #ffffff;
+   font-size: 24px;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .store {
+   position: absolute;
+   top: 57px;
+   left: 1182px;
+   font-family: "Inter-Medium", Helvetica;
+   font-weight: 500;
+   color: #ffffff;
+   font-size: 24px;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .text-wrapper-53 {
+   position: absolute;
+   top: 57px;
+   left: 1497px;
+   font-family: "Inter-Medium", Helvetica;
+   font-weight: 500;
+   color: #ffffff;
+   font-size: 24px;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .text-wrapper-54 {
+   position: absolute;
+   width: 359px;
+   top: 115px;
+   left: 80px;
+   font-family: "Inter-Regular", Helvetica;
+   font-weight: 400;
+   color: #ffffff;
+   font-size: 18px;
+   letter-spacing: 0;
+   line-height: 30px;
+ }
+
+ .product-details-page .frame-16 {
+   position: absolute;
+   width: 30px;
+   height: 30px;
+   top: 264px;
+   left: 80px;
+ }
+
+ .product-details-page .frame-17 {
+   position: absolute;
+   width: 30px;
+   height: 30px;
+   top: 246px;
+   left: 130px;
+ }
+
+ .product-details-page .frame-18 {
+   position: absolute;
+   width: 30px;
+   height: 30px;
+   top: 264px;
+   left: 280px;
+ }
+
+ .product-details-page .frame-19 {
+   position: absolute;
+   width: 30px;
+   height: 30px;
+   top: 264px;
+   left: 180px;
+ }
+
+ .product-details-page .frame-20 {
+   position: absolute;
+   width: 30px;
+   height: 30px;
+   top: 264px;
+   left: 230px;
+ }
+
+ .product-details-page .frame-21 {
+   position: absolute;
+   width: 24px;
+   height: 24px;
+   top: 503px;
+   left: 823px;
+ }
+
+ .product-details-page .text-wrapper-55 {
+   position: absolute;
+   top: 505px;
+   left: 853px;
+   font-family: "Inter-Regular", Helvetica;
+   font-weight: 400;
+   color: #ffffff;
+   font-size: 15px;
+   letter-spacing: 0;
+   line-height: normal;
+   white-space: nowrap;
+ }
+
+ .product-details-page .text-wrapper-56 {
+   position: absolute;
+   top: 115px;
+   left: 632px;
+   font-family: "Inter-Regular", Helvetica;
+   font-weight: 400;
+   color: #ffffff;
+   font-size: 18px;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .text-wrapper-57 {
+   top: 115px;
+   position: absolute;
+   left: 930px;
+   font-family: "Inter-Regular", Helvetica;
+   font-weight: 400;
+   color: #ffffff;
+   font-size: 18px;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .text-wrapper-58 {
+   position: absolute;
+   top: 115px;
+   left: 1182px;
+   font-family: "Inter-Regular", Helvetica;
+   font-weight: 400;
+   color: #ffffff;
+   font-size: 18px;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .text-wrapper-59 {
+   position: absolute;
+   top: 205px;
+   left: 1541px;
+   font-family: "Inter-Regular", Helvetica;
+   font-weight: 400;
+   color: #ffffff;
+   font-size: 18px;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .element-2 {
+   position: absolute;
+   top: 270px;
+   left: 1541px;
+   font-family: "Inter-Regular", Helvetica;
+   font-weight: 400;
+   color: #ffffff;
+   font-size: 18px;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .if-you-have-any {
+   position: absolute;
+   top: 115px;
+   left: 1497px;
+   font-family: "Inter-Regular", Helvetica;
+   font-weight: 400;
+   color: transparent;
+   font-size: 18px;
+   letter-spacing: 0;
+   line-height: 30px;
+ }
+
+ .product-details-page .text-wrapper-60 {
+   color: #ffffff;
+ }
+
+ .product-details-page .text-wrapper-61 {
+   font-family: "Inter-Medium", Helvetica;
+   font-weight: 500;
+   color: #e73c17;
+ }
+
+ .product-details-page .text-wrapper-62 {
+   position: absolute;
+   top: 150px;
+   left: 632px;
+   font-family: "Inter-Regular", Helvetica;
+   font-weight: 400;
+   color: #ffffff;
+   font-size: 18px;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .text-wrapper-63 {
+   top: 150px;
+   position: absolute;
+   left: 930px;
+   font-family: "Inter-Regular", Helvetica;
+   font-weight: 400;
+   color: #ffffff;
+   font-size: 18px;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .text-wrapper-64 {
+   position: absolute;
+   top: 150px;
+   left: 1182px;
+   font-family: "Inter-Regular", Helvetica;
+   font-weight: 400;
+   color: #ffffff;
+   font-size: 18px;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .text-wrapper-65 {
+   position: absolute;
+   top: 185px;
+   left: 632px;
+   font-family: "Inter-Regular", Helvetica;
+   font-weight: 400;
+   color: #ffffff;
+   font-size: 18px;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .text-wrapper-66 {
+   position: absolute;
+   top: 185px;
+   left: 930px;
+   font-family: "Inter-Regular", Helvetica;
+   font-weight: 400;
+   color: #ffffff;
+   font-size: 18px;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .text-wrapper-67 {
+   position: absolute;
+   top: 185px;
+   left: 1182px;
+   font-family: "Inter-Regular", Helvetica;
+   font-weight: 400;
+   color: #ffffff;
+   font-size: 18px;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .text-wrapper-68 {
+   left: 632px;
+   position: absolute;
+   top: 220px;
+   font-family: "Inter-Regular", Helvetica;
+   font-weight: 400;
+   color: #ffffff;
+   font-size: 18px;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .text-wrapper-69 {
+   position: absolute;
+   top: 220px;
+   left: 930px;
+   font-family: "Inter-Regular", Helvetica;
+   font-weight: 400;
+   color: #ffffff;
+   font-size: 18px;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .text-wrapper-70 {
+   left: 1182px;
+   position: absolute;
+   top: 220px;
+   font-family: "Inter-Regular", Helvetica;
+   font-weight: 400;
+   color: #ffffff;
+   font-size: 18px;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .terms-conditions {
+   position: absolute;
+   top: 255px;
+   left: 632px;
+   font-family: "Inter-Regular", Helvetica;
+   font-weight: 400;
+   color: #ffffff;
+   font-size: 18px;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .text-wrapper-71 {
+   position: absolute;
+   top: 255px;
+   left: 930px;
+   font-family: "Inter-Regular", Helvetica;
+   font-weight: 400;
+   color: #ffffff;
+   font-size: 18px;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .text-wrapper-72 {
+   top: 255px;
+   left: 1182px;
+   font-family: "Inter-Regular", Helvetica;
+   font-weight: 400;
+   color: #ffffff;
+   font-size: 18px;
+   position: absolute;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .text-wrapper-73 {
+   position: absolute;
+   top: 290px;
+   left: 632px;
+   font-family: "Inter-Regular", Helvetica;
+   font-weight: 400;
+   color: #ffffff;
+   font-size: 18px;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .text-wrapper-74 {
+   position: absolute;
+   top: 290px;
+   left: 930px;
+   font-family: "Inter-Regular", Helvetica;
+   font-weight: 400;
+   color: #ffffff;
+   font-size: 18px;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .akar-icons-location {
+   position: absolute;
+   width: 40px;
+   height: 40px;
+   top: 197px;
+   left: 1497px;
+ }
+
+ .product-details-page .clarity-mobile-phone {
+   position: absolute;
+   width: 40px;
+   height: 40px;
+   top: 262px;
+   left: 1497px;
+ }
+
+ .product-details-page .overlap-28 {
+   position: absolute;
+   width: 98px;
+   height: 34px;
+   top: 452px;
+   left: 835px;
+ }
+
+ .product-details-page .image-10 {
+   width: 60px;
+   height: 34px;
+   top: 0;
+   left: 0;
+   position: absolute;
+   object-fit: cover;
+ }
+
+ .product-details-page .image-11 {
+   width: 40px;
+   height: 25px;
+   top: 5px;
+   left: 58px;
+   position: absolute;
+   object-fit: cover;
+ }
+
+ .product-details-page .image-12 {
+   width: 40px;
+   height: 25px;
+   top: 457px;
+   left: 942px;
+   position: absolute;
+   object-fit: cover;
+ }
+
+ .product-details-page .overlap-29 {
+   position: absolute;
+   width: 100px;
+   height: 40px;
+   top: 449px;
+   left: 984px;
+ }
+
+ .product-details-page .image-13 {
+   width: 50px;
+   height: 38px;
+   top: 1px;
+   left: 0;
+   position: absolute;
+   object-fit: cover;
+ }
+
+ .product-details-page .image-14 {
+   width: 54px;
+   height: 40px;
+   top: 0;
+   left: 46px;
+   position: absolute;
+   object-fit: cover;
+ }
+
+ .product-details-page .line-10 {
+   position: absolute;
+   width: 1760px;
+   height: 5px;
+   top: 409px;
+   left: 80px;
+   object-fit: cover;
+ }
+
+ .product-details-page .overlap-30 {
+   position: absolute;
+   width: 1920px;
+   height: 120px;
+   top: 3139px;
+   left: 0;
+   background-image: url(./img/rectangle-36.svg);
+   background-size: 100% 100%;
+ }
+
+ .product-details-page .rectangle-7 {
+   position: absolute;
+   width: 1920px;
+   height: 120px;
+   top: 0;
+   left: 0;
+   background-color: #191919;
+   opacity: 0.5;
+ }
+
+ .product-details-page .fluent-news {
+   position: absolute;
+   width: 60px;
+   height: 60px;
+   top: 30px;
+   left: 213px;
+ }
+
+ .product-details-page .text-wrapper-75 {
+   position: absolute;
+   top: 28px;
+   left: 306px;
+   font-family: "Inter-Medium", Helvetica;
+   font-weight: 500;
+   color: #ffffff;
+   font-size: 28px;
+   letter-spacing: 0;
+   line-height: normal;
+ }
+
+ .product-details-page .text-wrapper-76 {
+   position: absolute;
+   top: 66px;
+   left: 306px;
+   font-family: "Inter-Regular", Helvetica;
+   font-weight: 400;
+   color: #ffffff;
+   font-size: 20px;
+   letter-spacing: 0;
+   line-height: normal;
+   white-space: nowrap;
+ }
+
+ .product-details-page .rectangle-8 {
+   position: absolute;
+   width: 715px;
+   height: 73px;
+   top: 23px;
+   left: 976px;
+   background-color: #ffffff;
+ }
+
+ .product-details-page .rectangle-9 {
+   position: absolute;
+   width: 268px;
+   height: 73px;
+   top: 23px;
+   left: 1423px;
+   background-color: #e73c17;
+ }
+
+ .product-details-page .text-wrapper-77 {
+   position: absolute;
+   top: 47px;
+   left: 1014px;
+   font-family: "Inter-Regular", Helvetica;
+   font-weight: 400;
+   color: #6f6f6f;
+   font-size: 20px;
+   letter-spacing: 0;
+   line-height: normal;
+   white-space: nowrap;
+ }
+
+ .product-details-page .text-wrapper-78 {
+   position: absolute;
+   top: 47px;
+   left: 1500px;
+   font-family: "Inter-SemiBold", Helvetica;
+   font-weight: 600;
+   color: #ffffff;
+   font-size: 20px;
+   letter-spacing: 0;
+   line-height: normal;
+   white-space: nowrap;
+ }
+
+ .product-details-page .ellipse-8 {
+   position: absolute;
+   width: 14px;
+   height: 14px;
+   top: 2957px;
+   left: 965px;
+   background-color: #f4f5f8;
+   border-radius: 7px;
+ }
+
+ .product-details-page .ellipse-9 {
+   position: absolute;
+   width: 14px;
+   height: 14px;
+   top: 2957px;
+   left: 989px;
+   background-color: #f4f5f8;
+   border-radius: 7px;
+ }
+
+ .product-details-page .ellipse-10 {
+   position: absolute;
+   width: 14px;
+   height: 14px;
+   top: 2957px;
+   left: 941px;
+   background-color: #f4f5f8;
+   border-radius: 7px;
+ }
+
+ .product-details-page .ellipse-11 {
+   position: absolute;
+   width: 14px;
+   height: 14px;
+   top: 2957px;
+   left: 917px;
+   background-color: #e73c17;
+   border-radius: 7px;
+ }
+ @@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+ * {
+   -webkit-font-smoothing: antialiased;
+   box-sizing: border-box;
+ }
+ html,
+ body {
+   margin: 0px;
+   height: 100%;
+ }
+ /* a blue color as a generic focus style */
+ button:focus-visible {
+   outline: 2px solid #4a90e2 !important;
+   outline: -webkit-focus-ring-color auto 5px !important;
+ }
+ a {
+   text-decoration: none;
+ }
+
+     </style>
+ </head>
+ <body>
+     <div class="product-details-page">
+         <div class="div">
+             <div class="overlap-5">
+                 <div class="rectangle-3"></div>
+                 <img class="bi-cart-2" src="img/bi-cart-4.svg" />
+                 <div class="ellipse-2"></div>
+                 <div class="text-wrapper-12">6</div>
+                 <div class="rectangle-4"></div>
+                 <div class="text-wrapper-13">$800.72</div>
+             </div>
+             <p class="LG">LG C2 42 (106CM) 4K SMART OLED EVO TV | WEBOS | CINEMA HDR</p>
+             <p class="USD-incl-of-all">
+                 <span class="text-wrapper-14">USD(</span>
+                 <span class="text-wrapper-14">incl. of all taxes</span>
+                 <span class="text-wrapper-14">)</span>
+             </p>
+             <div class="text-wrapper-15">$600.72</div>
+             <div class="text-wrapper-16">Related Products</div>
+             <div class="text-wrapper-17">Description</div>
+             <div class="text-wrapper-18">Specification</div>
+             <div class="text-wrapper-19">Reviews</div>
+             <div class="overlap-6">
+                 <div class="text-wrapper-20">$800.00</div>
+                 <img class="line-4" src="img/line-6.svg" />
+             </div>
+             <div class="text-wrapper-21">:</div>
+             <div class="overlap-7">
+                 <div class="rectangle-5"></div>
+                 <img class="image-2" src="img/image-6.png" />
+             </div>
+             <p class="brand-LG"><span class="text-wrapper-22">Brand: </span> <span class="text-wrapper-23">LG </span></p>
+             <p class="element-AI-processor">α9 Gen5 AI Processor with AI Picture Pro &amp; AI 4K Upscaling</p>
+             <p class="the-LG">
+                 <span class="text-wrapper">
+                     The LG C2 42 (106cm) 4K Smart OLED evo TV is the best all-around OLED TV we&#39;ve tested. Although all
+                     OLEDs deliver similar fantastic picture quality, this one stands out for its value because it has many
+                     gaming-oriented features that are great for gamers.<br /><br />*Only 65G2 is shown in the image for example
+                     purposes. All 2022 LG OLED models feature eco-friendly packaging. <br />**65C2 Stand model is at a minimum
+                     39% lighter than the C1 series. <br />***The &#39;Reducing CO2&#39; footprint label applies to 65C2 only.
+                     All other C2 models feature a &#39;CO2 Measured&#39; label. <br />****UL ECV certification based on TV frame
+                     and back cover. Percentage of recycled content varies by model and size.
+                 </span>
+                 <span class="span">More ...<br /></span>
+                 <span class="text-wrapper"><br /></span>
+             </p>
+             <p class="pixel-dimming">Pixel Dimming, Perfect Black, 100% Color Fidelity &amp; Color Volume</p>
+             <p class="p">Hands-free Voice Control, Always Ready</p>
+             <p class="text-wrapper-24">Dolby Vision IQ with Precision Detail, Dolby Atmos, Filmmaker Mode</p>
+             <p class="text-wrapper-25">Eye Comfort Display: Low-Blue Light, Flicker-Free</p>
+             <p class="model">
+                 <span class="text-wrapper-22">Model:</span> <span class="text-wrapper-23"> OLED42C2PSA</span>
+             </p>
+             <p class="availability-only">
+                 <span class="text-wrapper-22">Availability:</span>
+                 <span class="text-wrapper-26">&nbsp;</span>
+                 <span class="text-wrapper-23">Only 2 in Stock</span>
+             </p>
+             <img class="star" src="img/star-1.svg" />
+             <img class="star-2" src="img/star-2.svg" />
+             <img class="star-3" src="img/star-3.svg" />
+             <img class="star-4" src="img/star-4.svg" />
+             <img class="star-5" src="img/star-5.svg" />
+             <div class="ellipse-3"></div>
+             <div class="ellipse-4"></div>
+             <div class="ellipse-5"></div>
+             <div class="ellipse-6"></div>
+             <div class="ellipse-7"></div>
+             <img class="line-5" src="img/line-4.svg" />
+             <img class="line-6" src="img/line-5.svg" />
+             <div class="overlap-8">
+                 <img class="line-7" src="img/line-7.svg" /> <img class="line-8" src="img/line-8.svg" />
+             </div>
+             <div class="div-wrapper"><div class="text-wrapper-27">106 cm (42)</div></div>
+             <div class="text-wrapper-28">121 cm (48)</div>
+             <p class="text-wrapper-29">*LG C2 42 (106cm) 4K Smart OLED evo TV</p>
+             <div class="text-wrapper-30">139 cm (55)</div>
+             <div class="text-wrapper-31">164 cm (65)</div>
+             <div class="text-wrapper-32">196 cm (77)</div>
+             <div class="text-wrapper-33">210 cm (83)</div>
+             <div class="overlap-9">
+                 <div class="overlap-10"><div class="text-wrapper-34">1</div></div>
+                 <img class="frame-13" src="img/frame-11.svg" />
+                 <img class="frame-14" src="img/frame-21.svg" />
+             </div>
+             <div class="overlap-11"><div class="text-wrapper-35">Buy Now</div></div>
+             <div class="overlap-12"><div class="text-wrapper-36">Add to Cart</div></div>
+             <div class="image-wrapper"><img class="image-3" src="img/image-2.png" /></div>
+             <div class="img-wrapper"><img class="image-4" src="img/image-3.png" /></div>
+             <div class="overlap-group-2"><img class="image-4" src="img/image-4.png" /></div>
+             <div class="overlap-13"><img class="image-5" src="img/image-5.png" /></div>
+             <div class="overlap-14">
+                 <div class="overlap-15"><div class="text-wrapper-37">NEW</div></div>
+                 <div class="ant-design-heart-wrapper">
+                     <img class="ant-design-heart" src="img/ant-design-heart-filled-4.svg" />
+                 </div>
+                 <div class="overlap-16">
+                     <div class="overlap-17">
+                         <img class="image-6" src="img/image-7.png" />
+                         <img class="polygon" src="img/polygon-1.svg" />
+                         <div class="rectangle-6"></div>
+                         <div class="text-wrapper-38">Quick View</div>
+                     </div>
+                     <img class="frame-15" src="img/frame-3.svg" />
+                 </div>
+                 <div class="overlap-18">
+                     <div class="text-wrapper-39">Add to cart</div>
+                     <img class="bi-cart-3" src="img/bi-cart.svg" />
+                 </div>
+             </div>
+             <div class="overlap-19">
+                 <div class="overlap-20"><div class="text-wrapper-37">-10%</div></div>
+                 <div class="overlap-21"><img class="ant-design-heart" src="img/ant-design-heart-filled-2.svg" /></div>
+                 <div class="overlap-18">
+                     <div class="text-wrapper-39">Add to cart</div>
+                     <img class="bi-cart-3" src="img/bi-cart-2.svg" />
+                 </div>
+                 <img class="image-7" src="img/image-8.png" />
+             </div>
+             <div class="overlap-22">
+                 <div class="overlap-23"><div class="text-wrapper-40">HOT</div></div>
+                 <div class="overlap-21"><img class="ant-design-heart" src="img/ant-design-heart-filled.svg" /></div>
+                 <div class="overlap-18">
+                     <div class="text-wrapper-39">Add to cart</div>
+                     <img class="bi-cart-3" src="img/bi-cart-3.svg" />
+                 </div>
+                 <img class="image-8" src="img/image-9.png" />
+             </div>
+             <div class="overlap-24">
+                 <div class="overlap-25"><div class="text-wrapper-41">2 Years Warranty</div></div>
+                 <div class="overlap-21"><img class="ant-design-heart" src="img/ant-design-heart-filled-3.svg" /></div>
+                 <div class="overlap-18">
+                     <div class="text-wrapper-42">Out of Stock</div>
+                     <img class="bi-cart-4" src="img/bi-cart-6.svg" />
+                 </div>
+                 <img class="image-9" src="img/image-10.png" />
+             </div>
+             <p class="text-wrapper-43">Sony BRAVIA XR Android Tv</p>
+             <p class="text-wrapper-44">Mi P1 Smart Android HD TV</p>
+             <div class="text-wrapper-45">Konka OLED Android Tv</div>
+             <div class="text-wrapper-46">TCL Roku Android Tv</div>
+             <div class="text-wrapper-47">$800.22</div>
+             <div class="text-wrapper-48">$700.00</div>
+             <div class="text-wrapper-49">$400.00</div>
+             <div class="text-wrapper-50">$800.00</div>
+             <div class="overlap-26">
+                 <div class="text-wrapper-51">$1000.66</div>
+                 <img class="line-9" src="img/line-9.svg" />
+             </div>
+             <div class="overlap-27">
+                 <div class="about-us">ABOUT US</div>
+                 <div class="information">INFORMATION</div>
+                 <div class="text-wrapper-52">ACCOUNT</div>
+                 <div class="store">STORE</div>
+                 <div class="text-wrapper-53">CONTACT US</div>
+                 <p class="text-wrapper-54">
+                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris aliquet lacinia nulla ut laoreet. Quisque
+                     ultricies et tortor nec laoreet.
+                 </p>
+                 <img class="frame-16" src="img/frame-4.svg" />
+                 <img class="frame-17" src="img/frame-16.svg" />
+                 <img class="frame-18" src="img/frame-2.svg" />
+                 <img class="frame-19" src="img/frame-5.svg" />
+                 <img class="frame-20" src="img/frame-6.svg" />
+                 <img class="frame-21" src="img/frame-20.svg" />
+                 <div class="text-wrapper-55">Copyright.2022.All Right Reserved</div>
+                 <div class="text-wrapper-56">About</div>
+                 <div class="text-wrapper-57">My Account</div>
+                 <div class="text-wrapper-58">Affiliate</div>
+                 <div class="text-wrapper-59">California, USA</div>
+                 <div class="element-2">+12012987481</div>
+                 <p class="if-you-have-any">
+                     <span class="text-wrapper-60">If you have any query, please contact us<br /></span>
+                     <span class="text-wrapper-61">needus24@gmail.com </span>
+                 </p>
+                 <div class="text-wrapper-62">Delivery information</div>
+                 <div class="text-wrapper-63">My Orders</div>
+                 <div class="text-wrapper-64">Discounts</div>
+                 <div class="text-wrapper-65">Privacy Policy</div>
+                 <div class="text-wrapper-66">Returns</div>
+                 <div class="text-wrapper-67">Sale</div>
+                 <div class="text-wrapper-68">Sales</div>
+                 <div class="text-wrapper-69">Shipping</div>
+                 <div class="text-wrapper-70">Contact</div>
+                 <div class="terms-conditions">Terms &amp; Conditions</div>
+                 <div class="text-wrapper-71">Wishlist</div>
+                 <div class="text-wrapper-72">All Collections</div>
+                 <div class="text-wrapper-73">EMI Payment</div>
+                 <div class="text-wrapper-74">Account Details</div>
+                 <img class="akar-icons-location" src="img/akar-icons-location.svg" />
+                 <img class="clarity-mobile-phone" src="img/clarity-mobile-phone-line.svg" />
+                 <div class="overlap-28">
+                     <img class="image-10" src="img/image-11.png" /> <img class="image-11" src="img/image-12.png" />
+                 </div>
+                 <img class="image-12" src="img/image-13.png" />
+                 <div class="overlap-29">
+                     <img class="image-13" src="img/image-14.png" /> <img class="image-14" src="img/image-15.png" />
+                 </div>
+                 <img class="line-10" src="img/line-11.svg" />
+             </div>
+             <div class="overlap-30">
+                 <div class="rectangle-7"></div>
+                 <img class="fluent-news" src="img/fluent-news-20-regular.svg" />
+                 <p class="text-wrapper-75">Join our newsletter and get offers</p>
+                 <div class="text-wrapper-76">Sign up our newsletter</div>
+                 <div class="rectangle-8"></div>
+                 <div class="rectangle-9"></div>
+                 <div class="text-wrapper-77">Enter your email</div>
+                 <div class="text-wrapper-78">SUBSCRIBE</div>
+             </div>
+             <div class="ellipse-8"></div>
+             <div class="ellipse-9"></div>
+             <div class="ellipse-10"></div>
+             <div class="ellipse-11"></div>
+         </div>
+     </div>
+ </body>
+ </html>
+ *@
