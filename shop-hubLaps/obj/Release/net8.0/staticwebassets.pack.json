@@ -449,6 +449,54 @@
       "PackagePath": "staticwebassets\\css_ChuDe\\_AdminLayout.css"
     },
     {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\fonts\\Lexend-VariableFont_wght.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Lexend-VariableFont_wght.ttf"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\fonts\\OFL.txt",
+      "PackagePath": "staticwebassets\\fonts\\OFL.txt"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\fonts\\README.txt",
+      "PackagePath": "staticwebassets\\fonts\\README.txt"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\fonts\\static\\Lexend-Black.ttf",
+      "PackagePath": "staticwebassets\\fonts\\static\\Lexend-Black.ttf"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\fonts\\static\\Lexend-Bold.ttf",
+      "PackagePath": "staticwebassets\\fonts\\static\\Lexend-Bold.ttf"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\fonts\\static\\Lexend-ExtraBold.ttf",
+      "PackagePath": "staticwebassets\\fonts\\static\\Lexend-ExtraBold.ttf"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\fonts\\static\\Lexend-ExtraLight.ttf",
+      "PackagePath": "staticwebassets\\fonts\\static\\Lexend-ExtraLight.ttf"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\fonts\\static\\Lexend-Light.ttf",
+      "PackagePath": "staticwebassets\\fonts\\static\\Lexend-Light.ttf"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\fonts\\static\\Lexend-Medium.ttf",
+      "PackagePath": "staticwebassets\\fonts\\static\\Lexend-Medium.ttf"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\fonts\\static\\Lexend-Regular.ttf",
+      "PackagePath": "staticwebassets\\fonts\\static\\Lexend-Regular.ttf"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\fonts\\static\\Lexend-SemiBold.ttf",
+      "PackagePath": "staticwebassets\\fonts\\static\\Lexend-SemiBold.ttf"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\fonts\\static\\Lexend-Thin.ttf",
+      "PackagePath": "staticwebassets\\fonts\\static\\Lexend-Thin.ttf"
+    },
+    {
       "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\images\\2-3.jpg",
       "PackagePath": "staticwebassets\\images\\2-3.jpg"
     },
@@ -509,6 +557,10 @@
       "PackagePath": "staticwebassets\\img\\avt.user.svg"
     },
     {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\img\\confirm-cart.png",
+      "PackagePath": "staticwebassets\\img\\confirm-cart.png"
+    },
+    {
       "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\img\\cute-white-cat-peeking-cartoon-vector-illustrationx9_42750-1594.avif",
       "PackagePath": "staticwebassets\\img\\cute-white-cat-peeking-cartoon-vector-illustrationx9_42750-1594.avif"
     },
@@ -539,6 +591,10 @@
     {
       "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\img\\huawei-logo.png",
       "PackagePath": "staticwebassets\\img\\huawei-logo.png"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\img\\hubLaps.png",
+      "PackagePath": "staticwebassets\\img\\hubLaps.png"
     },
     {
       "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\img\\hubLaps.svg",
@@ -587,6 +643,10 @@
     {
       "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\img\\vaio-logo.png",
       "PackagePath": "staticwebassets\\img\\vaio-logo.png"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\img\\vnpay.svg",
+      "PackagePath": "staticwebassets\\img\\vnpay.svg"
     },
     {
       "Id": "C:\\Users\\PC\\source\\repos\\DO-AN-2024\\Shop-hubLaps\\shop-hubLaps\\wwwroot\\js\\HomeIndexView.js",

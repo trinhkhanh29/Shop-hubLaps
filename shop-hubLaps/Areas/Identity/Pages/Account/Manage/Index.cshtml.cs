@@ -1,10 +1,11 @@
-﻿// Licensed to the .NET Foundation under one or more agreements. 
+﻿// Licensed to the .NET Foundation under one or more agreements.
 // The .NET Foundation licenses this file to you under the MIT license.
 #nullable disable
 
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -163,10 +164,17 @@ namespace shop_hubLaps.Areas.Identity.Pages.Account.Manage
                 return Page();
             }
 
-            // Khai báo biến `isUpdated` để theo dõi các thay đổi
+            // Regex to validate Vietnamese phone numbers
+            string phonePattern = "^(03|05|07|08|09)\\d{8}$";
+            if (!Regex.IsMatch(Input.PhoneNumber, phonePattern))
+            {
+                TempData["WarningMessage"] = "Số điện thoại không hợp lệ. Vui lòng nhập số bắt đầu với 03, 05, 07, 08, hoặc 09 và đủ 10 chữ số.";
+                return RedirectToPage();
+            }
+
+            // Track updates
             bool isUpdated = false;
 
-            // Check and update user properties with validation
             if (string.IsNullOrWhiteSpace(Input.FirstName))
             {
                 TempData["WarningMessage"] = "Họ tên không được để trống!";
@@ -206,7 +214,6 @@ namespace shop_hubLaps.Areas.Identity.Pages.Account.Manage
                 isUpdated = true;
             }
 
-            // Update phone number if it has changed
             var currentPhoneNumber = await _userManager.GetPhoneNumberAsync(user);
             if (Input.PhoneNumber != currentPhoneNumber)
             {
@@ -219,7 +226,6 @@ namespace shop_hubLaps.Areas.Identity.Pages.Account.Manage
                 isUpdated = true;
             }
 
-            // Attempt to update the user in the database if any changes were made
             if (isUpdated)
             {
                 var result = await _userManager.UpdateAsync(user);
@@ -234,7 +240,6 @@ namespace shop_hubLaps.Areas.Identity.Pages.Account.Manage
                     return Page();
                 }
 
-                // Refresh sign-in to ensure authentication state is updated
                 await _signInManager.RefreshSignInAsync(user);
                 TempData["StatusMessage"] = "Thông tin cá nhân đã được cập nhật thành công!";
             }

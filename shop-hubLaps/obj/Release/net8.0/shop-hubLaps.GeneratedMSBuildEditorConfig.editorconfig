@@ -210,6 +210,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxUaGFuaFRvYW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/PC/source/repos/DO-AN-2024/Shop-hubLaps/shop-hubLaps/Views/Cart/ThanhToanThanhCong.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxUaGFuaFRvYW5UaGFuaENvbmcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/source/repos/DO-AN-2024/Shop-hubLaps/shop-hubLaps/Views/Cart/ThanhToanThatBai.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxUaGFuaFRvYW5UaGF0QmFpLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/source/repos/DO-AN-2024/Shop-hubLaps/shop-hubLaps/Views/Checkout/PaymentCallbackVnpay.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hlY2tvdXRcUGF5bWVudENhbGxiYWNrVm5wYXkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/PC/source/repos/DO-AN-2024/Shop-hubLaps/shop-hubLaps/Views/ChuDe/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2h1RGVcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -344,6 +356,30 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/PC/source/repos/DO-AN-2024/Shop-hubLaps/shop-hubLaps/Views/NhuCau/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmh1Q2F1XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/source/repos/DO-AN-2024/Shop-hubLaps/shop-hubLaps/Views/QuangCao/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbmdDYW9cQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/source/repos/DO-AN-2024/Shop-hubLaps/shop-hubLaps/Views/QuangCao/CreateAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbmdDYW9cQ3JlYXRlQWRtaW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/source/repos/DO-AN-2024/Shop-hubLaps/shop-hubLaps/Views/QuangCao/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbmdDYW9cRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/source/repos/DO-AN-2024/Shop-hubLaps/shop-hubLaps/Views/QuangCao/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbmdDYW9cRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/source/repos/DO-AN-2024/Shop-hubLaps/shop-hubLaps/Views/QuangCao/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbmdDYW9cRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/source/repos/DO-AN-2024/Shop-hubLaps/shop-hubLaps/Views/QuangCao/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbmdDYW9cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/PC/source/repos/DO-AN-2024/Shop-hubLaps/shop-hubLaps/Views/RoleManagement/Create.cshtml]

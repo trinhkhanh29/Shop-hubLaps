@@ -1,0 +1,30 @@
+﻿@using shop_hubLaps.Models.Vnpay
+@model PaymentResponseModel
+
+@{
+    ViewBag.Title = "Kết quả Thanh Toán";
+}
+
+<div class="container mt-5">
+    <h2>Kết quả Thanh Toán</h2>
+
+    @if (Model.Success)
+    {
+        <div class="alert alert-success">
+            <strong>Thanh toán thành công!</strong>
+        </div>
+        <p>Mã đơn hàng: <strong>@Model.OrderId</strong></p>
+        <p>Mô tả: <strong>@Model.OrderDescription</strong></p>
+        <p>Mã giao dịch: <strong>@Model.TransactionId</strong></p>
+        <p>Phương thức thanh toán: <strong>@Model.PaymentMethod</strong></p>
+    }
+    else
+    {
+        <div class="alert alert-danger">
+            <strong>Thanh toán thất bại!</strong>
+        </div>
+        <p>Mã lỗi VNPAY: <strong>@Model.VnPayResponseCode</strong></p>
+    }
+
+    <a href="/" class="btn btn-primary mt-3">Quay lại trang chủ</a>
+</div>

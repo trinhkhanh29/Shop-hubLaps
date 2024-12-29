@@ -2,15 +2,20 @@
     ViewData["Title"] = "Đơn hàng đã được xác nhận!";
 }
 
-<div class="container mt-4">
-    <div class="alert alert-success">
-        <h4 class="alert-heading">Cảm ơn bạn!</h4>
-        <p>Đơn hàng của bạn đã được xác nhận và sẽ được giao đến bạn trong thời gian sớm nhất.</p>
-        <hr />
+<div class="container d-flex justify-content-center align-items-center">
+    <div class="text-center">
 
-        <p class="mb-0">
-            Bạn có thể theo dõi trạng thái đơn hàng trong phần
-            <a href="@Url.Page("/Identity/Account/Manage/Orders")">Quản lý đơn hàng</a>.
-        </p>
+        <!-- Thông báo thành công -->
+        <div class="alert alert-success shadow-sm rounded-lg">
+            <!-- Ảnh xác nhận đơn hàng -->
+            <img style="width:100px" src="~/img/confirm-cart.png" class="img-fluid mb-4" alt="Confirm Cart Image" />
+
+            <h4 class="alert-heading">Cảm ơn bạn!</h4>
+            <p>Đơn hàng của bạn đã được xác nhận và sẽ được giao đến bạn trong thời gian sớm nhất.</p>
+            <hr style="border-width: 1px;border-color: #000000;border-style: solid;" />
+            <a href="/Identity/Account/Manage" class="mb-0">
+                Bạn có thể theo dõi trạng thái đơn hàng trong phần lịch sử mua hàng
+            </a>
+        </div>
     </div>
 </div>

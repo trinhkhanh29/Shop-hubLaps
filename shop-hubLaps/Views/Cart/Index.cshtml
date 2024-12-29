@@ -8,7 +8,7 @@
 }
 
 <div class="container mt-4">
-    <h2 class="mb-4 text-center text-primary">Giỏ hàng</h2>
+    <h2 class="mb-4 text-center fw-bold" style="color:#002a95">Giỏ hàng</h2>
 
     @if (Model == null || !Model.ChiTietDonHangs.Any())
     {
@@ -27,8 +27,8 @@
     else
     {
         <div class="table-responsive">
-            <table class="table table-bordered">
-                <thead class="table-dark">
+            <table class="table table-striped table-bordered align-middle">
+                <thead>
                     <tr>
                         <th>Sản phẩm</th>
                         <th>Đơn giá</th>
@@ -86,9 +86,9 @@
                 </tbody>
             </table>
         </div>
-        <h4 class="text-end text-success">Tổng cộng: <strong>@Model.gia.ToString("C0", new System.Globalization.CultureInfo("vi-VN"))</strong></h4>
+        <h4 class="text-end" style="color:red">Tổng cộng: <strong>@Model.gia.ToString("C0", new System.Globalization.CultureInfo("vi-VN"))</strong></h4>
         <hr />
-        <h5 class="text-primary">Thông tin khách hàng</h5>
+        <h3 class="fw-bold" style="color:#002a95">Thông tin khách hàng</h3>
         <form method="post" action="@Url.Action("XacNhanDonHang", "Cart")">
             @{
                 var user = UserManager.GetUserAsync(User).Result;
@@ -96,31 +96,36 @@
             <div class="row mb-3">
                 <div class="col-md-6">
                     <label class="form-label">FirstName</label>
-                    <input type="text" name="firstname" class="form-control rounded-pill" value="@user?.FirstName" required />
+                    <input type="text" name="firstname" class="form-control rounded-3" value="@user?.FirstName" required />
                 </div>
                 <div class="col-md-6">
                     <label class="form-label">LastName</label>
-                    <input type="text" name="lastname" class="form-control rounded-pill" value="@user?.LastName" required />
+                    <input type="text" name="lastname" class="form-control rounded-3" value="@user?.LastName" required />
                 </div>
                 <div class="col-md-6">
                     <label class="form-label">Email</label>
-                    <input type="text" name="email" class="form-control rounded-pill" value="@user?.UserName" required />
+                    <input type="text" name="email" class="form-control rounded-3" value="@user?.UserName" required />
                 </div>
                 <div class="col-md-6">
                     <label class="form-label">Số điện thoại</label>
-                    <input type="tel" name="sodienthoai" class="form-control rounded-pill" value="@user?.PhoneNumber" required />
+                    <input type="tel" name="sodienthoai" class="form-control rounded-3" value="@user?.PhoneNumber" required />
                 </div>
             </div>
             <div class="row mb-3">
                 <div class="col-12">
                     <label class="form-label">Địa chỉ</label>
-                    <input type="text" name="diachi" class="form-control rounded-pill" value="@user?.DiaChi" required />
+                    <input type="text" name="diachi" class="form-control rounded-3" value="@user?.DiaChi" required />
                 </div>
             </div>
             <div>
 
             </div>
-            <button type="submit" class="btn btn-success">Đặt hàng</button>
+            <button type="submit" class="btn btn-success" style="background-color: #b30000; color: white; font-size: 16px; padding: 12px 24px; border-radius: 8px; transition: background-color 0.3s;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 7L5.5 5.5M15 7L16.5 5.5M5.5 16.5L7 15M11 5L11 3M5 11L3 11M17.1603 16.9887L21.0519 15.4659C21.4758 15.3001 21.4756 14.7003 21.0517 14.5346L11.6992 10.8799C11.2933 10.7213 10.8929 11.1217 11.0515 11.5276L14.7062 20.8801C14.8719 21.304 15.4717 21.3042 15.6375 20.8803L17.1603 16.9887Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style=""></path>
+                </svg>
+                Đặt hàng
+            </button>
         </form>
 
 

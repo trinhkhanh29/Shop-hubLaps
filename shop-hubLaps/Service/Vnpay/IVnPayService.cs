@@ -8,4 +8,5 @@ namespace shop_hubLaps.Service.Vnpay
         PaymentResponseModel PaymentExecute(IQueryCollection collections);
 
     }
+
 }

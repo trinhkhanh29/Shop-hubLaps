@@ -12,6 +12,7 @@ using Stripe;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace shop_hubLaps.Controllers
@@ -311,7 +312,7 @@ namespace shop_hubLaps.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> ThanhToanConfirm(string paymentMethod)
+        public async Task<IActionResult> ThanhToanConfirm(string paymentMethod, string Name, decimal Amount, string OrderDescription, string OrderType, string stripeToken, decimal amount, DateTime CreatedDate)
         {
             try
             {
@@ -319,136 +320,195 @@ namespace shop_hubLaps.Controllers
                 if (donHang == null)
                 {
                     TempData["ErrorMessage"] = "Không tìm thấy giỏ hàng.";
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Index", "Cart");
                 }
 
                 donHang.ngaydat = DateTime.Now;
+                donHang.PhuongThucThanhToan = paymentMethod;
 
-                if (paymentMethod == "COD")
+                // Update order details
+                _context.DonHangs.Update(donHang);
+                await _context.SaveChangesAsync();
+
+                // Ensure valid payment method
+                if (string.IsNullOrEmpty(paymentMethod))
                 {
-                    donHang.thanhtoan = false;
-                    donHang.tinhtrang = "PROCESSING";
+                    TempData["ErrorMessage"] = "Phương thức thanh toán không hợp lệ.";
+                    return RedirectToAction("Index", "Cart");
+                }
 
-                    foreach (var chiTiet in donHang.ChiTietDonHangs)
+                // Process payment method
+                switch (paymentMethod)
+                {
+                    case "COD":
+                        donHang.thanhtoan = false;
+                        donHang.tinhtrang = "PROCESSING";
+                        break;
+                    case "Vnpay":
+                        donHang.thanhtoan = false;
+                        donHang.tinhtrang = "PENDING";
+                        break;
+                    case "Stripe":
+                        donHang.thanhtoan = false;
+                        donHang.tinhtrang = "PENDING";
+                        break;
+                    default:
+                        TempData["ErrorMessage"] = "Phương thức thanh toán không hợp lệ.";
+                        return RedirectToAction("Index", "Cart");
+                }
+
+               
+
+                // Handle inventory update, ensuring no null value for soluongton
+                foreach (var chiTiet in donHang.ChiTietDonHangs)
+                {
+                    var laptop = await _context.Laptops.FirstOrDefaultAsync(l => l.malaptop == chiTiet.malaptop);
+                    if (laptop != null)
                     {
-                        var laptop = await _context.Laptops.FindAsync(chiTiet.malaptop);
-                        if (laptop != null && laptop.soluongton >= chiTiet.soluong)
+                        // Ensure soluongton is not null and update the inventory
+                        if (laptop.soluongton.HasValue)
                         {
-                            laptop.soluongton -= chiTiet.soluong;
+                            laptop.soluongton -= chiTiet.soluong; // Decrease inventory
+                            _context.Laptops.Update(laptop);
                         }
                         else
                         {
-                            TempData["ErrorMessage"] = $"Sản phẩm {laptop.tenlaptop} không đủ số lượng trong kho.";
+                            _logger.LogError($"Số lượng tồn kho cho laptop {laptop.malaptop} không hợp lệ.");
+                            TempData["ErrorMessage"] = $"Lỗi với tồn kho của laptop {laptop.malaptop}.";
                             return RedirectToAction("Index", "Cart");
                         }
                     }
-
-                    _context.DonHangs.Update(donHang);
-                    await _context.SaveChangesAsync();
-                    TempData["SuccessMessage"] = "Đơn hàng đã được xác nhận!";
-                    return RedirectToAction("OrderConfirmed");
                 }
-                else if (paymentMethod == "Momo")
+
+                await _context.SaveChangesAsync();
+
+                // Redirect based on payment method
+                if (paymentMethod == "Vnpay")
                 {
-                    if (donHang.gia <= 0)
+                    return RedirectToAction("CreatePaymentUrlVnpay", "Cart", new
                     {
-                        TempData["ErrorMessage"] = "Số tiền phải lớn hơn 0.";
-                        return RedirectToAction("Index");
-                    }
+                        orderId = donHang.madon,
+                        Name,
+                        Amount = Amount > 0 ? Amount : 0,  // Ensure Amount is not zero or negative
+                        OrderDescription = OrderDescription ?? string.Empty, // Use empty string if null
+                        OrderType = OrderType ?? string.Empty, // Use empty string if null
+                        CreatedDate = CreatedDate == default ? DateTime.Now : CreatedDate // Use current date if CreatedDate is default
+                    });
+                }
 
-                    var orderInfo = new OrderInfoModel
+                if (paymentMethod == "Stripe" && !string.IsNullOrEmpty(stripeToken))
+                {
+                    try
                     {
-                        Amount = (double)donHang.gia,
-                        OrderInfo = $"Thanh toán Momo cho đơn hàng #{donHang.madon}",
-                        FullName = User.Identity?.Name ?? "Unknown User"
-                    };
+                        // Initialize Stripe API with your secret key
+                        StripeConfiguration.ApiKey = "sk_test_51Qai30ALvOyqlJWEv04kz1Anob3IWy11u26wGQYtoWRmS1GbNEpXR6b2S7rRoTgtI9AmQC2khe51yHJQ6GFXIfqB00m2RVYN40";
 
-                    var response = await _momoService.CreatePaymentAsync(orderInfo);
+                        var amountInCents = (long)(amount * 100); // Convert amount to cents (Stripe requires cents)
 
-                    foreach (var chiTiet in donHang.ChiTietDonHangs)
-                    {
-                        var laptop = await _context.Laptops.FindAsync(chiTiet.malaptop);
-                        if (laptop != null && laptop.soluongton >= chiTiet.soluong)
+                        var chargeOptions = new ChargeCreateOptions
                         {
-                            laptop.soluongton -= chiTiet.soluong;
+                            Amount = amountInCents,
+                            Currency = "vnd",
+                            Source = stripeToken,
+                            Description = "Thanh toán đơn hàng"
+                        };
+
+                        var chargeService = new ChargeService();
+                        var charge = await chargeService.CreateAsync(chargeOptions);
+
+                        if (charge.Status == "succeeded")
+                        {
+                            donHang.tinhtrang = "PAID";
+                            donHang.thanhtoan = true;
+                            _context.DonHangs.Update(donHang);
+                            await _context.SaveChangesAsync();
+
+                            TempData["SuccessMessage"] = "Thanh toán thành công qua Stripe!";
+                            return RedirectToAction("ThanhToanThanhCong");
                         }
                         else
                         {
-                            TempData["ErrorMessage"] = $"Sản phẩm {laptop.tenlaptop} không đủ số lượng trong kho.";
-                            return RedirectToAction("Index", "Cart");
+                            TempData["ErrorMessage"] = "Thanh toán không thành công qua Stripe. Vui lòng thử lại!";
+                            return RedirectToAction("ThanhToanThatBai");
                         }
                     }
+                    catch (Exception ex)
+                    {
+                        _logger.LogError(ex, "Lỗi trong quá trình thanh toán với Stripe");
+                        TempData["ErrorMessage"] = "Có lỗi xảy ra trong quá trình thanh toán qua Stripe.";
+                        return RedirectToAction("ThanhToanThatBai");
+                    }
+                }
 
-                    if (response != null && response.ErrorCode == 0 && !string.IsNullOrEmpty(response.PayUrl))
-                    {
-                        donHang.tinhtrang = "PENDING_PAYMENT";
-                        _context.DonHangs.Update(donHang);
-                        await _context.SaveChangesAsync();
-                        return Redirect(response.PayUrl);
-                    }
-                    else
-                    {
-                        TempData["ErrorMessage"] = $"Thanh toán qua MoMo thất bại: {response?.Message ?? "Không nhận được phản hồi từ MoMo"}";
-                        return RedirectToAction("Index");
-                    }
-                }
-                else
-                {
-                    TempData["ErrorMessage"] = "Phương thức thanh toán không hợp lệ!";
-                    return RedirectToAction("Index");
-                }
+                return RedirectToAction("OrderConfirmed");
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Lỗi trong quá trình xác nhận thanh toán");
-                TempData["ErrorMessage"] = $"Có lỗi xảy ra trong quá trình thanh toán: {ex.Message}";
-                return RedirectToAction("Index");
+                _logger.LogError(ex, "Lỗi trong quá trình xử lý thanh toán.");
+                TempData["ErrorMessage"] = $"Lỗi thanh toán: {ex.Message}";
+                return RedirectToAction("Index", "Cart");
             }
         }
 
-
-
-        private async Task<DonHang> GetUserCartAsync()
-            {
-                var user = await _userManager.GetUserAsync(User);
-                if (user == null) return null;
-
-                var donHang = await _context.DonHangs
-                    .Include(d => d.ChiTietDonHangs)
-                    .ThenInclude(ct => ct.Laptop)
-                    .FirstOrDefaultAsync(d => d.makh == user.Id && d.tinhtrang == "CART");
-
-                return donHang;
-            }
-            
-            public IActionResult OrderConfirmed()
+        public IActionResult OrderConfirmed()
             {
                 return View();
             }
 
-            [HttpPost]
-            public async Task<IActionResult> CreatePaymentUrl(OrderInfoModel model)
+        [HttpPost]
+        public async Task<IActionResult> CreatePaymentUrl(OrderInfoModel model)
             {
                 var response = await _momoService.CreatePaymentAsync(model);
                 return Redirect(response.PayUrl);
             }
 
-        [HttpGet]
+
         public IActionResult PaymentCallback()
         {
             var paymentResult = _vnPayService.PaymentExecute(HttpContext.Request.Query);
             if (paymentResult.Success)
             {
-                // Xử lý đơn hàng thành công
+                var donHang = _context.DonHangs.FirstOrDefault(d => d.madon.ToString() == paymentResult.OrderId);
+
+                if (donHang == null)
+                {
+                    TempData["ErrorMessage"] = "Đơn hàng không hợp lệ.";
+                    return RedirectToAction("Index", "Cart");
+                }
+
+                // Cập nhật trạng thái đơn hàng thành PAID
+                donHang.tinhtrang = "PAID";
+                donHang.thanhtoan = true;
+                _context.DonHangs.Update(donHang);
+                _context.SaveChanges();
+
+                // Create a new VnpayModel to store payment information
+                var vnpayTransaction = new VnpayModel
+                {
+                    OrderDescription = paymentResult.OrderDescription,
+                    TransactionId = paymentResult.TransactionId,
+                    OrderId = paymentResult.OrderId,
+                    PaymentMethod = paymentResult.PaymentMethod,
+                    PaymentId = paymentResult.PaymentId,
+                    CreatedDate = DateTime.Now,
+                    DonHang = donHang
+                };
+
+                // Save VnpayTransaction details to database
+                _context.VnpayModels.Add(vnpayTransaction);
+                _context.SaveChanges();
+
                 TempData["SuccessMessage"] = "Thanh toán thành công!";
                 return RedirectToAction("OrderConfirmed");
             }
             else
             {
                 TempData["ErrorMessage"] = "Thanh toán không thành công.";
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Cart");
             }
         }
+
+
 
         public IActionResult CreatePaymentUrlVnpay(PaymentInformationModel model)
         {
@@ -456,6 +516,7 @@ namespace shop_hubLaps.Controllers
 
             return Redirect(url);
         }
+
         [HttpPost]
         public async Task<IActionResult> StripePayment(string stripeToken, decimal amount)
         {
@@ -516,7 +577,6 @@ namespace shop_hubLaps.Controllers
             }
         }
 
-
         public IActionResult ThanhToanThanhCong()
         {
             return View();
@@ -527,6 +587,17 @@ namespace shop_hubLaps.Controllers
             return View();
         }
 
+        private async Task<DonHang?> GetUserCartAsync()
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userId))
+                return null;
+
+            // Find an existing cart for the current user
+            return await _context.DonHangs
+                .Include(d => d.ChiTietDonHangs) // Include related data
+                .FirstOrDefaultAsync(d => d.makh == userId && d.tinhtrang == "CART"); // Ensure correct status
+        }
 
     }
 }

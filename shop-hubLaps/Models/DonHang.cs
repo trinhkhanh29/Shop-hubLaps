@@ -33,6 +33,9 @@ namespace shop_hubLaps.Models
         [StringLength(10)]
         public string tinhtrang { get; set; }
 
+        [StringLength(50)]
+        public string? PhuongThucThanhToan { get; set; }
+
         [JsonPropertyName("donhang")]
         public virtual ICollection<ChiTietDonHang> ChiTietDonHangs { get; set; }
        
