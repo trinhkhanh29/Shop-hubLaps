@@ -576,3 +576,9 @@ C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\N
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\RestSharp.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\Newtonsoft.Json.Schema.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\Stripe.net.dll
+C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\MailKit.dll
+C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\MimeKit.dll
+C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\SendGrid.dll
+C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\StarkbankEcdsa.dll
+C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll

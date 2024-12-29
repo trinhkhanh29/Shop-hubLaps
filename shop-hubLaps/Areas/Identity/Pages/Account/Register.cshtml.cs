@@ -8,6 +8,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
+using System.Security.Claims;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading;
@@ -22,6 +23,7 @@ using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
 using shop_hubLaps.Areas.Identity.Data;
+using shop_hubLaps.Services;
 
 
 namespace shop_hubLaps.Areas.Identity.Pages.Account
@@ -35,12 +37,14 @@ namespace shop_hubLaps.Areas.Identity.Pages.Account
         private readonly IUserEmailStore<SampleUser> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private readonly EmailService _emailService;
 
         public RegisterModel(
             UserManager<SampleUser> userManager,
             IUserStore<SampleUser> userStore,
             SignInManager<SampleUser> signInManager,
             ILogger<RegisterModel> logger,
+            EmailService emailService,
             IEmailSender emailSender)
         {
             _userManager = userManager;
@@ -48,6 +52,7 @@ namespace shop_hubLaps.Areas.Identity.Pages.Account
             _emailStore = GetEmailStore();
             _signInManager = signInManager;
             _logger = logger;
+            _emailService = emailService;
             _emailSender = emailSender;
         }
 
@@ -126,6 +131,12 @@ namespace shop_hubLaps.Areas.Identity.Pages.Account
 
                     // Thêm vai trò mặc định 'User'
                     var roleResult = await _userManager.AddToRoleAsync(user, "User");
+
+
+                    // Send the password via email
+                    await _emailService.SendEmailAsync(Input.Email, "Your Registration Details", $"Your password is: {Input.Password}");
+                    
+                   
                     if (!roleResult.Succeeded)
                     {
                         foreach (var error in roleResult.Errors)
@@ -134,9 +145,13 @@ namespace shop_hubLaps.Areas.Identity.Pages.Account
                         }
                         return Page(); // Return to the page if role assignment fails
                     }
+                    // Tạo mã xác nhận email
                     var userId = await _userManager.GetUserIdAsync(user);
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
+                    
+                    
+                    // Tạo liên kết xác nhận email
                     var callbackUrl = Url.Page(
                         "/Account/ConfirmEmail",
                         pageHandler: null,
@@ -194,6 +209,86 @@ namespace shop_hubLaps.Areas.Identity.Pages.Account
                 return false;
             }
         }
+
+        public IActionResult OnPostExternalLogin(string provider, string returnUrl = null)
+        {
+            // Configure the redirect URL to the ExternalLoginCallback method.
+            var redirectUrl = Url.Page("./ExternalLoginCallback", new { ReturnUrl = returnUrl });
+            var properties = _signInManager.ConfigureExternalAuthenticationProperties(provider, redirectUrl);
+
+            // Challenge the external provider (Microsoft in this case)
+            return new ChallengeResult(provider, properties);
+        }
+
+        public async Task<IActionResult> OnGetExternalLoginCallbackAsync(string returnUrl = null, string remoteError = null)
+        {
+            returnUrl ??= Url.Content("~/");
+
+            // If there's a remote error, return to the login page
+            if (remoteError != null)
+            {
+                ModelState.AddModelError(string.Empty, $"External login error: {remoteError}");
+                return RedirectToPage("./Login");
+            }
+
+            // Retrieve external login information
+            var info = await _signInManager.GetExternalLoginInfoAsync();
+            if (info == null)
+            {
+                ModelState.AddModelError(string.Empty, "External login information not received.");
+                return RedirectToPage("./Login");
+            }
+
+            // Get the email claim from the external provider
+            var email = info.Principal.FindFirstValue(ClaimTypes.Email);
+            if (email != null)
+            {
+                var user = await _userManager.FindByEmailAsync(email);
+                if (user == null)
+                {
+                    // If the user doesn't exist, create a new user
+                    user = new SampleUser
+                    {
+                        UserName = email,
+                        Email = email,
+                        FirstName = info.Principal.FindFirstValue(ClaimTypes.GivenName) ?? "DefaultFirstName",
+                        LastName = info.Principal.FindFirstValue(ClaimTypes.Surname) ?? "DefaultLastName"
+                    };
+
+                    var createResult = await _userManager.CreateAsync(user);
+                    if (createResult.Succeeded)
+                    {
+                        // Add external login info
+                        await _userManager.AddLoginAsync(user, info);
+
+                        // Sign the user in
+                        await _signInManager.SignInAsync(user, isPersistent: false);
+                        return LocalRedirect(returnUrl); // This will redirect the user to the return URL after successful login
+                    }
+                    else
+                    {
+                        // Handle errors during user creation
+                        foreach (var error in createResult.Errors)
+                        {
+                            ModelState.AddModelError(string.Empty, error.Description);
+                        }
+                        return Page();
+                    }
+                }
+                else
+                {
+                    // If the user exists, sign them in
+                    await _signInManager.SignInAsync(user, isPersistent: false);
+                    return LocalRedirect(returnUrl); // This will redirect the user to the return URL after successful login
+                }
+            }
+
+            // Handle the case where the email claim is not found
+            ModelState.AddModelError(string.Empty, "Email claim not received from external provider.");
+            return RedirectToPage("./Login");
+        }
+
+
 
 
         private SampleUser CreateUser()

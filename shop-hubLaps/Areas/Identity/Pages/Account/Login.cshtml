@@ -40,7 +40,10 @@
 
     <!-- Đăng nhập bằng Microsoft -->
     <div class="d-grid mt-3">
-        <button type="button" class="btn btn-outline-dark btn-lg" onclick="location.href='@Url.Page("/Account/ExternalLogin", new { provider = "Microsoft", returnUrl = Model.ReturnUrl })'">
+        <button type="submit" formaction="@Url.Page("/Account/ExternalLogin", new { provider = "Microsoft", returnUrl = Model.ReturnUrl })"
+                class="btn btn-outline-dark btn-lg">
+
+
             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 48 48">
                 <path fill="#F25022" d="M6,6h14v14H6V6z"></path>
                 <path fill="#7FBA00" d="M20,6h14v14H20V6z"></path>

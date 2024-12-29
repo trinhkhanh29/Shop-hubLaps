@@ -33,11 +33,15 @@ namespace shop_hubLaps.Controllers
 
         private readonly ILogger<CartController> _logger;
 
+        private readonly ICartService _cartService;
+
         // Constructor với UserManager và IUserService
-        public CartController(DataModel context, IUserService userService, IMomoService momoService, IVnPayService vnPayService,
+        public CartController(DataModel context, IUserService userService, ICartService cartService, IMomoService momoService, IVnPayService vnPayService,
                               UserManager<SampleUser> userManager, ILogger<CartController> logger)
         {
             _context = context;
+
+            _cartService = cartService;
 
             _userService = userService;
 
@@ -51,6 +55,7 @@ namespace shop_hubLaps.Controllers
         }
 
         // Lấy giỏ hàng của người dùng
+        [HttpGet("Cart/Index")]
         public async Task<IActionResult> Index(string returnUrl = null)
         {
             if (!User.Identity.IsAuthenticated)
@@ -86,6 +91,20 @@ namespace shop_hubLaps.Controllers
 
             // Trả về View với giỏ hàng
             return View(donHang);
+        }
+
+        [HttpGet("Cart/UpdateCart")]
+        public IActionResult UpdateCart(int productId, int quantity)
+        {
+            // Use CartService to update the cart
+            _cartService.UpdateCart(productId, quantity);  // Update the cart
+
+            // Get the updated cart item count
+            var userId = User.Identity.Name;  // Assuming user is logged in
+            var cartItems = _cartService.GetCartItems(userId);  // Get the user's cart items
+            var cartItemCount = cartItems.Sum(item => item.soluong);  // Get the total quantity of items in the cart
+
+            return Json(new { cartItemCount });  // Return as JSON
         }
 
         [Route("Cart/Add/{malaptop}")]

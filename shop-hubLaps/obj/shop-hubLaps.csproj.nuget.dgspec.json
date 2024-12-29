@@ -74,6 +74,10 @@
               "target": "Package",
               "version": "[4.7.0, )"
             },
+            "MailKit": {
+              "target": "Package",
+              "version": "[4.9.0, )"
+            },
             "Microsoft.AspNetCore.Authentication.Facebook": {
               "target": "Package",
               "version": "[8.0.10, )"
@@ -145,6 +149,10 @@
             "RestSharp": {
               "target": "Package",
               "version": "[107.3.0, )"
+            },
+            "SendGrid": {
+              "target": "Package",
+              "version": "[9.29.3, )"
             },
             "Serilog": {
               "target": "Package",
