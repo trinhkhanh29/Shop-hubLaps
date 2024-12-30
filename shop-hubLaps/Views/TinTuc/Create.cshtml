@@ -5,20 +5,6 @@
 
 <h1 class="text-start" style="font-family: Lexend; font-weight: 500; font-size: 30px;">@ViewData["Title"]</h1>
 
-<!-- Display success or error message -->
-@if (TempData["SuccessMessage"] != null)
-{
-    <div class="alert alert-success">
-        @TempData["SuccessMessage"]
-    </div>
-}
-@if (TempData["ErrorMessage"] != null)
-{
-    <div class="alert alert-danger">
-        @TempData["ErrorMessage"]
-    </div>
-}
-
 <form asp-action="Create" method="post" enctype="multipart/form-data">
     <div class="form-group">
         <label for="tieude">Title</label>
@@ -58,37 +44,33 @@
     </div>
 
     <div class="form-group">
-        <label for="luotxem">Views</label>
-        <input type="number" class="form-control" id="luotxem" name="luotxem" value="@Model.luotxem" />
-    </div>
-
-    <div class="form-group">
-        <label for="ngaycapnhat">Updated Date</label>
-        <input type="datetime-local" class="form-control" id="ngaycapnhat" name="ngaycapnhat" value="@Model.ngaycapnhat?.ToString("yyyy-MM-ddTHH:mm:ss")" />
-    </div>
-
-    <div class="form-group">
         <label for="xuatban">Publish</label>
-        <input type="checkbox" class="form-check-input" id="xuatban" name="xuatban" @(Model.xuatban ?? false ? "checked" : "") />
+        <!-- No need for a checkbox since you always want to set it to true -->
     </div>
 
-    <div class="form-group">
-        <label for="machude">Category</label>
-        <select class="form-control" id="machude" name="machude" required>
-            <option value="">Select a Category</option>
-            @foreach (var category in (List<ChuDe>)ViewData["ChuDeList"])
+
+<div class="form-group">
+    <label for="machude">Category</label>
+    <select class="form-control" id="machude" name="machude" required>
+        <option value="">Select a Category</option>
+        @if (ViewData["ChuDeList"] is List<ChuDe> chuDeList)
+        {
+            foreach (var category in chuDeList)
             {
-                var selected = category.machude == Model.machude ? "selected" : "";
-                <option value="@category.machude" selected="@selected">
+                <option value="@category.machude" selected="@(category.machude == Model.machude ? "selected" : "")">
                     @category.tenchude
                 </option>
             }
-        </select>
-        @if (ViewData.ModelState["machude"]?.Errors.Count > 0)
-        {
-            <span class="text-danger">@ViewData.ModelState["machude"]?.Errors[0]?.ErrorMessage</span>
         }
-    </div>
+    </select>
+
+    @if (ViewData.ModelState["machude"]?.Errors.Count > 0)
+    {
+        <span class="text-danger">@ViewData.ModelState["machude"]?.Errors[0]?.ErrorMessage</span>
+    }
+</div>
+
+
 
     <button type="submit" class="btn btn-primary">Create</button>
 </form>

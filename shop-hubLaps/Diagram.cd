@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access">
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Alphabetical">
   <Class Name="shop_hubLaps.Models.BinhLuan">
     <Position X="5" Y="5.75" Width="1.5" />
     <TypeIdentifier>
@@ -10,7 +10,7 @@
   <Class Name="shop_hubLaps.Models.ChiTietDonHang">
     <Position X="5.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>CAAAAAAAAAAAAAAAAAgQAAAAAAAAAAAIgAAAAAAAAAQ=</HashCode>
+      <HashCode>CAAAAAAAAEAAAAAAAAgQAAAAAAAAAAAIgAAAAAAAAAQ=</HashCode>
       <FileName>Models\ChiTietDonHang.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -29,16 +29,16 @@
     </TypeIdentifier>
   </Class>
   <Class Name="shop_hubLaps.Models.DonHang">
-    <Position X="3.25" Y="5.75" Width="1.5" />
+    <Position X="3.25" Y="6" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAwAAAIAAAAAAAAAABAAQAAAgAAAEQAAEAA=</HashCode>
+      <HashCode>AAAAAAAAAEwAAAIAABAAAAAAABAAQAAAgAAAEAAAEAA=</HashCode>
       <FileName>Models\DonHang.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="shop_hubLaps.Models.Laptop">
     <Position X="3.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQCAAMIAAAAAAKIAACAAAIAgAAAAAAAIIkAAAAQIAQ=</HashCode>
+      <HashCode>AAQCAAMIAkAAAAKIAACAAAIAgAAAAAAAMIkAAAAQIAQ=</HashCode>
       <FileName>Models\Laptop.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -107,14 +107,14 @@
   <Class Name="shop_hubLaps.Models.DataModel" Collapsed="true">
     <Position X="12.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAECgAAAABIEKAAAAAAAEAAAAAAAAAEAAAAgQAA=</HashCode>
+      <HashCode>AAAAAAECgAAAABIEKABAAAAAEAAAAAAAAAEAAAAgQAA=</HashCode>
       <FileName>Models\DataModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="shop_hubLaps.Areas.Identity.Data.DBContextSample" Collapsed="true">
     <Position X="12.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAAIAAAAAAAAAAAA=</HashCode>
       <FileName>Areas\Identity\Data\DBContextSample.cs</FileName>
     </TypeIdentifier>
   </Class>

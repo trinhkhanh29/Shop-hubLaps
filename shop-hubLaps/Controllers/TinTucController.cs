@@ -6,9 +6,12 @@ using Microsoft.Extensions.Logging;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Microsoft.AspNetCore.Authorization;
 
 namespace shop_hubLaps.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class TinTucController : Controller
     {
         private readonly DataModel _context;
@@ -51,74 +54,93 @@ namespace shop_hubLaps.Controllers
         /************************************/
 
         // GET: TinTuc/Create
+        // GET: TinTuc/Create
         public IActionResult Create()
         {
             var categories = _context.ChuDes.ToList();
             if (categories == null || categories.Count == 0)
             {
-                // Handle the case where no categories exist in the database.
-                ViewData["ChuDeList"] = new List<ChuDe>();
+                // If no categories found, set an empty list in ViewData
+                TempData["ErrorMessage"] = "No categories found, please add categories first.";
+                ViewData["ChuDeList"] = new List<ChuDe>();  // Return an empty list
             }
             else
             {
+                // Pass categories to the view
                 ViewData["ChuDeList"] = categories;
             }
 
-            return View(new TinTuc());
+            return View(new TinTuc("Default Title", "default-slug", 1, new ChuDe()));
         }
 
-        // POST: TinTuc/Create
-        // POST: TinTuc/Create
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("matin,tieude,hinhnen,tomtat,slug,noidung,luotxem,ngaycapnhat,xuatban,machude")] TinTuc tinTuc, IFormFile? hinhnen)
+        public async Task<IActionResult> Create([Bind("matin,tieude,hinhnen,tomtat,slug,noidung,ngaycapnhat,xuatban,machude")] TinTuc tinTuc, IFormFile? hinhnen)
         {
-            // Check if model state is valid
+            _logger.LogInformation("Initial Model: " + JsonConvert.SerializeObject(tinTuc));
+
+            // Set default values if not provided
+            if (string.IsNullOrEmpty(tinTuc.tieude)) tinTuc.tieude = "Default Title";
+            if (string.IsNullOrEmpty(tinTuc.slug)) tinTuc.slug = "default-slug";
+            if (string.IsNullOrEmpty(tinTuc.noidung)) tinTuc.noidung = "Default content";
+            if (tinTuc.ngaycapnhat == null) tinTuc.ngaycapnhat = DateTime.Now;
+
+            // Check and assign a default category if no category is selected
+            if (tinTuc.machude == 0)
+            {
+                tinTuc.machude = 1; // Default category (could be a valid ID)
+            }
+
+            // Set 'xuatban' to true as it's always being published
+            tinTuc.xuatban = true;
+
+            _logger.LogInformation("Model after applying default values: " + JsonConvert.SerializeObject(tinTuc));
+
             if (ModelState.IsValid)
             {
                 try
                 {
-                    // Process the image upload if a file is provided
                     if (hinhnen != null && hinhnen.Length > 0)
                     {
-                        var filePath = Path.Combine(_imageFolder, hinhnen.FileName);  // Define file path
+                        var filePath = Path.Combine(_imageFolder, hinhnen.FileName);
                         using (var stream = new FileStream(filePath, FileMode.Create))
                         {
-                            await hinhnen.CopyToAsync(stream);  // Save the file to the server
+                            await hinhnen.CopyToAsync(stream);
                         }
-                        tinTuc.hinhnen = "/Content/images/" + hinhnen.FileName;  // Set the image path in the model
+                        tinTuc.hinhnen = "/Content/images/" + hinhnen.FileName;
                     }
 
                     // Add the news article to the database
                     _context.Add(tinTuc);
-                    await _context.SaveChangesAsync();  // Save changes to the database
+                    await _context.SaveChangesAsync();
 
-                    // Set a success message and redirect to the Index page
                     TempData["SuccessMessage"] = "The news article was created successfully!";
                     return RedirectToAction("Index", "TinTuc");
                 }
                 catch (Exception ex)
                 {
-                    // Log error and show an error message
                     _logger.LogError(ex, "Error while creating news article");
                     TempData["ErrorMessage"] = "An error occurred while creating the news article.";
                 }
             }
             else
             {
-                // If the model state is not valid, return the view with the existing model and validation errors
-                TempData["ErrorMessage"] = "Please ensure all required fields are filled out correctly.";
+                // Log specific errors for invalid fields
+                foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    _logger.LogError("ModelState Error: " + error.ErrorMessage);
+                }
+
+                // Return feedback on invalid fields
+                string missingFields = string.Join(", ", ModelState.Keys.Where(key => ModelState[key]?.Errors?.Any() ?? false));
+                TempData["ErrorMessage"] = "The following fields are required or invalid: " + missingFields;
             }
 
-            // Return the same view with the model to show validation errors
-            ViewData["ChuDeList"] = _context.ChuDes.ToList();  // Load categories again
-            return View(tinTuc);  // Return the view with the model to show any validation errors
+            // Return the view with the model and error messages
+            ViewData["ChuDeList"] = _context.ChuDes.ToList();
+            return View(tinTuc);
         }
-
-
-
-
-
 
 
 
@@ -139,38 +161,38 @@ namespace shop_hubLaps.Controllers
         }
 
 
-        // Lưu hình ảnh
-        private async Task<string> SaveImage(IFormFile image)
-        {
-            EnsureImageFolderExists();  // Đảm bảo thư mục chứa ảnh tồn tại
+        //// Lưu hình ảnh
+        //private async Task<string> SaveImage(IFormFile image)
+        //{
+        //    EnsureImageFolderExists();  // Đảm bảo thư mục chứa ảnh tồn tại
 
-            string fileName = Path.GetFileName(image.FileName); // Lấy tên file ảnh
-            string filePath = Path.Combine(_imageFolder, fileName); // Đường dẫn lưu ảnh
+        //    string fileName = Path.GetFileName(image.FileName); // Lấy tên file ảnh
+        //    string filePath = Path.Combine(_imageFolder, fileName); // Đường dẫn lưu ảnh
 
-            // Kiểm tra xem ảnh đã tồn tại chưa
-            if (System.IO.File.Exists(filePath))
-            {
-                // Nếu ảnh tồn tại, có thể đổi tên hoặc xử lý phù hợp
-                fileName = Path.GetFileNameWithoutExtension(image.FileName) + Guid.NewGuid() + Path.GetExtension(image.FileName);
-                filePath = Path.Combine(_imageFolder, fileName);
-            }
+        //    // Kiểm tra xem ảnh đã tồn tại chưa
+        //    if (System.IO.File.Exists(filePath))
+        //    {
+        //        // Nếu ảnh tồn tại, có thể đổi tên hoặc xử lý phù hợp
+        //        fileName = Path.GetFileNameWithoutExtension(image.FileName) + Guid.NewGuid() + Path.GetExtension(image.FileName);
+        //        filePath = Path.Combine(_imageFolder, fileName);
+        //    }
 
-            // Lưu ảnh vào thư mục
-            using (var stream = new FileStream(filePath, FileMode.Create))
-            {
-                await image.CopyToAsync(stream);
-            }
+        //    // Lưu ảnh vào thư mục
+        //    using (var stream = new FileStream(filePath, FileMode.Create))
+        //    {
+        //        await image.CopyToAsync(stream);
+        //    }
 
-            return fileName; // Trả về tên file để lưu vào database
-        }
+        //    return fileName; // Trả về tên file để lưu vào database
+        //}
 
-        // Đảm bảo thư mục chứa hình ảnh tồn tại
-        private void EnsureImageFolderExists()
-        {
-            if (!Directory.Exists(_imageFolder))  // Kiểm tra thư mục chứa ảnh
-            {
-                Directory.CreateDirectory(_imageFolder); // Nếu không có, tạo thư mục
-            }
-        }
+        //// Đảm bảo thư mục chứa hình ảnh tồn tại
+        //private void EnsureImageFolderExists()
+        //{
+        //    if (!Directory.Exists(_imageFolder))  // Kiểm tra thư mục chứa ảnh
+        //    {
+        //        Directory.CreateDirectory(_imageFolder); // Nếu không có, tạo thư mục
+        //    }
+        //}
     }
 }

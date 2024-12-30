@@ -7,6 +7,7 @@ C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\Autofac.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\Azure.Core.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\Azure.Identity.dll
+C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\Azure.Security.KeyVault.Certificates.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\BouncyCastle.Cryptography.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\BouncyCastle.Crypto.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\Castle.Core.dll
@@ -124,6 +125,7 @@ C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\Serilog.Sinks.File.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\StarkbankEcdsa.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\Stripe.net.dll
+C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\System.ClientModel.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\System.CodeDom.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\System.Composition.AttributedModel.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\System.Composition.Convention.dll

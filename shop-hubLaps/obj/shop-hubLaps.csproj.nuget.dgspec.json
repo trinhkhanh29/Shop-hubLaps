@@ -46,6 +46,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Azure.Security.KeyVault.Certificates": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            },
             "BouncyCastle.NetCore": {
               "target": "Package",
               "version": "[2.2.1, )"
