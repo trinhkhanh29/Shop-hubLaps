@@ -26,7 +26,7 @@ namespace shop_hubLaps.Controllers
             _cartService = cartService;
         }
 
-        public IActionResult Index(int? manhucau, decimal? pmin, decimal? pmax)
+        public IActionResult Index(int? manhucau, decimal? pmin, decimal? pmax, string cpuFilter)
         {
             var nhuCaus = _context.NhuCaus.ToList();
             var brands = _context.Hangs.ToList();
@@ -43,6 +43,13 @@ namespace shop_hubLaps.Controllers
                 laptopsQuery = laptopsQuery.Where(l => l.giaban >= pmin && l.giaban <= pmax);
             }
 
+            // Filter by CPU (if provided)
+            if (!string.IsNullOrEmpty(cpuFilter))
+            {
+                var selectedCpus = cpuFilter.Split(',');  // Split the comma-separated CPU filters
+                laptopsQuery = laptopsQuery.Where(l => selectedCpus.Contains(l.cpu));  // Filter laptops based on the selected CPUs
+            }
+
             var laptops = laptopsQuery.ToList();
 
             // Fetch active advertisements from the QuangCao table
@@ -53,19 +60,52 @@ namespace shop_hubLaps.Controllers
             var cartItems = _cartService.GetCartItems(userId);  // Giả sử có phương thức để lấy giỏ hàng của người dùng
             var cartItemCount = cartItems.Sum(item => item.soluong);  // Tính tổng số sản phẩm trong giỏ
 
+            var cpuFilters = new Dictionary<string, string>
+    {
+        { "intel_core_i3", "Intel Core i3" },
+        { "intel_core_i5", "Intel Core i5" },
+        { "intel_core_i7", "Intel Core i7" },
+        { "intel_core_i9", "Intel Core i9" },
+        { "intel_celeron_pentium", "Intel Celeron / Pentium" },
+        { "intel_core_u5", "Intel Core U5" },
+        { "intel_core_u7", "Intel Core U7" },
+        { "intel_core_u9", "Intel Core U9" },
+        { "amd_ryzen_5", "AMD Ryzen 5" },
+        { "amd_ryzen_7", "AMD Ryzen 7" },
+        { "amd_ryzen_9", "AMD Ryzen 9" },
+        { "apple_m1", "Apple M1" },
+        { "apple_m1_pro", "Apple M1 Pro" },
+        { "apple_m1_max", "Apple M1 Max" },
+        { "apple_m2", "Apple M2" },
+        { "apple_m2_pro", "Apple M2 Pro" },
+        { "apple_m2_max", "Apple M2 Max" },
+        { "apple_m3", "Apple M3" },
+        { "apple_m3_pro", "Apple M3 Pro" },
+        { "apple_m3_max", "Apple M3 Max" },
+        { "qualcomm_snapdragon", "Qualcomm Snapdragon" },
+        { "snapdragon_x_plus", "Snapdragon X Plus" },
+        { "other", "Khác" }
+    };
+
+            // Convert the cpuFilter string to a list of selected CPUs (if any)
+            var selectedCpuFilters = cpuFilter?.Split(',')?.ToList() ?? new List<string>();
+
             var viewModel = new HomeIndexViewModel
             {
                 Brands = brands,
                 NhuCaus = nhuCaus,
                 Laptops = laptops,
                 QuangCaos = quangCaos,
-                CartItemCount = cartItemCount
-
+                CartItemCount = cartItemCount,
+                CpuFilters = cpuFilters,  // Passing the dictionary to the view
+                SelectedCpuFilters = selectedCpuFilters  // Passing the selected filters to the view
             };
 
             return View(viewModel);
         }
-        
+
+
+
         [HttpGet("Home/Search")]
         public IActionResult Search(string query, decimal? minPrice, decimal? maxPrice, int? brandId, int? categoryId)
         {

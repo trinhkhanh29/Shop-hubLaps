@@ -216,8 +216,39 @@
   <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="~/js/site.js" asp-append-version="true"></script>
   <script src="https://cdn.ckeditor.com/4.20.2/standard/ckeditor.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Khởi tạo CKEditor cho textarea
+            const noidung = document.getElementById("noidung");
+            if (typeof CKEDITOR !== "undefined" && noidung) {
+                CKEDITOR.replace("noidung");
+            }
+
+            // Gắn sự kiện cho các ngôi sao
+            const stars = document.querySelectorAll('.star');
+            const voteInput = document.getElementById('vote');
+
+            if (stars && voteInput) {
+                stars.forEach(star => {
+                    star.addEventListener('click', function () {
+                        const value = this.getAttribute('data-value');
+                        voteInput.value = value;
+
+                        // Xóa lớp "selected" khỏi tất cả sao
+                        stars.forEach(star => star.classList.remove('selected'));
+
+                        // Thêm lớp "selected" vào sao đã chọn
+                        for (let i = 0; i < value; i++) {
+                            stars[i].classList.add('selected');
+                        }
+                    });
+                });
+            }
+        });
+    </script>
 
   <script>
+
       $(document).on('click', '#addToCartButton', function() {
     var productId = $(this).data('product-id');
     var quantity = 1;  // Or get quantity from a form or another source
@@ -235,56 +266,44 @@
         }
     });
 });
- //       // This function fetches the cart information and updates the cart view
- // function updateCart(productId, quantity) {
- //        $.ajax({
- //            url: '@Url.Action("UpdateCart", "Cart")',
- //            type: 'GET',
- //            data: { productId: productId, quantity: quantity },
- //            success: function (response) {
- //                // Cập nhật số lượng sản phẩm trong giỏ hiển thị trên trang
- //                $('#cartItemCount').text(response.cartItemCount);
- //            }
- //        });
- //    }
 
-    // This function updates the offcanvas with the cart details
-    function updateCartOffcanvas(cartItems) {
-        const cartBody = document.querySelector('.offcanvas-body');
-        cartBody.innerHTML = ''; // Clear current cart content
+//     // This function updates the offcanvas with the cart details
+//     function updateCartOffcanvas(cartItems) {
+//         const cartBody = document.querySelector('.offcanvas-body');
+//         cartBody.innerHTML = ''; // Clear current cart content
 
-        if (cartItems.length > 0) {
-            let cartTable = `<table class="table table-bordered">
-                                <thead class="table-dark">
-                                    <tr>
-                                        <th>Sản phẩm</th>
-                                        <th>Đơn giá</th>
-                                        <th>Số lượng</th>
-                                        <th>Thành tiền</th>
-                                        <th>Hành động</th>
-                                    </tr>
-                                </thead>
-                                <tbody>`;
+//         if (cartItems.length > 0) {
+//             let cartTable = `<table class="table table-bordered">
+//                                 <thead class="table-dark">
+//                                     <tr>
+//                                         <th>Sản phẩm</th>
+//                                         <th>Đơn giá</th>
+//                                         <th>Số lượng</th>
+//                                         <th>Thành tiền</th>
+//                                         <th>Hành động</th>
+//                                     </tr>
+//                                 </thead>
+//                                 <tbody>`;
 
-            cartItems.forEach(item => {
-                cartTable += `<tr>
-                                <td>${item.productName}</td>
-                                <td>${item.price}</td>
-                                <td>${item.quantity}</td>
-                                <td>${item.totalPrice}</td>
-                                <td>
-                                    <button class="btn btn-danger btn-sm" onclick="removeItemFromCart(${item.productId})">Xóa</button>
-                                </td>
-                              </tr>`;
-            });
+//             cartItems.forEach(item => {
+//                 cartTable += `<tr>
+//                                 <td>${item.productName}</td>
+//                                 <td>${item.price}</td>
+//                                 <td>${item.quantity}</td>
+//                                 <td>${item.totalPrice}</td>
+//                                 <td>
+//                                     <button class="btn btn-danger btn-sm" onclick="removeItemFromCart(${item.productId})">Xóa</button>
+//                                 </td>
+//                               </tr>`;
+//             });
 
-            cartTable += `</tbody></table>`;
+//             cartTable += `</tbody></table>`;
 
-            cartBody.innerHTML = cartTable;
-        } else {
-            cartBody.innerHTML = '<p>Giỏ hàng của bạn đang trống!</p>';
-        }
-    }
+//             cartBody.innerHTML = cartTable;
+//         } else {
+//             cartBody.innerHTML = '<p>Giỏ hàng của bạn đang trống!</p>';
+//         }
+//     }
 
     // Function to remove an item from the cart
     function removeItemFromCart(productId) {
@@ -332,30 +351,34 @@
         })();
         //<!--End of Tawk.to Script-->
 
-        //Details.cshtml
-        document.addEventListener("DOMContentLoaded", function () {
-            if (typeof CKEDITOR !== "undefined") {
-                CKEDITOR.replace("noidung");
-            }
-        });
-        const stars = document.querySelectorAll('.star');
-        const voteInput = document.getElementById('vote');
+        // //Details.cshtml
+        // document.addEventListener("DOMContentLoaded", function () {
+        //     if (typeof CKEDITOR !== "undefined") {
+        //         CKEDITOR.replace("noidung");
+        //     }
+        // });
 
-        stars.forEach(star => {
-            star.addEventListener('click', function () {
-                const value = this.getAttribute('data-value');
-                voteInput.value = value;
+        // const stars = document.querySelectorAll('.star');
+        // const voteInput = document.getElementById('vote');
 
-                // Xóa lớp "selected" khỏi tất cả sao
-                stars.forEach(star => star.classList.remove('selected'));
+        // stars.forEach(star => {
+        //     star.addEventListener('click', function () {
+        //         const value = this.getAttribute('data-value');
+        //         voteInput.value = value;
 
-                // Thêm lớp "selected" vào sao đã chọn
-                for (let i = 0; i < value; i++) {
-                    stars[i].classList.add('selected');
-                }
-            });
-        });
+        //         // Xóa lớp "selected" khỏi tất cả sao
+        //         stars.forEach(star => star.classList.remove('selected'));
 
+        //         // Thêm lớp "selected" vào sao đã chọn
+        //         for (let i = 0; i < value; i++) {
+        //             stars[i].classList.add('selected');
+        //         }
+        //     });
+        // });
+
+
+    </script>
+    <script>
         document.addEventListener("DOMContentLoaded", function () {
             const showMessage = (message, type = "success") => {
                 let container = document.querySelector(".message-container");
@@ -368,10 +391,10 @@
                 const messageBox = document.createElement("div");
                 messageBox.className = `message-box message-box-${type}`;
                 messageBox.innerHTML = `
-                                    <i class="fa ${type === "success" ? "fa-check" : "fa-ban"} fa-2x"></i>
-                                    <span class="message-text"><strong>${type.charAt(0).toUpperCase() + type.slice(1)}:</strong> ${message}</span>
-                                    <i class="fa fa-times fa-2x exit-button"></i>
-                                `;
+                                            <i class="fa ${type === "success" ? "fa-check" : "fa-ban"} fa-2x"></i>
+                                            <span class="message-text"><strong>${type.charAt(0).toUpperCase() + type.slice(1)}:</strong> ${message}</span>
+                                            <i class="fa fa-times fa-2x exit-button"></i>
+                                        `;
 
                 messageBox.querySelector(".exit-button").addEventListener("click", function () {
                     messageBox.remove();
@@ -394,13 +417,11 @@
         {
             @:showMessage("@TempData["ErrorMessage"]", "error");
         }
-                });
+                        });
     </script>
-
     @RenderSection("Scripts", required: false)
 
 </body>
-
 
 </html>
 

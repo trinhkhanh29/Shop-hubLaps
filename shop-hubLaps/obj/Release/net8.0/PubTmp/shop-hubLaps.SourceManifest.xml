@@ -1,5 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <sitemanifest>
   <IisApp path="C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\Out\" />
-  <dbfullsql path="C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Release\net8.0\PubTmp\EFSQLScripts\shop_hubLaps.Areas.Identity.Data.DBContextSample.sql" />
 </sitemanifest>

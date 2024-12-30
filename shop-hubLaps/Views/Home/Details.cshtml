@@ -1,6 +1,7 @@
 ﻿@model shop_hubLaps.Models.Laptop
-@using NetTopologySuite.Index.HPRtree
 @using shop_hubLaps.Views.Laptop
+@using Microsoft.AspNetCore.Identity
+@using shop_hubLaps.Areas.Identity.Data
 
 @{
     ViewData["Title"] = Model.tenlaptop;
@@ -9,6 +10,8 @@
         dictionary.ContainsKey(key) ? dictionary[key] : "Không xác định";
 }
 <head>
+
+
     <style>
         /* Tùy chỉnh dòng kẻ */
          hr.my-3 {

@@ -119,26 +119,21 @@
 
                     <!-- Frequency Filter -->
                     <div class="v5-filter" data-id="L-tan-so-quet">
-                        <h3>
-                            <a data-target="L-tan-so-quet" href="javascript:;" class="d-flex justify-content-between align-items-center">
-                                Tần số quét
-                                <span class="toggle-icons">
-                                    <span class="s">+</span>
-                                    <span class="h">-</span>
-                                </span>
-                            </a>
-                        </h3>
                         <div class="options">
-                            <ul class="list-unstyled">
-                                <li class="selected d-flex">
-                                    <span>
-                                        <input checked="" type="checkbox" onclick="window.location.href = this.value;" value="/laptop?=&amp;filters=%7b%22BLLT-cong-nghe-cpu%22%3a%22Intel+Celeron%22%2c%22sort%22%3a%223%22%7d&amp;search=true">
-                                        <i></i>
-                                    </span>
-                                    <label>
-                                        <span>60Hz <i>[6]</i></span>
-                                    </label>
-                                </li>
+                          <a data-target="L-tan-so-quet" href="javascript:;" class="d-flex justify-content-between align-items-center" style="padding-left:10px;">CPU</a>
+                            <ul class="list-unstyled d-flex flex-wrap" style="padding:14px;gap:10px;">
+                                @foreach (var cpu in Model.CpuFilters)
+                                {
+                                    <li class="d-flex align-items-center mr-4 mb-2" style="width: 150px;">
+                                        <input type="checkbox" id="filter-@cpu.Key"
+                                               onclick="applyFilter('@cpu.Key')"
+                                        @(Model.SelectedCpuFilters.Contains(cpu.Key) ? "checked" : "")
+                                               class="mr-2">
+                                        <label for="filter-@cpu.Key" class="mb-0">
+                                            <span>@cpu.Value</span>
+                                        </label>
+                                    </li>
+                                }
                             </ul>
                         </div>
                     </div>
@@ -281,13 +276,34 @@
 
 
 @section Scripts {
+    <script>
+        function applyFilter(cpu) {
+            const url = new URL(window.location.href);
+            let cpuFilters = url.searchParams.get('cpuFilter');
+
+            if (cpuFilters) {
+                let cpuList = cpuFilters.split(',');
+                if (cpuList.includes(cpu)) {
+                    cpuList = cpuList.filter(c => c !== cpu);  // Remove the CPU if it's already in the list
+                } else {
+                    cpuList.push(cpu);  // Add the CPU if it's not in the list
+                }
+                url.searchParams.set('cpuFilter', cpuList.join(','));  // Update the cpuFilter parameter
+            } else {
+                url.searchParams.set('cpuFilter', cpu);  // First CPU selected
+            }
+
+            window.location.href = url.toString();  // Redirect to the updated URL
+        }
+    </script>
     <script src="~/content/js/slide-slick.js"></script>
    
     <script src="~/js/homeindexview.js"></script>
 
-    <script> 
+    <script>
 
          /* -------------------------- */
+
 function filterByBrand(brandId) {
     $.ajax({
         url: '/Home/GetLaptopsByBrand',
@@ -359,6 +375,7 @@ function filterByBrand(brandId) {
                 // Filter laptops based on the selected range
                 filterLaptops(minPrice, maxPrice);
             });
+
         });
       // Handle range slider
         const rangeMin = document.getElementById('range-min');
@@ -476,6 +493,7 @@ function filterByBrand(brandId) {
                             laptopContainer.innerHTML = '<p>Không thể tải laptop. Vui lòng thử lại sau.</p>';
                         });
                 });
+
             });
         });
         // Hàm để gọi API và tải danh sách laptop theo sortId
@@ -553,62 +571,86 @@ function filterByBrand(brandId) {
                     alert("Có lỗi khi tải danh sách laptop. Vui lòng thử lại.");
                 });
         }
+        //Details.cshtml
+        // document.addEventListener("DOMContentLoaded", function () {
+        //     if (typeof CKEDITOR !== "undefined") {
+        //         CKEDITOR.replace("noidung");
+        //     }
+        // });
+
+        // const stars = document.querySelectorAll('.star');
+        // const voteInput = document.getElementById('vote');
+
+        // stars.forEach(star => {
+        //     star.addEventListener('click', function () {
+        //         const value = this.getAttribute('data-value');
+        //         voteInput.value = value;
+
+        //         // Xóa lớp "selected" khỏi tất cả sao
+        //         stars.forEach(star => star.classList.remove('selected'));
+
+        //         // Thêm lớp "selected" vào sao đã chọn
+        //         for (let i = 0; i < value; i++) {
+        //             stars[i].classList.add('selected');
+        //         }
+        //     });
+        // });
 
 
 
+        //     //Alert-notification
+        //                  document.addEventListener("DOMContentLoaded", function () {
+        //     // Hàm hiển thị thông báo
+        //     const showMessage = (message, type = "success") => {
+        //         let container = document.querySelector(".message-container");
+        //         if (!container) {
+        //             container = document.createElement("div");
+        //             container.className = "message-container";
+        //             document.body.appendChild(container);
+        //         }
 
-            //Alert-notification
-                         document.addEventListener("DOMContentLoaded", function () {
-            // Hàm hiển thị thông báo
-            const showMessage = (message, type = "success") => {
-                let container = document.querySelector(".message-container");
-                if (!container) {
-                    container = document.createElement("div");
-                    container.className = "message-container";
-                    document.body.appendChild(container);
-                }
+        //         const messageBox = document.createElement("div");
+        //         messageBox.className = `message-box message-box-${type}`;
+        //         messageBox.innerHTML = `
+        //             <i class="fa ${type === "success" ? "fa-check-circle" : (type === "error" ? "fa-exclamation-circle" : "fa-exclamation-triangle")}"></i>
+        //             <span>${message}</span>
+        //             <button class="close-alert">&times;</button>
+        //         `;
 
-                const messageBox = document.createElement("div");
-                messageBox.className = `message-box message-box-${type}`;
-                messageBox.innerHTML = `
-                    <i class="fa ${type === "success" ? "fa-check-circle" : (type === "error" ? "fa-exclamation-circle" : "fa-exclamation-triangle")}"></i>
-                    <span>${message}</span>
-                    <button class="close-alert">&times;</button>
-                `;
+        //         messageBox.querySelector(".close-alert").addEventListener("click", () => {
+        //             messageBox.remove();
+        //         });
 
-                messageBox.querySelector(".close-alert").addEventListener("click", () => {
-                    messageBox.remove();
-                });
+        //         container.appendChild(messageBox);
 
-                container.appendChild(messageBox);
+        //         setTimeout(() => {
+        //             messageBox.remove();
+        //         }, 5000);
+        //     };
 
-                setTimeout(() => {
-                    messageBox.remove();
-                }, 5000);
-            };
+        //     // Dữ liệu từ TempData (được chuyển sang JavaScript)
+        //     const messages = {
+        //         success: "@(TempData["SuccessMessage"] ?? "")",
 
-            // Dữ liệu từ TempData (được chuyển sang JavaScript)
-            const messages = {
-                success: "@(TempData["SuccessMessage"] ?? "")",
+        //         error: "@(TempData["ErrorMessage"] ?? "")",
 
-                error: "@(TempData["ErrorMessage"] ?? "")",
+        //         warning: "@(TempData["WarningMessage"] ?? "")"
 
-                warning: "@(TempData["WarningMessage"] ?? "")"
-
-            };
-            // Hiển thị thông báo nếu có
-            if (messages.success) {
-                showMessage(messages.success, "success");
-            }
-            if (messages.error) {
-                showMessage(messages.error, "error");
-            }
-            if (messages.warning) {
-                showMessage(messages.warning, "warning");
-            }
-        });
+        //     };
+        //     // Hiển thị thông báo nếu có
+        //     if (messages.success) {
+        //         showMessage(messages.success, "success");
+        //     }
+        //     if (messages.error) {
+        //         showMessage(messages.error, "error");
+        //     }
+        //     if (messages.warning) {
+        //         showMessage(messages.warning, "warning");
+        //     }
+        // });
 
 
     </script>
+
 }
 
