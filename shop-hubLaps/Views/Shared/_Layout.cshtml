@@ -87,10 +87,9 @@
                                 <!-- Search Bar for Large Screens -->
                                 <div class="col-sm-6 offset-sm-2 offset-md-0 col-lg-5 d-none d-lg-block">
                                     <div class="search-bar d-flex align-items-center p-2 my-2 rounded-4">
-
-                                        <form id="search-form" class="d-flex flex-grow-1 align-items-center" method="get" data-bs-toggle="modal" data-bs-target="#searchModal">
-                                            <input type="text" id="search-input" class="form-control border-0 bg-transparent" placeholder="Search 20,000+ products" />
-                                            <button type="submit" form="search-form" class="btn btn-link p-0 ms-2">
+                                        <form id="search-form" class="d-flex flex-grow-1 align-items-center" method="get" action="/Home/Search">
+                                            <input type="text" name="query" class="form-control border-0 bg-transparent" placeholder="Search 20,000+ products" required />
+                                            <button type="submit" class="btn btn-link p-0 ms-2">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                                     <path fill="currentColor" d="M21.71 20.29L18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a1 1 0 0 0 1.42 0a1 1 0 0 0 0-1.39ZM11 18a7 7 0 1 1 7-7a7 7 0 0 1-7 7Z" />
                                                 </svg>
@@ -98,7 +97,8 @@
                                         </form>
                                     </div>
                                 </div>
- 
+                            </li>
+
                             <!-- Search Modal -->
                             <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
@@ -116,15 +116,16 @@
                                     </div>
                                 </div>
                             </div>
+
                             <!-- Cart Button -->
-                             <!-- Cart Button -->
                             <li class="nav-item">
                                 <a class="btn btn-link position-relative" href="javascript:void(0);" id="cartButton" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
                                     <i class="fas fa-shopping-cart"></i>
-                                    <span class="badge bg-danger position-absolute top-0 end-0" id="cartItemCount">0</span>
+                                    <span class="badge bg-danger position-absolute top-0 end-0" id="cartItemCount">
+                                        @ViewBag.Tongsoluong  <!-- Displaying the total number of items in the cart -->
+                                    </span>
                                 </a>
                             </li>
-
                                 <!-- Login Partial -->
                                 <li class="nav-item"><partial name="_LoginPartial" /></li>
                             </ul>
@@ -139,23 +140,28 @@
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title" id="offcanvasCartLabel">
                     <a class="getstarted scrollto active" href="@Url.Action("Index", "Cart")" style="font-weight:bold; text-decoration:none">
-                        <i class="fas fa-shopping-bag me-2"></i> Giỏ hàng ( @ViewBag.Tongsoluong )
+                        <i class="fas fa-shopping-bag me-2"></i> Giỏ hàng ( @ViewBag.Tongsoluong ) <!-- Cart item count here -->
                     </a>
                 </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
-            <div class="offcanvas-body">
-                <!-- Cart content goes here -->
-                @if (ViewBag.Tongsoluong > 0)
+             <div class="offcanvas-body">
+                @if (ViewBag.CartItems != null && ViewBag.CartItems.Count() > 0)
                 {
-                    <p>Bạn có @ViewBag.Tongsoluong sản phẩm trong giỏ hàng.</p>
+                    <p>Bạn có @ViewBag.Tongsoluong sản phẩm trong giỏ hàng:</p>
+                    <ul>
+                        @foreach (var item in ViewBag.CartItems)
+                        {
+                            <li>@item.LaptopName - Số lượng: @item.Quantity</li>
+                        }
+                    </ul>
                 }
                 else
                 {
                     <p>Giỏ hàng của bạn đang trống!</p>
                 }
             </div>
-        </a>    
+        </a>
     </div>
 
     <div class="container">
@@ -212,19 +218,35 @@
   <script src="https://cdn.ckeditor.com/4.20.2/standard/ckeditor.js"></script>
 
   <script>
-       // This function fetches the cart information and updates the cart view
-    function fetchCartData() {
-        fetch('@Url.Action("GetCartData", "Cart")') // Adjust this URL to point to your API endpoint
-            .then(response => response.json())
-            .then(data => {
-                // Update the cart item count
-                document.getElementById('cartItemCount').textContent = data.itemCount;
-
-                // Update the cart details in the offcanvas
-                updateCartOffcanvas(data.cartItems);
-            })
-            .catch(error => console.error('Error fetching cart data:', error));
-    }
+      $(document).on('click', '#addToCartButton', function() {
+    var productId = $(this).data('product-id');
+    var quantity = 1;  // Or get quantity from a form or another source
+    
+    $.ajax({
+        url: '@Url.Action("UpdateCart", "Cart")',  // Use your own action to add to cart
+        type: 'GET',
+        data: { productId: productId, quantity: quantity },
+        success: function(data) {
+            // Update the cart item count dynamically
+            $('#cartItemCount').text(data.cartItemCount); // Assuming `cartItemCount` is returned
+        },
+        error: function() {
+            alert("There was an error updating your cart.");
+        }
+    });
+});
+ //       // This function fetches the cart information and updates the cart view
+ // function updateCart(productId, quantity) {
+ //        $.ajax({
+ //            url: '@Url.Action("UpdateCart", "Cart")',
+ //            type: 'GET',
+ //            data: { productId: productId, quantity: quantity },
+ //            success: function (response) {
+ //                // Cập nhật số lượng sản phẩm trong giỏ hiển thị trên trang
+ //                $('#cartItemCount').text(response.cartItemCount);
+ //            }
+ //        });
+ //    }
 
     // This function updates the offcanvas with the cart details
     function updateCartOffcanvas(cartItems) {
@@ -282,35 +304,7 @@
     // Optional: Call fetchCartData when the offcanvas is shown (if you need to refresh data on every open)
     document.getElementById('offcanvasCart').addEventListener('show.bs.offcanvas', fetchCartData);
 
-          // Handle main search form submission
-        document.getElementById('search-form').onsubmit = function (e) {
-            e.preventDefault();
-            const query = this.querySelector('input').value;
-            if (query) {
-                window.location.href = `/search?query=${encodeURIComponent(query)}`;
-            }
-        };
 
-        // Show modal when the search icon on small screens is clicked
-        document.getElementById('mobile-search-icon').addEventListener('click', function () {
-            let searchModal = new bootstrap.Modal(document.getElementById('searchModal'), {});
-            searchModal.show();
-        });
-        document.addEventListener("DOMContentLoaded", function () {
-            const cartClose = document.getElementById('cartClose');
-            const cartToggle = document.getElementById('cartToggle');
-
-            if (cartClose) {
-                cartClose.addEventListener('click', function () {
-                    // Your event handler code
-                });
-            }
-
-            if (cartToggle) {
-                cartToggle.addEventListener('click', function () {
-                    // Your event handler code
-                });
-            }
         });
             document.addEventListener('DOMContentLoaded', function () {
         const chatToggle = document.getElementById('chatToggle');

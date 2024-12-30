@@ -6,7 +6,21 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project>
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <History>True|2024-12-28T17:40:24.4037203Z||;True|2024-12-25T16:05:15.1033219+07:00||;True|2024-12-25T12:53:58.6972931+07:00||;False|2024-12-25T12:53:10.7756890+07:00||;True|2024-12-23T21:36:58.7530326+07:00||;True|2024-12-22T16:36:43.9499642+07:00||;False|2024-12-22T16:34:47.4645445+07:00||;True|2024-12-03T22:56:02.9685425+07:00||;True|2024-12-03T10:53:25.7462352+07:00||;</History>
+    <History>False|2024-12-30T08:32:32.5372565Z||;False|2024-12-30T15:30:51.9039999+07:00||;False|2024-12-30T15:30:30.8183337+07:00||;True|2024-12-30T14:45:41.2256158+07:00||;True|2024-12-30T14:29:28.7876650+07:00||;False|2024-12-30T14:27:41.3213203+07:00||;True|2024-12-30T14:17:44.2942893+07:00||;True|2024-12-29T17:37:45.8304250+07:00||;True|2024-12-29T16:43:27.1288035+07:00||;True|2024-12-29T15:02:31.0968775+07:00||;True|2024-12-29T12:06:04.7601573+07:00||;True|2024-12-29T00:40:24.4037203+07:00||;True|2024-12-25T16:05:15.1033219+07:00||;True|2024-12-25T12:53:58.6972931+07:00||;False|2024-12-25T12:53:10.7756890+07:00||;True|2024-12-23T21:36:58.7530326+07:00||;True|2024-12-22T16:36:43.9499642+07:00||;False|2024-12-22T16:34:47.4645445+07:00||;True|2024-12-03T22:56:02.9685425+07:00||;True|2024-12-03T10:53:25.7462352+07:00||;</History>
     <LastFailureDetails />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAgNA19RggCUa+kMm+aX7eTgAAAAACAAAAAAAQZgAAAAEAACAAAAAD8IP0r0dLFx1/181m532/UGi91RK4mlpjbppO6hNeRgAAAAAOgAAAAAIAACAAAAD7OMwFwZ8mvYvH91QPFUMMWqtLPLyRix2PCSYaX5wZ1iAAAAAOipbcomvQXbPZpFCtEp/RbPFUpyn69KFofqW7Hdg90UAAAADUTbat0o9zfTpCCQ7rFOv+dwl5DKYwUmE9An+65QaDsw8c0O7jmAqelf2p2Xs15zPsmS5Cg82MF4Is6lCOJVA2</EncryptedPassword>
   </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="AzureSqlDbConnection">
+      <Value>Data Source=shophublaps.database.windows.net,1433%3bInitial Catalog=shop-hubLaps-2024%3bUser ID=adminuser%3bPassword=Admin123%40</Value>
+    </DestinationConnectionStrings>
+    <DestinationConnectionStrings Include="DBContextSampleConnection">
+      <Value>Data Source=shophublaps.database.windows.net,1433%3bInitial Catalog=shop-hubLaps-2024%3bUser ID=adminuser%3bPassword=Admin123%40</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="shop_hubLaps.Areas.Identity.Data.DBContextSample">
+      <Value>Data Source=shophublaps.database.windows.net,1433%3bInitial Catalog=shop-hubLaps-2024%3bUser ID=adminuser%3bPassword=Admin123%40</Value>
+    </EFMigrations>
+  </ItemGroup>
 </Project>

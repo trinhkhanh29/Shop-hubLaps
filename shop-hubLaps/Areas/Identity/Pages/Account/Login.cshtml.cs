@@ -16,6 +16,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
+using shop_hubLaps.Controllers;
+using System.Security.Claims;
 
 namespace shop_hubLaps.Areas.Identity.Pages.Account
 {
@@ -77,6 +79,64 @@ namespace shop_hubLaps.Areas.Identity.Pages.Account
 
             ReturnUrl = returnUrl;
         }
+        public IActionResult OnPostExternalLogin(string provider, string returnUrl = null)
+        {
+            var redirectUrl = Url.Page("./ExternalLoginCallback", new { ReturnUrl = returnUrl });
+            var properties = _signInManager.ConfigureExternalAuthenticationProperties(provider, redirectUrl);
+            return new ChallengeResult(provider, properties);
+        }
+
+        public async Task<IActionResult> OnGetExternalLoginCallbackAsync(string returnUrl = null, string remoteError = null)
+        {
+            returnUrl ??= Url.Content("~/");
+
+            if (remoteError != null)
+            {
+                ModelState.AddModelError(string.Empty, $"External login error: {remoteError}");
+                return RedirectToPage("./Login");
+            }
+
+            var info = await _signInManager.GetExternalLoginInfoAsync();
+            if (info == null)
+            {
+                return RedirectToPage("./Login");
+            }
+
+            var email = info.Principal.FindFirstValue(ClaimTypes.Email);
+            if (email != null)
+            {
+                // Ensure FirstName and LastName are always set (default if not provided)
+                var firstName = info.Principal.FindFirstValue(ClaimTypes.GivenName) ?? "DefaultFirstName";
+                var lastName = info.Principal.FindFirstValue(ClaimTypes.Surname) ?? "DefaultLastName";
+
+                var user = new SampleUser
+                {
+                    UserName = email,
+                    Email = email,
+                    FirstName = firstName,  // Ensure it's never null
+                    LastName = lastName     // Ensure it's never null
+                };
+
+                var createResult = await _userManager.CreateAsync(user);
+                if (createResult.Succeeded)
+                {
+                    await _userManager.AddLoginAsync(user, info);
+                    await _signInManager.SignInAsync(user, isPersistent: false);
+                    return LocalRedirect(returnUrl);
+                }
+                else
+                {
+                    foreach (var error in createResult.Errors)
+                    {
+                        ModelState.AddModelError(string.Empty, error.Description);
+                    }
+                    return Page();
+                }
+            }
+
+            ModelState.AddModelError(string.Empty, "Email claim not received from external provider.");
+            return RedirectToPage("./Login");
+        }
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
@@ -135,9 +195,15 @@ namespace shop_hubLaps.Areas.Identity.Pages.Account
                     return Page();
                 }
             }
+           
+           
+           
 
             // If we got this far, something failed, redisplay form
             return Page();
         }
+
+
+
     }
 }

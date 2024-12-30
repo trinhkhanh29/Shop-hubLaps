@@ -36,7 +36,7 @@ namespace shop_hubLaps.Service.Vnpay
             pay.AddRequestData("vnp_TxnRef", tick);
 
             var paymentUrl =
-                pay.CreateRequestUrl(_configuration["Vnpay:BaseUrl"], _configuration["Vnpay:HashSecret"]);
+                pay.CreateRequestUrl(_configuration["Vnpay:BaseUrl"], _configuration["Vnpay:HashSecret"]);//HMAC-SHA256
 
             return paymentUrl;
         }

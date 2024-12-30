@@ -25,6 +25,9 @@ namespace shop_hubLaps.Models
         public List<decimal?> LaptopPrices => Laptops.Select(l => l.giaban).ToList();
 
         public List<string> LaptopGPUs => Laptops.Select(l => l.gpu).ToList();
+
+        public int CartItemCount { get; set; }
+
     }
 
 }

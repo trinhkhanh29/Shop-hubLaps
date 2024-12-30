@@ -46,6 +46,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Azure.Security.KeyVault.Certificates": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            },
             "BouncyCastle.NetCore": {
               "target": "Package",
               "version": "[2.2.1, )"
@@ -73,6 +77,10 @@
             "FontAwesome": {
               "target": "Package",
               "version": "[4.7.0, )"
+            },
+            "MailKit": {
+              "target": "Package",
+              "version": "[4.9.0, )"
             },
             "Microsoft.AspNetCore.Authentication.Facebook": {
               "target": "Package",
@@ -145,6 +153,10 @@
             "RestSharp": {
               "target": "Package",
               "version": "[107.3.0, )"
+            },
+            "SendGrid": {
+              "target": "Package",
+              "version": "[9.29.3, )"
             },
             "Serilog": {
               "target": "Package",

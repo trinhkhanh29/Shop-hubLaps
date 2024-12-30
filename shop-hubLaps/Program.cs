@@ -20,14 +20,28 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using shop_hubLaps.Models.Momo;
 using shop_hubLaps.Service.Vnpay;
 using Microsoft.Extensions.Options;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.MicrosoftAccount;
+using shop_hubLaps.Services;
 
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<EmailService>();
 
-// Configure Momo Options
-builder.Services.Configure<MomoOptionModel>(builder.Configuration.GetSection("MomoAPI"));
+// Add Login-Microsoft
+builder.Services.AddAuthentication()
+    .AddMicrosoftAccount(options =>
+    {
+        options.ClientId = builder.Configuration["Authentication:Microsoft:ClientId"];
+        options.ClientSecret = builder.Configuration["Authentication:Microsoft:ClientSecret"];
+        options.CallbackPath = "/signin-microsoftt";
+    });
+
+    // Configure Momo Options
+    builder.Services.Configure<MomoOptionModel>(builder.Configuration.GetSection("MomoAPI"));
 builder.Services.AddScoped<IMomoService, MomoService>();
 
 //Connect VNPay API
@@ -57,7 +71,8 @@ builder.Services.AddDbContext<DataModel>(options =>
 
 // Đăng ký dịch vụ LaptopService
 builder.Services.AddScoped<ILaptopService, LaptopService>();
-
+// Đăng ký CartService
+builder.Services.AddScoped<ICartService, CartService>();
 //// Kết nối tới database
 //var connectionString = builder.Configuration.GetConnectionString("DBContextSampleConnection")
 //                       ?? throw new InvalidOperationException("Connection string 'DBContextSampleConnection' not found.");

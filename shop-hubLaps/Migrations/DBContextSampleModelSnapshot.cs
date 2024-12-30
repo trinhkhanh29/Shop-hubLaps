@@ -51,22 +51,22 @@ namespace shop_hubLaps.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "d60f92c7-3cdb-483c-ace1-47b2634797e4",
-                            ConcurrencyStamp = "101f1ad9-7bf9-4965-bc8b-61bacd07b015",
+                            Id = "84042955-c3d6-4475-99f3-82b952178e70",
+                            ConcurrencyStamp = "c522d8b8-c7a5-4136-83b4-d306d315461e",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "c33cb848-027a-4e49-b908-55cbc768527a",
-                            ConcurrencyStamp = "1563c7ba-36ce-4ae5-ba33-786048e5b664",
+                            Id = "e88d081f-bf9f-4239-b200-c0c9b56535da",
+                            ConcurrencyStamp = "ed9f1520-cb99-41e6-b4c3-ec459bd1f4aa",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "5db2ff6e-ad76-4832-9f58-f18dde6252fa",
-                            ConcurrencyStamp = "ff81527b-c157-4537-9043-6b40569d0568",
+                            Id = "e09ba2b2-68c9-4ef0-a40d-87615e8775cf",
+                            ConcurrencyStamp = "a69fa7c7-aaaf-44cf-816e-bb2355bace9c",
                             Name = "Staff",
                             NormalizedName = "STAFF"
                         });
@@ -210,12 +210,10 @@ namespace shop_hubLaps.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("FirstName")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("LastName")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 

@@ -11,15 +11,19 @@ namespace shop_hubLaps.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+
         private readonly DataModel _context;
+
         private readonly ILaptopService _laptopService;
 
-        public HomeController(ILogger<HomeController> logger, DataModel context, ILaptopService laptopService)
+        private readonly ICartService _cartService;
+
+        public HomeController(ILogger<HomeController> logger, DataModel context, ILaptopService laptopService, ICartService cartService)
         {
             _logger = logger;
             _context = context;
             _laptopService = laptopService;
-
+            _cartService = cartService;
         }
 
         public IActionResult Index(int? manhucau, decimal? pmin, decimal? pmax)
@@ -44,13 +48,60 @@ namespace shop_hubLaps.Controllers
             // Fetch active advertisements from the QuangCao table
             var quangCaos = _context.QuangCaos.Where(q => q.trangthai == true).ToList();
 
+            // Lấy thông tin giỏ hàng của người dùng (nếu có)
+            var userId = User.Identity.Name;  // Hoặc lấy User ID
+            var cartItems = _cartService.GetCartItems(userId);  // Giả sử có phương thức để lấy giỏ hàng của người dùng
+            var cartItemCount = cartItems.Sum(item => item.soluong);  // Tính tổng số sản phẩm trong giỏ
+
             var viewModel = new HomeIndexViewModel
             {
                 Brands = brands,
                 NhuCaus = nhuCaus,
                 Laptops = laptops,
-                QuangCaos = quangCaos // Pass the ads to the view
+                QuangCaos = quangCaos,
+                CartItemCount = cartItemCount
 
+            };
+
+            return View(viewModel);
+        }
+        
+        [HttpGet("Home/Search")]
+        public IActionResult Search(string query, decimal? minPrice, decimal? maxPrice, int? brandId, int? categoryId)
+        {
+            var laptops = _context.Laptops.AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(query))
+            {
+                laptops = laptops.Where(l => EF.Functions.Like(l.tenlaptop, $"%{query}%"));
+            }
+
+            if (minPrice.HasValue && maxPrice.HasValue)
+            {
+                laptops = laptops.Where(l => l.giaban >= minPrice && l.giaban <= maxPrice);
+            }
+
+            if (brandId.HasValue)
+            {
+                laptops = laptops.Where(l => l.mahang == brandId);
+            }
+
+            if (categoryId.HasValue)
+            {
+                laptops = laptops.Where(l => l.manhucau == categoryId);
+            }
+
+            // Create a new HomeIndexViewModel with the laptops and other necessary data
+            var nhuCaus = _context.NhuCaus.ToList();
+            var brands = _context.Hangs.ToList();
+            var quangCaos = _context.QuangCaos.Where(q => q.trangthai == true).ToList();
+
+            var viewModel = new HomeIndexViewModel
+            {
+                Laptops = laptops.ToList(),  // List of laptops
+                Brands = brands,             // List of brands (if needed in view)
+                NhuCaus = nhuCaus,           // List of nhuCaus (if needed in view)
+                QuangCaos = quangCaos        // Active advertisements (if needed in view)
             };
 
             return View(viewModel);
@@ -71,7 +122,6 @@ namespace shop_hubLaps.Controllers
             return View(laptop); // Pass the `Laptop` object to the view
         }
 
-        // API endpoint to get laptops by nhuCau (AJAX request)
         [HttpGet]
         public IActionResult GetLaptopsByNhuCau(int nhuCauId)
         {
@@ -96,6 +146,7 @@ namespace shop_hubLaps.Controllers
             // Return the laptops as a JSON response to the frontend
             return Json(laptops);
         }
+        
         public IActionResult FilterLaptops(int pmin, int pmax)
         {
             var filteredLaptops = _context.Laptops
@@ -105,9 +156,7 @@ namespace shop_hubLaps.Controllers
             return View(filteredLaptops);
         }
        
-
-            // API để lấy laptop theo sắp xếp
-            [HttpGet]
+        [HttpGet]
         public IActionResult GetLaptopsBySort(int sortId)
         {
             try
@@ -125,7 +174,6 @@ namespace shop_hubLaps.Controllers
             }
         }
 
-        // Post method to add a comment for a laptop
         [HttpPost]
         public IActionResult AddComment(string ten, string noidung, int vote, int malaptop)
         {
@@ -191,7 +239,6 @@ namespace shop_hubLaps.Controllers
             return Json(laptops);
         }
 
-        // Hành động tìm kiếm
         public IActionResult Search(string query, int? manhucau, decimal? pmin, decimal? pmax)
         {
             if (string.IsNullOrEmpty(query))
@@ -208,7 +255,6 @@ namespace shop_hubLaps.Controllers
             return View("Index", result);
         }
 
-        // Add laptop to the cart (AJAX)
         [HttpPost]
         public IActionResult AddToCart([FromBody] AddToCartModel model)
         {
@@ -271,17 +317,17 @@ namespace shop_hubLaps.Controllers
             return Json(new { success = true, message = "Sản phẩm đã được thêm vào giỏ hàng." });
         }    
 
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
-    // Model for handling Add to Cart requests
+
     public class AddToCartModel
     {
         public int malaptop { get; set; }
+
         public int quantity { get; set; }
     }
 }
