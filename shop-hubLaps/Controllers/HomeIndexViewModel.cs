@@ -33,6 +33,8 @@ namespace shop_hubLaps.Models
         public Dictionary<string, string> CpuFilters { get; set; }  // Mapping of CPU value to display name
 
         public List<string> SelectedCpuFilters { get; set; }  // List of selected CPU filters
+
+        public List<ChuDe> ChuDeList { get; set; }
     }
 }
 

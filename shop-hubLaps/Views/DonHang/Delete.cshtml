@@ -9,6 +9,16 @@
 
 <hr />
 
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+}
+
 <h3>Bạn có chắc muốn xóa đơn hàng này?</h3>
 
 <div>
@@ -36,6 +46,7 @@
     </dl>
 
     <form asp-action="DeleteConfirmed" method="post">
+        @Html.AntiForgeryToken()
         <input type="hidden" asp-for="madon" />
         <button type="submit" class="btn btn-danger">Xóa</button>
         <a asp-action="Index" class="btn btn-secondary">Hủy</a>

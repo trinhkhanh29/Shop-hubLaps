@@ -194,6 +194,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/PC/source/repos/DO-AN-2024/Shop-hubLaps/shop-hubLaps/Views/Blog/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/source/repos/DO-AN-2024/Shop-hubLaps/shop-hubLaps/Views/Blog/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/PC/source/repos/DO-AN-2024/Shop-hubLaps/shop-hubLaps/Views/Cart/GioHangPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxHaW9IYW5nUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -300,6 +308,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/PC/source/repos/DO-AN-2024/Shop-hubLaps/shop-hubLaps/Views/Home/Test.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxUZXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/source/repos/DO-AN-2024/Shop-hubLaps/shop-hubLaps/Views/Home/_LaptopPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfTGFwdG9wUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/PC/source/repos/DO-AN-2024/Shop-hubLaps/shop-hubLaps/Views/Laptop/Create.cshtml]
@@ -456,6 +468,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/PC/source/repos/DO-AN-2024/Shop-hubLaps/shop-hubLaps/Views/TinTuc/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGluVHVjXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/source/repos/DO-AN-2024/Shop-hubLaps/shop-hubLaps/Views/TinTuc/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGluVHVjXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/PC/source/repos/DO-AN-2024/Shop-hubLaps/shop-hubLaps/Views/TinTuc/Edit.cshtml]

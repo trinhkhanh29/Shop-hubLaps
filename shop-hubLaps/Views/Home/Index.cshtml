@@ -21,7 +21,9 @@
         html,body{
             font-family: 'Lexend' !important;
         }
-    </style></>
+    </style>
+
+
 </head>
 
 <!--Start slide-show-->
@@ -148,32 +150,14 @@
                         <div class="v5-filter-mb-tool">
                             <ul>
                                 <div class="label">Sắp xếp theo</div>
-
-                                <li>
-                                    <a href="javascript:void(0);" onclick="sortLaptops(11)">
-                                        <span>Liên quan</span>
-                                    </a>
-                                </li>
-
                                 <li>
                                     <a href="javascript:void(0);" onclick="sortLaptops(1)">
                                         <span>Mới nhất</span>
                                     </a>
                                 </li>
-
                                 <li>
                                     <a href="javascript:void(0);" onclick="sortLaptops(9)">
                                         <span>Bán chạy</span>
-                                    </a>
-                                </li>
-
-                                <li class="price-s">
-                                    <a href="javascript:void(0);" onclick="sortLaptops(3)">
-                                        <span class="label-icon-r">Giá tiền</span>
-                                        <strong class="sort-icon">
-                                            <i class="icon-rightar rotate-up"></i>
-                                            <i class="icon-rightar rotate-down"></i>
-                                        </strong>
                                     </a>
                                 </li>
                             </ul>
@@ -206,7 +190,7 @@
                     </div>
 
                     <div class="row d-flex flex-wrap justify-content-start" id="laptopContainer">
-                        @foreach (var laptop in Model.Laptops)
+                        @foreach (var laptop in Model.Laptops.Take(6))
                         {
                             <div class="col-12 col-sm-6 col-md-5 col-lg-4 mb-4 box-container">
                                 <div class="card h-100 box-card">
@@ -215,9 +199,12 @@
                                         <img src="@laptop.hinh" class="card-img-top" alt="@laptop.tenlaptop">
                                     </a>
                                     <div class="card-body">
-                                        <h5 class="card-title">                                         
-                                            <a href="/Home/Details?malaptop=@laptop.malaptop" class="text-limit">@laptop.tenlaptop</a>
+                                        <h5 class="card-title">   
+                                            <a href="/Home/Details?malaptop=@laptop.malaptop" class="text-limit">
+                                                @(@laptop.tenlaptop.Length > 30 ? laptop.tenlaptop.Substring(0, 39) + "..." : laptop.tenlaptop)
+                                            </a>
                                         </h5>
+
                                         <div class="price">
                                             <strong>
                                                 @laptop.giaban?.ToString("C0", System.Globalization.CultureInfo.GetCultureInfo("vi-VN"))
@@ -268,6 +255,9 @@
                             </div>
                         }
                     </div>
+                    
+                    <button id="seeMoreButton" class="btn btn-primary mt-3" onclick="loadMoreLaptops()">See More</button>
+
                 </div>
             </div>
         </div>
@@ -276,6 +266,11 @@
 
 
 @section Scripts {
+@*     <script>
+        function sortLaptops(sortId) {
+            window.location.href = '/Home/Index?sortId=' + sortId; // Redirect to the controller with the selected sortId
+        }
+    </script> *@
     <script>
         function applyFilter(cpu) {
             const url = new URL(window.location.href);
@@ -496,81 +491,81 @@ function filterByBrand(brandId) {
 
             });
         });
-        // Hàm để gọi API và tải danh sách laptop theo sortId
-        function sortLaptops(sortId) {
-            const laptopContainer = document.getElementById('laptop-container');
-            laptopContainer.innerHTML = 'Đang tải...';
+        // // Hàm để gọi API và tải danh sách laptop theo sortId
+        // function sortLaptops(sortId) {
+        //     const laptopContainer = document.getElementById('laptop-container');
+        //     laptopContainer.innerHTML = 'Đang tải...';
 
-            fetch(`/Home/GetLaptopsBySort?sortId=${sortId}`)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Mã lỗi: ' + response.status);
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    laptopContainer.innerHTML = ''; // Xóa các sản phẩm cũ
-                    if (data && data.length > 0) {
-                        data.forEach(laptop => {
-                            const laptopElement = document.createElement('div');
-                            laptopElement.classList.add('laptop-item');
-                            laptopElement.innerHTML = `
-                                    <h3>${laptop.name}</h3>
-                                    <p>Giá: ${laptop.price}</p>
-                                `;
-                            laptopContainer.appendChild(laptopElement);
-                        });
-                    } else {
-                        laptopContainer.innerHTML = '<p>Không có laptop nào phù hợp với bộ lọc này.</p>';
-                    }
-                })
-                .catch(error => {
-                    console.error('Lỗi khi tải laptop:', error);
-                    laptopContainer.innerHTML = `<p>Không thể tải laptop. Lỗi: ${error.message}</p>`;
-                });
-        }
+        //     fetch(`/Home/GetLaptopsBySort?sortId=${sortId}`)
+        //         .then(response => {
+        //             if (!response.ok) {
+        //                 throw new Error('Mã lỗi: ' + response.status);
+        //             }
+        //             return response.json();
+        //         })
+        //         .then(data => {
+        //             laptopContainer.innerHTML = ''; // Xóa các sản phẩm cũ
+        //             if (data && data.length > 0) {
+        //                 data.forEach(laptop => {
+        //                     const laptopElement = document.createElement('div');
+        //                     laptopElement.classList.add('laptop-item');
+        //                     laptopElement.innerHTML = `
+        //                             <h3>${laptop.name}</h3>
+        //                             <p>Giá: ${laptop.price}</p>
+        //                         `;
+        //                     laptopContainer.appendChild(laptopElement);
+        //                 });
+        //             } else {
+        //                 laptopContainer.innerHTML = '<p>Không có laptop nào phù hợp với bộ lọc này.</p>';
+        //             }
+        //         })
+        //         .catch(error => {
+        //             console.error('Lỗi khi tải laptop:', error);
+        //             laptopContainer.innerHTML = `<p>Không thể tải laptop. Lỗi: ${error.message}</p>`;
+        //         });
+        // }
 
 
-        // Hàm gọi API và hiển thị laptop sau khi sắp xếp
-        // Hàm gọi API và hiển thị laptop sau khi sắp xếp
-        function sortLaptops(sortId) {
-            // Gọi API để lấy danh sách laptop theo sortId
-            fetch(`/Home/GetLaptopsBySort?sortId=${sortId}`)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error("Network response was not ok");
-                    }
-                    return response.json(); // Chuyển đổi phản hồi thành JSON
-                })
-                .then(data => {
-                    console.log(data); // In dữ liệu nhận được từ API để kiểm tra
+        // // Hàm gọi API và hiển thị laptop sau khi sắp xếp
+        // // Hàm gọi API và hiển thị laptop sau khi sắp xếp
+        // function sortLaptops(sortId) {
+        //     // Gọi API để lấy danh sách laptop theo sortId
+        //     fetch(`/Home/GetLaptopsBySort?sortId=${sortId}`)
+        //         .then(response => {
+        //             if (!response.ok) {
+        //                 throw new Error("Network response was not ok");
+        //             }
+        //             return response.json(); // Chuyển đổi phản hồi thành JSON
+        //         })
+        //         .then(data => {
+        //             console.log(data); // In dữ liệu nhận được từ API để kiểm tra
 
-                    // Tìm phần tử laptop-container và làm mới nội dung
-                    var laptopContainer = document.getElementById("laptop-container");
-                    laptopContainer.innerHTML = ""; // Xóa danh sách laptop hiện tại
+        //             // Tìm phần tử laptop-container và làm mới nội dung
+        //             var laptopContainer = document.getElementById("laptop-container");
+        //             laptopContainer.innerHTML = ""; // Xóa danh sách laptop hiện tại
 
-                    // Hiển thị danh sách laptop sau khi sắp xếp
-                    if (data.length > 0) {
-                        data.forEach(laptop => {
-                            var laptopItem = document.createElement("div");
-                            laptopItem.classList.add("laptop-item"); // Optional, thêm class để dễ dàng style
-                            laptopItem.innerHTML = `
-                                    <h3>${laptop.tenlaptop}</h3>
-                                    <p>${laptop.mota}</p>
-                                    <p>Giá: ${laptop.giaban}</p>
-                                    <img src="${laptop.hinh}" alt="${laptop.tenlaptop}" width="100" />
-                                `;
-                            laptopContainer.appendChild(laptopItem);
-                        });
-                    } else {
-                        laptopContainer.innerHTML = "<p>Không có laptop nào phù hợp.</p>";
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error); // Log lỗi cụ thể
-                    alert("Có lỗi khi tải danh sách laptop. Vui lòng thử lại.");
-                });
-        }
+        //             // Hiển thị danh sách laptop sau khi sắp xếp
+        //             if (data.length > 0) {
+        //                 data.forEach(laptop => {
+        //                     var laptopItem = document.createElement("div");
+        //                     laptopItem.classList.add("laptop-item"); // Optional, thêm class để dễ dàng style
+        //                     laptopItem.innerHTML = `
+        //                             <h3>${laptop.tenlaptop}</h3>
+        //                             <p>${laptop.mota}</p>
+        //                             <p>Giá: ${laptop.giaban}</p>
+        //                             <img src="${laptop.hinh}" alt="${laptop.tenlaptop}" width="100" />
+        //                         `;
+        //                     laptopContainer.appendChild(laptopItem);
+        //                 });
+        //             } else {
+        //                 laptopContainer.innerHTML = "<p>Không có laptop nào phù hợp.</p>";
+        //             }
+        //         })
+        //         .catch(error => {
+        //             console.error('Error:', error); // Log lỗi cụ thể
+        //             alert("Có lỗi khi tải danh sách laptop. Vui lòng thử lại.");
+        //         });
+        // }
         //Details.cshtml
         // document.addEventListener("DOMContentLoaded", function () {
         //     if (typeof CKEDITOR !== "undefined") {

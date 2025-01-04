@@ -63,12 +63,24 @@
                     <ul class="navbar-nav flex-grow-1 justify-content-center">
                         <li class="nav-item">
                             <a class="nav-link text-dark" href="Home">Home</a>
-                        </li>       
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="#">Blog</a>
-                        </li>
+                            <!-- Blog Dropdown Menu -->
+                       @*  <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Blog
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                @foreach (var item in Model.ChuDeList)
+                                {
+                                    <li><a class="dropdown-item" href="#">@item.tenchude</a></li>
+                                }
+                            </ul>
+
+                        </li> *@
                         <li class="nav-item">
                             <a class="nav-link text-dark" href="#">Giới thiệu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Blog" asp-action="Index">Blog</a>
                         </li>
                     </ul>
                     <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
@@ -96,7 +108,10 @@
                                             </button>
                                         </form>
                                     </div>
+                                    <!-- Suggestion List -->
+
                                 </div>
+
                             </li>
 
                             <!-- Search Modal -->
@@ -215,8 +230,27 @@
   <script src="~/lib/jquery/dist/jquery.min.js"></script>
   <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="~/js/site.js" asp-append-version="true"></script>
+  <script>
+        let laptopsLoaded = 6;
+
+        function loadMoreLaptops() {
+            const container = document.getElementById('laptopContainer');
+            fetch(`/Home/LoadMoreLaptops?start=${laptopsLoaded}&count=6`)
+                .then(response => response.text())
+                .then(data => {
+                    container.innerHTML += data;
+                    laptopsLoaded += 6;
+
+                    // Hide the button if no more laptops are available
+                    if (data.trim() === '') {
+                        document.getElementById('seeMoreButton').style.display = 'none';
+                    }
+                })
+                .catch(error => console.error('Error loading more laptops:', error));
+        }
+  </script>
   <script src="https://cdn.ckeditor.com/4.20.2/standard/ckeditor.js"></script>
-    <script>
+  <script>
         document.addEventListener("DOMContentLoaded", function () {
             // Khởi tạo CKEditor cho textarea
             const noidung = document.getElementById("noidung");
@@ -245,8 +279,19 @@
                 });
             }
         });
+  </script>
+  <script>
+        // < !--Start of Tawk.to Script-- >
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/675c005749e2fd8dfef75237/1ievm2lo5';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
     </script>
-
   <script>
 
       $(document).on('click', '#addToCartButton', function() {
@@ -267,44 +312,6 @@
     });
 });
 
-//     // This function updates the offcanvas with the cart details
-//     function updateCartOffcanvas(cartItems) {
-//         const cartBody = document.querySelector('.offcanvas-body');
-//         cartBody.innerHTML = ''; // Clear current cart content
-
-//         if (cartItems.length > 0) {
-//             let cartTable = `<table class="table table-bordered">
-//                                 <thead class="table-dark">
-//                                     <tr>
-//                                         <th>Sản phẩm</th>
-//                                         <th>Đơn giá</th>
-//                                         <th>Số lượng</th>
-//                                         <th>Thành tiền</th>
-//                                         <th>Hành động</th>
-//                                     </tr>
-//                                 </thead>
-//                                 <tbody>`;
-
-//             cartItems.forEach(item => {
-//                 cartTable += `<tr>
-//                                 <td>${item.productName}</td>
-//                                 <td>${item.price}</td>
-//                                 <td>${item.quantity}</td>
-//                                 <td>${item.totalPrice}</td>
-//                                 <td>
-//                                     <button class="btn btn-danger btn-sm" onclick="removeItemFromCart(${item.productId})">Xóa</button>
-//                                 </td>
-//                               </tr>`;
-//             });
-
-//             cartTable += `</tbody></table>`;
-
-//             cartBody.innerHTML = cartTable;
-//         } else {
-//             cartBody.innerHTML = '<p>Giỏ hàng của bạn đang trống!</p>';
-//         }
-//     }
-
     // Function to remove an item from the cart
     function removeItemFromCart(productId) {
         fetch('@Url.Action("RemoveItem", "Cart")', {
@@ -322,61 +329,23 @@
 
     // Optional: Call fetchCartData when the offcanvas is shown (if you need to refresh data on every open)
     document.getElementById('offcanvasCart').addEventListener('show.bs.offcanvas', fetchCartData);
+   });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const chatToggle = document.getElementById('chatToggle');
+            const chatBox = document.getElementById('ContactForConsultation');
+            const chatClose = document.getElementById('chatClose');
 
+            chatToggle.addEventListener('click', () => {
+                chatBox.style.display = chatBox.style.display === 'none' || chatBox.style.display === '' ? 'block' : 'none';
+            });
+
+            chatClose.addEventListener('click', () => {
+                chatBox.style.display = 'none';
+            });
 
         });
-            document.addEventListener('DOMContentLoaded', function () {
-        const chatToggle = document.getElementById('chatToggle');
-        const chatBox = document.getElementById('ContactForConsultation');
-        const chatClose = document.getElementById('chatClose');
-
-        chatToggle.addEventListener('click', () => {
-            chatBox.style.display = chatBox.style.display === 'none' || chatBox.style.display === '' ? 'block' : 'none';
-        });
-
-        chatClose.addEventListener('click', () => {
-            chatBox.style.display = 'none';
-        });
-
-    });
-        // < !--Start of Tawk.to Script-- >
-        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-        (function () {
-            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-            s1.async = true;
-            s1.src = 'https://embed.tawk.to/675c005749e2fd8dfef75237/1ievm2lo5';
-            s1.charset = 'UTF-8';
-            s1.setAttribute('crossorigin', '*');
-            s0.parentNode.insertBefore(s1, s0);
-        })();
-        //<!--End of Tawk.to Script-->
-
-        // //Details.cshtml
-        // document.addEventListener("DOMContentLoaded", function () {
-        //     if (typeof CKEDITOR !== "undefined") {
-        //         CKEDITOR.replace("noidung");
-        //     }
-        // });
-
-        // const stars = document.querySelectorAll('.star');
-        // const voteInput = document.getElementById('vote');
-
-        // stars.forEach(star => {
-        //     star.addEventListener('click', function () {
-        //         const value = this.getAttribute('data-value');
-        //         voteInput.value = value;
-
-        //         // Xóa lớp "selected" khỏi tất cả sao
-        //         stars.forEach(star => star.classList.remove('selected'));
-
-        //         // Thêm lớp "selected" vào sao đã chọn
-        //         for (let i = 0; i < value; i++) {
-        //             stars[i].classList.add('selected');
-        //         }
-        //     });
-        // });
-
-
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -417,11 +386,9 @@
         {
             @:showMessage("@TempData["ErrorMessage"]", "error");
         }
-                        });
+        });
     </script>
     @RenderSection("Scripts", required: false)
-
 </body>
-
 </html>
 

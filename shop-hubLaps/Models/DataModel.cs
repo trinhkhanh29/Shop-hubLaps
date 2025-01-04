@@ -51,17 +51,17 @@ namespace shop_hubLaps.Models
 
             // Cấu hình mối quan hệ giữa ChiTietDonHang và DonHang
             modelBuilder.Entity<ChiTietDonHang>()
-                .HasOne(e => e.DonHang)
-                .WithMany(e => e.ChiTietDonHangs)
-                .HasForeignKey(e => e.madon)
-                .OnDelete(DeleteBehavior.Restrict);
+                .HasOne(c => c.DonHang)
+                .WithMany(d => d.ChiTietDonHangs)
+                .HasForeignKey(c => c.madon)
+                .OnDelete(DeleteBehavior.Cascade);
 
             // Cấu hình mối quan hệ giữa ChiTietDonHang và Laptop
             modelBuilder.Entity<ChiTietDonHang>()
-                .HasOne(e => e.Laptop)
-                .WithMany(e => e.ChiTietDonHangs)
-                .HasForeignKey(e => e.malaptop)
-                .OnDelete(DeleteBehavior.Restrict);
+               .HasOne(c => c.Laptop)
+               .WithMany(l => l.ChiTietDonHangs)
+               .HasForeignKey(c => c.malaptop)
+               .OnDelete(DeleteBehavior.Restrict);
 
             // Cấu hình các thuộc tính không dùng Unicode
             modelBuilder.Entity<ChuDe>()
@@ -112,6 +112,8 @@ namespace shop_hubLaps.Models
             modelBuilder.Entity<ChiTietDonHang>()
                 .Property(e => e.dongia)
                 .HasPrecision(18, 0);
+
+          
         }
     }
 }

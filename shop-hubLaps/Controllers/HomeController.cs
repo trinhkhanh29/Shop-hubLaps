@@ -30,6 +30,7 @@ namespace shop_hubLaps.Controllers
         {
             var nhuCaus = _context.NhuCaus.ToList();
             var brands = _context.Hangs.ToList();
+            var chuDeList = _context.ChuDes.ToList();
 
             var laptopsQuery = _context.Laptops.AsQueryable();
 
@@ -61,31 +62,31 @@ namespace shop_hubLaps.Controllers
             var cartItemCount = cartItems.Sum(item => item.soluong);  // Tính tổng số sản phẩm trong giỏ
 
             var cpuFilters = new Dictionary<string, string>
-    {
-        { "intel_core_i3", "Intel Core i3" },
-        { "intel_core_i5", "Intel Core i5" },
-        { "intel_core_i7", "Intel Core i7" },
-        { "intel_core_i9", "Intel Core i9" },
-        { "intel_celeron_pentium", "Intel Celeron / Pentium" },
-        { "intel_core_u5", "Intel Core U5" },
-        { "intel_core_u7", "Intel Core U7" },
-        { "intel_core_u9", "Intel Core U9" },
-        { "amd_ryzen_5", "AMD Ryzen 5" },
-        { "amd_ryzen_7", "AMD Ryzen 7" },
-        { "amd_ryzen_9", "AMD Ryzen 9" },
-        { "apple_m1", "Apple M1" },
-        { "apple_m1_pro", "Apple M1 Pro" },
-        { "apple_m1_max", "Apple M1 Max" },
-        { "apple_m2", "Apple M2" },
-        { "apple_m2_pro", "Apple M2 Pro" },
-        { "apple_m2_max", "Apple M2 Max" },
-        { "apple_m3", "Apple M3" },
-        { "apple_m3_pro", "Apple M3 Pro" },
-        { "apple_m3_max", "Apple M3 Max" },
-        { "qualcomm_snapdragon", "Qualcomm Snapdragon" },
-        { "snapdragon_x_plus", "Snapdragon X Plus" },
-        { "other", "Khác" }
-    };
+            {
+                { "intel_core_i3", "Intel Core i3" },
+                { "intel_core_i5", "Intel Core i5" },
+                { "intel_core_i7", "Intel Core i7" },
+                { "intel_core_i9", "Intel Core i9" },
+                { "intel_celeron_pentium", "Intel Celeron / Pentium" },
+                { "intel_core_u5", "Intel Core U5" },
+                { "intel_core_u7", "Intel Core U7" },
+                { "intel_core_u9", "Intel Core U9" },
+                { "amd_ryzen_5", "AMD Ryzen 5" },
+                { "amd_ryzen_7", "AMD Ryzen 7" },
+                { "amd_ryzen_9", "AMD Ryzen 9" },
+                { "apple_m1", "Apple M1" },
+                { "apple_m1_pro", "Apple M1 Pro" },
+                { "apple_m1_max", "Apple M1 Max" },
+                { "apple_m2", "Apple M2" },
+                { "apple_m2_pro", "Apple M2 Pro" },
+                { "apple_m2_max", "Apple M2 Max" },
+                { "apple_m3", "Apple M3" },
+                { "apple_m3_pro", "Apple M3 Pro" },
+                { "apple_m3_max", "Apple M3 Max" },
+                { "qualcomm_snapdragon", "Qualcomm Snapdragon" },
+                { "snapdragon_x_plus", "Snapdragon X Plus" },
+                { "other", "Khác" }
+            };
 
             // Convert the cpuFilter string to a list of selected CPUs (if any)
             var selectedCpuFilters = cpuFilter?.Split(',')?.ToList() ?? new List<string>();
@@ -97,13 +98,23 @@ namespace shop_hubLaps.Controllers
                 Laptops = laptops,
                 QuangCaos = quangCaos,
                 CartItemCount = cartItemCount,
-                CpuFilters = cpuFilters,  // Passing the dictionary to the view
-                SelectedCpuFilters = selectedCpuFilters  // Passing the selected filters to the view
+                CpuFilters = cpuFilters,
+                SelectedCpuFilters = selectedCpuFilters,
+                ChuDeList = chuDeList
             };
 
             return View(viewModel);
         }
 
+        public IActionResult LoadMoreLaptops(int start, int count)
+        {
+            var laptops = _context.Laptops
+                .Skip(start)
+                .Take(count)
+                .ToList();
+
+            return PartialView("_LaptopPartial", laptops);
+        }
 
 
         [HttpGet("Home/Search")]
