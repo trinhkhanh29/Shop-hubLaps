@@ -1,0 +1,24 @@
+﻿@model IEnumerable<shop_hubLaps.Models.TinTuc>
+
+<h1 class="text-start" style="font-family: Lexend; font-weight: 500; font-size: 30px;">Bài viết mới</h1>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 col-sm-6 mb-4">
+            <div class="card shadow-sm h-100">
+                <img class="card-img-top" 
+                     src="@(string.IsNullOrEmpty(item.hinhnen) ? "/img/no-image.png" : item.hinhnen)" 
+                     alt="@item.tieude" 
+                     style="height: 200px; object-fit: cover;">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title text-truncate">@item.tieude</h5>
+                    <p class="card-text text-muted small">@item.ChuDe?.tenchude</p>
+                    <p class="card-text">@item.tomtat</p>
+                    <a href="@Url.Action("ChiTiet", "Blog", new { id = item.matin })" class="btn btn-primary mt-auto">
+                        Xem chi tiết
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

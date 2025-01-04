@@ -1214,7 +1214,7 @@ IF NOT EXISTS (
     WHERE [MigrationId] = N'20241228104918_DateTimeCreateDate'
 )
 BEGIN
-    ALTER TABLE [VnpayModels] ADD [CreatedDate] datetime2 NOT NULL DEFAULT '2024-12-30T15:32:31.8616850+07:00';
+    ALTER TABLE [VnpayModels] ADD [CreatedDate] datetime2 NOT NULL DEFAULT '2024-12-30T16:50:35.8976014+07:00';
 END;
 GO
 

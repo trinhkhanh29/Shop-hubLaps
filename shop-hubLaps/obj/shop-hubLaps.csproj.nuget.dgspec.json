@@ -54,6 +54,10 @@
               "target": "Package",
               "version": "[2.2.1, )"
             },
+            "CKEditor": {
+              "target": "Package",
+              "version": "[3.6.4, )"
+            },
             "CKSource.CKFinder.Connector.Core": {
               "target": "Package",
               "version": "[3.5.2, )"
@@ -93,6 +97,18 @@
             "Microsoft.AspNetCore.Authentication.MicrosoftAccount": {
               "target": "Package",
               "version": "[8.0.10, )"
+            },
+            "Microsoft.AspNetCore.Hosting.Server.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Http": {
+              "target": "Package",
+              "version": "[2.2.2, )"
+            },
+            "Microsoft.AspNetCore.HttpsPolicy": {
+              "target": "Package",
+              "version": "[2.2.0, )"
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
@@ -181,6 +197,10 @@
             "bootstrap": {
               "target": "Package",
               "version": "[5.3.3, )"
+            },
+            "ckeditor-full": {
+              "target": "Package",
+              "version": "[4.25.0, )"
             },
             "itext7": {
               "target": "Package",

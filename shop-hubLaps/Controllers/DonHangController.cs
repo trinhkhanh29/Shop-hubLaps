@@ -164,7 +164,6 @@ namespace shop_hubLaps.Controllers
             return View(donHang);
         }
 
-
         // GET: DonHang/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -188,32 +187,34 @@ namespace shop_hubLaps.Controllers
 
         // POST: DonHang/Delete/5
         [HttpPost]
-        [ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(int madon)
         {
             try
             {
-                var donHang = await _context.DonHangs.FindAsync(id);  // Tìm đơn hàng theo id
+                var donHang = await _context.DonHangs.FindAsync(madon); // Find the order by ID
 
-                if (donHang != null)
+                if (donHang == null)
                 {
-                    _context.DonHangs.Remove(donHang);  // Thực hiện xóa đơn hàng
-                    await _context.SaveChangesAsync();  // Lưu thay đổi vào cơ sở dữ liệu
-                    TempData["SuccessMessage"] = "Đơn hàng đã được xóa thành công.";  // Thông báo thành công
+                    TempData["ErrorMessage"] = "Không tìm thấy đơn hàng để xóa.";
+                    return RedirectToAction(nameof(Index));
                 }
-                else
-                {
-                    TempData["ErrorMessage"] = "Đơn hàng không tồn tại khi xóa.";  // Thông báo lỗi nếu không tìm thấy đơn hàng
-                }
+
+                _context.DonHangs.Remove(donHang); // Perform delete operation
+                await _context.SaveChangesAsync(); // Save changes to the database
+
+                TempData["SuccessMessage"] = $"Đơn hàng mã #{madon} đã được xóa thành công."; // Success notification
+            }
+            catch (DbUpdateException dbEx)
+            {
+                TempData["ErrorMessage"] = "Không thể xóa đơn hàng do liên kết dữ liệu: " + dbEx.Message; // Handle database constraint errors
             }
             catch (Exception ex)
             {
-                // Xử lý trường hợp lỗi
-                TempData["ErrorMessage"] = "Có lỗi xảy ra khi xóa: " + ex.Message;  // Thông báo lỗi chi tiết
+                TempData["ErrorMessage"] = "Có lỗi xảy ra khi xóa: " + ex.Message; // Handle general errors
             }
 
-            return RedirectToAction(nameof(Index));  // Quay lại trang Index sau khi xóa hoặc gặp lỗi
+            return RedirectToAction(nameof(Index)); // Redirect to the Index page after delete
         }
 
 

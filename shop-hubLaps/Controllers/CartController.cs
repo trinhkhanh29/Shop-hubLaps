@@ -273,18 +273,26 @@ namespace shop_hubLaps.Controllers
 
             return RedirectToAction("Index");
         }
-       
+
         [HttpPost]
         public async Task<IActionResult> XoaSanPham(int malaptop)
         {
             var user = await _userManager.GetUserAsync(User);
-            if (user == null) return Redirect(Url.Content("~/Identity/Account/Login?returnUrl=/Cart/Index"));
+            if (user == null)
+            {
+                TempData["ErrorMessage"] = "Vui lòng đăng nhập để tiếp tục!";
+                return Redirect(Url.Content("~/Identity/Account/Login?returnUrl=/Cart/Index"));
+            }
 
             var donHang = await _context.DonHangs
                 .Include(d => d.ChiTietDonHangs)
                 .FirstOrDefaultAsync(d => d.makh == user.Id && d.tinhtrang == "CART");
 
-            if (donHang == null) return NotFound();
+            if (donHang == null)
+            {
+                TempData["ErrorMessage"] = "Không tìm thấy giỏ hàng của bạn!";
+                return RedirectToAction("Index");
+            }
 
             var chiTiet = donHang.ChiTietDonHangs.FirstOrDefault(ct => ct.malaptop == malaptop);
             if (chiTiet != null)
@@ -292,10 +300,24 @@ namespace shop_hubLaps.Controllers
                 _context.ChiTietDonHangs.Remove(chiTiet);
                 donHang.CapNhatGiaTri();
                 await _context.SaveChangesAsync();
+
+                if (!donHang.ChiTietDonHangs.Any()) // Kiểm tra giỏ hàng rỗng
+                {
+                    TempData["InfoMessage"] = "Giỏ hàng của bạn đã trống!";
+                }
+                else
+                {
+                    TempData["SuccessMessage"] = "Sản phẩm đã được xóa khỏi giỏ hàng!";
+                }
+            }
+            else
+            {
+                TempData["ErrorMessage"] = "Không tìm thấy sản phẩm trong giỏ hàng!";
             }
 
             return RedirectToAction("Index");
         }
+
 
         [HttpPost]
         public IActionResult XacNhanDonHang(DonHang model)

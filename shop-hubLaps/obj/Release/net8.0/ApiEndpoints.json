@@ -1,0 +1,18 @@
+[
+  {
+    "ContainingType": "shop_hubLaps.Controllers.UserOrdersController",
+    "Method": "GetUserOrders",
+    "RelativePath": "api/UserOrders/{makh}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "makh",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

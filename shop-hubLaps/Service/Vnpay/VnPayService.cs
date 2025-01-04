@@ -36,7 +36,7 @@ namespace shop_hubLaps.Service.Vnpay
             pay.AddRequestData("vnp_TxnRef", tick);
 
             var paymentUrl =
-                pay.CreateRequestUrl(_configuration["Vnpay:BaseUrl"], _configuration["Vnpay:HashSecret"]);//HMAC-SHA256
+                pay.CreateRequestUrl(_configuration["Vnpay:BaseUrl"], _configuration["Vnpay:HashSecret"]);
 
             return paymentUrl;
         }
@@ -45,7 +45,7 @@ namespace shop_hubLaps.Service.Vnpay
         public PaymentResponseModel PaymentExecute(IQueryCollection collections)
         {
             var pay = new VnPayLibrary();
-            var response = pay.GetFullResponseData(collections, _configuration["Vnpay:HashSecret"]);
+            var response = pay.GetFullResponseData(collections, _configuration["Vnpay:HashSecret"]);//HMAC-SHA256
 
             return response;
         }

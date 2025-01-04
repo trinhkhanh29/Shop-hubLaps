@@ -277,6 +277,7 @@ C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\s
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\Autofac.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\Azure.Core.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\Azure.Identity.dll
+C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\Azure.Security.KeyVault.Certificates.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\BouncyCastle.Crypto.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\Castle.Core.dll
@@ -395,6 +396,7 @@ C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\S
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\Serilog.Sinks.File.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\StarkbankEcdsa.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\Stripe.net.dll
+C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\System.ClientModel.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\System.CodeDom.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\System.Composition.AttributedModel.dll
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\System.Composition.Convention.dll
@@ -582,5 +584,3 @@ C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Debug\net8.0\r
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Debug\net8.0\shop-hubLaps.pdb
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Debug\net8.0\shop-hubLaps.genruntimeconfig.cache
 C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\obj\Debug\net8.0\ref\shop-hubLaps.dll
-C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\Azure.Security.KeyVault.Certificates.dll
-C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\bin\Debug\net8.0\System.ClientModel.dll

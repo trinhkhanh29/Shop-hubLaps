@@ -51,22 +51,22 @@ namespace shop_hubLaps.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "84042955-c3d6-4475-99f3-82b952178e70",
-                            ConcurrencyStamp = "c522d8b8-c7a5-4136-83b4-d306d315461e",
+                            Id = "87ea81d0-498e-4df4-97ee-93b2ed0209b3",
+                            ConcurrencyStamp = "1b31a290-a23d-4d6f-83a6-25095a683f2a",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "e88d081f-bf9f-4239-b200-c0c9b56535da",
-                            ConcurrencyStamp = "ed9f1520-cb99-41e6-b4c3-ec459bd1f4aa",
+                            Id = "2f3c8dd3-7224-4952-a5fc-0ced87f18b24",
+                            ConcurrencyStamp = "339314f1-3d2b-4b59-bc79-cb247c959dad",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "e09ba2b2-68c9-4ef0-a40d-87615e8775cf",
-                            ConcurrencyStamp = "a69fa7c7-aaaf-44cf-816e-bb2355bace9c",
+                            Id = "6443361c-e2f2-4e26-a1be-d2f7e4c2ac72",
+                            ConcurrencyStamp = "8b2b4154-224c-43bd-aee3-7ae6aaf8e24a",
                             Name = "Staff",
                             NormalizedName = "STAFF"
                         });

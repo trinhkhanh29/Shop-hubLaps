@@ -123,6 +123,68 @@
         border: 0;
         transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
     }
+
+    /* Slideshow container */
+    .product-carousel-container {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .product-carousel {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .product-item {
+        flex: 0 0 auto;
+        margin-right: 20px; /* Khoảng cách giữa các thẻ sản phẩm */
+    }
+
+    .card {
+        margin: 0;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-img-top {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    /* Nút điều hướng */
+    .carousel-control-prev, .carousel-control-next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 5px;
+        font-size: 20px; /* Kích thước icon */
+        width: 40px; /* Đường kính của nút */
+        height: 40px; /* Đường kính của nút */
+        border-radius: 50%; /* Tạo hình tròn */
+        opacity: 0; /* Ẩn nút mặc định */
+        transition: opacity 0.3s ease, transform 0.3s ease; /* Thêm hiệu ứng khi hover */
+        cursor: pointer;
+    }
+
+        .carousel-control-prev:hover, .carousel-control-next:hover {
+            opacity: 1; /* Hiển thị nút khi hover */
+            transform: translateY(-50%) scale(1.1); /* Tăng kích thước nhẹ khi hover */
+        }
+
+    /* Vị trí của các nút */
+    .carousel-control-prev {
+        left: 10px; /* Khoảng cách từ bên trái */
+    }
+
+    .carousel-control-next {
+        right: 10px; /* Khoảng cách từ bên phải */
+    }
+
 </style>
 
 <div class="dashboard-page">
@@ -218,19 +280,34 @@
 
             <div class="row">
                 <!-- Sản phẩm mới nhất -->
-                <div class="col-md-6 my-4">
+                <div class="col-md-12 my-4">
                     <h5 class="my-4">Sản Phẩm Mới Nhất</h5>
-                    <ul class="list-group" style="padding-top:31px">
-                        @foreach (var laptop in ViewBag.NewLaptops)
-                        {
-                            <li class="list-group-item d-flex align-items-center">
-                                <img src="@laptop.hinh" alt="@laptop.tenlaptop" class="me-3" style="width: 50px; height: 50px; object-fit: cover;">
-                                <span class="ellipsis"><strong>@laptop.tenlaptop</strong></span>
-                            </li>
-                        }
-                    </ul>
+
+                    <!-- Slideshow container -->
+                    <div class="product-carousel-container">
+                        <div class="product-carousel" id="productCarousel">
+                            @foreach (var laptop in ViewBag.NewLaptops)
+                            {
+                                <div class="product-item">
+                                    <div class="card" style="width: 18rem;height:100%;padding:10px">
+                                        <img src="@laptop.hinh" class="card-img-top" alt="@laptop.tenlaptop">
+                                        <div class="card-body" style="padding: 10px;">
+                                            <h5 class="card-title" style="font-size: 16px; overflow: hidden; text-overflow: ellipsis; text-align: center;padding-top:10px">
+                                                @(@laptop.tenlaptop.Length > 30 ? laptop.tenlaptop.Substring(0, 39) + "..." : laptop.tenlaptop)
+                                            </h5>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                        <!-- Navigation buttons -->
+                        <button class="carousel-control-prev" id="prevBtn">&#10094;</button>
+                        <button class="carousel-control-next" id="nextBtn">&#10095;</button>
+                    </div>
                 </div>
             </div>
+
             <!-- Sản phẩm tồn kho thấp -->
             <div class="col-12 my-4">
                 <h5 class="my-4">Sản Phẩm Tồn Kho Thấp</h5>
@@ -261,7 +338,44 @@
 
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    let currentIndex = 0;
+        const products = document.querySelectorAll('.product-item');
+        const totalProducts = products.length;
+        const productCarousel = document.getElementById('productCarousel');
+        const nextBtn = document.getElementById('nextBtn');
+        const prevBtn = document.getElementById('prevBtn');
 
+        function showNextProduct() {
+            if (currentIndex < totalProducts - 1) {
+                currentIndex++;
+            } else {
+                currentIndex = 0; // Loop back to the first product
+            }
+            updateCarouselPosition();
+        }
+
+        function showPrevProduct() {
+            if (currentIndex > 0) {
+                currentIndex--;
+            } else {
+                currentIndex = totalProducts - 1; // Loop back to the last product
+            }
+            updateCarouselPosition();
+        }
+
+        function updateCarouselPosition() {
+            const offset = -currentIndex * (products[0].offsetWidth + 20); // 20px is the margin-right
+            productCarousel.style.transform = `translateX(${offset}px)`;
+        }
+
+        // Event listeners for the buttons
+        nextBtn.addEventListener('click', showNextProduct);
+        prevBtn.addEventListener('click', showPrevProduct);
+
+        // Optional: Auto slide every 3 seconds
+        setInterval(showNextProduct, 3000);
+</script>
 <script>
     //4.Doanh số bán chạy nhất
     @{

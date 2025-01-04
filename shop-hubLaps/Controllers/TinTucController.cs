@@ -46,7 +46,9 @@ namespace shop_hubLaps.Controllers
             {
                 _logger.LogError(ex, "Lỗi khi tải danh sách tin tức");
                 TempData["ErrorMessage"] = "Đã xảy ra lỗi khi tải danh sách tin tức.";
+               
                 return View(new List<TinTuc>());
+
             }
         }
 
@@ -146,18 +148,35 @@ namespace shop_hubLaps.Controllers
 
 
 
-        // Hiển thị chi tiết tin tức
+        // GET: Blog/Details/{id}
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null) return NotFound();
 
             var tinTuc = await _context.TinTucs
-                .Include(t => t.ChuDe)
+                .Include(t => t.ChuDe) // Load related ChuDe data
                 .FirstOrDefaultAsync(m => m.matin == id);
 
             if (tinTuc == null) return NotFound();
 
             return View(tinTuc);
+        }
+        [HttpPost]
+        public async Task<IActionResult> UploadImage(IFormFile upload)
+        {
+            if (upload != null && upload.Length > 0)
+            {
+                var filePath = Path.Combine(_imageFolder, upload.FileName);
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await upload.CopyToAsync(stream);
+                }
+
+                var url = Url.Content("/Content/images/" + upload.FileName);
+                return Json(new { uploaded = true, url });
+            }
+
+            return Json(new { uploaded = false, error = new { message = "Upload failed" } });
         }
 
 

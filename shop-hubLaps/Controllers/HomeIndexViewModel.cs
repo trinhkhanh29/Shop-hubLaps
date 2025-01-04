@@ -28,6 +28,14 @@ namespace shop_hubLaps.Models
 
         public int CartItemCount { get; set; }
 
-    }
+        public List<string> CpuFilter { get; set; }
 
+        public Dictionary<string, string> CpuFilters { get; set; }  // Mapping of CPU value to display name
+
+        public List<string> SelectedCpuFilters { get; set; }  // List of selected CPU filters
+
+        public List<ChuDe> ChuDeList { get; set; }
+    }
 }
+
+

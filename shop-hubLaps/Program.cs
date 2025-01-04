@@ -40,8 +40,8 @@ builder.Services.AddAuthentication()
         options.CallbackPath = "/signin-microsoftt";
     });
 
-    // Configure Momo Options
-    builder.Services.Configure<MomoOptionModel>(builder.Configuration.GetSection("MomoAPI"));
+// Configure Momo Options
+builder.Services.Configure<MomoOptionModel>(builder.Configuration.GetSection("MomoAPI"));
 builder.Services.AddScoped<IMomoService, MomoService>();
 
 //Connect VNPay API
