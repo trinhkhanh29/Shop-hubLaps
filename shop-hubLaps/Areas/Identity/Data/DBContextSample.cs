@@ -21,6 +21,7 @@ namespace shop_hubLaps.Areas.Identity.Data
             builder.ApplyConfiguration(new ApplicationUserEntityConfiguration());
 
             SeedRoles(builder);
+
         }
         private void SeedRoles(ModelBuilder builder)
         {

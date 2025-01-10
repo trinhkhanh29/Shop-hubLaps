@@ -113,7 +113,12 @@ namespace shop_hubLaps.Models
                 .Property(e => e.dongia)
                 .HasPrecision(18, 0);
 
-          
+            //modelBuilder.Entity<DonHang>()
+            //  .HasOne(d => d.Staff)
+            //  .WithMany()
+            //  .HasForeignKey(d => d.manv)
+            //  .IsRequired(false);
+
         }
     }
 }

@@ -47,6 +47,29 @@ namespace shop_hubLaps.Migrations.DataModelMigrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "09946aa9-5fc7-4efb-b914-e3205b5de1f4",
+                            ConcurrencyStamp = "4e2fce35-7c3c-4a8b-97a3-a4e9e69fb512",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "ee033bc4-a29b-4497-a857-d0b313f9b46d",
+                            ConcurrencyStamp = "c4604e9f-ecd1-4b86-84ae-5b3c73ce8a7f",
+                            Name = "User",
+                            NormalizedName = "USER"
+                        },
+                        new
+                        {
+                            Id = "388df6e5-c9d8-4ac9-9b55-32eb8590879e",
+                            ConcurrencyStamp = "c50483fb-2852-43d5-9e4d-00f2b6148531",
+                            Name = "Staff",
+                            NormalizedName = "STAFF"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -168,7 +191,6 @@ namespace shop_hubLaps.Migrations.DataModelMigrations
                         .HasColumnType("int");
 
                     b.Property<string>("Avatar")
-                        .IsRequired()
                         .HasMaxLength(70)
                         .HasColumnType("nvarchar(70)");
 
@@ -177,7 +199,6 @@ namespace shop_hubLaps.Migrations.DataModelMigrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("DiaChi")
-                        .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
@@ -189,17 +210,10 @@ namespace shop_hubLaps.Migrations.DataModelMigrations
                         .HasColumnType("bit");
 
                     b.Property<string>("FirstName")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<string>("HoTen")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
                     b.Property<string>("LastName")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
@@ -230,7 +244,6 @@ namespace shop_hubLaps.Migrations.DataModelMigrations
                         .HasColumnType("bit");
 
                     b.Property<string>("Profile")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SecurityStamp")
@@ -309,6 +322,9 @@ namespace shop_hubLaps.Migrations.DataModelMigrations
                         .HasPrecision(18)
                         .HasColumnType("decimal(18,0)");
 
+                    b.Property<decimal>("gia")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<int>("soluong")
                         .HasColumnType("int");
 
@@ -317,6 +333,8 @@ namespace shop_hubLaps.Migrations.DataModelMigrations
                     b.HasIndex("malaptop");
 
                     b.ToTable("ChiTietDonHang");
+
+                    b.HasAnnotation("Relational:JsonPropertyName", "donhang");
                 });
 
             modelBuilder.Entity("shop_hubLaps.Models.ChuDe", b =>
@@ -328,7 +346,6 @@ namespace shop_hubLaps.Migrations.DataModelMigrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("machude"));
 
                     b.Property<string>("hinh")
-                        .IsRequired()
                         .HasMaxLength(70)
                         .IsUnicode(false)
                         .HasColumnType("varchar(70)");
@@ -357,10 +374,7 @@ namespace shop_hubLaps.Migrations.DataModelMigrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("madanhgia"));
 
-                    b.Property<int>("Laptopmalaptop")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("malaptop")
+                    b.Property<int>("malaptop")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("ngaydanhgia")
@@ -383,7 +397,7 @@ namespace shop_hubLaps.Migrations.DataModelMigrations
 
                     b.HasKey("madanhgia");
 
-                    b.HasIndex("Laptopmalaptop");
+                    b.HasIndex("malaptop");
 
                     b.ToTable("DanhGia");
                 });
@@ -396,6 +410,14 @@ namespace shop_hubLaps.Migrations.DataModelMigrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("madon"));
 
+                    b.Property<string>("PhuongThucThanhToan")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<decimal>("gia")
+                        .HasColumnType("decimal(18,2)")
+                        .HasColumnName("gia");
+
                     b.Property<bool?>("giaohang")
                         .HasColumnType("bit");
 
@@ -404,6 +426,10 @@ namespace shop_hubLaps.Migrations.DataModelMigrations
                         .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("makh");
+
+                    b.Property<string>("manv")
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime?>("ngaydat")
                         .HasColumnType("datetime2");
@@ -416,12 +442,14 @@ namespace shop_hubLaps.Migrations.DataModelMigrations
 
                     b.Property<string>("tinhtrang")
                         .IsRequired()
-                        .HasMaxLength(1)
+                        .HasMaxLength(10)
                         .IsUnicode(false)
-                        .HasColumnType("char(1)")
+                        .HasColumnType("char(10)")
                         .IsFixedLength();
 
                     b.HasKey("madon");
+
+                    b.HasIndex("manv");
 
                     b.ToTable("DonHang");
                 });
@@ -435,7 +463,6 @@ namespace shop_hubLaps.Migrations.DataModelMigrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("mahang"));
 
                     b.Property<string>("hinh")
-                        .IsRequired()
                         .HasMaxLength(70)
                         .IsUnicode(false)
                         .HasColumnType("varchar(70)");
@@ -458,12 +485,6 @@ namespace shop_hubLaps.Migrations.DataModelMigrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("malaptop"));
 
-                    b.Property<int?>("Hangmahang")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("NhuCaumanhucau")
-                        .HasColumnType("int");
-
                     b.Property<string>("cpu")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -484,7 +505,6 @@ namespace shop_hubLaps.Migrations.DataModelMigrations
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("hinh")
-                        .IsRequired()
                         .HasMaxLength(70)
                         .IsUnicode(false)
                         .HasColumnType("varchar(70)");
@@ -530,9 +550,9 @@ namespace shop_hubLaps.Migrations.DataModelMigrations
 
                     b.HasKey("malaptop");
 
-                    b.HasIndex("Hangmahang");
+                    b.HasIndex("mahang");
 
-                    b.HasIndex("NhuCaumanhucau");
+                    b.HasIndex("manhucau");
 
                     b.ToTable("Laptop");
                 });
@@ -587,15 +607,12 @@ namespace shop_hubLaps.Migrations.DataModelMigrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("mameta"));
 
-                    b.Property<int>("Laptopmalaptop")
-                        .HasColumnType("int");
-
                     b.Property<string>("keymeta")
                         .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
-                    b.Property<int?>("malaptop")
+                    b.Property<int>("malaptop")
                         .HasColumnType("int");
 
                     b.Property<string>("valuemeta")
@@ -605,7 +622,7 @@ namespace shop_hubLaps.Migrations.DataModelMigrations
 
                     b.HasKey("mameta");
 
-                    b.HasIndex("Laptopmalaptop");
+                    b.HasIndex("malaptop");
 
                     b.ToTable("MetaLaptop");
                 });
@@ -680,26 +697,21 @@ namespace shop_hubLaps.Migrations.DataModelMigrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("matin"));
 
-                    b.Property<int>("ChuDemachude")
-                        .HasColumnType("int");
-
                     b.Property<string>("hinhnen")
-                        .IsRequired()
-                        .HasMaxLength(70)
+                        .HasMaxLength(255)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(70)");
+                        .HasColumnType("varchar(255)");
 
                     b.Property<int?>("luotxem")
                         .HasColumnType("int");
 
-                    b.Property<int?>("machude")
+                    b.Property<int>("machude")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("ngaycapnhat")
                         .HasColumnType("smalldatetime");
 
                     b.Property<string>("noidung")
-                        .IsRequired()
                         .HasColumnType("ntext");
 
                     b.Property<string>("slug")
@@ -713,7 +725,6 @@ namespace shop_hubLaps.Migrations.DataModelMigrations
                         .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("tomtat")
-                        .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
@@ -722,9 +733,50 @@ namespace shop_hubLaps.Migrations.DataModelMigrations
 
                     b.HasKey("matin");
 
-                    b.HasIndex("ChuDemachude");
+                    b.HasIndex("machude");
 
                     b.ToTable("TinTuc");
+                });
+
+            modelBuilder.Entity("shop_hubLaps.Models.VnpayModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("DonHangmadon")
+                        .HasColumnType("int");
+
+                    b.Property<string>("OrderDescription")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OrderId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PaymentId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PaymentMethod")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TransactionId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DonHangmadon");
+
+                    b.ToTable("VnpayTransactions");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -794,7 +846,7 @@ namespace shop_hubLaps.Migrations.DataModelMigrations
                     b.HasOne("shop_hubLaps.Models.DonHang", "DonHang")
                         .WithMany("ChiTietDonHangs")
                         .HasForeignKey("madon")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("shop_hubLaps.Models.Laptop", "Laptop")
@@ -812,29 +864,42 @@ namespace shop_hubLaps.Migrations.DataModelMigrations
                 {
                     b.HasOne("shop_hubLaps.Models.Laptop", "Laptop")
                         .WithMany("DanhGias")
-                        .HasForeignKey("Laptopmalaptop")
+                        .HasForeignKey("malaptop")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Laptop");
                 });
 
+            modelBuilder.Entity("shop_hubLaps.Models.DonHang", b =>
+                {
+                    b.HasOne("shop_hubLaps.Areas.Identity.Data.SampleUser", "Staff")
+                        .WithMany()
+                        .HasForeignKey("manv");
+
+                    b.Navigation("Staff");
+                });
+
             modelBuilder.Entity("shop_hubLaps.Models.Laptop", b =>
                 {
-                    b.HasOne("shop_hubLaps.Models.Hang", null)
+                    b.HasOne("shop_hubLaps.Models.Hang", "Hang")
                         .WithMany("Laptops")
-                        .HasForeignKey("Hangmahang");
+                        .HasForeignKey("mahang");
 
-                    b.HasOne("shop_hubLaps.Models.NhuCau", null)
+                    b.HasOne("shop_hubLaps.Models.NhuCau", "NhuCau")
                         .WithMany("Laptops")
-                        .HasForeignKey("NhuCaumanhucau");
+                        .HasForeignKey("manhucau");
+
+                    b.Navigation("Hang");
+
+                    b.Navigation("NhuCau");
                 });
 
             modelBuilder.Entity("shop_hubLaps.Models.MetaLaptop", b =>
                 {
                     b.HasOne("shop_hubLaps.Models.Laptop", "Laptop")
                         .WithMany("MetaLaptops")
-                        .HasForeignKey("Laptopmalaptop")
+                        .HasForeignKey("malaptop")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -845,11 +910,22 @@ namespace shop_hubLaps.Migrations.DataModelMigrations
                 {
                     b.HasOne("shop_hubLaps.Models.ChuDe", "ChuDe")
                         .WithMany("TinTucs")
-                        .HasForeignKey("ChuDemachude")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("machude")
+                        .OnDelete(DeleteBehavior.SetNull)
                         .IsRequired();
 
                     b.Navigation("ChuDe");
+                });
+
+            modelBuilder.Entity("shop_hubLaps.Models.VnpayModel", b =>
+                {
+                    b.HasOne("shop_hubLaps.Models.DonHang", "DonHang")
+                        .WithMany()
+                        .HasForeignKey("DonHangmadon")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("DonHang");
                 });
 
             modelBuilder.Entity("shop_hubLaps.Models.ChuDe", b =>

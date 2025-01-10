@@ -1,4 +1,5 @@
-﻿using System;
+﻿using shop_hubLaps.Areas.Identity.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -24,7 +25,7 @@ namespace shop_hubLaps.Models
         public DateTime? ngaygiao { get; set; }
 
         [Column("makh")]
-        [StringLength(450)] // Chỉnh sửa chiều dài cho makh
+        [StringLength(450)]
         public string makh { get; set; }
 
         [Column("gia")]
@@ -38,7 +39,13 @@ namespace shop_hubLaps.Models
 
         [JsonPropertyName("donhang")]
         public virtual ICollection<ChiTietDonHang> ChiTietDonHangs { get; set; }
-       
+
+        //[StringLength(450)]
+        //public string? manv { get; set; }
+
+        //[ForeignKey("manv")]
+        //public SampleUser Staff { get; set; }
+
         public void CapNhatGiaTri()
         {
             gia = ChiTietDonHangs.Sum(ct => ct.dongia * ct.soluong);
@@ -48,6 +55,7 @@ namespace shop_hubLaps.Models
                 chiTiet.gia = chiTiet.dongia * chiTiet.soluong;
             }
         }
+
 
     }
 }

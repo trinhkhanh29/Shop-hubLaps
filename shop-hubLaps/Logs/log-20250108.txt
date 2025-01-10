@@ -1,0 +1,1010 @@
+2025-01-08 21:07:24.282 +07:00 [WRN] No store type was specified for the decimal property 'gia' on entity type 'ChiTietDonHang'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-01-08 21:07:24.319 +07:00 [WRN] No store type was specified for the decimal property 'gia' on entity type 'DonHang'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-01-08 21:07:24.520 +07:00 [WRN] No store type was specified for the decimal property 'gia' on entity type 'ChiTietDonHang'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-01-08 21:07:24.521 +07:00 [WRN] No store type was specified for the decimal property 'gia' on entity type 'DonHang'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-01-08 21:08:00.078 +07:00 [INF] Executed DbCommand (93ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-01-08 21:08:00.226 +07:00 [INF] Executed DbCommand (99ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-01-08 21:08:00.330 +07:00 [INF] Executed DbCommand (102ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-01-08 21:08:00.413 +07:00 [INF] Executed DbCommand (83ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-01-08 21:08:00.516 +07:00 [INF] Executed DbCommand (93ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-01-08 21:08:00.527 +07:00 [INF] No migrations were applied. The database is already up to date.
+2025-01-08 21:16:54.534 +07:00 [INF] User profile is available. Using 'C:\Users\PC\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-08 21:16:55.753 +07:00 [INF] Now listening on: https://localhost:7068
+2025-01-08 21:16:55.755 +07:00 [INF] Now listening on: http://localhost:5265
+2025-01-08 21:16:55.825 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-08 21:16:55.832 +07:00 [INF] Hosting environment: Development
+2025-01-08 21:16:55.834 +07:00 [INF] Content root path: C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps
+2025-01-08 21:16:58.754 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/ - null null
+2025-01-08 21:16:59.051 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /, Method: GET, QueryString: , Timestamp: "2025-01-08T14:16:59.0498997Z"
+2025-01-08 21:17:01.734 +07:00 [INF] Executed DbCommand (130ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[Avatar], [a].[ConcurrencyStamp], [a].[DiaChi], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NgaySinh], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[Profile], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+2025-01-08 21:17:01.974 +07:00 [INF] Executed DbCommand (99ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+2025-01-08 21:17:02.158 +07:00 [INF] Executed DbCommand (103ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2025-01-08 21:17:02.260 +07:00 [INF] Executed DbCommand (85ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-01-08 21:17:02.686 +07:00 [INF] Executed DbCommand (405ms) [Parameters=[@__role_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0
+2025-01-08 21:17:02.700 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /, Method: GET, QueryString: , Timestamp: "2025-01-08T14:17:02.6996345Z"
+2025-01-08 21:17:02.704 +07:00 [INF] Executing endpoint 'shop_hubLaps.Controllers.HomeController.Index (shop-hubLaps)'
+2025-01-08 21:17:02.723 +07:00 [INF] Route matched with {action = "Index", controller = "Home", page = "", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.Nullable`1[System.Int32], System.Nullable`1[System.Decimal], System.Nullable`1[System.Decimal], System.String) on controller shop_hubLaps.Controllers.HomeController (shop-hubLaps).
+2025-01-08 21:17:02.940 +07:00 [WRN] No store type was specified for the decimal property 'gia' on entity type 'ChiTietDonHang'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-01-08 21:17:02.943 +07:00 [WRN] No store type was specified for the decimal property 'gia' on entity type 'DonHang'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-01-08 21:17:03.093 +07:00 [INF] Executed DbCommand (87ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[manhucau], [n].[tennhucau]
+FROM [NhuCau] AS [n]
+2025-01-08 21:17:03.201 +07:00 [INF] Executed DbCommand (87ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [h].[mahang], [h].[hinh], [h].[tenhang]
+FROM [Hang] AS [h]
+2025-01-08 21:17:03.327 +07:00 [INF] Executed DbCommand (92ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[machude], [c].[hinh], [c].[slug], [c].[tenchude]
+FROM [ChuDe] AS [c]
+2025-01-08 21:17:03.726 +07:00 [INF] Executed DbCommand (380ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [l].[malaptop], [l].[cpu], [l].[giaban], [l].[gpu], [l].[hardware], [l].[hinh], [l].[mahang], [l].[manhinh], [l].[manhucau], [l].[mota], [l].[ngaycapnhat], [l].[pin], [l].[ram], [l].[soluongton], [l].[tenlaptop], [l].[trangthai]
+FROM [Laptop] AS [l]
+2025-01-08 21:17:03.955 +07:00 [INF] Executed DbCommand (92ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [q].[maqc], [q].[hinhnen], [q].[link], [q].[ngaybatdau], [q].[ngayhethan], [q].[tencongty], [q].[tenqc], [q].[trangthai]
+FROM [QuangCao] AS [q]
+WHERE [q].[trangthai] = CAST(1 AS bit)
+2025-01-08 21:17:04.425 +07:00 [ERR] Failed executing DbCommand (399ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[madon], [t].[PhuongThucThanhToan], [t].[gia], [t].[giaohang], [t].[makh], [t].[manv], [t].[ngaydat], [t].[ngaygiao], [t].[thanhtoan], [t].[tinhtrang], [c].[madon], [c].[malaptop], [c].[dongia], [c].[gia], [c].[soluong]
+FROM (
+    SELECT TOP(1) [d].[madon], [d].[PhuongThucThanhToan], [d].[gia], [d].[giaohang], [d].[makh], [d].[manv], [d].[ngaydat], [d].[ngaygiao], [d].[thanhtoan], [d].[tinhtrang]
+    FROM [DonHang] AS [d]
+    WHERE [d].[makh] = @__userId_0 AND [d].[tinhtrang] = 'CART'
+) AS [t]
+LEFT JOIN [ChiTietDonHang] AS [c] ON [t].[madon] = [c].[madon]
+ORDER BY [t].[madon], [c].[madon]
+2025-01-08 21:17:04.445 +07:00 [ERR] An exception occurred while iterating over the results of a query for context type 'shop_hubLaps.Models.DataModel'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'manv'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass28_0`2.<Execute>b__0(DbContext context, TState state)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementation[TState,TResult](Func`3 operation, Func`3 verifySucceeded, TState state)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:5752b50d-825f-49e3-8a81-c12168e18832
+Error Number:207,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'manv'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass28_0`2.<Execute>b__0(DbContext context, TState state)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementation[TState,TResult](Func`3 operation, Func`3 verifySucceeded, TState state)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:5752b50d-825f-49e3-8a81-c12168e18832
+Error Number:207,State:1,Class:16
+2025-01-08 21:17:04.459 +07:00 [INF] Executed action shop_hubLaps.Controllers.HomeController.Index (shop-hubLaps) in 1729.0765ms
+2025-01-08 21:17:04.462 +07:00 [INF] Executed endpoint 'shop_hubLaps.Controllers.HomeController.Index (shop-hubLaps)'
+2025-01-08 21:17:04.467 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'manv'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass28_0`2.<Execute>b__0(DbContext context, TState state)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementation[TState,TResult](Func`3 operation, Func`3 verifySucceeded, TState state)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.TryGetSingle[TSource](IEnumerable`1 source, Boolean& found)
+   at lambda_method560(Closure, QueryContext)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at CartService.GetCartItems(String userId) in C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\Service\CartService.cs:line 71
+   at shop_hubLaps.Controllers.HomeController.Index(Nullable`1 manhucau, Nullable`1 pmin, Nullable`1 pmax, String cpuFilter) in C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\Controllers\HomeController.cs:line 61
+   at lambda_method230(Closure, Object, Object[])
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at shop_hubLaps.Middleware.ActionLoggingMiddleware.InvokeAsync(HttpContext context) in C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\Middleware\ActionLoggingMiddleware.cs:line 55
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at shop_hubLaps.Middleware.ActionLoggingMiddleware.InvokeAsync(HttpContext context) in C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\Middleware\ActionLoggingMiddleware.cs:line 55
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+ClientConnectionId:5752b50d-825f-49e3-8a81-c12168e18832
+Error Number:207,State:1,Class:16
+2025-01-08 21:17:04.594 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/_vs/browserLink - null null
+2025-01-08 21:17:04.595 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-08 21:17:04.600 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/ - 500 null text/html; charset=utf-8 5852.1165ms
+2025-01-08 21:17:04.617 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 23.3259ms
+2025-01-08 21:17:04.782 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/_vs/browserLink - 200 null text/javascript; charset=UTF-8 189.1565ms
+2025-01-08 21:17:04.851 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/favicon.ico - null null
+2025-01-08 21:17:04.858 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /favicon.ico, Method: GET, QueryString: , Timestamp: "2025-01-08T14:17:04.8580900Z"
+2025-01-08 21:17:04.867 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /favicon.ico, Method: GET, QueryString: , Timestamp: "2025-01-08T14:17:04.8674537Z"
+2025-01-08 21:17:04.871 +07:00 [INF] Request completed - User: admin@example.com, Path: /favicon.ico, Method: GET, QueryString: , Timestamp: "2025-01-08T14:17:04.8674537Z"
+2025-01-08 21:17:04.874 +07:00 [INF] Request completed - User: Anonymous, Path: /favicon.ico, Method: GET, QueryString: , Timestamp: "2025-01-08T14:17:04.8580900Z"
+2025-01-08 21:17:04.877 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/favicon.ico - 404 0 null 26.3326ms
+2025-01-08 21:17:04.881 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7068/favicon.ico, Response status code: 404
+2025-01-08 21:27:26.977 +07:00 [WRN] No store type was specified for the decimal property 'gia' on entity type 'ChiTietDonHang'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-01-08 21:27:27.007 +07:00 [WRN] No store type was specified for the decimal property 'gia' on entity type 'DonHang'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-01-08 21:27:27.200 +07:00 [WRN] No store type was specified for the decimal property 'gia' on entity type 'ChiTietDonHang'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-01-08 21:27:27.200 +07:00 [WRN] No store type was specified for the decimal property 'gia' on entity type 'DonHang'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-01-08 21:27:58.341 +07:00 [INF] Executed DbCommand (110ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-01-08 21:27:58.505 +07:00 [INF] Executed DbCommand (121ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-01-08 21:27:58.607 +07:00 [INF] Executed DbCommand (99ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-01-08 21:27:58.712 +07:00 [INF] Executed DbCommand (104ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-01-08 21:27:58.823 +07:00 [INF] Executed DbCommand (100ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-01-08 21:27:58.834 +07:00 [INF] No migrations were applied. The database is already up to date.
+2025-01-08 21:28:07.604 +07:00 [INF] User profile is available. Using 'C:\Users\PC\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-08 21:28:08.123 +07:00 [INF] Now listening on: https://localhost:7068
+2025-01-08 21:28:08.152 +07:00 [INF] Now listening on: http://localhost:5265
+2025-01-08 21:28:08.227 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-08 21:28:08.229 +07:00 [INF] Hosting environment: Development
+2025-01-08 21:28:08.231 +07:00 [INF] Content root path: C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps
+2025-01-08 21:28:10.323 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/ - null null
+2025-01-08 21:28:10.450 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /, Method: GET, QueryString: , Timestamp: "2025-01-08T14:28:10.4488016Z"
+2025-01-08 21:28:10.685 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /, Method: GET, QueryString: , Timestamp: "2025-01-08T14:28:10.6851098Z"
+2025-01-08 21:28:10.689 +07:00 [INF] Executing endpoint 'shop_hubLaps.Controllers.HomeController.Index (shop-hubLaps)'
+2025-01-08 21:28:10.709 +07:00 [INF] Route matched with {action = "Index", controller = "Home", page = "", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.Nullable`1[System.Int32], System.Nullable`1[System.Decimal], System.Nullable`1[System.Decimal], System.String) on controller shop_hubLaps.Controllers.HomeController (shop-hubLaps).
+2025-01-08 21:28:11.363 +07:00 [WRN] No store type was specified for the decimal property 'gia' on entity type 'ChiTietDonHang'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-01-08 21:28:11.368 +07:00 [WRN] No store type was specified for the decimal property 'gia' on entity type 'DonHang'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-01-08 21:28:13.041 +07:00 [INF] Executed DbCommand (112ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[manhucau], [n].[tennhucau]
+FROM [NhuCau] AS [n]
+2025-01-08 21:28:13.217 +07:00 [INF] Executed DbCommand (90ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [h].[mahang], [h].[hinh], [h].[tenhang]
+FROM [Hang] AS [h]
+2025-01-08 21:28:13.345 +07:00 [INF] Executed DbCommand (108ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[machude], [c].[hinh], [c].[slug], [c].[tenchude]
+FROM [ChuDe] AS [c]
+2025-01-08 21:28:13.480 +07:00 [INF] Executed DbCommand (108ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [l].[malaptop], [l].[cpu], [l].[giaban], [l].[gpu], [l].[hardware], [l].[hinh], [l].[mahang], [l].[manhinh], [l].[manhucau], [l].[mota], [l].[ngaycapnhat], [l].[pin], [l].[ram], [l].[soluongton], [l].[tenlaptop], [l].[trangthai]
+FROM [Laptop] AS [l]
+2025-01-08 21:28:13.715 +07:00 [INF] Executed DbCommand (89ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [q].[maqc], [q].[hinhnen], [q].[link], [q].[ngaybatdau], [q].[ngayhethan], [q].[tencongty], [q].[tenqc], [q].[trangthai]
+FROM [QuangCao] AS [q]
+WHERE [q].[trangthai] = CAST(1 AS bit)
+2025-01-08 21:28:13.950 +07:00 [ERR] Failed executing DbCommand (118ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[madon], [t].[PhuongThucThanhToan], [t].[gia], [t].[giaohang], [t].[makh], [t].[manv], [t].[ngaydat], [t].[ngaygiao], [t].[thanhtoan], [t].[tinhtrang], [c].[madon], [c].[malaptop], [c].[dongia], [c].[gia], [c].[soluong]
+FROM (
+    SELECT TOP(1) [d].[madon], [d].[PhuongThucThanhToan], [d].[gia], [d].[giaohang], [d].[makh], [d].[manv], [d].[ngaydat], [d].[ngaygiao], [d].[thanhtoan], [d].[tinhtrang]
+    FROM [DonHang] AS [d]
+    WHERE [d].[makh] = @__userId_0 AND [d].[tinhtrang] = 'CART'
+) AS [t]
+LEFT JOIN [ChiTietDonHang] AS [c] ON [t].[madon] = [c].[madon]
+ORDER BY [t].[madon], [c].[madon]
+2025-01-08 21:28:13.965 +07:00 [ERR] An exception occurred while iterating over the results of a query for context type 'shop_hubLaps.Models.DataModel'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'manv'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass28_0`2.<Execute>b__0(DbContext context, TState state)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementation[TState,TResult](Func`3 operation, Func`3 verifySucceeded, TState state)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:76dccf67-5f3b-4298-9602-bc05c940ef40
+Error Number:207,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'manv'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass28_0`2.<Execute>b__0(DbContext context, TState state)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementation[TState,TResult](Func`3 operation, Func`3 verifySucceeded, TState state)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:76dccf67-5f3b-4298-9602-bc05c940ef40
+Error Number:207,State:1,Class:16
+2025-01-08 21:28:13.980 +07:00 [INF] Executed action shop_hubLaps.Controllers.HomeController.Index (shop-hubLaps) in 3266.215ms
+2025-01-08 21:28:13.984 +07:00 [INF] Executed endpoint 'shop_hubLaps.Controllers.HomeController.Index (shop-hubLaps)'
+2025-01-08 21:28:13.988 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'manv'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass28_0`2.<Execute>b__0(DbContext context, TState state)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementation[TState,TResult](Func`3 operation, Func`3 verifySucceeded, TState state)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.TryGetSingle[TSource](IEnumerable`1 source, Boolean& found)
+   at lambda_method338(Closure, QueryContext)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at CartService.GetCartItems(String userId) in C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\Service\CartService.cs:line 71
+   at shop_hubLaps.Controllers.HomeController.Index(Nullable`1 manhucau, Nullable`1 pmin, Nullable`1 pmax, String cpuFilter) in C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\Controllers\HomeController.cs:line 61
+   at lambda_method8(Closure, Object, Object[])
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at shop_hubLaps.Middleware.ActionLoggingMiddleware.InvokeAsync(HttpContext context) in C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\Middleware\ActionLoggingMiddleware.cs:line 55
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at shop_hubLaps.Middleware.ActionLoggingMiddleware.InvokeAsync(HttpContext context) in C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\Middleware\ActionLoggingMiddleware.cs:line 55
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+ClientConnectionId:76dccf67-5f3b-4298-9602-bc05c940ef40
+Error Number:207,State:1,Class:16
+2025-01-08 21:28:14.063 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/_vs/browserLink - null null
+2025-01-08 21:28:14.063 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-08 21:28:14.068 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/ - 500 null text/html; charset=utf-8 3752.927ms
+2025-01-08 21:28:14.087 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 24.0345ms
+2025-01-08 21:28:14.121 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/_vs/browserLink - 200 null text/javascript; charset=UTF-8 57.6751ms
+2025-01-08 21:28:14.206 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/favicon.ico - null null
+2025-01-08 21:28:14.212 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /favicon.ico, Method: GET, QueryString: , Timestamp: "2025-01-08T14:28:14.2123081Z"
+2025-01-08 21:28:14.224 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /favicon.ico, Method: GET, QueryString: , Timestamp: "2025-01-08T14:28:14.2241354Z"
+2025-01-08 21:28:14.228 +07:00 [INF] Request completed - User: admin@example.com, Path: /favicon.ico, Method: GET, QueryString: , Timestamp: "2025-01-08T14:28:14.2241354Z"
+2025-01-08 21:28:14.230 +07:00 [INF] Request completed - User: Anonymous, Path: /favicon.ico, Method: GET, QueryString: , Timestamp: "2025-01-08T14:28:14.2123081Z"
+2025-01-08 21:28:14.233 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/favicon.ico - 404 0 null 27.4559ms
+2025-01-08 21:28:14.238 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7068/favicon.ico, Response status code: 404
+2025-01-08 21:34:08.898 +07:00 [INF] Executed DbCommand (111ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-01-08 21:34:09.029 +07:00 [INF] Executed DbCommand (93ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-01-08 21:34:09.121 +07:00 [INF] Executed DbCommand (85ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-01-08 21:37:29.183 +07:00 [INF] Executed DbCommand (181ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-01-08 21:37:29.335 +07:00 [INF] Executed DbCommand (113ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-01-08 21:37:29.457 +07:00 [INF] Executed DbCommand (109ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-01-08 21:40:51.243 +07:00 [INF] Executed DbCommand (110ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-01-08 21:40:51.388 +07:00 [INF] Executed DbCommand (107ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-01-08 21:40:51.496 +07:00 [INF] Executed DbCommand (108ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-01-08 21:40:51.926 +07:00 [INF] Executed DbCommand (429ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-01-08 21:40:53.265 +07:00 [INF] Executed DbCommand (1,326ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-01-08 21:41:20.932 +07:00 [INF] Executed DbCommand (142ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-01-08 21:41:21.109 +07:00 [INF] Executed DbCommand (140ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-01-08 21:41:21.719 +07:00 [INF] Executed DbCommand (601ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-01-08 21:41:39.496 +07:00 [INF] User profile is available. Using 'C:\Users\PC\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-08 21:41:40.095 +07:00 [INF] Now listening on: https://localhost:7068
+2025-01-08 21:41:40.097 +07:00 [INF] Now listening on: http://localhost:5265
+2025-01-08 21:41:40.148 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-08 21:41:40.150 +07:00 [INF] Hosting environment: Development
+2025-01-08 21:41:40.151 +07:00 [INF] Content root path: C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps
+2025-01-08 21:41:42.553 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/ - null null
+2025-01-08 21:41:42.680 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /, Method: GET, QueryString: , Timestamp: "2025-01-08T14:41:42.6778887Z"
+2025-01-08 21:41:42.911 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /, Method: GET, QueryString: , Timestamp: "2025-01-08T14:41:42.9107365Z"
+2025-01-08 21:41:42.915 +07:00 [INF] Executing endpoint 'shop_hubLaps.Controllers.HomeController.Index (shop-hubLaps)'
+2025-01-08 21:41:42.939 +07:00 [INF] Route matched with {action = "Index", controller = "Home", page = "", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.Nullable`1[System.Int32], System.Nullable`1[System.Decimal], System.Nullable`1[System.Decimal], System.String) on controller shop_hubLaps.Controllers.HomeController (shop-hubLaps).
+2025-01-08 21:41:43.582 +07:00 [WRN] No store type was specified for the decimal property 'gia' on entity type 'ChiTietDonHang'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-01-08 21:41:43.586 +07:00 [WRN] No store type was specified for the decimal property 'gia' on entity type 'DonHang'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-01-08 21:41:45.129 +07:00 [INF] Executed DbCommand (197ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[manhucau], [n].[tennhucau]
+FROM [NhuCau] AS [n]
+2025-01-08 21:41:45.296 +07:00 [INF] Executed DbCommand (92ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [h].[mahang], [h].[hinh], [h].[tenhang]
+FROM [Hang] AS [h]
+2025-01-08 21:41:45.431 +07:00 [INF] Executed DbCommand (114ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[machude], [c].[hinh], [c].[slug], [c].[tenchude]
+FROM [ChuDe] AS [c]
+2025-01-08 21:41:46.269 +07:00 [INF] Executed DbCommand (817ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [l].[malaptop], [l].[cpu], [l].[giaban], [l].[gpu], [l].[hardware], [l].[hinh], [l].[mahang], [l].[manhinh], [l].[manhucau], [l].[mota], [l].[ngaycapnhat], [l].[pin], [l].[ram], [l].[soluongton], [l].[tenlaptop], [l].[trangthai]
+FROM [Laptop] AS [l]
+2025-01-08 21:41:46.481 +07:00 [INF] Executed DbCommand (90ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [q].[maqc], [q].[hinhnen], [q].[link], [q].[ngaybatdau], [q].[ngayhethan], [q].[tencongty], [q].[tenqc], [q].[trangthai]
+FROM [QuangCao] AS [q]
+WHERE [q].[trangthai] = CAST(1 AS bit)
+2025-01-08 21:41:46.696 +07:00 [ERR] Failed executing DbCommand (111ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[madon], [t].[PhuongThucThanhToan], [t].[gia], [t].[giaohang], [t].[makh], [t].[manv], [t].[ngaydat], [t].[ngaygiao], [t].[thanhtoan], [t].[tinhtrang], [c].[madon], [c].[malaptop], [c].[dongia], [c].[gia], [c].[soluong]
+FROM (
+    SELECT TOP(1) [d].[madon], [d].[PhuongThucThanhToan], [d].[gia], [d].[giaohang], [d].[makh], [d].[manv], [d].[ngaydat], [d].[ngaygiao], [d].[thanhtoan], [d].[tinhtrang]
+    FROM [DonHang] AS [d]
+    WHERE [d].[makh] = @__userId_0 AND [d].[tinhtrang] = 'CART'
+) AS [t]
+LEFT JOIN [ChiTietDonHang] AS [c] ON [t].[madon] = [c].[madon]
+ORDER BY [t].[madon], [c].[madon]
+2025-01-08 21:41:46.710 +07:00 [ERR] An exception occurred while iterating over the results of a query for context type 'shop_hubLaps.Models.DataModel'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'manv'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass28_0`2.<Execute>b__0(DbContext context, TState state)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementation[TState,TResult](Func`3 operation, Func`3 verifySucceeded, TState state)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:04e65d40-87ad-4770-9b16-178f6cb69e92
+Error Number:207,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'manv'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass28_0`2.<Execute>b__0(DbContext context, TState state)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementation[TState,TResult](Func`3 operation, Func`3 verifySucceeded, TState state)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:04e65d40-87ad-4770-9b16-178f6cb69e92
+Error Number:207,State:1,Class:16
+2025-01-08 21:41:46.724 +07:00 [INF] Executed action shop_hubLaps.Controllers.HomeController.Index (shop-hubLaps) in 3780.2363ms
+2025-01-08 21:41:46.728 +07:00 [INF] Executed endpoint 'shop_hubLaps.Controllers.HomeController.Index (shop-hubLaps)'
+2025-01-08 21:41:46.732 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'manv'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass28_0`2.<Execute>b__0(DbContext context, TState state)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementation[TState,TResult](Func`3 operation, Func`3 verifySucceeded, TState state)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.TryGetSingle[TSource](IEnumerable`1 source, Boolean& found)
+   at lambda_method338(Closure, QueryContext)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at CartService.GetCartItems(String userId) in C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\Service\CartService.cs:line 71
+   at shop_hubLaps.Controllers.HomeController.Index(Nullable`1 manhucau, Nullable`1 pmin, Nullable`1 pmax, String cpuFilter) in C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\Controllers\HomeController.cs:line 61
+   at lambda_method8(Closure, Object, Object[])
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at shop_hubLaps.Middleware.ActionLoggingMiddleware.InvokeAsync(HttpContext context) in C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\Middleware\ActionLoggingMiddleware.cs:line 55
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at shop_hubLaps.Middleware.ActionLoggingMiddleware.InvokeAsync(HttpContext context) in C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\Middleware\ActionLoggingMiddleware.cs:line 55
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+ClientConnectionId:04e65d40-87ad-4770-9b16-178f6cb69e92
+Error Number:207,State:1,Class:16
+2025-01-08 21:41:46.804 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-08 21:41:46.804 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/_vs/browserLink - null null
+2025-01-08 21:41:46.810 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/ - 500 null text/html; charset=utf-8 4265.7919ms
+2025-01-08 21:41:46.821 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 17.298ms
+2025-01-08 21:41:46.868 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/_vs/browserLink - 200 null text/javascript; charset=UTF-8 64.4941ms
+2025-01-08 21:41:46.941 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/favicon.ico - null null
+2025-01-08 21:41:46.947 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /favicon.ico, Method: GET, QueryString: , Timestamp: "2025-01-08T14:41:46.9475677Z"
+2025-01-08 21:41:46.963 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /favicon.ico, Method: GET, QueryString: , Timestamp: "2025-01-08T14:41:46.9629422Z"
+2025-01-08 21:41:46.966 +07:00 [INF] Request completed - User: admin@example.com, Path: /favicon.ico, Method: GET, QueryString: , Timestamp: "2025-01-08T14:41:46.9629422Z"
+2025-01-08 21:41:46.969 +07:00 [INF] Request completed - User: Anonymous, Path: /favicon.ico, Method: GET, QueryString: , Timestamp: "2025-01-08T14:41:46.9475677Z"
+2025-01-08 21:41:46.972 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/favicon.ico - 404 0 null 31.5555ms
+2025-01-08 21:41:46.976 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7068/favicon.ico, Response status code: 404
+2025-01-08 21:42:15.201 +07:00 [INF] User profile is available. Using 'C:\Users\PC\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-08 21:42:15.860 +07:00 [INF] Now listening on: https://localhost:7068
+2025-01-08 21:42:15.862 +07:00 [INF] Now listening on: http://localhost:5265
+2025-01-08 21:42:15.948 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-08 21:42:15.952 +07:00 [INF] Hosting environment: Development
+2025-01-08 21:42:15.953 +07:00 [INF] Content root path: C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps
+2025-01-08 21:42:18.174 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/ - null null
+2025-01-08 21:42:18.303 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /, Method: GET, QueryString: , Timestamp: "2025-01-08T14:42:18.3025271Z"
+2025-01-08 21:42:18.526 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /, Method: GET, QueryString: , Timestamp: "2025-01-08T14:42:18.5263613Z"
+2025-01-08 21:42:18.530 +07:00 [INF] Executing endpoint 'shop_hubLaps.Controllers.HomeController.Index (shop-hubLaps)'
+2025-01-08 21:42:18.549 +07:00 [INF] Route matched with {action = "Index", controller = "Home", page = "", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.Nullable`1[System.Int32], System.Nullable`1[System.Decimal], System.Nullable`1[System.Decimal], System.String) on controller shop_hubLaps.Controllers.HomeController (shop-hubLaps).
+2025-01-08 21:42:19.277 +07:00 [WRN] No store type was specified for the decimal property 'gia' on entity type 'ChiTietDonHang'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-01-08 21:42:19.279 +07:00 [WRN] No store type was specified for the decimal property 'gia' on entity type 'DonHang'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-01-08 21:42:21.573 +07:00 [INF] Executed DbCommand (102ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[manhucau], [n].[tennhucau]
+FROM [NhuCau] AS [n]
+2025-01-08 21:42:21.761 +07:00 [INF] Executed DbCommand (97ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [h].[mahang], [h].[hinh], [h].[tenhang]
+FROM [Hang] AS [h]
+2025-01-08 21:42:21.866 +07:00 [INF] Executed DbCommand (83ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[machude], [c].[hinh], [c].[slug], [c].[tenchude]
+FROM [ChuDe] AS [c]
+2025-01-08 21:42:22.195 +07:00 [INF] Executed DbCommand (276ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [l].[malaptop], [l].[cpu], [l].[giaban], [l].[gpu], [l].[hardware], [l].[hinh], [l].[mahang], [l].[manhinh], [l].[manhucau], [l].[mota], [l].[ngaycapnhat], [l].[pin], [l].[ram], [l].[soluongton], [l].[tenlaptop], [l].[trangthai]
+FROM [Laptop] AS [l]
+2025-01-08 21:42:22.582 +07:00 [INF] Executed DbCommand (86ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [q].[maqc], [q].[hinhnen], [q].[link], [q].[ngaybatdau], [q].[ngayhethan], [q].[tencongty], [q].[tenqc], [q].[trangthai]
+FROM [QuangCao] AS [q]
+WHERE [q].[trangthai] = CAST(1 AS bit)
+2025-01-08 21:42:22.798 +07:00 [INF] Executed DbCommand (103ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[madon], [t].[PhuongThucThanhToan], [t].[gia], [t].[giaohang], [t].[makh], [t].[ngaydat], [t].[ngaygiao], [t].[thanhtoan], [t].[tinhtrang], [c].[madon], [c].[malaptop], [c].[dongia], [c].[gia], [c].[soluong]
+FROM (
+    SELECT TOP(1) [d].[madon], [d].[PhuongThucThanhToan], [d].[gia], [d].[giaohang], [d].[makh], [d].[ngaydat], [d].[ngaygiao], [d].[thanhtoan], [d].[tinhtrang]
+    FROM [DonHang] AS [d]
+    WHERE [d].[makh] = @__userId_0 AND [d].[tinhtrang] = 'CART'
+) AS [t]
+LEFT JOIN [ChiTietDonHang] AS [c] ON [t].[madon] = [c].[madon]
+ORDER BY [t].[madon], [c].[madon]
+2025-01-08 21:42:22.816 +07:00 [INF] Executing ViewResult, running view Index.
+2025-01-08 21:42:23.246 +07:00 [INF] Executed DbCommand (107ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[Avatar], [a].[ConcurrencyStamp], [a].[DiaChi], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NgaySinh], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[Profile], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+2025-01-08 21:42:23.409 +07:00 [INF] Executed DbCommand (92ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+2025-01-08 21:42:23.520 +07:00 [INF] Executed DbCommand (91ms) [Parameters=[@__p_0='?' (Size = 450), @__p_1='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[UserId], [a].[RoleId]
+FROM [AspNetUserRoles] AS [a]
+WHERE [a].[UserId] = @__p_0 AND [a].[RoleId] = @__p_1
+2025-01-08 21:42:23.701 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/img/hubLaps.svg - null null
+2025-01-08 21:42:23.704 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/css/box-chat.css?v=OYtNpebIYNXrZRvtUQiro2kMnMxzAhgmJMoRzeOc1Zs - null null
+2025-01-08 21:42:23.701 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/lib/bootstrap/css/bootstrap.min.css - null null
+2025-01-08 21:42:23.701 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/css/style_search.css?v=LlbLRhQs0Cp8IbvBPh7WglhSE7ZtKM-joR3zz-ugP7Q - null null
+2025-01-08 21:42:23.701 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/css/alert-notification-2.css?v=ymZPLKIMgacwZZPezKCV8aPD3aWPu2F7IAl5fb_ZG3U - null null
+2025-01-08 21:42:23.715 +07:00 [INF] Executed ViewResult - view Index executed in 902.4587ms.
+2025-01-08 21:42:23.716 +07:00 [INF] The file /css/box-chat.css was not modified
+2025-01-08 21:42:23.716 +07:00 [INF] The file /img/hubLaps.svg was not modified
+2025-01-08 21:42:23.718 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /lib/bootstrap/css/bootstrap.min.css, Method: GET, QueryString: , Timestamp: "2025-01-08T14:42:23.7180787Z"
+2025-01-08 21:42:23.722 +07:00 [INF] The file /css/style_search.css was not modified
+2025-01-08 21:42:23.726 +07:00 [INF] The file /css/alert-notification-2.css was not modified
+2025-01-08 21:42:23.732 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/css/box-chat.css?v=OYtNpebIYNXrZRvtUQiro2kMnMxzAhgmJMoRzeOc1Zs - 304 null text/css 31.342ms
+2025-01-08 21:42:23.732 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/img/hubLaps.svg - 304 null image/svg+xml 34.6557ms
+2025-01-08 21:42:23.733 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/css/style_search.css?v=LlbLRhQs0Cp8IbvBPh7WglhSE7ZtKM-joR3zz-ugP7Q - 304 null text/css 37.1923ms
+2025-01-08 21:42:23.734 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/css/alert-notification-2.css?v=ymZPLKIMgacwZZPezKCV8aPD3aWPu2F7IAl5fb_ZG3U - 304 null text/css 37.9724ms
+2025-01-08 21:42:23.734 +07:00 [INF] Executed action shop_hubLaps.Controllers.HomeController.Index (shop-hubLaps) in 5182.12ms
+2025-01-08 21:42:23.745 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /lib/bootstrap/css/bootstrap.min.css, Method: GET, QueryString: , Timestamp: "2025-01-08T14:42:23.7452148Z"
+2025-01-08 21:42:23.745 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/lib/bootstrap/js/bootstrap.bundle.min.js - null null
+2025-01-08 21:42:23.761 +07:00 [INF] Executed endpoint 'shop_hubLaps.Controllers.HomeController.Index (shop-hubLaps)'
+2025-01-08 21:42:23.763 +07:00 [INF] Request completed - User: admin@example.com, Path: /lib/bootstrap/css/bootstrap.min.css, Method: GET, QueryString: , Timestamp: "2025-01-08T14:42:23.7452148Z"
+2025-01-08 21:42:23.767 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /lib/bootstrap/js/bootstrap.bundle.min.js, Method: GET, QueryString: , Timestamp: "2025-01-08T14:42:23.7673690Z"
+2025-01-08 21:42:23.770 +07:00 [INF] Request completed - User: admin@example.com, Path: /, Method: GET, QueryString: , Timestamp: "2025-01-08T14:42:18.5263613Z"
+2025-01-08 21:42:23.776 +07:00 [INF] Request completed - User: Anonymous, Path: /lib/bootstrap/css/bootstrap.min.css, Method: GET, QueryString: , Timestamp: "2025-01-08T14:42:23.7180787Z"
+2025-01-08 21:42:23.780 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/uploads/08e0c19b-a675-4ead-8799-850329d56b6d.jpg - null null
+2025-01-08 21:42:23.780 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/css/style-home.css - null null
+2025-01-08 21:42:23.787 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/lib/bootstrap/css/bootstrap.min.css - 404 0 null 90.9157ms
+2025-01-08 21:42:23.780 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/css/slide-slick.css - null null
+2025-01-08 21:42:23.780 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-08 21:42:23.783 +07:00 [INF] Request completed - User: Anonymous, Path: /, Method: GET, QueryString: , Timestamp: "2025-01-08T14:42:18.3025271Z"
+2025-01-08 21:42:23.795 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/css/alert-notification-2.css - null null
+2025-01-08 21:42:23.814 +07:00 [INF] The file /uploads/08e0c19b-a675-4ead-8799-850329d56b6d.jpg was not modified
+2025-01-08 21:42:23.842 +07:00 [INF] The file /css/style-home.css was not modified
+2025-01-08 21:42:23.846 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7068/lib/bootstrap/css/bootstrap.min.css, Response status code: 404
+2025-01-08 21:42:23.863 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/css/style-home.css - 304 null text/css 82.6695ms
+2025-01-08 21:42:23.847 +07:00 [INF] The file /css/slide-slick.css was not modified
+2025-01-08 21:42:23.880 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/css/slide-slick.css - 304 null text/css 99.8203ms
+2025-01-08 21:42:23.860 +07:00 [INF] The file /css/alert-notification-2.css was not modified
+2025-01-08 21:42:23.861 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/uploads/08e0c19b-a675-4ead-8799-850329d56b6d.jpg - 304 null image/jpeg 81.7061ms
+2025-01-08 21:42:23.820 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /lib/bootstrap/js/bootstrap.bundle.min.js, Method: GET, QueryString: , Timestamp: "2025-01-08T14:42:23.8205945Z"
+2025-01-08 21:42:23.875 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/content/css/style-footer.css?v=zCD9TSSC0lHKRFiZB7HWUrEK_g3bQXQPkmLnYgPGKHg - null null
+2025-01-08 21:42:23.876 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/lib/jquery/dist/jquery.min.js - null null
+2025-01-08 21:42:23.879 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/lib/bootstrap/dist/js/bootstrap.bundle.min.js - null null
+2025-01-08 21:42:23.863 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/shop_hubLaps.styles.css - null null
+2025-01-08 21:42:23.880 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/ - 200 null text/html; charset=utf-8 5715.3248ms
+2025-01-08 21:42:23.946 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/content/js/slide-slick.js - null null
+2025-01-08 21:42:23.887 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/css/alert-notification-2.css - 304 null text/css 91.8205ms
+2025-01-08 21:42:23.891 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/js/homeindexview.js - null null
+2025-01-08 21:42:23.894 +07:00 [INF] Request completed - User: admin@example.com, Path: /lib/bootstrap/js/bootstrap.bundle.min.js, Method: GET, QueryString: , Timestamp: "2025-01-08T14:42:23.8205945Z"
+2025-01-08 21:42:23.898 +07:00 [INF] The file /content/css/style-footer.css was not modified
+2025-01-08 21:42:23.901 +07:00 [INF] The file /lib/jquery/dist/jquery.min.js was not modified
+2025-01-08 21:42:23.905 +07:00 [INF] The file /lib/bootstrap/dist/js/bootstrap.bundle.min.js was not modified
+2025-01-08 21:42:23.908 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2025-01-08T14:42:23.9087771Z"
+2025-01-08 21:42:23.884 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo - null null
+2025-01-08 21:42:23.951 +07:00 [INF] The file /content/js/slide-slick.js was not modified
+2025-01-08 21:42:23.958 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/Content/images/1c4d7f3e-0031-4f36-b820-b15661897dbe.png - null null
+2025-01-08 21:42:23.962 +07:00 [INF] The file /js/homeindexview.js was not modified
+2025-01-08 21:42:23.981 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/js/homeindexview.js - 304 null text/javascript 89.511ms
+2025-01-08 21:42:23.965 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/content/css/style-footer.css?v=zCD9TSSC0lHKRFiZB7HWUrEK_g3bQXQPkmLnYgPGKHg - 304 null text/css 89.8533ms
+2025-01-08 21:42:23.966 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/lib/jquery/dist/jquery.min.js - 304 null text/javascript 89.8782ms
+2025-01-08 21:42:23.969 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/lib/bootstrap/dist/js/bootstrap.bundle.min.js - 304 null text/javascript 90.0623ms
+2025-01-08 21:42:23.976 +07:00 [INF] The file /js/site.js was not modified
+2025-01-08 21:42:23.974 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2025-01-08T14:42:23.9742659Z"
+2025-01-08 21:42:23.979 +07:00 [INF] The file /Content/images/1c4d7f3e-0031-4f36-b820-b15661897dbe.png was not modified
+2025-01-08 21:42:23.987 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/Content/images/777c8af0-d160-45ca-a0dc-a34ed6ac14e1.png - null null
+2025-01-08 21:42:23.964 +07:00 [INF] Request completed - User: Anonymous, Path: /lib/bootstrap/js/bootstrap.bundle.min.js, Method: GET, QueryString: , Timestamp: "2025-01-08T14:42:23.7673690Z"
+2025-01-08 21:42:23.976 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/content/js/slide-slick.js - 304 null text/javascript 30.2033ms
+2025-01-08 21:42:23.994 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/Content/images/c2af063a-2ab6-4744-b086-65dfed98f59e.png - null null
+2025-01-08 21:42:23.995 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/Content/images/d4658ed5-b9fa-4b68-9044-b3d23a730b57.png - null null
+2025-01-08 21:42:23.998 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/Content/images/369fe0fd-2507-46c7-9d13-ddad33e10f3e.png - null null
+2025-01-08 21:42:24.026 +07:00 [INF] The file /Content/images/369fe0fd-2507-46c7-9d13-ddad33e10f3e.png was not modified
+2025-01-08 21:42:24.003 +07:00 [INF] Request completed - User: admin@example.com, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2025-01-08T14:42:23.9742659Z"
+2025-01-08 21:42:24.042 +07:00 [INF] Request completed - User: Anonymous, Path: /shop_hubLaps.styles.css, Method: GET, QueryString: , Timestamp: "2025-01-08T14:42:23.9087771Z"
+2025-01-08 21:42:24.044 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/shop_hubLaps.styles.css - 404 0 null 180.9337ms
+2025-01-08 21:42:24.046 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7068/shop_hubLaps.styles.css, Response status code: 404
+2025-01-08 21:42:24.048 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/Content/images/10cd69a3-64e5-4a05-a326-f72c82237893.png - null null
+2025-01-08 21:42:24.050 +07:00 [INF] The file /Content/images/10cd69a3-64e5-4a05-a326-f72c82237893.png was not modified
+2025-01-08 21:42:24.051 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/Content/images/10cd69a3-64e5-4a05-a326-f72c82237893.png - 304 null image/png 3.1879ms
+2025-01-08 21:42:24.016 +07:00 [INF] The file /Content/images/c2af063a-2ab6-4744-b086-65dfed98f59e.png was not modified
+2025-01-08 21:42:24.020 +07:00 [INF] The file /Content/images/d4658ed5-b9fa-4b68-9044-b3d23a730b57.png was not modified
+2025-01-08 21:42:23.999 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo - 304 null text/javascript 115.2599ms
+2025-01-08 21:42:24.027 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/Content/images/369fe0fd-2507-46c7-9d13-ddad33e10f3e.png - 304 null image/png 29.609ms
+2025-01-08 21:42:24.005 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/Content/images/1c4d7f3e-0031-4f36-b820-b15661897dbe.png - 304 null image/png 47.5877ms
+2025-01-08 21:42:24.008 +07:00 [INF] The file /Content/images/777c8af0-d160-45ca-a0dc-a34ed6ac14e1.png was not modified
+2025-01-08 21:42:24.010 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/lib/bootstrap/js/bootstrap.bundle.min.js - 404 0 null 264.8186ms
+2025-01-08 21:42:24.013 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/Content/images/d3036b9c-37d8-4b00-90d7-0084c8548559.png - null null
+2025-01-08 21:42:24.058 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/Content/images/6292a593-bb60-4352-ae5e-cef79fb12387.png - null null
+2025-01-08 21:42:24.059 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/Content/images/c2af063a-2ab6-4744-b086-65dfed98f59e.png - 304 null image/png 65.7376ms
+2025-01-08 21:42:24.060 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/Content/images/d4658ed5-b9fa-4b68-9044-b3d23a730b57.png - 304 null image/png 65.1984ms
+2025-01-08 21:42:24.063 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/Content/images/97f5a3e9-55ab-45f5-a117-db590e745d0f.png - null null
+2025-01-08 21:42:24.066 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/Content/images/55699555-945f-467b-bf4f-56a553a64a8e.png - null null
+2025-01-08 21:42:24.071 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/img/no-image.png - null null
+2025-01-08 21:42:24.076 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/Content/images/777c8af0-d160-45ca-a0dc-a34ed6ac14e1.png - 304 null image/png 88.9222ms
+2025-01-08 21:42:24.079 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7068/lib/bootstrap/js/bootstrap.bundle.min.js, Response status code: 404
+2025-01-08 21:42:24.082 +07:00 [INF] The file /Content/images/d3036b9c-37d8-4b00-90d7-0084c8548559.png was not modified
+2025-01-08 21:42:24.084 +07:00 [INF] The file /Content/images/6292a593-bb60-4352-ae5e-cef79fb12387.png was not modified
+2025-01-08 21:42:24.090 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/images/2-3.jpg - null null
+2025-01-08 21:42:24.094 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/images/a1405va-km095w-1.png - null null
+2025-01-08 21:42:24.121 +07:00 [INF] The file /images/a1405va-km095w-1.png was not modified
+2025-01-08 21:42:24.100 +07:00 [INF] The file /Content/images/55699555-945f-467b-bf4f-56a553a64a8e.png was not modified
+2025-01-08 21:42:24.106 +07:00 [INF] The file /img/no-image.png was not modified
+2025-01-08 21:42:24.109 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/images/artboard-1.png - null null
+2025-01-08 21:42:24.112 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/images/artboard-1 (1).png - null null
+2025-01-08 21:42:24.112 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/Content/images/d3036b9c-37d8-4b00-90d7-0084c8548559.png - 304 null image/png 98.8763ms
+2025-01-08 21:42:24.113 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/Content/images/6292a593-bb60-4352-ae5e-cef79fb12387.png - 304 null image/png 55.3249ms
+2025-01-08 21:42:24.116 +07:00 [INF] The file /images/2-3.jpg was not modified
+2025-01-08 21:42:24.097 +07:00 [INF] The file /Content/images/97f5a3e9-55ab-45f5-a117-db590e745d0f.png was not modified
+2025-01-08 21:42:24.124 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/images/a1405va-km095w-1.png - 304 null image/png 30.0326ms
+2025-01-08 21:42:24.125 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/Content/images/55699555-945f-467b-bf4f-56a553a64a8e.png - 304 null image/png 59.3204ms
+2025-01-08 21:42:24.126 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/img/no-image.png - 304 null image/png 55.3124ms
+2025-01-08 21:42:24.129 +07:00 [INF] The file /images/artboard-1.png was not modified
+2025-01-08 21:42:24.131 +07:00 [INF] The file /images/artboard-1 (1).png was not modified
+2025-01-08 21:42:24.151 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/images/artboard-1 (1).png - 304 null image/png 40.1365ms
+2025-01-08 21:42:24.138 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/images/asus-zenbook-14-oled-ux3405-blue-2.png - null null
+2025-01-08 21:42:24.139 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/images/2-3.jpg - 304 null image/jpeg 49.0395ms
+2025-01-08 21:42:24.140 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/Content/images/97f5a3e9-55ab-45f5-a117-db590e745d0f.png - 304 null image/png 76.9352ms
+2025-01-08 21:42:24.143 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/img/phone.png - null null
+2025-01-08 21:42:24.146 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/img/icon contact.png - null null
+2025-01-08 21:42:24.149 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/img/frame-3766-2.png - null null
+2025-01-08 21:42:24.150 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/images/artboard-1.png - 304 null image/png 41.0579ms
+2025-01-08 21:42:24.134 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/images/artboard-1 (2).png - null null
+2025-01-08 21:42:24.157 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/img/frame-3767-1.png - null null
+2025-01-08 21:42:24.159 +07:00 [INF] The file /images/asus-zenbook-14-oled-ux3405-blue-2.png was not modified
+2025-01-08 21:42:24.162 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/img/dell-technologies-white.webp - null null
+2025-01-08 21:42:24.165 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/img/msi-logo.png - null null
+2025-01-08 21:42:24.168 +07:00 [INF] The file /img/phone.png was not modified
+2025-01-08 21:42:24.172 +07:00 [INF] The file /img/icon contact.png was not modified
+2025-01-08 21:42:24.174 +07:00 [INF] The file /img/frame-3766-2.png was not modified
+2025-01-08 21:42:24.177 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/img/Acer-Logo.png - null null
+2025-01-08 21:42:24.180 +07:00 [INF] The file /images/artboard-1 (2).png was not modified
+2025-01-08 21:42:24.182 +07:00 [INF] The file /img/frame-3767-1.png was not modified
+2025-01-08 21:42:24.183 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/images/asus-zenbook-14-oled-ux3405-blue-2.png - 304 null image/png 44.8008ms
+2025-01-08 21:42:24.186 +07:00 [INF] The file /img/dell-technologies-white.webp was not modified
+2025-01-08 21:42:24.189 +07:00 [INF] The file /img/msi-logo.png was not modified
+2025-01-08 21:42:24.190 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/img/phone.png - 304 null image/png 46.8814ms
+2025-01-08 21:42:24.191 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/img/icon contact.png - 304 null image/png 44.8966ms
+2025-01-08 21:42:24.192 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/img/frame-3766-2.png - 304 null image/png 43.1525ms
+2025-01-08 21:42:24.195 +07:00 [INF] The file /img/Acer-Logo.png was not modified
+2025-01-08 21:42:24.196 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/images/artboard-1 (2).png - 304 null image/png 61.9961ms
+2025-01-08 21:42:24.197 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/img/frame-3767-1.png - 304 null image/png 40.3481ms
+2025-01-08 21:42:24.200 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/img/vaio-logo.png - null null
+2025-01-08 21:42:24.201 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/img/dell-technologies-white.webp - 304 null image/webp 38.5371ms
+2025-01-08 21:42:24.203 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/img/msi-logo.png - 304 null image/png 38.0325ms
+2025-01-08 21:42:24.207 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/Content/images/Dang-ky-thong-bao-website-thuong-mai-dien-tu.png - null null
+2025-01-08 21:42:24.210 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/img/hp-logo.svg - null null
+2025-01-08 21:42:24.214 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/img/lenovo-logo.svg - null null
+2025-01-08 21:42:24.215 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/img/Acer-Logo.png - 304 null image/png 37.8318ms
+2025-01-08 21:42:24.219 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/img/Microsoft_logo_(2012).svg.webp - null null
+2025-01-08 21:42:24.223 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/img/MacBook_Pro.svg - null null
+2025-01-08 21:42:24.226 +07:00 [INF] The file /img/vaio-logo.png was not modified
+2025-01-08 21:42:24.229 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/Content/images/dmca-logo.png - null null
+2025-01-08 21:42:24.232 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/_vs/browserLink - null null
+2025-01-08 21:42:24.235 +07:00 [INF] The file /Content/images/Dang-ky-thong-bao-website-thuong-mai-dien-tu.png was not modified
+2025-01-08 21:42:24.240 +07:00 [INF] The file /img/hp-logo.svg was not modified
+2025-01-08 21:42:24.242 +07:00 [INF] The file /img/lenovo-logo.svg was not modified
+2025-01-08 21:42:24.246 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 465.7885ms
+2025-01-08 21:42:24.264 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/img/hp-logo.svg - 304 null image/svg+xml 53.8513ms
+2025-01-08 21:42:24.263 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/Content/images/Dang-ky-thong-bao-website-thuong-mai-dien-tu.png - 304 null image/png 56.2294ms
+2025-01-08 21:42:24.257 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/img/vaio-logo.png - 304 null image/png 56.7683ms
+2025-01-08 21:42:24.265 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/img/lenovo-logo.svg - 304 null image/svg+xml 51.075ms
+2025-01-08 21:42:24.255 +07:00 [INF] The file /img/MacBook_Pro.svg was not modified
+2025-01-08 21:42:24.248 +07:00 [INF] The file /img/Microsoft_logo_(2012).svg.webp was not modified
+2025-01-08 21:42:24.301 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/img/MacBook_Pro.svg - 304 null image/svg+xml 77.8934ms
+2025-01-08 21:42:24.305 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/img/Microsoft_logo_(2012).svg.webp - 304 null image/webp 85.8358ms
+2025-01-08 21:42:24.260 +07:00 [INF] The file /Content/images/dmca-logo.png was not modified
+2025-01-08 21:42:24.316 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/Content/images/dmca-logo.png - 304 null image/png 86.7275ms
+2025-01-08 21:42:24.327 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/_vs/browserLink - 200 null text/javascript; charset=UTF-8 95.3578ms
+2025-01-08 21:42:24.790 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7068/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map - null null
+2025-01-08 21:42:24.828 +07:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map'. Physical path: 'C:\Users\PC\source\repos\DO-AN-2024\Shop-hubLaps\shop-hubLaps\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map'
+2025-01-08 21:42:24.830 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7068/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map - 200 327261 text/plain 39.9035ms
+2025-01-08 21:42:26.024 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/favicon.ico - null null
+2025-01-08 21:42:26.030 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /favicon.ico, Method: GET, QueryString: , Timestamp: "2025-01-08T14:42:26.0306695Z"
+2025-01-08 21:42:26.038 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /favicon.ico, Method: GET, QueryString: , Timestamp: "2025-01-08T14:42:26.0379998Z"
+2025-01-08 21:42:26.042 +07:00 [INF] Request completed - User: admin@example.com, Path: /favicon.ico, Method: GET, QueryString: , Timestamp: "2025-01-08T14:42:26.0379998Z"
+2025-01-08 21:42:26.045 +07:00 [INF] Request completed - User: Anonymous, Path: /favicon.ico, Method: GET, QueryString: , Timestamp: "2025-01-08T14:42:26.0306695Z"
+2025-01-08 21:42:26.048 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/favicon.ico - 404 0 null 29.0034ms
+2025-01-08 21:42:26.056 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7068/favicon.ico, Response status code: 404
+2025-01-08 21:42:26.500 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/Dashboard - null null
+2025-01-08 21:42:26.511 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /Dashboard, Method: GET, QueryString: , Timestamp: "2025-01-08T14:42:26.5113834Z"
+2025-01-08 21:42:26.524 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /Dashboard, Method: GET, QueryString: , Timestamp: "2025-01-08T14:42:26.5245062Z"
+2025-01-08 21:42:26.528 +07:00 [INF] Executing endpoint 'shop_hubLaps.Controllers.DashboardController.Index (shop-hubLaps)'
+2025-01-08 21:42:26.531 +07:00 [INF] Route matched with {action = "Index", controller = "Dashboard", page = "", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller shop_hubLaps.Controllers.DashboardController (shop-hubLaps).
+2025-01-08 21:42:26.706 +07:00 [INF] Executed DbCommand (92ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) [l].[tenlaptop], [l].[hinh]
+FROM [Laptop] AS [l]
+ORDER BY [l].[ngaycapnhat] DESC
+2025-01-08 21:42:27.762 +07:00 [INF] Executed DbCommand (1,013ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [d].[tinhtrang] AS [Status], COUNT(*) AS [Count]
+FROM [DonHang] AS [d]
+GROUP BY [d].[tinhtrang]
+2025-01-08 21:42:27.864 +07:00 [INF] Executed DbCommand (88ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM([d].[gia]), 0.0)
+FROM [DonHang] AS [d]
+WHERE [d].[tinhtrang] = 'COMPLETED'
+2025-01-08 21:42:28.112 +07:00 [INF] Executed DbCommand (236ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM([d].[gia]), 0.0)
+FROM [DonHang] AS [d]
+WHERE [d].[tinhtrang] = 'COMPLETED' AND [d].[ngaygiao] IS NOT NULL AND CONVERT(date, [d].[ngaygiao]) = CONVERT(date, GETDATE())
+2025-01-08 21:42:28.636 +07:00 [INF] Executed DbCommand (468ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) CASE
+    WHEN CAST(LEN([l].[tenlaptop]) AS int) > 20 THEN COALESCE(SUBSTRING([l].[tenlaptop], 0 + 1, 20), N'') + N'...'
+    ELSE [l].[tenlaptop]
+END AS [LaptopName], COALESCE(SUM([c].[soluong]), 0) AS [TotalSold]
+FROM [ChiTietDonHang] AS [c]
+INNER JOIN [Laptop] AS [l] ON [c].[malaptop] = [l].[malaptop]
+GROUP BY [c].[malaptop], [l].[tenlaptop]
+ORDER BY COALESCE(SUM([c].[soluong]), 0) DESC
+2025-01-08 21:42:29.235 +07:00 [INF] Executed DbCommand (590ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [l].[malaptop], [l].[cpu], [l].[giaban], [l].[gpu], [l].[hardware], [l].[hinh], [l].[mahang], [l].[manhinh], [l].[manhucau], [l].[mota], [l].[ngaycapnhat], [l].[pin], [l].[ram], [l].[soluongton], [l].[tenlaptop], [l].[trangthai]
+FROM [Laptop] AS [l]
+WHERE [l].[soluongton] < 10
+2025-01-08 21:42:29.814 +07:00 [INF] Executed DbCommand (564ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [l].[malaptop], [l].[cpu], [l].[giaban], [l].[gpu], [l].[hardware], [l].[hinh], [l].[mahang], [l].[manhinh], [l].[manhucau], [l].[mota], [l].[ngaycapnhat], [l].[pin], [l].[ram], [l].[soluongton], [l].[tenlaptop], [l].[trangthai]
+FROM [Laptop] AS [l]
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM [DanhGia] AS [d]
+    WHERE [l].[malaptop] = [d].[malaptop])
+2025-01-08 21:42:30.035 +07:00 [INF] Executing ViewResult, running view Index.
+2025-01-08 21:42:30.241 +07:00 [INF] Executed DbCommand (92ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[Avatar], [a].[ConcurrencyStamp], [a].[DiaChi], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NgaySinh], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[Profile], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+2025-01-08 21:42:30.259 +07:00 [INF] Executed ViewResult - view Index executed in 224.895ms.
+2025-01-08 21:42:30.262 +07:00 [INF] Executed action shop_hubLaps.Controllers.DashboardController.Index (shop-hubLaps) in 3726.882ms
+2025-01-08 21:42:30.263 +07:00 [INF] Executed endpoint 'shop_hubLaps.Controllers.DashboardController.Index (shop-hubLaps)'
+2025-01-08 21:42:30.265 +07:00 [INF] Request completed - User: admin@example.com, Path: /Dashboard, Method: GET, QueryString: , Timestamp: "2025-01-08T14:42:26.5245062Z"
+2025-01-08 21:42:30.272 +07:00 [INF] Request completed - User: Anonymous, Path: /Dashboard, Method: GET, QueryString: , Timestamp: "2025-01-08T14:42:26.5113834Z"
+2025-01-08 21:42:30.306 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/images/artboard-1 (5).png - null null
+2025-01-08 21:42:30.315 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/images/msi-cyborg-15-ai-a1v (1).png - null null
+2025-01-08 21:42:30.306 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/_vs/browserLink - null null
+2025-01-08 21:42:30.305 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/css/alert-notifications.css - null null
+2025-01-08 21:42:30.344 +07:00 [INF] The file /images/msi-cyborg-15-ai-a1v (1).png was not modified
+2025-01-08 21:42:30.355 +07:00 [INF] The file /css/alert-notifications.css was not modified
+2025-01-08 21:42:30.358 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/images/msi-cyborg-15-ai-a1v (1).png - 304 null image/png 51.9532ms
+2025-01-08 21:42:30.368 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/css/alert-notifications.css - 304 null text/css 63.3301ms
+2025-01-08 21:42:30.306 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-08 21:42:30.309 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/images/artboard-1 (4).png - null null
+2025-01-08 21:42:30.340 +07:00 [INF] The file /images/artboard-1 (5).png was not modified
+2025-01-08 21:42:30.305 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/css_chude/_adminlayout.css - null null
+2025-01-08 21:42:30.305 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/images/macbook-m2-vang-1.png - null null
+2025-01-08 21:42:30.322 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/Dashboard - 200 null text/html; charset=utf-8 3822.256ms
+2025-01-08 21:42:30.329 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/images/artboard-1 (3).png - null null
+2025-01-08 21:42:30.377 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/_vs/browserLink - 200 null text/javascript; charset=UTF-8 71.0257ms
+2025-01-08 21:42:30.385 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 79.7589ms
+2025-01-08 21:42:30.387 +07:00 [INF] The file /images/artboard-1 (4).png was not modified
+2025-01-08 21:42:30.388 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/images/artboard-1 (5).png - 304 null image/png 82.8748ms
+2025-01-08 21:42:30.391 +07:00 [INF] The file /css_chude/_adminlayout.css was not modified
+2025-01-08 21:42:30.394 +07:00 [INF] The file /images/macbook-m2-vang-1.png was not modified
+2025-01-08 21:42:30.403 +07:00 [INF] The file /images/artboard-1 (3).png was not modified
+2025-01-08 21:42:30.410 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/images/artboard-1 (4).png - 304 null image/png 103.3328ms
+2025-01-08 21:42:30.414 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/css_chude/_adminlayout.css - 304 null text/css 109.4193ms
+2025-01-08 21:42:30.416 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/images/macbook-m2-vang-1.png - 304 null image/png 111.0865ms
+2025-01-08 21:42:30.418 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/images/artboard-1 (3).png - 304 null image/png 91.782ms
+2025-01-08 21:42:31.792 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/DonHang - null null
+2025-01-08 21:42:31.799 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /DonHang, Method: GET, QueryString: , Timestamp: "2025-01-08T14:42:31.7990007Z"
+2025-01-08 21:42:31.806 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /DonHang, Method: GET, QueryString: , Timestamp: "2025-01-08T14:42:31.8066787Z"
+2025-01-08 21:42:31.810 +07:00 [INF] Executing endpoint 'shop_hubLaps.Controllers.DonHangController.Index (shop-hubLaps)'
+2025-01-08 21:42:31.814 +07:00 [INF] Route matched with {action = "Index", controller = "DonHang", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String, System.String, System.String, System.String) on controller shop_hubLaps.Controllers.DonHangController (shop-hubLaps).
+2025-01-08 21:42:33.014 +07:00 [INF] Executed DbCommand (1,170ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [d].[madon], [d].[PhuongThucThanhToan], [d].[gia], [d].[giaohang], [d].[makh], [d].[ngaydat], [d].[ngaygiao], [d].[thanhtoan], [d].[tinhtrang], [t].[madon], [t].[malaptop], [t].[dongia], [t].[gia], [t].[soluong], [t].[malaptop0], [t].[cpu], [t].[giaban], [t].[gpu], [t].[hardware], [t].[hinh], [t].[mahang], [t].[manhinh], [t].[manhucau], [t].[mota], [t].[ngaycapnhat], [t].[pin], [t].[ram], [t].[soluongton], [t].[tenlaptop], [t].[trangthai]
+FROM [DonHang] AS [d]
+LEFT JOIN (
+    SELECT [c].[madon], [c].[malaptop], [c].[dongia], [c].[gia], [c].[soluong], [l].[malaptop] AS [malaptop0], [l].[cpu], [l].[giaban], [l].[gpu], [l].[hardware], [l].[hinh], [l].[mahang], [l].[manhinh], [l].[manhucau], [l].[mota], [l].[ngaycapnhat], [l].[pin], [l].[ram], [l].[soluongton], [l].[tenlaptop], [l].[trangthai]
+    FROM [ChiTietDonHang] AS [c]
+    INNER JOIN [Laptop] AS [l] ON [c].[malaptop] = [l].[malaptop]
+) AS [t] ON [d].[madon] = [t].[madon]
+ORDER BY [d].[madon], [t].[madon], [t].[malaptop]
+2025-01-08 21:42:35.762 +07:00 [INF] Executed DbCommand (97ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT DISTINCT [l].[tenlaptop]
+FROM [Laptop] AS [l]
+2025-01-08 21:42:35.769 +07:00 [INF] Executing ViewResult, running view Index.
+2025-01-08 21:42:35.896 +07:00 [INF] Executed DbCommand (96ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[Avatar], [a].[ConcurrencyStamp], [a].[DiaChi], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NgaySinh], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[Profile], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+2025-01-08 21:42:35.952 +07:00 [INF] Executed ViewResult - view Index executed in 183.2929ms.
+2025-01-08 21:42:35.955 +07:00 [INF] Executed action shop_hubLaps.Controllers.DonHangController.Index (shop-hubLaps) in 4137.6193ms
+2025-01-08 21:42:35.957 +07:00 [INF] Executed endpoint 'shop_hubLaps.Controllers.DonHangController.Index (shop-hubLaps)'
+2025-01-08 21:42:35.959 +07:00 [INF] Request completed - User: admin@example.com, Path: /DonHang, Method: GET, QueryString: , Timestamp: "2025-01-08T14:42:31.8066787Z"
+2025-01-08 21:42:35.963 +07:00 [INF] Request completed - User: Anonymous, Path: /DonHang, Method: GET, QueryString: , Timestamp: "2025-01-08T14:42:31.7990007Z"
+2025-01-08 21:42:35.966 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/DonHang - 200 null text/html; charset=utf-8 4174.2602ms
+2025-01-08 21:42:36.075 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/_vs/browserLink - null null
+2025-01-08 21:42:36.075 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-08 21:42:36.087 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 12.5658ms
+2025-01-08 21:42:36.104 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/_vs/browserLink - 200 null text/javascript; charset=UTF-8 28.8935ms
+2025-01-08 21:42:40.619 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/DonHang/Edit/6 - null null
+2025-01-08 21:42:40.626 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /DonHang/Edit/6, Method: GET, QueryString: , Timestamp: "2025-01-08T14:42:40.6266840Z"
+2025-01-08 21:42:40.632 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /DonHang/Edit/6, Method: GET, QueryString: , Timestamp: "2025-01-08T14:42:40.6321286Z"
+2025-01-08 21:42:40.634 +07:00 [INF] Executing endpoint 'shop_hubLaps.Controllers.DonHangController.Edit (shop-hubLaps)'
+2025-01-08 21:42:40.637 +07:00 [INF] Route matched with {action = "Edit", controller = "DonHang", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Edit(System.Nullable`1[System.Int32]) on controller shop_hubLaps.Controllers.DonHangController (shop-hubLaps).
+2025-01-08 21:42:40.752 +07:00 [INF] Executed DbCommand (103ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [d].[madon], [d].[PhuongThucThanhToan], [d].[gia], [d].[giaohang], [d].[makh], [d].[ngaydat], [d].[ngaygiao], [d].[thanhtoan], [d].[tinhtrang]
+FROM [DonHang] AS [d]
+WHERE [d].[madon] = @__p_0
+2025-01-08 21:42:40.757 +07:00 [INF] Executing ViewResult, running view Edit.
+2025-01-08 21:42:41.640 +07:00 [INF] Executed DbCommand (834ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[Avatar], [a].[ConcurrencyStamp], [a].[DiaChi], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NgaySinh], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[Profile], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+2025-01-08 21:42:41.664 +07:00 [INF] Executed ViewResult - view Edit executed in 907.1567ms.
+2025-01-08 21:42:41.667 +07:00 [INF] Executed action shop_hubLaps.Controllers.DonHangController.Edit (shop-hubLaps) in 1027.0632ms
+2025-01-08 21:42:41.670 +07:00 [INF] Executed endpoint 'shop_hubLaps.Controllers.DonHangController.Edit (shop-hubLaps)'
+2025-01-08 21:42:41.672 +07:00 [INF] Request completed - User: admin@example.com, Path: /DonHang/Edit/6, Method: GET, QueryString: , Timestamp: "2025-01-08T14:42:40.6321286Z"
+2025-01-08 21:42:41.674 +07:00 [INF] Request completed - User: Anonymous, Path: /DonHang/Edit/6, Method: GET, QueryString: , Timestamp: "2025-01-08T14:42:40.6266840Z"
+2025-01-08 21:42:41.679 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/DonHang/Edit/6 - 200 null text/html; charset=utf-8 1059.7346ms
+2025-01-08 21:42:41.683 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-08 21:42:41.686 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/_vs/browserLink - null null
+2025-01-08 21:42:41.694 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 10.5438ms
+2025-01-08 21:42:41.714 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/_vs/browserLink - 200 null text/javascript; charset=UTF-8 29.36ms
+2025-01-08 21:43:02.171 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7068/DonHang/Edit/6 - application/x-www-form-urlencoded 475
+2025-01-08 21:43:02.177 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /DonHang/Edit/6, Method: POST, QueryString: , Timestamp: "2025-01-08T14:43:02.1771724Z"
+2025-01-08 21:43:02.184 +07:00 [INF] Request Body: madon=6&__Invariant=madon&makh=957f4701-af45-48e3-bd84-da0287c69004&gia=22980000.00&__Invariant=gia&tinhtrang=COMPLETED&ngaydat=2024-12-20&__Invariant=ngaydat&ngaygiao=&__Invariant=ngaygiao&thanhtoan=true&thanhtoan=false&giaohang=true&giaohang=false&__RequestVerificationToken=CfDJ8MBrPtNNcntEkm5489-Ej2oz4UIqw9YHJkwwKjRx-GMRtVHcagd9OhhlLsGEOs3kncv6UwUFPJ4WiqyW8hVhGAjpxgzJxQTCMeh2ZHMFKEqil24aqa_jHurTph0UoQV22q1pZLz90fUlK0IpxCLWWQZWnoK4q_5SVWO1UBKSJWcvqp8ErqIe8UYHYufmi1fGDA
+2025-01-08 21:43:02.189 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /DonHang/Edit/6, Method: POST, QueryString: , Timestamp: "2025-01-08T14:43:02.1894995Z"
+2025-01-08 21:43:02.192 +07:00 [INF] Request Body: madon=6&__Invariant=madon&makh=957f4701-af45-48e3-bd84-da0287c69004&gia=22980000.00&__Invariant=gia&tinhtrang=COMPLETED&ngaydat=2024-12-20&__Invariant=ngaydat&ngaygiao=&__Invariant=ngaygiao&thanhtoan=true&thanhtoan=false&giaohang=true&giaohang=false&__RequestVerificationToken=CfDJ8MBrPtNNcntEkm5489-Ej2oz4UIqw9YHJkwwKjRx-GMRtVHcagd9OhhlLsGEOs3kncv6UwUFPJ4WiqyW8hVhGAjpxgzJxQTCMeh2ZHMFKEqil24aqa_jHurTph0UoQV22q1pZLz90fUlK0IpxCLWWQZWnoK4q_5SVWO1UBKSJWcvqp8ErqIe8UYHYufmi1fGDA
+2025-01-08 21:43:02.193 +07:00 [INF] Executing endpoint 'shop_hubLaps.Controllers.DonHangController.Edit (shop-hubLaps)'
+2025-01-08 21:43:02.207 +07:00 [INF] Route matched with {action = "Edit", controller = "DonHang", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Edit(Int32, shop_hubLaps.Models.DonHang) on controller shop_hubLaps.Controllers.DonHangController (shop-hubLaps).
+2025-01-08 21:43:02.443 +07:00 [INF] Executed DbCommand (134ms) [Parameters=[@p8='?' (DbType = Int32), @p0='?' (Size = 50), @p1='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p2='?' (DbType = Boolean), @p3='?' (Size = 450), @p4='?' (DbType = DateTime2), @p5='?' (DbType = DateTime2), @p6='?' (DbType = Boolean), @p7='?' (Size = 10) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [DonHang] SET [PhuongThucThanhToan] = @p0, [gia] = @p1, [giaohang] = @p2, [makh] = @p3, [ngaydat] = @p4, [ngaygiao] = @p5, [thanhtoan] = @p6, [tinhtrang] = @p7
+OUTPUT 1
+WHERE [madon] = @p8;
+2025-01-08 21:43:02.459 +07:00 [INF] Executing RedirectResult, redirecting to /DonHang.
+2025-01-08 21:43:02.477 +07:00 [INF] Executed action shop_hubLaps.Controllers.DonHangController.Edit (shop-hubLaps) in 267.4751ms
+2025-01-08 21:43:02.480 +07:00 [INF] Executed endpoint 'shop_hubLaps.Controllers.DonHangController.Edit (shop-hubLaps)'
+2025-01-08 21:43:02.481 +07:00 [INF] Request completed - User: admin@example.com, Path: /DonHang/Edit/6, Method: POST, QueryString: , Timestamp: "2025-01-08T14:43:02.1894995Z"
+2025-01-08 21:43:02.482 +07:00 [INF] Request completed - User: Anonymous, Path: /DonHang/Edit/6, Method: POST, QueryString: , Timestamp: "2025-01-08T14:43:02.1771724Z"
+2025-01-08 21:43:02.486 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7068/DonHang/Edit/6 - 302 0 null 314.9835ms
+2025-01-08 21:43:02.487 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/DonHang - null null
+2025-01-08 21:43:02.493 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /DonHang, Method: GET, QueryString: , Timestamp: "2025-01-08T14:43:02.4939470Z"
+2025-01-08 21:43:02.497 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /DonHang, Method: GET, QueryString: , Timestamp: "2025-01-08T14:43:02.4970487Z"
+2025-01-08 21:43:02.499 +07:00 [INF] Executing endpoint 'shop_hubLaps.Controllers.DonHangController.Index (shop-hubLaps)'
+2025-01-08 21:43:02.500 +07:00 [INF] Route matched with {action = "Index", controller = "DonHang", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String, System.String, System.String, System.String) on controller shop_hubLaps.Controllers.DonHangController (shop-hubLaps).
+2025-01-08 21:43:04.257 +07:00 [INF] Executed DbCommand (1,753ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [d].[madon], [d].[PhuongThucThanhToan], [d].[gia], [d].[giaohang], [d].[makh], [d].[ngaydat], [d].[ngaygiao], [d].[thanhtoan], [d].[tinhtrang], [t].[madon], [t].[malaptop], [t].[dongia], [t].[gia], [t].[soluong], [t].[malaptop0], [t].[cpu], [t].[giaban], [t].[gpu], [t].[hardware], [t].[hinh], [t].[mahang], [t].[manhinh], [t].[manhucau], [t].[mota], [t].[ngaycapnhat], [t].[pin], [t].[ram], [t].[soluongton], [t].[tenlaptop], [t].[trangthai]
+FROM [DonHang] AS [d]
+LEFT JOIN (
+    SELECT [c].[madon], [c].[malaptop], [c].[dongia], [c].[gia], [c].[soluong], [l].[malaptop] AS [malaptop0], [l].[cpu], [l].[giaban], [l].[gpu], [l].[hardware], [l].[hinh], [l].[mahang], [l].[manhinh], [l].[manhucau], [l].[mota], [l].[ngaycapnhat], [l].[pin], [l].[ram], [l].[soluongton], [l].[tenlaptop], [l].[trangthai]
+    FROM [ChiTietDonHang] AS [c]
+    INNER JOIN [Laptop] AS [l] ON [c].[malaptop] = [l].[malaptop]
+) AS [t] ON [d].[madon] = [t].[madon]
+ORDER BY [d].[madon], [t].[madon], [t].[malaptop]
+2025-01-08 21:43:39.958 +07:00 [INF] Executed DbCommand (240ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT DISTINCT [l].[tenlaptop]
+FROM [Laptop] AS [l]
+2025-01-08 21:43:39.963 +07:00 [INF] Executing ViewResult, running view Index.
+2025-01-08 21:43:40.498 +07:00 [INF] Executed DbCommand (529ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[Avatar], [a].[ConcurrencyStamp], [a].[DiaChi], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NgaySinh], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[Profile], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+2025-01-08 21:43:40.588 +07:00 [INF] Executed ViewResult - view Index executed in 625.7511ms.
+2025-01-08 21:43:40.590 +07:00 [INF] Executed action shop_hubLaps.Controllers.DonHangController.Index (shop-hubLaps) in 38087.3993ms
+2025-01-08 21:43:40.592 +07:00 [INF] Executed endpoint 'shop_hubLaps.Controllers.DonHangController.Index (shop-hubLaps)'
+2025-01-08 21:43:40.594 +07:00 [INF] Request completed - User: admin@example.com, Path: /DonHang, Method: GET, QueryString: , Timestamp: "2025-01-08T14:43:02.4970487Z"
+2025-01-08 21:43:40.597 +07:00 [INF] Request completed - User: Anonymous, Path: /DonHang, Method: GET, QueryString: , Timestamp: "2025-01-08T14:43:02.4939470Z"
+2025-01-08 21:43:40.601 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/DonHang - 200 null text/html; charset=utf-8 38114.2169ms
+2025-01-08 21:43:40.612 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-08 21:43:40.612 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/_vs/browserLink - null null
+2025-01-08 21:43:40.619 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 6.1138ms
+2025-01-08 21:43:40.639 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/_vs/browserLink - 200 null text/javascript; charset=UTF-8 26.9122ms
+2025-01-08 22:02:37.848 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/DonHang/Index?statusFilter=COMPLETED - null null
+2025-01-08 22:02:37.862 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /DonHang/Index, Method: GET, QueryString: ?statusFilter=COMPLETED, Timestamp: "2025-01-08T15:02:37.8628161Z"
+2025-01-08 22:02:39.671 +07:00 [INF] Executed DbCommand (152ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[Avatar], [a].[ConcurrencyStamp], [a].[DiaChi], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NgaySinh], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[Profile], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+2025-01-08 22:02:39.805 +07:00 [INF] Executed DbCommand (107ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+2025-01-08 22:02:39.913 +07:00 [INF] Executed DbCommand (94ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2025-01-08 22:02:40.019 +07:00 [INF] Executed DbCommand (98ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-01-08 22:02:40.137 +07:00 [INF] Executed DbCommand (105ms) [Parameters=[@__role_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0
+2025-01-08 22:02:40.146 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /DonHang/Index, Method: GET, QueryString: ?statusFilter=COMPLETED, Timestamp: "2025-01-08T15:02:40.1460983Z"
+2025-01-08 22:02:40.149 +07:00 [INF] Executing endpoint 'shop_hubLaps.Controllers.DonHangController.Index (shop-hubLaps)'
+2025-01-08 22:02:40.150 +07:00 [INF] Route matched with {action = "Index", controller = "DonHang", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String, System.String, System.String, System.String) on controller shop_hubLaps.Controllers.DonHangController (shop-hubLaps).
+2025-01-08 22:02:40.285 +07:00 [INF] Executed DbCommand (116ms) [Parameters=[@__statusFilter_0='?' (Size = 10) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT [d].[madon], [d].[PhuongThucThanhToan], [d].[gia], [d].[giaohang], [d].[makh], [d].[ngaydat], [d].[ngaygiao], [d].[thanhtoan], [d].[tinhtrang], [t].[madon], [t].[malaptop], [t].[dongia], [t].[gia], [t].[soluong], [t].[malaptop0], [t].[cpu], [t].[giaban], [t].[gpu], [t].[hardware], [t].[hinh], [t].[mahang], [t].[manhinh], [t].[manhucau], [t].[mota], [t].[ngaycapnhat], [t].[pin], [t].[ram], [t].[soluongton], [t].[tenlaptop], [t].[trangthai]
+FROM [DonHang] AS [d]
+LEFT JOIN (
+    SELECT [c].[madon], [c].[malaptop], [c].[dongia], [c].[gia], [c].[soluong], [l].[malaptop] AS [malaptop0], [l].[cpu], [l].[giaban], [l].[gpu], [l].[hardware], [l].[hinh], [l].[mahang], [l].[manhinh], [l].[manhucau], [l].[mota], [l].[ngaycapnhat], [l].[pin], [l].[ram], [l].[soluongton], [l].[tenlaptop], [l].[trangthai]
+    FROM [ChiTietDonHang] AS [c]
+    INNER JOIN [Laptop] AS [l] ON [c].[malaptop] = [l].[malaptop]
+) AS [t] ON [d].[madon] = [t].[madon]
+WHERE [d].[tinhtrang] = @__statusFilter_0
+ORDER BY [d].[madon], [t].[madon], [t].[malaptop]
+2025-01-08 22:02:40.392 +07:00 [INF] Executed DbCommand (94ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT DISTINCT [l].[tenlaptop]
+FROM [Laptop] AS [l]
+2025-01-08 22:02:40.396 +07:00 [INF] Executing ViewResult, running view Index.
+2025-01-08 22:02:40.415 +07:00 [INF] Executed ViewResult - view Index executed in 19.2872ms.
+2025-01-08 22:02:40.419 +07:00 [INF] Executed action shop_hubLaps.Controllers.DonHangController.Index (shop-hubLaps) in 266.7222ms
+2025-01-08 22:02:40.426 +07:00 [INF] Executed endpoint 'shop_hubLaps.Controllers.DonHangController.Index (shop-hubLaps)'
+2025-01-08 22:02:40.428 +07:00 [INF] Request completed - User: admin@example.com, Path: /DonHang/Index, Method: GET, QueryString: ?statusFilter=COMPLETED, Timestamp: "2025-01-08T15:02:40.1460983Z"
+2025-01-08 22:02:40.430 +07:00 [INF] Request completed - User: Anonymous, Path: /DonHang/Index, Method: GET, QueryString: ?statusFilter=COMPLETED, Timestamp: "2025-01-08T15:02:37.8628161Z"
+2025-01-08 22:02:40.434 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/DonHang/Index?statusFilter=COMPLETED - 200 null text/html; charset=utf-8 2585.6282ms
+2025-01-08 22:02:40.452 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/_vs/browserLink - null null
+2025-01-08 22:02:40.452 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-08 22:02:40.467 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 14.6467ms
+2025-01-08 22:02:40.477 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7068/_vs/browserLink - 200 null text/javascript; charset=UTF-8 26.1181ms
+2025-01-08 22:02:49.608 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7068/Home - null null
+2025-01-08 22:02:49.614 +07:00 [INF] Request started - Roles: None, User: Anonymous, UserID: Anonymous, Path: /Home, Method: GET, QueryString: , Timestamp: "2025-01-08T15:02:49.6148311Z"
+2025-01-08 22:02:49.621 +07:00 [INF] Request started - Roles: Admin, User: admin@example.com, UserID: 957f4701-af45-48e3-bd84-da0287c69004, Path: /Home, Method: GET, QueryString: , Timestamp: "2025-01-08T15:02:49.6216091Z"
+2025-01-08 22:02:49.626 +07:00 [INF] Executing endpoint 'shop_hubLaps.Controllers.HomeController.Index (shop-hubLaps)'
+2025-01-08 22:02:49.627 +07:00 [INF] Route matched with {action = "Index", controller = "Home", page = "", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.Nullable`1[System.Int32], System.Nullable`1[System.Decimal], System.Nullable`1[System.Decimal], System.String) on controller shop_hubLaps.Controllers.HomeController (shop-hubLaps).
