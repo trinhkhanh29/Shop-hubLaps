@@ -51,10 +51,8 @@ namespace shop_hubLaps.Middleware
                 _logger.LogInformation("Request Body: {RequestBody}", requestBody);
             }
 
-            // Tiếp tục xử lý yêu cầu
             await _next(context);
 
-            // Log thông tin sau khi xử lý
             _logger.LogInformation("Request completed - User: {User}, Path: {Path}, Method: {Method}, QueryString: {QueryString}, Timestamp: {Timestamp}",
                 user, path, method, queryString, timestamp);
         }

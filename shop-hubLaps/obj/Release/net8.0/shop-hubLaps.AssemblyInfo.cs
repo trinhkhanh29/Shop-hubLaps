@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("shop-hubLaps")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+263f81197e109448b148bb541710e39b04c8824f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2183c93460ec188e64ff70144a383f1ec8c25918")]
 [assembly: System.Reflection.AssemblyProductAttribute("shop-hubLaps")]
 [assembly: System.Reflection.AssemblyTitleAttribute("shop-hubLaps")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

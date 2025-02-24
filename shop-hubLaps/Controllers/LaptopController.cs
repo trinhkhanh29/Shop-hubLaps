@@ -30,17 +30,17 @@ namespace shop_hubLaps.Controllers
             var laptopsQuery = _context.Laptops
                 .Include(l => l.NhuCau)
                 .Include(l => l.Hang)
-                .AsQueryable();  // Start with the full list of laptops
+                .AsQueryable(); 
 
-            // If a search term is provided, filter the laptops
+          
             if (!string.IsNullOrEmpty(searchTerm))
             {
                 laptopsQuery = laptopsQuery.Where(l =>
-                    l.tenlaptop.Contains(searchTerm) || // Search by laptop name
-                    (l.Hang != null && l.Hang.tenhang.Contains(searchTerm)) || // Search by brand name (if Hang is not null)
-                    (l.NhuCau != null && l.NhuCau.tennhucau.Contains(searchTerm)) || // Search by needs (if NhuCau is not null)
-                    (l.cpu != null && l.cpu.Contains(searchTerm)) || // Search by CPU (if cpu is not null)
-                    (l.gpu != null && l.gpu.Contains(searchTerm)) // Search by GPU (if gpu is not null)
+                    l.tenlaptop.Contains(searchTerm) ||
+                    (l.Hang != null && l.Hang.tenhang.Contains(searchTerm)) ||
+                    (l.NhuCau != null && l.NhuCau.tennhucau.Contains(searchTerm)) ||
+                    (l.cpu != null && l.cpu.Contains(searchTerm)) ||
+                    (l.gpu != null && l.gpu.Contains(searchTerm))
                 );
             }
 
